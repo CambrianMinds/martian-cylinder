@@ -183,7 +183,7 @@
     if (window.DEFAULT_IMAGE) {
       loadImageSource(window.DEFAULT_IMAGE);
     } else {
-      loadImageSource('data/crop_bottom_right.png');
+      loadImageSource('../data/crop_bottom_right.png');
     }
   }
 
