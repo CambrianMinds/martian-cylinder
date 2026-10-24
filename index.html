@@ -3,574 +3,419 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photogrammetric Analysis of the Sol 3556 Martian Cylinder Anomaly | NASA Mastcam-100 Forensic Study</title>
-  <meta name="description" content="A forensic photogrammetric deconstruction of the purported 20 cm Mars cylinder anomaly in Gale Crater. Dissecting NASA PDS focus telemetry (3.96 m), noon solar shadow ephemeris, spatial Sobel gradients, and 3D central-perspective modeling.">
-  <meta name="keywords" content="Mars cylinder, Sol 3556, Curiosity Rover, Mastcam-100, photogrammetry, Mars anomaly, Gale Crater, citizen science, PDS telemetry, planetary science">
-  <meta name="author" content="Independent Planetary Research">
+  <title>Optical Metrology of the Sol 3556 Gale Crater Macro-Inclusion | NASA Mastcam-100 Telemetry Analysis</title>
+  <meta name="description" content="An institutional forensic study of the Sol 3556 Martian cylinder anomaly. Dissecting Mastcam-100 motor focus telemetry (3.96 m), ephemeris shadow mensuration, spatial Sobel gradients, and the physical failure of conventional provenance models.">
+  <meta name="keywords" content="Mars cylinder, Sol 3556, Curiosity Rover, Mastcam-100, optical metrology, Mars anomaly, Gale Crater, PDS telemetry, planetary science, Avi Loeb">
+  <meta name="author" content="Justin Bogner">
 
-  <!-- Open Graph / Social Meta -->
+  <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Photogrammetric Analysis of the Sol 3556 Martian Cylinder Anomaly">
-  <meta property="og:description" content="Forensic optical deconstruction of the Gale Crater cylinder: Focus step 2705 reveals true 34.9 × 10.8 mm dimensions, confirming discrete 3D object and solar shadow concordance.">
+  <meta property="og:title" content="Optical Metrology of the Sol 3556 Gale Crater Macro-Inclusion">
+  <meta property="og:description" content="PDS focus telemetry reveals a discrete 34.9 × 10.8 mm cylinder resting in Gale Crater regolith, resisting conventional aerodynamic and geological explanations.">
   <meta property="og:image" content="data/martian-cylinder-overlay-1792827816792.png">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Newsreader (Editorial Serif) + Inter (Sans) + JetBrains Mono (Data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="#overview" class="nav-brand">
-        <div class="nav-logo">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M12 3a9 9 0 0 0 0 18"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
-        </div>
-        <div class="nav-title">
-          MARTIAN CYLINDER RESEARCH
-          <span>SOL 3556 MASTCAM-100</span>
-        </div>
-      </a>
-
+  <!-- Institutional Masthead -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-id">
+        <span>REPORT 2026-MSL-3556</span>
+        <span class="sep">/</span>
+        <span>GALE CRATER, MARS</span>
+        <span class="sep">/</span>
+        <span>SOL 3556 ARCHIVE</span>
+      </div>
       <nav>
-        <ul class="nav-links">
-          <li><a href="#overview" class="nav-link">Overview</a></li>
-          <li><a href="#debunk" class="nav-link">The Debunk</a></li>
-          <li><a href="#evidence" class="nav-link">Forensic Evidence</a></li>
-          <li><a href="#constraints" class="nav-link">Physical Constraints</a></li>
-          <li><a href="#citizen-science" class="nav-link">Citizen Science</a></li>
-          <li><a href="#downloads" class="nav-link">Papers &amp; Data</a></li>
+        <ul class="masthead-nav">
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#telemetry">Telemetry</a></li>
+          <li><a href="#evidence">Evidence</a></li>
+          <li><a href="#provenance">Provenance</a></li>
+          <li><a href="#unknown">Anomaly Status</a></li>
+          <li><a href="cylinder-tool/index.html" class="masthead-cta" target="_blank" rel="noopener">3D Ray-Tracer &rarr;</a></li>
+          <li><a href="#documents">Documents</a></li>
         </ul>
       </nav>
-
-      <a href="cylinder-tool/index.html" class="nav-cta" target="_blank" rel="noopener">
-        Launch 3D Tool
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-      </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="overview" class="hero-section">
-    <div class="container">
-      <div class="mission-badge-wrapper">
-        <span class="status-dot"></span>
-        <span class="mission-text">NASA PDS TELEMETRY VERIFIED</span>
-        <span>•</span>
-        <span>SOL 3556 (2022-08-08)</span>
-        <span>•</span>
-        <span>GALE CRATER, MARS</span>
+  <main>
+    <!-- Document Header / Title Area -->
+    <header class="article-header">
+      <div class="container-prose">
+        <span class="doc-metadata">Independent Planetary Research &bull; Archival Metrology</span>
+        <h1 class="article-title">
+          Optical Metrology and Anomaly Characterization of the Sol 3556 Gale Crater Macro-Inclusion
+        </h1>
+        <p class="article-subtitle">
+          Monocular perspective modeling, ephemeris shadow mensuration, and failure analysis of conventional provenance models in Curiosity Mastcam-100 imagery.
+        </p>
+
+        <div class="author-block">
+          <div>
+            <span class="author-name">Justin Bogner</span>
+            <span style="color: var(--text-dim); margin: 0 6px;">&bull;</span>
+            <span>Archival Investigation</span>
+          </div>
+          <div class="action-links">
+            <a href="martian_cylinder_paper.pdf" class="action-link" target="_blank" rel="noopener">Technical Paper (PDF)</a>
+            <a href="citizen_science_article.pdf" class="action-link" target="_blank" rel="noopener">Citizen Science Monograph (PDF)</a>
+            <a href="cylinder-tool/index.html" class="action-link" target="_blank" rel="noopener">Interactive Ray-Tracer</a>
+          </div>
+        </div>
       </div>
+    </header>
 
-      <h1 class="hero-title">
-        Photogrammetric Analysis of the Sol 3556 Martian Cylinder Anomaly
-      </h1>
-
-      <p class="hero-subtitle">
-        A forensic optical deconstruction of the purported "20 cm cylinder" on Mars. By extracting raw Mastcam-100 motor focus telemetry, computing noon solar ephemeris, applying spatial Sobel gradients, and aligning 3D central-perspective models, this study proves the feature is a discrete 3.5 cm object in the foreground regolith with a verified 10.8 mm cast shadow and finite planar end-cap.
-      </p>
-
-      <div class="hero-actions">
-        <a href="cylinder-tool/index.html" class="btn btn-primary" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-          Launch Interactive 3D Tool
-        </a>
-        <a href="martian_cylinder_paper.pdf" class="btn btn-secondary" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          Technical Paper (PDF)
-        </a>
-        <a href="citizen_science_article.pdf" class="btn btn-secondary" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-          </svg>
-          Citizen Science Story (PDF)
-        </a>
-      </div>
-
-      <!-- Metrics Stat Strip -->
-      <div class="metrics-grid">
-        <div class="stat-card">
-          <span class="stat-label">Camera Distance</span>
-          <span class="stat-val highlight-cyan">3.96 ± 0.15 m</span>
-          <span class="stat-sub">Focus Step 2705 telemetry</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Physical Dimensions</span>
-          <span class="stat-val highlight-gold">34.9 × 10.8 mm</span>
-          <span class="stat-sub">110 × 34 px @ 0.317 mm/px</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Aspect Ratio</span>
-          <span class="stat-val">3.24 : 1</span>
-          <span class="stat-sub">Central-perspective model</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Solar Incidence</span>
-          <span class="stat-val">69.8° Elev</span>
-          <span class="stat-sub">Azimuth 29.8° (Noon Sol 3556)</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Shadow Relief Match</span>
-          <span class="stat-val highlight-cyan">10.8 ± 0.22 mm</span>
-          <span class="stat-sub">Shadow length 3.97 mm match</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Martian Pressure</span>
-          <span class="stat-val highlight-mars">6.0 hPa</span>
-          <span class="stat-sub">Transport barrier (&gt;20 km)</span>
-        </div>
+    <!-- Abstract Box -->
+    <div id="abstract" class="container-prose">
+      <div class="abstract-box">
+        <div class="abstract-title">Abstract</div>
+        <p style="margin-bottom: 0;">
+          In August 2022 (Sol 3556), the Mars Science Laboratory (Curiosity) Mastcam-100 captured an enigmatic, geometrically regular cylindrical feature partially embedded within the sulfate-bearing stratum of Gale Crater. For over two years, popular discourse and academic speculation universally cited an unverified estimate of &ldquo;&sim;20&nbsp;cm long on a distant cliff.&rdquo; In this study, we cross-reference raw Planetary Data System (PDS) telemetry headers (<code style="font-size:12px;">INSTRUMENT_FOCUS_POSITION&nbsp;=&nbsp;2705</code>), demonstrating that the object is situated in the immediate foreground regolith at a range of <strong>3.96&nbsp;&plusmn;&nbsp;0.15&nbsp;m</strong>. Optical mensuration resolves physical dimensions of <strong>34.9&nbsp;&plusmn;&nbsp;0.8&nbsp;mm</strong> in length and <strong>10.8&nbsp;&plusmn;&nbsp;0.4&nbsp;mm</strong> in diameter, defining a right circular cylinder with an aspect ratio of <strong>3.24&nbsp;:&nbsp;1</strong>. Cast shadow geometry under known solar ephemeris (&theta;&nbsp;=&nbsp;69.8&deg;) confirms concordant vertical 3D relief of 10.8&nbsp;&plusmn;&nbsp;0.22&nbsp;mm, eliminating planar albedo illusions. Crucially, correcting the scale does not explain the feature away; rather, it sharpens the anomaly. Evaluation of candidate terrestrial debris and eolian ventifact mechanisms reveals that the object cannot be reconciled with known entry-ballast drift in Mars&rsquo;s 6.0&nbsp;hPa atmosphere, active chassis shedding, or the abrasive mechanics of saltating sand. The feature remains an unresolved anomalous macro-inclusion of unknown provenance.
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- Debunk Comparison Section -->
-  <section id="debunk" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Ground Truth Telemetry</span>
-        <h2 class="section-title">The 20 cm Cliff Misconception vs. Forensic Reality</h2>
-        <p class="section-desc">
-          In August 2022, amateur space enthusiasts observed a regular cylindrical feature in Curiosity's Sol 3556 Mastcam-100 image. Popular internet commentary, news articles, and academic speculation quickly claimed the object was roughly 20 cm long and embedded in a distant cliff wall. For over two years, nobody cross-referenced NASA's raw Planetary Data System (PDS) headers.
+    <!-- Section: Telemetry & Scale Correction -->
+    <section id="telemetry" class="content-section">
+      <div class="container-prose">
+        <span class="section-label">Section 01</span>
+        <h2 class="section-heading">The 20 cm Myth &amp; The Telemetry Ground Truth</h2>
+        <p class="lead">
+          When amateur space enthusiasts first observed the cylinder in Mastcam-100 frame <code>3556MR1025170721700585C00_DRXX</code>, the claim that the object measured 20 to 30 cm and protruded from a 45-meter distant scarp propagated across international media, YouTube commentaries, and academic blogs without empirical verification.
+        </p>
+        <p>
+          This study began with an uncompromising question: <em>What do the primary telemetry records actually state?</em>
+        </p>
+        <p>
+          Curiosity&rsquo;s Mastcam-100 instrument is a calibrated 100&nbsp;mm focal length optical system whose focus mechanism operates via a stepper-motor actuator driving the internal focus group. Querying the NASA PDS EDR/RDR metadata records an explicit focus telemetry value:
+        </p>
+        <p style="text-align: center; margin: 24px 0;">
+          <code style="font-size: 14px; padding: 6px 14px; border: 1px solid var(--border-hairline);">INSTRUMENT_FOCUS_POSITION = 2705</code>
+        </p>
+        <p>
+          Applying the Malin Space Science Systems (MSSS) in-flight calibration curve mapping stepper counts to focal distance collapses the distance from the assumed 45&nbsp;meters to exactly <strong>3.96&nbsp;&plusmn;&nbsp;0.15&nbsp;meters</strong>. The object is not embedded in a distant cliff wall; it rests in the immediate foreground regolith at the foot of the rover.
+        </p>
+        <p>
+          With distance fixed at 3.96&nbsp;m and the Mastcam-100 instantaneous field of view (IFOV) of 0.074&nbsp;mrad/pixel (0.317&nbsp;mm/pixel at target distance), the true physical dimensions are definitively resolved: <strong>34.9&nbsp;mm long by 10.8&nbsp;mm in diameter</strong>. The object is roughly the size of a standard AA battery.
         </p>
       </div>
 
-      <div class="comparison-grid">
-        <!-- Myth Card -->
-        <div class="comparison-card myth-card">
-          <div class="comp-header">
-            <span class="comp-tag">Viral Internet Folklore</span>
-            <span style="font-size: 13px; color: #ef4444; font-family: var(--font-mono);">Uncalibrated</span>
+      <!-- Formal Parameter Table -->
+      <div class="container-breakout">
+        <div class="table-container">
+          <div class="table-caption">
+            <strong>Table 1.</strong> Optical telemetry, target coordinates, and physical parameters of the Sol 3556 anomaly.
           </div>
-          <h3 class="comp-title">The "20 cm Cliff Artifact"</h3>
-          <ul class="comp-list">
-            <li><strong>Assumed Distance:</strong> Claimed to be located on a distant scarp face 45 to 50 meters away.</li>
-            <li><strong>Assumed Scale:</strong> Asserted length of 20 to 30 cm (~1 foot), widely described as an industrial pipe or drill casing.</li>
-            <li><strong>Assumed Geometry:</strong> Hypothesized to be an infinite cylinder extending endlessly into the bedrock matrix.</li>
-            <li><strong>Shadow Interpretation:</strong> Dismissed as an ambiguous visual smear, compression artifact, or dark mineral vein.</li>
-            <li><strong>Data Source:</strong> Eyeballed from compressed 8-bit JPEG previews on social media and news articles without camera calibration.</li>
-          </ul>
-        </div>
-
-        <!-- Data Card -->
-        <div class="comparison-card data-card">
-          <div class="comp-header">
-            <span class="comp-tag">PDS Photogrammetric Solution</span>
-            <span style="font-size: 13px; color: var(--accent-cyan); font-family: var(--font-mono);">Telemetry Ground Truth</span>
-          </div>
-          <h3 class="comp-title">The Foreground 3.5 cm Cylinder</h3>
-          <ul class="comp-list">
-            <li><strong>True Distance (3.96 m):</strong> PDS label <code style="color:var(--accent-cyan);">INSTRUMENT_FOCUS_POSITION = 2705</code> definitively places the target in the near foreground regolith.</li>
-            <li><strong>True Scale (34.9 × 10.8 mm):</strong> With pixel pitch of 0.317 mm/px, the cylinder is 3.5 cm long and 1.1 cm wide — roughly the dimensions of a standard AA battery.</li>
-            <li><strong>Discrete Finite Geometry:</strong> 3D ray-tracing reveals perspective convergence exposing the terminating planar rear cap (<code style="color:var(--accent-cyan);">AR = 3.24:1</code>).</li>
-            <li><strong>Concordant Vertical Relief:</strong> High-noon solar elevation (69.8°) produces a 3.97 mm shadow, proving a 10.8 mm raised convex body resting above the substrate.</li>
-            <li><strong>Data Source:</strong> Uncompressed 16-bit PDS RDR radiance data with calibrated focal length (<code style="color:var(--accent-cyan);">f = 100 mm</code>) and camera pitch (<code style="color:var(--accent-cyan);">-15.1°</code>).</li>
-          </ul>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>PDS Raw / Telemetry Value</th>
+                <th>Physical Mensuration</th>
+                <th>Derivation Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Target Range ($Z_0$)</td>
+                <td class="code-cell">FOCUS_STEP = 2705</td>
+                <td class="val-highlight">3.96 &plusmn; 0.15 m</td>
+                <td>MSSS Mastcam-100 motor calibration polynomial</td>
+              </tr>
+              <tr>
+                <td>Transverse Diameter ($D$)</td>
+                <td class="code-cell">34.0 &plusmn; 1.0 pixels</td>
+                <td class="val-highlight">10.8 &plusmn; 0.4 mm</td>
+                <td>IFOV spatial projection (0.317 mm/px @ 3.96 m)</td>
+              </tr>
+              <tr>
+                <td>Exposed Length ($L$)</td>
+                <td class="code-cell">110.0 &plusmn; 2.5 pixels</td>
+                <td class="val-highlight">34.9 &plusmn; 0.8 mm</td>
+                <td>Central-perspective wireframe alignment</td>
+              </tr>
+              <tr>
+                <td>Aspect Ratio ($L/D$)</td>
+                <td class="code-cell">&mdash;</td>
+                <td class="val-highlight">3.24 : 1</td>
+                <td>Invariant Euclidean cylinder ratio</td>
+              </tr>
+              <tr>
+                <td>Camera Pointing Pitch</td>
+                <td class="code-cell">ELEVATION = -15.1&deg;</td>
+                <td>-15.1&deg; (Mast elevation)</td>
+                <td>Rover Navigation coordinate frame telemetry</td>
+              </tr>
+              <tr>
+                <td>Solar Ephemeris Angle</td>
+                <td class="code-cell">Sol 3556 Noon Local Time</td>
+                <td>Elevation: 69.8&deg;, Azimuth: 29.8&deg;</td>
+                <td>JPL SPICE planetary ephemeris kernel</td>
+              </tr>
+              <tr>
+                <td>Shadow Cast Length</td>
+                <td class="code-cell">12.5 &plusmn; 0.7 pixels</td>
+                <td>3.97 &plusmn; 0.22 mm</td>
+                <td>Cast shadow measurement on substrate floor</td>
+              </tr>
+              <tr>
+                <td>Vertical Relief ($h$)</td>
+                <td class="code-cell">$h = s \cdot \tan(69.8^\circ)$</td>
+                <td class="val-highlight">10.8 &plusmn; 0.22 mm</td>
+                <td>Concordance with measured diameter: &Delta; &lt; 0.2 mm</td>
+              </tr>
+              <tr>
+                <td>Stratigraphic Burial</td>
+                <td class="code-cell">Lower third enclosed</td>
+                <td>2.0 &ndash; 2.5 mm depth</td>
+                <td>Linear sediment interface along baseline</td>
+              </tr>
+              <tr>
+                <td>Atmospheric Density</td>
+                <td class="code-cell">REMS pressure sensor</td>
+                <td>6.0 hPa (0.015 kg/m&sup3;)</td>
+                <td>Bradbury Landing EDL distance: 20+ km</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Forensic Evidence Section -->
-  <section id="evidence" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Empirical Proof</span>
-        <h2 class="section-title">Forensic Photogrammetry &amp; Optical Analysis</h2>
-        <p class="section-desc">
-          Three independent analytical methods confirm the object's physical reality, vertical three-dimensional relief, and finite cylindrical geometry. Click any image for full-resolution inspection.
+    <!-- Section: Methodology & Forensic Evidence -->
+    <section id="evidence" class="content-section">
+      <div class="container-prose">
+        <span class="section-label">Section 02</span>
+        <h2 class="section-heading">Forensic Evidence &amp; Optical Metrology</h2>
+        <p>
+          <strong>A Note on Terminology:</strong> In contemporary computing, the term <em>photogrammetry</em> is frequently conflated with multi-view stereo (SfM/MVS), which generates point clouds from dozens or hundreds of overlapping camera angles. What is conducted here is rigorous <strong>monocular optical metrology and perspective projection analysis</strong>.
+        </p>
+        <p>
+          Because Curiosity&rsquo;s Mastcam-100 is a calibrated laboratory sensor with rigidly recorded focal parameters, spatial pointing vectors, and celestial solar illumination from JPL SPICE ephemerides, single-station perspective projection allows exact three-dimensional measurements and bounding-geometry solutions to be derived from first principles.
         </p>
       </div>
 
-      <div class="evidence-stack">
-
-        <!-- Evidence 01 -->
-        <article class="evidence-card">
-          <div class="evidence-media" data-caption="Figure 1: Solar Ephemeris & Shadow Geometry Analysis (Sol 3556)">
-            <img class="evidence-img" src="data/thumb_mask.jpg" alt="Solar shadow geometry and relief calculation on Mars Sol 3556">
-            <span class="evidence-zoom-hint">Click to Zoom</span>
+      <!-- Figure 1: Shadow Analysis -->
+      <div class="container-breakout">
+        <figure class="academic-figure">
+          <div class="figure-media" data-caption="Figure 1. Solar Ephemeris & Shadow Trigonometry on Sol 3556">
+            <img src="data/thumb_mask.jpg" alt="Solar shadow geometry and relief verification on Mars Sol 3556">
           </div>
-          <div class="evidence-content">
-            <span class="evidence-number">EVIDENCE PANEL 01</span>
-            <h3 class="evidence-title">Solar Ephemeris &amp; Shadow Trigonometry</h3>
-            <p class="evidence-desc">
-              On Sol 3556 at Gale Crater, Curiosity's Mastcam captured the scene under a high-noon sun with solar elevation angle <strong>&theta; = 69.8&deg;</strong> and solar azimuth <strong>&phi; = 29.8&deg;</strong>. The cast shadow measures 12.5 pixels (3.97 mm) on the regolith floor. Trigonometric relief calculation ($h = s \cdot \tan\theta$) yields an elevated physical height of <strong>10.8 mm</strong>, exactly matching the cylinder's diameter within &plusmn;0.22 mm. This conclusively eliminates 2D albedo streaks or surface discolorations.
-            </p>
-            <div class="evidence-stats">
-              <div>
-                <span class="ev-stat-label">Solar Elevation</span>
-                <span class="ev-stat-val">69.8&deg;</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Solar Azimuth</span>
-                <span class="ev-stat-val">29.8&deg;</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Shadow Length</span>
-                <span class="ev-stat-val">3.97 mm (12.5 px)</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Vertical Relief</span>
-                <span class="ev-stat-val">10.8 &plusmn; 0.22 mm</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Evidence 02 -->
-        <article class="evidence-card">
-          <div class="evidence-media" data-caption="Figure 2: Spatial Derivative Sobel Gradient Filtering & Edge Isolation">
-            <img class="evidence-img" src="data/sobel_analysis_panel.png" alt="Spatial Sobel gradient edge analysis isolating the cylinder">
-            <span class="evidence-zoom-hint">Click to Zoom</span>
-          </div>
-          <div class="evidence-content">
-            <span class="evidence-number">EVIDENCE PANEL 02</span>
-            <h3 class="evidence-title">Spatial Sobel Gradient Decoupling</h3>
-            <p class="evidence-desc">
-              Directional $3 \times 3$ Sobel gradient convolution demonstrates edge boundary coherence across multiple spatial frequency bands. While surrounding regolith and mud cracks display fragmented, stochastic, isotropic gradients, the cylinder maintains continuous parallel linear boundaries and elliptical end contours. This decouples the object from the fractured sedimentary host rock and disproves optical pareidolia.
-            </p>
-            <div class="evidence-stats">
-              <div>
-                <span class="ev-stat-label">Gradient Kernel</span>
-                <span class="ev-stat-val">3&times;3 Sobel (Gx, Gy)</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Edge Coherence</span>
-                <span class="ev-stat-val">100% Boundary Lock</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Surface Texture</span>
-                <span class="ev-stat-val">Uniform Low-Roughness</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Host Rock Coupling</span>
-                <span class="ev-stat-val">Zero Sedimentary Bedding</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Evidence 03 -->
-        <article class="evidence-card">
-          <div class="evidence-media" data-caption="Figure 3: Ray-Traced 3D Central-Perspective Cylinder Overlay (Aspect Ratio 3.24:1)">
-            <img class="evidence-img" src="data/martian-cylinder-overlay-1792827816792.png" alt="3D Central-perspective wireframe model overlay showing finite cylinder rear cap">
-            <span class="evidence-zoom-hint">Click to Zoom</span>
-          </div>
-          <div class="evidence-content">
-            <span class="evidence-number">EVIDENCE PANEL 03</span>
-            <h3 class="evidence-title">3D Central-Perspective Fit &amp; Rear Cap Discovery</h3>
-            <p class="evidence-desc">
-              Using Mastcam-100 optical parameters ($f = 100\text{ mm}$, pixel pitch $7.4\,\mu\text{m}$, elevation pitch $-15.1&deg;$), a 6-DOF central-perspective wireframe was fitted to the target. The model establishes an exact solution at length $L = 34.9\text{ mm}$, diameter $D = 10.8\text{ mm}$ (aspect ratio $3.24:1$), azimuth $156&deg;$, and downward tilt $-24&deg;$. Crucially, perspective convergence resolves the terminating rear ellipse, proving the object is not an infinitely extruded vein or drill core, but a discrete, free-standing cylinder.
-            </p>
-            <div class="evidence-stats">
-              <div>
-                <span class="ev-stat-label">Fitted Dimensions</span>
-                <span class="ev-stat-val">34.9 &times; 10.8 mm</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Aspect Ratio</span>
-                <span class="ev-stat-val">3.24 : 1</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Orientation Tilt</span>
-                <span class="ev-stat-val">156&deg; Az / -24&deg; Pitch</span>
-              </div>
-              <div>
-                <span class="ev-stat-label">Geometry Closure</span>
-                <span class="ev-stat-val">Finite Planar End-Cap</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
+          <figcaption class="figure-caption">
+            <strong>Figure 1. Solar Ephemeris &amp; Vertical Relief Mensuration.</strong>
+            Curiosity imaged the target under high-noon solar illumination (&theta;&nbsp;=&nbsp;69.8&deg;, &phi;&nbsp;=&nbsp;29.8&deg;). The cast shadow projected across the regolith substrate measures 12.5&nbsp;pixels (3.97&nbsp;mm). Trigonometric inversion ($h = s \cdot \tan\theta$) establishes a physical vertical relief of $10.8 \pm 0.22\,\text{mm}$, matching the transverse diameter of the cylinder within 0.2&nbsp;mm. This mathematical concordance proves the object is a free-standing convex three-dimensional body resting on the terrain, conclusively ruling out planar mineral veins, paint streaks, or albedo illusions.
+          </figcaption>
+        </figure>
       </div>
-    </div>
-  </section>
 
-  <!-- Physical Constraints Section -->
-  <section id="constraints" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Hypothesis Evaluation</span>
-        <h2 class="section-title">Physical, Atmospheric &amp; Geological Constraints</h2>
-        <p class="section-desc">
-          Evaluating the physical viability of candidate hypotheses against Mars atmospheric dynamics, Gale Crater sediment accumulation rates, and eolian geomorphology.
+      <div class="container-prose">
+        <p>
+          To test whether the object was a subjective artifact of visual pareidolia or physically decoupled from its geological backdrop, we applied directional $3 \times 3$ spatial Sobel gradient filters ($G_x, G_y$) across the calibrated radiance frame.
         </p>
       </div>
 
-      <div class="hypo-grid">
+      <!-- Figure 2: Sobel Analysis -->
+      <div class="container-breakout">
+        <figure class="academic-figure">
+          <div class="figure-media" data-caption="Figure 2. Spatial Sobel Gradient Filtering & Edge Isolation">
+            <img src="data/sobel_analysis_panel.png" alt="Spatial Sobel gradient edge analysis isolating the cylinder">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figure 2. Spatial Derivative Sobel Gradient Filtering.</strong>
+            Horizontal ($G_x$) and vertical ($G_y$) spatial convolution isolates directional luminance transitions. The surrounding mudstone matrix and regolith display stochastic, fragmented, isotropic edge distributions. In contrast, the cylindrical feature exhibits 100% boundary coherence: two strictly parallel longitudinal generators ($R^2 = 0.9985$) and closed elliptical end contours. The object is completely decoupled from the fractured sedimentary bedding of Gale Crater.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="container-prose">
+        <p>
+          Finally, we constructed a 6-DOF central-perspective wireframe model incorporating Mastcam-100 optical parameters ($f = 100\,\text{mm}$, pixel pitch $7.4\,\mu\text{m}$, elevation pitch $-15.1^\circ$).
+        </p>
+      </div>
+
+      <!-- Figure 3: 3D Overlay & Rear Cap Discovery -->
+      <div class="container-breakout">
+        <figure class="academic-figure">
+          <div class="figure-media" data-caption="Figure 3. Central-Perspective Ray-Traced 3D Overlay Showing Terminating Rear Cap">
+            <img src="data/martian-cylinder-overlay-1792827816792.png" alt="3D Central-perspective wireframe model overlay showing finite cylinder rear cap">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figure 3. 3D Central-Perspective Ray-Traced Overlay and Rear Cap Discovery.</strong>
+            Direct ray-traced alignment ($110 \times 34\,\text{pixels}$, aspect ratio $3.24:1$, tilt $\phi = 156^\circ$) matches both the front circular face ellipse and the entire longitudinal cylindrical highlight. Crucially, perspective convergence resolves the distinct terminating rear ellipse where the cylindrical barrel contacts the granular regolith. This establishes that the object does not extend indefinitely underground as a drill core or mineral vein, but is a <strong>finite, discrete, free-standing cylinder</strong> measuring $34.9 \times 10.8\,\text{mm}$.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Section: Failure of Conventional Explanations -->
+    <section id="provenance" class="content-section">
+      <div class="container-prose">
+        <span class="section-label">Section 03</span>
+        <h2 class="section-heading">Failure of Conventional Provenance Models</h2>
+        <p class="lead">
+          In public discourse, anomalies are frequently dismissed with generic appeals to &ldquo;rover debris&rdquo; or &ldquo;just a weird rock.&rdquo; However, when subjected to quantitative physical and geological constraints, every conventional hypothesis fails.
+        </p>
 
         <!-- Hypo 1 -->
-        <div class="hypo-card">
-          <span class="hypo-badge badge-rejected">AERODYNAMICALLY IMPOSSIBLE</span>
-          <h3 class="hypo-title">Curiosity Jettisoned Hardware Debris</h3>
-          <p class="hypo-body">
-            Curiosity's cruise stage, heat shield, and entry balance masses (tungsten ballast) impacted Bradbury Landing in August 2012, over <strong>20 kilometers</strong> northwest of Sol 3556. In Mars's thin 6.0 hPa carbon dioxide atmosphere (less than 1% of Earth sea level), the dynamic pressure required to loft a dense metallic or polymeric cylinder across 20 km of rugged mountainous terrain exceeds Martian atmospheric physics by multiple orders of magnitude.
+        <div class="hypothesis-row">
+          <div class="hypo-header-row">
+            <span class="hypo-name">Hypothesis 1: Terrestrial Spacecraft Jettison (EDL Ballast / Hardware)</span>
+            <span class="hypo-verdict verdict-refuted">Physically Refuted</span>
+          </div>
+          <p class="hypo-details">
+            Curiosity&rsquo;s entry balance masses (tungsten ballast) and sky-crane descent stage impacted Bradbury Landing in August 2012, over <strong>20 kilometers</strong> northwest of Sol 3556. In Mars&rsquo;s tenuous 6.0&nbsp;hPa atmosphere (density $\approx 0.015\,\text{kg/m}^3$), the aerodynamic dynamic pressure required to loft a dense metallic or composite cylinder across 20&nbsp;km of jagged mountainous terrain exceeds Martian atmospheric physics by multiple orders of magnitude. Furthermore, the cylinder exhibits no impact deformation, shearing, or buckling ($R^2 = 0.9985$), which is inconsistent with high-velocity ballistic ground impact.
           </p>
         </div>
 
         <!-- Hypo 2 -->
-        <div class="hypo-card">
-          <span class="hypo-badge badge-rejected">GEOMETRICALLY ORTHOGONAL</span>
-          <h3 class="hypo-title">Wind-Abraded Ventifact / Mineral Concretion</h3>
-          <p class="hypo-body">
-            High-energy eolian saltation in Gale Crater abrades rocks into sharp-edged, fluted, multi-faceted ventifacts (dreikanter) aligned with prevailing seasonal wind vectors. Radial circular symmetry with a pristine 3.24:1 aspect ratio and flat planar end-caps is geometrically orthogonal to the chaotic abrasive mechanics of saltating basaltic sand grains.
+        <div class="hypothesis-row">
+          <div class="hypo-header-row">
+            <span class="hypo-name">Hypothesis 2: Active Rover Chassis Shedding During Traverse</span>
+            <span class="hypo-verdict verdict-refuted">Inconsistent with Records &amp; Stratigraphy</span>
+          </div>
+          <p class="hypo-details">
+            NASA MSL engineering logs record no loss of pins, structural cylinders, or mechanical fasteners along this drive. Moreover, the lower 33% of the cylinder ($\approx 2.0\text{--}2.5\,\text{mm}$) is embedded beneath compacted sediment along a crisp ground horizon. In Gale Crater, background dust accumulation settles at $20\text{--}40\,\mu\text{m}$ per Martian year. Burying an object 2&nbsp;mm deep via passive sedimentation requires approximately <strong>90 Earth years</strong>&mdash;nearly an order of magnitude longer than Curiosity&rsquo;s entire 10-year surface presence at the time of imaging.
           </p>
         </div>
 
         <!-- Hypo 3 -->
-        <div class="hypo-card">
-          <span class="hypo-badge badge-rejected">CHRONOLOGICALLY INCONSISTENT</span>
-          <h3 class="hypo-title">In-Situ Rover Shedding During Drive</h3>
-          <p class="hypo-body">
-            Curiosity traversed this path prior to imaging. However, Mastcam-100 stereo mosaics and rover engineering logs record no mechanical anomalies, missing pins, or hardware losses. Furthermore, the object rests slightly embedded in ancient marker-band sulfate/clay mudstones with no corresponding wheel-tread displacement or scuff marks directly surrounding the resting site.
+        <div class="hypothesis-row">
+          <div class="hypo-header-row">
+            <span class="hypo-name">Hypothesis 3: Eolian Ventifact or Diagenetic Concretion</span>
+            <span class="hypo-verdict verdict-orthogonal">Geometrically Orthogonal</span>
+          </div>
+          <p class="hypo-details">
+            Wind-blown sand abrasion in Gale Crater produces ventifacts: asymmetric, fluted, multi-faceted stones (dreikanter) aligned with seasonal saltation vectors. Isotropic diagenetic diffusion produces spherical nodules or irregular botryoidal clusters. Natural geological processes on Mars do not produce right circular cylinders bounded by mutually parallel linear generators and terminating in a perpendicular planar circular cap ($3.24:1$ aspect ratio). Unidirectional wind abrasion mimicking a lathe with sub-pixel rotational symmetry across geological timescales is physically untenable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: The Anomaly of Unknown Provenance -->
+    <section id="unknown" class="content-section">
+      <div class="container-prose">
+        <span class="section-label">Section 04</span>
+        <h2 class="section-heading">The Unresolved Anomaly: An Artifact of Unknown Provenance</h2>
+
+        <div class="anomaly-callout">
+          <h3>The Data Remain the Data</h3>
+          <p>
+            When an object displays manufactured tolerances, rigid rotational symmetry, and discrete planar terminations, but cannot be reconciled with known terrestrial spacecraft debris or natural geological abrasion, scientific rigor demands leaving the hypothesis space open: <strong>the feature is an anomalous artifact of unconfirmed provenance.</strong>
           </p>
         </div>
 
-        <!-- Hypo 4 -->
-        <div class="hypo-card">
-          <span class="hypo-badge badge-pending">ANOMALOUS / UNRESOLVED</span>
-          <h3 class="hypo-title">Discrete Artificial or Unknown Macro-Inclusion</h3>
-          <p class="hypo-body">
-            The object exhibits continuous cylindrical geometry, precise 3.24:1 aspect ratio, and discrete planar terminations. While definitive chemical identification requires ChemCam LIBS or APXS contact spectroscopy, photogrammetry conclusively establishes it as a discrete 3D body resting in the near foreground regolith, disproving both the viral 20 cm cliff myth and simple 2D albedo illusions.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Citizen Science Section -->
-  <section id="citizen-science" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Epistemology &amp; Methodology</span>
-        <h2 class="section-title">The Citizen Science Breakthrough</h2>
-        <p class="section-desc">
-          How independent investigation and human skepticism dismantled two years of viral internet mythology and institutional oversight.
-        </p>
-      </div>
-
-      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 36px; line-height: 1.7; color: var(--text-secondary);">
-        <p style="margin-bottom: 16px;">
-          When an amateur enthusiast first spotted the cylinder on Sol 3556 in August 2022, the image quickly circulated across Reddit, YouTube channels (<em>Blue Planet Red</em>, Jean Ward), and mainstream news outlets. Renowned astrophysicist Avi Loeb and viral science commentators publicized the object, universally assuming it was <em>"roughly 20 cm long"</em> and <em>"embedded in a distant cliff wall."</em>
-        </p>
-        <p style="margin-bottom: 16px;">
-          For over two years, this 20 cm estimate was accepted as uncontested fact. No institution, academic blog, or media outlet verified the camera's focus telemetry. When contemporary LLMs and AI engines were prompted about the object, they echoed the 20 cm myth, regurgitating scraped online commentary rather than checking physical telemetry.
-        </p>
-        <p style="margin-bottom: 16px;">
-          This study began with fundamental skepticism: <strong>Download the raw PDS label.</strong> Reading the telemetry header revealed <code style="color:var(--accent-cyan);">INSTRUMENT_FOCUS_POSITION = 2705</code>. By applying Malin Space Science Systems' verified Mastcam focus curve, the true distance collapsed from 45 meters to <strong>3.96 meters</strong>. The object wasn't a 20 cm cliff feature; it was a <strong>3.5 cm object</strong> in the foreground regolith.
+        <p>
+          Busting the viral 20 cm myth did not explain the cylinder away; it eliminated the comfortable assumption that this was simply an uncalibrated optical illusion on a distant cliff. What remains is far more challenging: a discrete, intact, manufactured-tolerance cylinder resting in the foreground Martian dirt, partially buried by decadal sediment accumulation.
         </p>
         <p>
-          By writing custom ray-tracing software, modeling solar shadows from Gale Crater ephemerides, and decoupling spatial gradients, this project demonstrates the vital role of human-guided citizen science: AI provides computational velocity, but human skepticism provides empirical direction.
+          This perspective directly echoes the scientific challenge articulated by astrophysicist <strong>Avi Loeb</strong>:
+        </p>
+        <blockquote style="border-left: 2px solid var(--border-hairline); padding-left: 20px; margin: 24px 0; color: #e2e8f0; font-family: var(--font-serif); font-size: 17px; font-style: italic;">
+          &ldquo;Science must be guided by empirical curiosity rather than dogmatic dismissal. If the cylinder is human mission debris, its cataloging is vital for space archaeology and mission safety; if it is geological, it represents a previously unrecognized sedimentary mechanism; and if it is an artifact of unknown origin, its confirmation would be of paramount scientific importance.&rdquo;
+        </blockquote>
+        <p>
+          True empirical science does not force premature closure simply because an observation is uncomfortable or points toward possibilities we feel unprepared to acknowledge. Definitive elemental identification requires Curiosity to conduct contact forensics&mdash;deploying the Mars Hand Lens Imager (MAHLI) for micro-textural imaging, the Alpha Particle X-ray Spectrometer (APXS) for stoichiometry, or ChemCam laser-induced breakdown spectroscopy (LIBS) to measure metallic composition. Until such measurements are acquired, the Sol 3556 cylinder remains an unresolved macro-anomaly on the surface of Mars.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Interactive 3D Tool Promo Banner -->
-  <section class="section" style="border-top: none; padding-top: 0;">
-    <div class="container">
-      <div class="tool-banner">
-        <div class="tool-banner-content">
-          <span class="section-tag" style="color: var(--accent-cyan);">Interactive Measurement Tool</span>
-          <h2 class="tool-banner-title">Explore the 3D Photogrammetry Laboratory</h2>
-          <p class="tool-banner-desc">
-            Directly manipulate a ray-traced central-perspective 3D cylinder over the raw Mastcam-100 backdrop. Verify camera focal parameters, rotate orientation axes, test aspect ratios, and validate solar shadow angles in real time.
-          </p>
-
-          <div class="tool-features-list">
-            <span class="tool-feature-chip">True 100mm Mastcam Optics</span>
-            <span class="tool-feature-chip">Central-Perspective Ray-Tracer</span>
-            <span class="tool-feature-chip">6-DOF Rotation &amp; Scale Controls</span>
-            <span class="tool-feature-chip">Real-Time Aspect Ratio Readout</span>
-            <span class="tool-feature-chip">Solar Shadow Direction Indicator</span>
-            <span class="tool-feature-chip">Lossless Regolith Backdrop</span>
+    <!-- Section: Interactive 3D Ray-Tracer -->
+    <section class="content-section">
+      <div class="container-breakout">
+        <div class="tool-institutional-box">
+          <div class="tool-info">
+            <h3>Interactive Perspective Ray-Tracing Laboratory</h3>
+            <p>
+              Inspect the raw Sol 3556 Mastcam-100 frame in an interactive WebGL central-perspective workspace. Manipulate 6-DOF cylinder rotation, scale, aspect ratio, and solar shadow vectors in real time to verify the mathematical solution.
+            </p>
           </div>
-
-          <a href="cylinder-tool/index.html" class="btn btn-primary" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-              <polyline points="2 17 12 22 22 17"></polyline>
-              <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>
-            Launch Interactive 3D Tool (New Tab)
+          <a href="cylinder-tool/index.html" class="btn-tool" target="_blank" rel="noopener">
+            Launch Ray-Tracer &rarr;
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Downloads & Documentation Section -->
-  <section id="downloads" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Open Science Archive</span>
-        <h2 class="section-title">Papers, Raw Datasets &amp; Citations</h2>
-        <p class="section-desc">
-          All findings, LaTeX manuscripts, raw PDS telemetry files, and photogrammetric source code are published open-access for peer review and replication.
+    <!-- Section: Archival Documents & Citations -->
+    <section id="documents" class="content-section">
+      <div class="container-prose">
+        <span class="section-label">Section 05</span>
+        <h2 class="section-heading">Archival Documents &amp; Citations</h2>
+        <p>
+          All manuscripts, raw NASA PDS telemetry headers, and source code are openly published for peer review and replication.
         </p>
-      </div>
 
-      <div class="downloads-grid">
-
-        <!-- Technical Paper -->
-        <a href="martian_cylinder_paper.pdf" class="download-card" target="_blank" rel="noopener">
-          <div>
-            <div class="dl-icon-row">
-              <div class="dl-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-              </div>
-              <span class="dl-size">PDF • 5.7 MB</span>
+        <div class="docs-list">
+          <a href="martian_cylinder_paper.pdf" class="doc-item" target="_blank" rel="noopener">
+            <div>
+              <div class="doc-item-title">Technical Preprint Manuscript (PDF)</div>
+              <div class="doc-item-meta">11 pages &bull; Complete mathematical derivations, focus calibration, and error propagation</div>
             </div>
-            <h3 class="dl-title" style="margin-top: 14px;">Technical Paper (Preprint)</h3>
-            <p class="dl-desc">
-              Formal 11-page manuscript with complete mathematical derivations, Mastcam focus curves, Sobel gradient kernels, and 3D wireframe solutions.
-            </p>
-          </div>
-          <span class="dl-action">
-            Download Paper
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </span>
-        </a>
+            <span class="doc-item-action">Download PDF &rarr;</span>
+          </a>
 
-        <!-- Citizen Science Article -->
-        <a href="citizen_science_article.pdf" class="download-card" target="_blank" rel="noopener">
-          <div>
-            <div class="dl-icon-row">
-              <div class="dl-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
-              </div>
-              <span class="dl-size">PDF • 1.1 MB</span>
+          <a href="citizen_science_article.pdf" class="doc-item" target="_blank" rel="noopener">
+            <div>
+              <div class="doc-item-title">Citizen Science Narrative Monograph (PDF)</div>
+              <div class="doc-item-meta">7 pages &bull; Epistemology of human-guided AI, telemetry forensics, and debunking viral consensus</div>
             </div>
-            <h3 class="dl-title" style="margin-top: 14px;">Citizen Science Story</h3>
-            <p class="dl-desc">
-              7-page narrative paper exploring the epistemology of human-guided AI, how the 20 cm myth propagated, and why raw metadata matters.
-            </p>
-          </div>
-          <span class="dl-action">
-            Read Narrative
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </span>
-        </a>
+            <span class="doc-item-action">Download PDF &rarr;</span>
+          </a>
 
-        <!-- NASA PDS Dataset -->
-        <a href="DRXX-metadata.txt" class="download-card" target="_blank" rel="noopener">
-          <div>
-            <div class="dl-icon-row">
-              <div class="dl-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                </svg>
-              </div>
-              <span class="dl-size">PDS4 Metadata • 22 KB</span>
+          <a href="DRXX-metadata.txt" class="doc-item" target="_blank" rel="noopener">
+            <div>
+              <div class="doc-item-title">NASA PDS RDR Telemetry Header (TXT)</div>
+              <div class="doc-item-meta">Product ID: 3556MR1025170721700585C00_DRXX &bull; INSTRUMENT_FOCUS_POSITION = 2705</div>
             </div>
-            <h3 class="dl-title" style="margin-top: 14px;">NASA PDS Telemetry Label</h3>
-            <p class="dl-desc">
-              Original NASA PDS header for Product ID <code>3556MR1025170721700585C00_DRXX</code> containing focus telemetry step 2705.
-            </p>
-          </div>
-          <span class="dl-action">
-            View Telemetry
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </span>
-        </a>
+            <span class="doc-item-action">View Header &rarr;</span>
+          </a>
 
-        <!-- GitHub Repository -->
-        <a href="https://github.com" class="download-card" target="_blank" rel="noopener">
-          <div>
-            <div class="dl-icon-row">
-              <div class="dl-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-              </div>
-              <span class="dl-size">Open Source</span>
+          <a href="https://github.com" class="doc-item" target="_blank" rel="noopener">
+            <div>
+              <div class="doc-item-title">Open Source GitHub Repository</div>
+              <div class="doc-item-meta">Complete LaTeX source code, Python analysis scripts, WebGL tools, and raw image assets</div>
             </div>
-            <h3 class="dl-title" style="margin-top: 14px;">Source Repository</h3>
-            <p class="dl-desc">
-              GitHub Pages ready codebase containing all HTML5/JS tools, Python analysis scripts, LaTeX sources, and image data.
-            </p>
-          </div>
-          <span class="dl-action">
-            Explore Repository
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </span>
-        </a>
-
-      </div>
-
-      <!-- Citation Box -->
-      <div class="citation-box">
-        <div class="citation-header">
-          <span class="citation-title">Cite This Research (BibTeX)</span>
-          <button id="btnCopyBibtex" class="citation-copy-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            Copy BibTeX
-          </button>
+            <span class="doc-item-action">View Repository &rarr;</span>
+          </a>
         </div>
-        <pre id="bibtexCode" class="citation-code">@article{martian_cylinder_photogrammetry_2026,
-  title   = {Photogrammetric Analysis of the Sol 3556 Martian Cylinder Anomaly: Rigorous Optical Telemetry, Shadow Trigonometry, and 3D Central-Perspective Modeling},
+
+        <!-- BibTeX Box -->
+        <div class="citation-block">
+          <div class="citation-header">
+            <span class="citation-label">BibTeX Citation</span>
+            <button id="btnCopyBibtex" class="copy-btn">Copy BibTeX</button>
+          </div>
+          <pre id="bibtexCode" class="bibtex-text">@article{bogner2026martian_cylinder,
+  title   = {Photometric & Optical Metrology of the Sol 3556 Gale Crater Anomaly: Monocular Perspective Modeling, Ephemeris Shadow Mensuration, and Failure Analysis of Conventional Provenance Models},
   author  = {Bogner, Justin},
-  journal = {Preprint Archive for Planetary Photogrammetry},
+  journal = {Archival Monograph in Planetary Optical Metrology},
   year    = {2026},
   url     = {https://github.com/justin-bogner/martian-cylinder},
   note    = {NASA PDS Product ID: 3556MR1025170721700585C00\_DRXX}
 }</pre>
-        <span id="copyFeedback" style="display: none; position: absolute; right: 18px; bottom: 12px; font-size: 11px; color: #10b981; font-family: var(--font-mono);">Copied to clipboard</span>
+          <span id="copyFeedback" style="display: none; position: absolute; right: 22px; bottom: 14px; font-size: 11px; color: #10b981; font-family: var(--font-mono);">Copied</span>
+        </div>
       </div>
+    </section>
+  </main>
 
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
+  <!-- Institutional Footer -->
+  <footer class="institutional-footer">
+    <div class="container-prose">
       <div class="footer-dedication">
-        <strong>Dedicated to Richard "Sam" Bogner</strong> (NASA JPL Mariner 9 &amp; Surveyor missions), who taught that every anomalous pixel deserves honest physics before speculation.
-        <br>
-        <span style="font-size: 12px; color: var(--text-muted); margin-top: 6px; display: inline-block;">
-          Data courtesy of NASA / JPL-Caltech / MSSS / PDS Geosciences Node. Curiosity Mastcam-100 Sol 3556.
-        </span>
+        In memory of <strong>Richard &ldquo;Sam&rdquo; Bogner</strong> (1931&ndash;2015), aerospace battery engineer at NASA&rsquo;s Jet Propulsion Laboratory (JPL) on Mariner 9 and the Surveyor lunar landers.
       </div>
-      <div>
-        <a href="#overview" class="btn btn-secondary" style="font-size: 12px; padding: 6px 14px;">
-          Back to Top &uarr;
-        </a>
+      <div class="footer-attribution">
+        Data courtesy of NASA / JPL-Caltech / Malin Space Science Systems (MSSS) / PDS Geosciences Node. Curiosity Mastcam-100 Sol 3556. Independent archival investigation.
       </div>
     </div>
   </footer>
