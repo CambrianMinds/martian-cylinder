@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martian Cylinder Photogrammetry & 360° Overlay Tool</title>
+  <meta name="description" content="Interactive 360° rotatable and aspect-ratio locked resizable cylinder photogrammetry overlay for Martian imagery analysis.">
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hidden File Input for Image Upload -->
+  <input type="file" id="imageFileInput" accept="image/*" style="display: none;">
+
+  <!-- Top Header Bar -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24">
+          <ellipse cx="12" cy="7" rx="8" ry="3"/>
+          <path d="M4 7v10c0 1.66 3.58 3 8 3s8-1.34 8-3V7"/>
+        </svg>
+      </div>
+      <div class="brand-title">
+        Martian Cylinder
+        <span class="brand-badge">Photogrammetry Studio</span>
+      </div>
+    </div>
+
+    <!-- Mission & Target Info -->
+    <div class="header-center">
+      <div class="mission-tag">
+        <span class="mission-dot"></span>
+        <span class="mission-name">NASA MSL Curiosity · Sol 3556</span>
+        <span class="mission-inst">Mastcam-100 (Sol 3556 Rock)</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <button class="btn btn-secondary" id="btnOpenImage" title="Open any photo from your computer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        Add Photo
+      </button>
+
+      <button class="btn btn-secondary" id="btnPasteImage" title="Paste photo from clipboard (Ctrl+V)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+        </svg>
+        Paste (Ctrl+V)
+      </button>
+
+      <button class="btn btn-primary" id="btnExportImage" title="Export composite image with cylinder overlay">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Export PNG
+      </button>
+
+      <button class="btn btn-secondary btn-icon-only" id="btnHelp" title="Controls & Keyboard Shortcuts">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Workspace Container -->
+  <main class="workspace-container">
+    
+    <!-- Viewport with HTML5 Canvas -->
+    <div class="canvas-viewport" id="canvasViewport">
+      <canvas id="viewportCanvas"></canvas>
+
+      <!-- Drag & Drop Overlay Zone -->
+      <div class="drop-zone-overlay" id="dropZoneOverlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <span style="font-size: 18px; font-weight: 700;">Drop Photo to Load</span>
+        <span style="font-size: 13px; color: var(--text-secondary);">Supports PNG, JPG, WebP, TIFF</span>
+      </div>
+
+      <!-- Floating Gesture Tooltip -->
+      <div class="gesture-tooltip" id="gestureTooltip"></div>
+    </div>
+
+    <!-- Floating Left Tool Panel (Cylinder Controls & Image Adjustments) -->
+    <aside class="floating-panel panel-left" id="panelLeft">
+      <div class="panel-header">
+        <div class="panel-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Cylinder Controls
+        </div>
+        <button class="btn btn-secondary btn-icon-only" id="btnCenterCylinder" title="Re-center cylinder">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="panel-body">
+        
+        <!-- Section 1: Dimensions & Uniform Resize (Maintaining Aspect Ratio) -->
+        <div class="control-section">
+          <div class="section-label">
+            <span>Dimensions & Resize</span>
+            <span style="font-size: 10px; color: var(--accent-green); text-transform: none;">[Ratio Locked Corners]</span>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Overall Scale</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="scaleInput" class="val-input" min="10" max="600" step="1" value="100">
+                <span class="val-unit">%</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="scaleSlider" min="10" max="600" value="100" step="1">
+            </div>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Cylinder Length</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="lengthInput" class="val-input" min="20" max="1000" step="1" value="175" style="color: var(--accent-gold);">
+                <span class="val-unit">px</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="lengthSlider" min="20" max="800" value="175" step="1">
+            </div>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Cylinder Diameter</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="diaInput" class="val-input" min="10" max="600" step="1" value="105">
+                <span class="val-unit">px</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="diaSlider" min="10" max="500" value="105" step="1">
+            </div>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Aspect Ratio (L/D)</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="aspectInput" class="val-input" min="0.2" max="10.0" step="0.01" value="1.67">
+                <span class="val-unit">:1</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="aspectSlider" min="0.2" max="6.0" value="1.67" step="0.01">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: 360° Planar Angle & 360° Perspective Tilt -->
+        <div class="control-section">
+          <div class="section-label">
+            <span>360° Planar & 360° 3D Tilt</span>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Planar Angle (360°)</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="rotInput" class="val-input" min="0" max="360" step="1" value="318">
+                <span class="val-unit">°</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="rotSlider" min="0" max="360" value="318" step="1">
+            </div>
+          </div>
+
+
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>3D Perspective Tilt (360°)</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="tiltInput" class="val-input" min="0" max="360" step="1" value="48">
+                <span class="val-unit">°</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="tiltSlider" min="0" max="360" value="48" step="1">
+            </div>
+          </div>
+
+          <!-- Perspective Strength / Camera Distance -->
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Perspective Depth (Focal Dist)</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="camRatioInput" class="val-input" min="1.0" max="10.0" step="0.1" value="2.8">
+                <span class="val-unit">×</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="camRatioSlider" min="1.0" max="10.0" value="2.8" step="0.1">
+            </div>
+          </div>
+
+          <!-- Quick NASA Sol 3556 Calibration Button -->
+          <button class="btn btn-secondary" id="btnNasaCalib" style="width: 100%; font-size: 11.5px; margin-top: 4px;" title="Set perspective depth to Mastcam-100 100mm lens geometry (f=100mm, D≈3.96m, Sol 3556)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="2" x2="12" y2="6"></line>
+              <line x1="12" y1="18" x2="12" y2="22"></line>
+              <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+              <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+            </svg>
+            Apply NASA Sol 3556 Geometry
+          </button>
+        </div>
+
+        <!-- Section 3: Render Mode & Style -->
+        <div class="control-section">
+          <div class="section-label">Render Style</div>
+
+          <div class="segmented-control">
+            <button class="segment-btn render-mode-btn active" data-mode="semi-transparent">Translucent</button>
+            <button class="segment-btn render-mode-btn" data-mode="wireframe">Wireframe</button>
+            <button class="segment-btn render-mode-btn" data-mode="solid">Solid</button>
+            <button class="segment-btn render-mode-btn" data-mode="diagnostic">Diagnostic</button>
+          </div>
+
+          <!-- Wireframe Line Thickness -->
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Line Thickness (Wireframe)</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="lineWidthInput" class="val-input" min="0.5" max="8.0" step="0.25" value="1.5">
+                <span class="val-unit">px</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="lineWidthSlider" min="0.5" max="8.0" value="1.5" step="0.25">
+            </div>
+            <div class="angle-quick-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 2px;">
+              <button class="angle-btn line-preset" data-width="0.5">0.5px Fine</button>
+              <button class="angle-btn line-preset" data-width="1.0">1.0px Crisp</button>
+              <button class="angle-btn line-preset" data-width="1.5">1.5px Std</button>
+              <button class="angle-btn line-preset" data-width="2.5">2.5px Bold</button>
+            </div>
+          </div>
+
+          <!-- Color Chooser -->
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Cylinder Color</span>
+            </div>
+            <div class="color-picker-row">
+              <div class="color-dot active" data-color="#38bdf8" style="background: #38bdf8;" title="Technical Cyan"></div>
+              <div class="color-dot" data-color="#f8fafc" style="background: #f8fafc;" title="Precision White"></div>
+              <div class="color-dot" data-color="#fbbf24" style="background: #fbbf24;" title="Amber Yellow"></div>
+              <div class="color-dot" data-color="#34d399" style="background: #34d399;" title="Emerald Green"></div>
+              <div class="color-dot" data-color="#f87171" style="background: #f87171;" title="Coral Red"></div>
+              <input type="color" id="colorPicker" value="#38bdf8" style="width: 24px; height: 24px; border: none; background: transparent; cursor: pointer;">
+            </div>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Opacity</span>
+              <div class="val-input-wrapper">
+                <input type="number" id="opacityInput" class="val-input" min="5" max="100" step="1" value="75">
+                <span class="val-unit">%</span>
+              </div>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="opacitySlider" min="10" max="100" value="75" step="1">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Photogrammetry Guides -->
+        <div class="control-section">
+          <div class="section-label">Scientific Guides</div>
+
+          <div class="toggle-row highlight-row">
+            <span style="font-weight: 600; color: var(--accent-cyan);">Transform Handles & Box</span>
+            <label class="switch">
+              <input type="checkbox" id="toggleHandles" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Central Axis Arrow</span>
+            <label class="switch">
+              <input type="checkbox" id="toggleAxis" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Ellipse Major/Minor Axes</span>
+            <label class="switch">
+              <input type="checkbox" id="toggleEllipseAxes" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Solar Cast Shadow Guide</span>
+            <label class="switch">
+              <input type="checkbox" id="toggleShadow">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Section 5: Photo Adjustments & Edge Detection -->
+        <div class="control-section">
+          <div class="section-label">Photo Processing</div>
+
+          <div class="toggle-row">
+            <span style="font-weight: 600; color: #10b981;">Sobel Edge Filter</span>
+            <label class="switch">
+              <input type="checkbox" id="filterSobel">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Invert Colors</span>
+            <label class="switch">
+              <input type="checkbox" id="filterInvert">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Grayscale</span>
+            <label class="switch">
+              <input type="checkbox" id="filterGrayscale">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Brightness</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="brightnessSlider" min="30" max="200" value="100">
+            </div>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Contrast</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="contrastSlider" min="30" max="250" value="100">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Metric Calibration & NASA Camera Specs -->
+        <div class="control-section">
+          <div class="section-label">
+            <span>Metric Calibration & Camera</span>
+          </div>
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Scale (mm / pixel)</span>
+            </div>
+            <div class="val-input-wrapper">
+              <input type="number" id="calibMmPerPx" class="val-input" step="0.001" value="0.317" style="color: var(--accent-cyan); font-weight: 700;">
+              <span class="val-unit">mm/px</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 6px; margin-top: 6px; margin-bottom: 12px;">
+            <button class="btn btn-secondary calib-preset-btn" data-scale="0.317" style="flex: 1; padding: 4px 6px; font-size: 10px; font-family: var(--font-mono);">0.317 (Ground)</button>
+            <button class="btn btn-secondary calib-preset-btn" data-scale="0.293" style="flex: 1; padding: 4px 6px; font-size: 10px; font-family: var(--font-mono);">0.293 (Normal)</button>
+          </div>
+
+          <!-- Official NASA PDS LBL Metadata Card -->
+          <div class="nasa-camera-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.5px;">
+              <span>Mastcam-100 (Right)</span>
+              <span style="color: var(--accent-gold);">Sol 3556 LBL</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-family: var(--font-mono); font-size: 10.5px;">
+              <div>Focal: <span style="color:#fff;">100 mm</span></div>
+              <div>Best Dist: <span style="color:#fff;">3.957 m</span></div>
+              <div>H-FOV: <span style="color:#fff;">5.59°</span></div>
+              <div>V-FOV: <span style="color:#fff;">4.99°</span></div>
+              <div>Dist Range: <span style="color:#fff;">3.6 - 4.4 m</span></div>
+              <div>Pixel Pitch: <span style="color:#fff;">7.4 µm</span></div>
+              <div>Elevation: <span style="color:#fff;">-22.0°</span></div>
+              <div>Focus Step: <span style="color:#fff;">2705</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Top-Right Live Scientific Telemetry HUD -->
+    <div class="hud-telemetry-panel">
+      <div class="telemetry-header">
+        <div class="telemetry-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          Telemetry & Math
+        </div>
+        <div class="live-indicator" title="Real-time photogrammetry active"></div>
+      </div>
+
+      <div class="telemetry-grid">
+        <div class="metric-card">
+          <div class="metric-label">Orientation</div>
+          <div class="metric-value highlight-cyan" id="teleAngle">318.0°</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">3D Tilt (360°)</div>
+          <div class="metric-value highlight-mars" id="teleTilt">48.0°</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Front Circle</div>
+          <div class="metric-value highlight-cyan" id="teleFrontCap">112 px</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Back Circle</div>
+          <div class="metric-value" id="teleBackCap">89 px</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Perspective Ratio</div>
+          <div class="metric-value highlight-mars" id="telePerspRatio">79.5%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Dimensions</div>
+          <div class="metric-value" id="teleDimensions">175 × 105 px</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Aspect Ratio</div>
+          <div class="metric-value" id="teleRatio">1.67 : 1</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Est. Physical</div>
+          <div class="metric-value highlight-cyan" id="telePhysical">14.4 × 8.6 mm</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Viewport Navigation Bar -->
+    <div class="viewport-floating-bar">
+      <button class="btn btn-secondary btn-icon-only" id="btnFitImage" title="Fit image to screen">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+      </button>
+
+      <div class="zoom-indicator" id="zoomIndicator">100%</div>
+
+      <button class="btn btn-secondary btn-icon-only" id="btnResetView" title="100% Actual Pixels">
+        <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700;">1:1</span>
+      </button>
+
+      <div class="divider-vert"></div>
+
+      <button class="btn btn-secondary" id="btnFocusCylinder" title="Center viewport on the cylinder anomaly">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="22" y1="12" x2="18" y2="12"/>
+          <line x1="6" y1="12" x2="2" y2="12"/>
+          <line x1="12" y1="6" x2="12" y2="2"/>
+          <line x1="12" y1="22" x2="12" y2="18"/>
+        </svg>
+        <span>Focus Target</span>
+      </button>
+
+      <button class="btn btn-secondary" id="btnToggleHandles" title="Toggle transform handles and bounding box (Shortcut: H)">
+        <svg id="iconHandlesOn" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <svg id="iconHandlesOff" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+          <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+          <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+          <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+          <line x1="2" x2="22" y1="2" y2="22"/>
+        </svg>
+        <span id="btnToggleHandlesText">Handles: ON</span>
+      </button>
+
+      <div class="divider-vert"></div>
+
+      <span style="font-size: 11.5px; color: var(--text-muted);">
+        <kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-size: 10px;">Space+Drag</kbd> to Pan
+      </span>
+    </div>
+
+  </main>
+
+  <!-- Help & Shortcuts Modal -->
+  <div class="modal-overlay" id="modalHelp">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div style="font-weight: 700; font-size: 15px; color: #fff;">How to Use the Martian Cylinder Tool</div>
+        <button class="btn btn-secondary btn-icon-only" id="modalClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Direct On-Screen Gestures:</strong></p>
+        <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+          <li><strong>Toggle Handles (<kbd>H</kbd>):</strong> Press <kbd>H</kbd> or click the <strong>Handles</strong> button on the bottom bar to toggle all transform handles and bounding box on and off for a clean, unobstructed view.</li>
+          <li><strong>Resize (Maintains Aspect Ratio):</strong> Click and drag any of the 4 corner box handles. Scales smoothly to any size while locking the aspect ratio.</li>
+          <li><strong>Change Length:</strong> Drag the amber pill handle at the rear base (or use the <strong>Cylinder Length</strong> slider in the sidebar) to lengthen or shorten the cylinder independently.</li>
+          <li><strong>360° Angle Rotation:</strong> Click and drag the circular knob at the top of the cylinder stalk. Hold <kbd>Shift</kbd> to snap every 15°.</li>
+          <li><strong>Move Position:</strong> Click anywhere on the cylinder body to drag it over any feature in your photo.</li>
+          <li><strong>Perspective Tilt:</strong> Drag the diamond apex handle on the front face ellipse to match the 3D camera elevation angle.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>Background Photo:</strong></p>
+        <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+          <li>Click <strong>Add Photo</strong> or drag-and-drop any image file directly onto the window.</li>
+          <li>Press <kbd>Ctrl+V</kbd> to instantly paste any screenshot from your clipboard.</li>
+          <li>Use the <strong>Sobel Edge Filter</strong> switch to highlight rock and cylinder contour edges.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>Shortcuts:</strong></p>
+        <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+          <li><kbd>Space + Drag</kbd> or Middle-Mouse: Pan viewport</li>
+          <li><kbd>Mouse Wheel</kbd>: Zoom in / out</li>
+          <li><kbd>Arrow Keys</kbd>: 1-pixel micro-nudge (<kbd>Shift</kbd> for 10px)</li>
+          <li><kbd>[</kbd> and <kbd>]</kbd>: Nudge rotation by 1°</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="presets_data.js"></script>
+  <script src="cylinder.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

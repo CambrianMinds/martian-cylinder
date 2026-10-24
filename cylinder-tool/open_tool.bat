@@ -1,0 +1,3 @@
+@echo off
+echo Starting Martian Cylinder Photogrammetry Tool...
+start "" "%~dp0index.html"
