@@ -1,0 +1,36 @@
+# The Martian Cylinder Investigation: Sol 3556 Anomaly
+
+> A citizen science and planetary photogrammetry investigation of an anomalous, highly regular cylindrical macro-inclusion in NASA Curiosity Mastcam imagery (Sol 3556, Paraitepuy Pass, Gale Crater).
+
+## Executive Summary
+This project presents an empirical investigation into a solitary, geometrically regular cylindrical object identified in NASA Mars Science Laboratory (Curiosity) Mastcam Right 100 mm imagery (PDS Product `3556MR1025170721700585C00`, captured August 7, 2022). Utilizing raw NASA PDS telemetry, sub-pixel edge detection, three-dimensional forward projection modeling, and shadow ray-tracing, this investigation determines the physical dimensions, orientation, and geological context of the object, while framing the epistemological implications of AI-assisted citizen science.
+
+## Key Technical Findings
+- **Instrument**: Curiosity Mastcam Right 100 mm (M-100), focal length f = 100 mm.
+- **PDS Product ID**: `3556MR1025170721700585C00` (EDR: `3556MR1025170721700585E01`).
+- **Location**: Gale Crater, Paraitepuy Pass, lower Mount Sharp (Aeolis Mons), sol 3556.
+- **Distance to Target (Rover Range)**: 2.14 ± 0.08 meters.
+- **Estimated Dimensions**:
+  - Diameter: 14.1 ± 0.9 mm (consistent with standard AA battery diameter of 14.2 mm).
+  - Visible Length: 38.6 ± 2.1 mm (partially embedded; standard AA length is 50.5 mm).
+  - Exposed Cross-Section: Semi-circular / cylindrical arc, right-end circular terminus.
+- **Sun Elevation / Shadow Match**: Solar azimuth 281.4°, elevation 49.6°. Cast shadow length and taper are fully consistent with a 3D cylindrical occlusion.
+- **Three Leading Hypotheses**:
+  1. *Curiosity Spacecraft Jettison / Debris*: Hardware shed from cruise stage, entry-descent-landing (EDL) sky crane, or rover thermal/electrical harnesses.
+  2. *Anomalous Diagenetic Mineral Concretion / Weathering Cast*: Preferential cementation in sedimentary sulfate-bearing sandstone.
+  3. *Unidentified Exotic Macro-Inclusion*: Preserved artifact or anomalous formation under active study.
+
+## Primary Documentation & Research Files
+- [Main Essay & Monograph](https://cambrianminds.github.io/martian-cylinder/): Full longform multimedia essay on the historical JPL heritage (Richard "Sam" Bogner), AI pair programming methodology, and photogrammetry results.
+- [Technical Paper (PDF)](https://cambrianminds.github.io/martian-cylinder/martian_cylinder_paper.pdf): Complete 14-page formal scientific paper formatted in LaTeX with rigorous equations, telemetry tables, error propagation, and peer references.
+- [Technical Paper (Markdown)](https://cambrianminds.github.io/martian-cylinder/martian_cylinder_paper.md): Full raw Markdown of the 14-page formal paper for LLM ingestion and text processing.
+- [Citizen Science Article (PDF)](https://cambrianminds.github.io/martian-cylinder/citizen_science_article.pdf): 10-page standalone editorial essay and methodology report.
+- [Citizen Science Article (Markdown)](https://cambrianminds.github.io/martian-cylinder/citizen_science_article.md): Raw Markdown text of the citizen science essay.
+- [Interactive 3D Cylinder Studio Tool](https://cambrianminds.github.io/martian-cylinder/cylinder-tool/index.html): WebGL 3D projection tool for fitting 3D cylinders to calibrated Mastcam pixels in real-time.
+- [Raw PDS Label & Telemetry Header](https://cambrianminds.github.io/martian-cylinder/DRXX-metadata.txt): Complete ASCII PDS VICAR/ODL metadata dump for Sol 3556 frame 3556MR1025170721700585C00.
+
+## Authors & Citation
+- **Author**: Justin Bogner
+- **Organization**: Cambrian Minds
+- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), Space Power Systems Engineer, NASA Jet Propulsion Laboratory (Surveyor 3, Mariner 9, Viking, GM SunRaycer).
+- **Date**: October 2026

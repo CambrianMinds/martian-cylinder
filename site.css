@@ -294,6 +294,8 @@ code {
   margin: 32px 0 40px;
   border: 1px solid var(--border-hairline);
   background: var(--bg-surface);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table-caption {
@@ -703,22 +705,6 @@ code {
   color: #ffffff;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .masthead-nav {
-    display: none;
-  }
-  .article-header {
-    padding: 36px 0 28px;
-  }
-  .author-block {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .figure-pair {
-    grid-template-columns: 1fr !important;
-  }
-}
 
 /* ==========================================================================
    Longform Editorial & Citizen Science Reading Styles
@@ -1119,3 +1105,200 @@ section[id], main[id] {
 .figure-media, .figure-card-img-wrap {
   cursor: zoom-in;
 }
+
+/* ==========================================================================
+   Responsive & Mobile-Friendly Media Queries
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .figure-pair {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile Masthead: stacked with horizontal kinetic nav scroll */
+  .masthead-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .masthead-id {
+    font-size: 10.5px;
+    gap: 8px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .masthead-id::-webkit-scrollbar {
+    display: none;
+  }
+
+  .masthead-inner nav {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .masthead-nav {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 16px;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .masthead-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .masthead-nav a {
+    font-size: 11.5px;
+    padding: 4px 0;
+    display: inline-block;
+  }
+
+  /* Padding & Spacing */
+  .container-prose,
+  .container-breakout,
+  .figure-breakout {
+    padding: 0 16px;
+  }
+
+  .article-header {
+    padding: 36px 0 28px;
+    margin-bottom: 32px;
+  }
+
+  .article-title {
+    font-size: 29px;
+    line-height: 1.25;
+  }
+
+  .article-subtitle {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .author-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 11.5px;
+  }
+
+  .action-links {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  /* Longform Prose */
+  .prose {
+    font-size: 17.5px;
+    line-height: 1.75;
+  }
+
+  .prose h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 18px;
+  }
+
+  .prose h3 {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .editorial-lead {
+    font-size: 19px !important;
+  }
+
+  .editorial-lead::first-letter {
+    font-size: 3em;
+  }
+
+  /* Figures & Cards */
+  .figure-pair {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .figure-card-img-wrap img {
+    height: 280px;
+  }
+
+  .figure-media img {
+    max-height: 520px;
+  }
+
+  /* Tool Embed */
+  .tool-embed-wrap {
+    margin: 28px 0;
+  }
+
+  .tool-embed-iframe {
+    height: 480px;
+  }
+
+  .tool-embed-header {
+    padding: 10px 14px;
+  }
+
+  /* Download Grid */
+  .download-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .download-card {
+    padding: 20px;
+  }
+
+  /* Modal Lightbox */
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-content img {
+    max-height: 72vh;
+  }
+
+  .modal-close {
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    font-size: 28px;
+  }
+
+  .modal-caption {
+    font-size: 12.5px;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-title {
+    font-size: 24px;
+  }
+
+  .tool-embed-iframe {
+    height: 390px;
+  }
+
+  .table-caption {
+    font-size: 10.5px;
+  }
+
+  .data-table {
+    font-size: 12px;
+  }
+}
+
