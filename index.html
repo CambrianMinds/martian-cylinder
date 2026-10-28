@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optical Metrology of the Sol 3556 Gale Crater Macro-Inclusion | NASA Mastcam-100 Telemetry Analysis</title>
-  <meta name="description" content="An institutional forensic study of the Sol 3556 Martian cylinder anomaly. Dissecting Mastcam-100 motor focus telemetry (3.96 m), ephemeris shadow mensuration, spatial Sobel gradients, and the physical failure of conventional provenance models.">
-  <meta name="keywords" content="Mars cylinder, Sol 3556, Curiosity Rover, Mastcam-100, optical metrology, Mars anomaly, Gale Crater, PDS telemetry, planetary science, Avi Loeb">
+  <title>How AI Lowered the Barrier to Rigorous Science | The Martian Cylinder Investigation</title>
+  <meta name="description" content="A citizen science investigation of the Sol 3556 Martian cylinder anomaly in Curiosity Mastcam imagery, bridging 1960s JPL heritage, open NASA telemetry, and human judgment.">
+  <meta name="keywords" content="Mars cylinder, Sol 3556, Curiosity Rover, Mastcam-100, citizen science, Sam Bogner, JPL, Mariner 9, Surveyor, photogrammetry">
   <meta name="author" content="Justin Bogner">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Optical Metrology of the Sol 3556 Gale Crater Macro-Inclusion">
-  <meta property="og:description" content="PDS focus telemetry reveals a discrete 34.9 × 10.8 mm cylinder resting in Gale Crater regolith, resisting conventional aerodynamic and geological explanations.">
-  <meta property="og:image" content="data/martian-cylinder-overlay-1792827816792.png">
+  <meta property="og:title" content="How AI Lowered the Barrier to Rigorous Science, and Why It Still Needs a Human Who Has Lived in the World">
+  <meta property="og:description" content="An amateur with no engineering degree, an AI pair programmer, and a family link to the space race audited raw NASA telemetry on an anomalous object in Gale Crater.">
+  <meta property="og:image" content="data/crop_bottom_right.png">
 
   <!-- Google Fonts: Newsreader (Editorial Serif) + Inter (Sans) + JetBrains Mono (Data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,412 +23,625 @@
 </head>
 <body>
 
-  <!-- Institutional Masthead -->
+  <!-- Minimal Editorial Masthead -->
   <header class="masthead">
     <div class="masthead-inner">
       <div class="masthead-id">
-        <span>REPORT 2026-MSL-3556</span>
+        <span>MARS SOL 3556</span>
         <span class="sep">/</span>
-        <span>GALE CRATER, MARS</span>
+        <span>CITIZEN SCIENCE ARCHIVE</span>
         <span class="sep">/</span>
-        <span>SOL 3556 ARCHIVE</span>
+        <span>GALE CRATER</span>
       </div>
       <nav>
         <ul class="masthead-nav">
-          <li><a href="#abstract">Abstract</a></li>
-          <li><a href="#telemetry">Telemetry</a></li>
-          <li><a href="#evidence">Evidence</a></li>
-          <li><a href="#provenance">Provenance</a></li>
-          <li><a href="#unknown">Anomaly Status</a></li>
-          <li><a href="cylinder-tool/index.html" class="masthead-cta" target="_blank" rel="noopener">3D Ray-Tracer &rarr;</a></li>
-          <li><a href="#documents">Documents</a></li>
+          <li><a href="#article" class="nav-link active">The Essay</a></li>
+          <li><a href="#family-heritage" class="nav-link">JPL Heritage</a></li>
+          <li><a href="#telemetry-findings" class="nav-link">Telemetry</a></li>
+          <li><a href="#studio-tool" class="nav-link">3D Studio</a></li>
+          <li><a href="#hypotheses" class="nav-link">Hypotheses</a></li>
+          <li><a href="martian_cylinder_paper.pdf" class="masthead-cta" target="_blank" rel="noopener">Technical Paper (PDF) &rarr;</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Document Header / Title Area -->
+
+    <section id="article">
+
+    <!-- Article Header -->
     <header class="article-header">
       <div class="container-prose">
-        <span class="doc-metadata">Independent Planetary Research &bull; Archival Metrology</span>
+        <span class="doc-metadata">Citizen Science &bull; Planetary Photogrammetry &bull; Curiosity Sol 3556</span>
         <h1 class="article-title">
-          Optical Metrology and Anomaly Characterization of the Sol 3556 Gale Crater Macro-Inclusion
+          How AI Lowered the Barrier to Rigorous Science, and Why It Still Needs a Human Who Has Lived in the World
         </h1>
         <p class="article-subtitle">
-          Monocular perspective modeling, ephemeris shadow mensuration, and failure analysis of conventional provenance models in Curiosity Mastcam-100 imagery.
+          An inquisitive amateur, an AI pair programmer, and a family link to the space race audit raw NASA telemetry to measure an anomalous cylinder in Gale Crater.
         </p>
 
         <div class="author-block">
           <div>
-            <span class="author-name">Justin Bogner</span>
-            <span style="color: var(--text-dim); margin: 0 6px;">&bull;</span>
-            <span>Archival Investigation</span>
+            By <span class="author-name">Justin Bogner</span> &bull; October 2026
           </div>
           <div class="action-links">
-            <a href="martian_cylinder_paper.pdf" class="action-link" target="_blank" rel="noopener">Technical Paper (PDF)</a>
-            <a href="citizen_science_article.pdf" class="action-link" target="_blank" rel="noopener">Citizen Science Monograph (PDF)</a>
-            <a href="cylinder-tool/index.html" class="action-link" target="_blank" rel="noopener">Interactive Ray-Tracer</a>
+            <a href="martian_cylinder_paper.pdf" class="action-link" target="_blank">Technical Paper (14 pp PDF) &darr;</a>
+            <a href="citizen_science_article.pdf" class="action-link" target="_blank">Essay Monograph (10 pp PDF) &darr;</a>
+            <a href="cylinder-tool/index.html" class="action-link" target="_blank">3D Studio Tool &nearr;</a>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Abstract Box -->
-    <div id="abstract" class="container-prose">
-      <div class="abstract-box">
-        <div class="abstract-title">Abstract</div>
-        <p style="margin-bottom: 0;">
-          In August 2022 (Sol 3556), the Mars Science Laboratory (Curiosity) Mastcam-100 captured an enigmatic, geometrically regular cylindrical feature partially embedded within the sulfate-bearing stratum of Gale Crater. For over two years, popular discourse and academic speculation universally cited an unverified estimate of &ldquo;&sim;20&nbsp;cm long on a distant cliff.&rdquo; In this study, we cross-reference raw Planetary Data System (PDS) telemetry headers (<code style="font-size:12px;">INSTRUMENT_FOCUS_POSITION&nbsp;=&nbsp;2705</code>), demonstrating that the object is situated in the immediate foreground regolith at a range of <strong>3.96&nbsp;&plusmn;&nbsp;0.15&nbsp;m</strong>. Optical mensuration resolves physical dimensions of <strong>34.9&nbsp;&plusmn;&nbsp;0.8&nbsp;mm</strong> in length and <strong>10.8&nbsp;&plusmn;&nbsp;0.4&nbsp;mm</strong> in diameter, defining a right circular cylinder with an aspect ratio of <strong>3.24&nbsp;:&nbsp;1</strong>. Cast shadow geometry under known solar ephemeris (&theta;&nbsp;=&nbsp;69.8&deg;) confirms concordant vertical 3D relief of 10.8&nbsp;&plusmn;&nbsp;0.22&nbsp;mm, eliminating planar albedo illusions. Crucially, correcting the scale does not explain the feature away; rather, it sharpens the anomaly. Evaluation of candidate terrestrial debris and eolian ventifact mechanisms reveals that the object cannot be reconciled with known entry-ballast drift in Mars&rsquo;s 6.0&nbsp;hPa atmosphere, active chassis shedding, or the abrasive mechanics of saltating sand. The feature remains an unresolved anomalous macro-inclusion of unknown provenance.
-        </p>
+    <!-- Hero Image: The Discovery Crop -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/crop_bottom_right.png" alt="Curiosity Sol 3556 Mastcam-100 crop showing the cylindrical feature in Gale Crater regolith">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>The Sol 3556 Anomaly in Context:</strong> A small, highly regular cylinder embedded in the coarse regolith of Paraitepuy Pass, Gale Crater. Captured by NASA's Curiosity rover using the Mastcam Right 100 mm camera on August 7, 2022 (PDS Product: <code>3556MR1025170721700585C00</code>).
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Longform Article Body -->
+    <article class="container-prose prose">
+
+      <h2>It started with a picture</h2>
+
+      <p class="editorial-lead">
+        In August 2022, NASA's <em>Curiosity</em> rover took a photo on Mars. In the lower right corner was something strange. There appeared to be a cylinder poking out of the dirt. It's surrounded by pebbles and dirt, things that one would expect to find on Mars. The object was, at least to me, obviously anomalous.
+      </p>
+
+      <p>
+        People noticed. Some said it was debris from the rover. Some said it was just a strange rock. And of course some people immediately jumped to aliens. Even astrophysicist Avi Loeb <a href="https://avi-loeb.medium.com/is-the-mysterious-cylinder-on-mars-photographed-in-2022-by-the-curiosity-rover-a-human-made-debris-2b509f6e1f06" target="_blank" rel="noopener">wrote that NASA should take a closer look</a>.
+      </p>
+
+      <p>
+        I'd seen it discussed on podcasts and YouTube videos, but no one ever seemed to actually meaningfully dig into the data. No one seemed to be doing any actual work, just making a lot of noise. This applies both directions, from the scientific community and the more heterodox crowd.
+      </p>
+
+      <p>
+        I began this project wanting to determine the actual dimensions and whether or not it was mathematically cylindrical. This seemed relatively straightforward and in my mind would bring some clarity to the discussion.
+      </p>
+
+      <p>
+        However, seeing familiar shapes in chaos, and our desire to see what we want to see is a very real, uniquely human trait. I can watch a podcast, see a photo someone presents of a "pyramid" or a face, and just because of who I am, I am inclined to believe it. This is also likely why the scientific community is skeptical of such claims. So I had to constrain myself to the raw telemetry, the resulting data, and nothing else.
+      </p>
+
+      <p>
+        On that note, a disclaimer: I'm not an engineer and I'm not a mathematician. I've never taken a course in computer vision or planetary photogrammetry. However, I am inquisitive and stubborn, probably have too much time on my hands, and happen to have a fun family connection to this work.
+      </p>
+
+    </article>
+    </section>
+
+    <section id="family-heritage">
+      <hr>
+
+      <article class="container-prose prose">
+
+      <h2>A family footnote on Mars</h2>
+
+      <p>
+        This story begins with another story: one that makes what is to come more interesting. Not more credible, but certainly more entertaining. We begin in Decatur, Indiana, in 1931. My great-grandmother Flossie gave birth to a baby boy, Richard "Sam" Bogner, whose work would, a few decades later, make the work I have done today possible. Named after his father, my great-uncle Sam would eventually graduate from Ball State Teachers College in Muncie, now Ball State University, in 1959. His career as a chemical engineer began with Delco Remy, a major automotive electrical parts manufacturing division of General Motors located in Anderson, Indiana. In 1966, he joined the exodus of young men from this region, an area still known for producing top-tier engineering talent, who took their degrees to the front lines of the space race. Sam relocated his family to Pasadena, California, to work at NASA's Jet Propulsion Laboratory, or JPL.
+      </p>
+
+    </article>
+
+    <!-- Visual Spread 1: Uncle Sam + Vintage JPL Entrance Sign -->
+    <div class="figure-breakout">
+      <div class="figure-pair">
+        <div class="figure-card">
+          <div class="figure-card-img-wrap">
+            <img src="data/uncle_sam.jpg" alt="Portrait of Richard Sam Bogner">
+          </div>
+          <div class="figure-card-caption">
+            <strong>Richard "Sam" Bogner (1931–2015):</strong> Chemical engineer from Decatur, Indiana; battery system project engineer at NASA JPL for Surveyor and Mariner programs, Hughes Space and Communications, and GM SunRaycer.
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-card-img-wrap">
+            <img src="data/jpl_sign_web.jpg" alt="Vintage 1960s entrance sign at NASA Jet Propulsion Laboratory in Pasadena, California">
+          </div>
+          <div class="figure-card-caption">
+            <strong>NASA Jet Propulsion Laboratory, Pasadena:</strong> The mid-century entrance to JPL where engineers from across the American Midwest relocated during the 1960s to build planetary spacecraft for NASA.
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Section: Telemetry & Scale Correction -->
-    <section id="telemetry" class="content-section">
-      <div class="container-prose">
-        <span class="section-label">Section 01</span>
-        <h2 class="section-heading">The 20 cm Myth &amp; The Telemetry Ground Truth</h2>
-        <p class="lead">
-          When amateur space enthusiasts first observed the cylinder in Mastcam-100 frame <code>3556MR1025170721700585C00_DRXX</code>, the claim that the object measured 20 to 30 cm and protruded from a 45-meter distant scarp propagated across international media, YouTube commentaries, and academic blogs without empirical verification.
-        </p>
-        <p>
-          This study began with an uncompromising question: <em>What do the primary telemetry records actually state?</em>
-        </p>
-        <p>
-          Curiosity&rsquo;s Mastcam-100 instrument is a calibrated 100&nbsp;mm focal length optical system whose focus mechanism operates via a stepper-motor actuator driving the internal focus group. Querying the NASA PDS EDR/RDR metadata records an explicit focus telemetry value:
-        </p>
-        <p style="text-align: center; margin: 24px 0;">
-          <code style="font-size: 14px; padding: 6px 14px; border: 1px solid var(--border-hairline);">INSTRUMENT_FOCUS_POSITION = 2705</code>
-        </p>
-        <p>
-          Applying the Malin Space Science Systems (MSSS) in-flight calibration curve mapping stepper counts to focal distance collapses the distance from the assumed 45&nbsp;meters to exactly <strong>3.96&nbsp;&plusmn;&nbsp;0.15&nbsp;meters</strong>. The object is not embedded in a distant cliff wall; it rests in the immediate foreground regolith at the foot of the rover.
-        </p>
-        <p>
-          With distance fixed at 3.96&nbsp;m and the Mastcam-100 instantaneous field of view (IFOV) of 0.074&nbsp;mrad/pixel (0.317&nbsp;mm/pixel at target distance), the true physical dimensions are definitively resolved: <strong>34.9&nbsp;mm long by 10.8&nbsp;mm in diameter</strong>. The object is roughly the size of a standard AA battery.
-        </p>
-      </div>
+    <article class="container-prose prose">
 
-      <!-- Formal Parameter Table -->
-      <div class="container-breakout">
-        <div class="table-container">
-          <div class="table-caption">
-            <strong>Table 1.</strong> Optical telemetry, target coordinates, and physical parameters of the Sol 3556 anomaly.
+      <p>
+        During his time at JPL, he worked on evaluating and perfecting the high-energy silver-zinc battery packs that would power the Surveyor lunar landers. It wasn't just about making the batteries hold a charge; his team had to ensure these batteries could withstand the violent vibrations of a rocket launch, survive the deceleration of a lunar touchdown, and keep the spacecraft alive through freezing, two-week-long lunar nights where temperatures plummeted to hundreds of degrees below zero.
+      </p>
+
+    </article>
+
+    <!-- Visual Spread 2: Surveyor 3 on the Moon (Apollo 12) -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/surveyor3_apollo12.jpg" alt="Surveyor 3 on the Moon examined by Apollo 12 astronaut Pete Conrad in November 1969">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Surveyor 3 on the Lunar Surface (Oceanus Procellarum):</strong> Apollo 12 Commander Pete Conrad examines the Surveyor 3 lander in November 1969, with the Lunar Module <em>Intrepid</em> visible on the horizon. Sam Bogner qualified the silver-zinc battery packs that enabled Surveyor to survive launch acoustic vibration, lunar impact deceleration, and two-week cryogenic nights. (NASA Photo AS12-48-7135).
+        </figcaption>
+      </figure>
+    </div>
+
+    <article class="container-prose prose">
+
+      <p>
+        From the Moon, his focus shifted outward to the Red Planet. He became the project engineer and the definitive voice on battery flight performance for the Mariner program, specifically Mariners 6, 7, 9, and 10. I looked up the <a href="https://ntrs.nasa.gov/citations/19730016368" target="_blank" rel="noopener">historic NASA technical reports from the Mariner Mars 1971 mission</a>, and seeing his name right there on the cover was profoundly humbling. His work tracked how the silver-zinc cells degraded over the months of deep-space transit, managed the chemistry of <a href="https://ntrs.nasa.gov/citations/19710005471" target="_blank" rel="noopener">separator systems to prevent short circuits</a>, modeled the exact discharge curves required when Mariner 9 entered orbit and dipped into the dark shadow of Mars, and a bunch of other stuff I still don't fully understand. When Mariner 9 successfully outlasted a planet-wide dust storm to map 100% of the Martian surface, it did so powered by an architecture he engineered.
+      </p>
+
+    </article>
+
+    <!-- Visual Spread 3: Mariner 9 Cleanroom Checks + Bogner 1973 Report Title Page -->
+    <div class="figure-breakout">
+      <div class="figure-pair">
+        <div class="figure-card">
+          <div class="figure-card-img-wrap">
+            <img src="data/mariner9_final_checks.jpg" alt="Mariner 9 spacecraft undergoing cleanroom checkouts at JPL before launch">
           </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>PDS Raw / Telemetry Value</th>
-                <th>Physical Mensuration</th>
-                <th>Derivation Method</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Target Range ($Z_0$)</td>
-                <td class="code-cell">FOCUS_STEP = 2705</td>
-                <td class="val-highlight">3.96 &plusmn; 0.15 m</td>
-                <td>MSSS Mastcam-100 motor calibration polynomial</td>
-              </tr>
-              <tr>
-                <td>Transverse Diameter ($D$)</td>
-                <td class="code-cell">34.0 &plusmn; 1.0 pixels</td>
-                <td class="val-highlight">10.8 &plusmn; 0.4 mm</td>
-                <td>IFOV spatial projection (0.317 mm/px @ 3.96 m)</td>
-              </tr>
-              <tr>
-                <td>Exposed Length ($L$)</td>
-                <td class="code-cell">110.0 &plusmn; 2.5 pixels</td>
-                <td class="val-highlight">34.9 &plusmn; 0.8 mm</td>
-                <td>Central-perspective wireframe alignment</td>
-              </tr>
-              <tr>
-                <td>Aspect Ratio ($L/D$)</td>
-                <td class="code-cell">&mdash;</td>
-                <td class="val-highlight">3.24 : 1</td>
-                <td>Invariant Euclidean cylinder ratio</td>
-              </tr>
-              <tr>
-                <td>Camera Pointing Pitch</td>
-                <td class="code-cell">ELEVATION = -15.1&deg;</td>
-                <td>-15.1&deg; (Mast elevation)</td>
-                <td>Rover Navigation coordinate frame telemetry</td>
-              </tr>
-              <tr>
-                <td>Solar Ephemeris Angle</td>
-                <td class="code-cell">Sol 3556 Noon Local Time</td>
-                <td>Elevation: 69.8&deg;, Azimuth: 29.8&deg;</td>
-                <td>JPL SPICE planetary ephemeris kernel</td>
-              </tr>
-              <tr>
-                <td>Shadow Cast Length</td>
-                <td class="code-cell">12.5 &plusmn; 0.7 pixels</td>
-                <td>3.97 &plusmn; 0.22 mm</td>
-                <td>Cast shadow measurement on substrate floor</td>
-              </tr>
-              <tr>
-                <td>Vertical Relief ($h$)</td>
-                <td class="code-cell">$h = s \cdot \tan(69.8^\circ)$</td>
-                <td class="val-highlight">10.8 &plusmn; 0.22 mm</td>
-                <td>Concordance with measured diameter: &Delta; &lt; 0.2 mm</td>
-              </tr>
-              <tr>
-                <td>Stratigraphic Burial</td>
-                <td class="code-cell">Lower third enclosed</td>
-                <td>2.0 &ndash; 2.5 mm depth</td>
-                <td>Linear sediment interface along baseline</td>
-              </tr>
-              <tr>
-                <td>Atmospheric Density</td>
-                <td class="code-cell">REMS pressure sensor</td>
-                <td>6.0 hPa (0.015 kg/m&sup3;)</td>
-                <td>Bradbury Landing EDL distance: 20+ km</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="figure-card-caption">
+            <strong>Mariner 9 Pre-Flight Preparation:</strong> Technicians and engineers in cleanroom garments conduct final system checks on the Mariner 9 spacecraft prior to its historic launch to Mars in May 1971. (NASA/JPL).
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-card-img-wrap">
+            <img src="data/bogner_mariner1971_titlepage.png" class="contain" alt="NASA Technical Memorandum JPL-TM-33-591 title page by R. S. Bogner">
+          </div>
+          <div class="figure-card-caption">
+            <strong>NASA Technical Memorandum JPL-TM-33-591 (April 1973):</strong> <em>"Mariner Mars 1971 Battery Design, Test, and Flight Performance"</em> authored by R. S. Bogner, Jet Propulsion Laboratory, Pasadena, California.
+          </div>
         </div>
       </div>
+    </div>
+
+    <article class="container-prose prose">
+
+      <p>
+        As the space race began to transition into the commercial satellite boom of the late 1970s and 1980s, Uncle Sam brought his expertise to Hughes Space and Communications. At Hughes, he moved away from the volatile inner solar system and focused on longevity and weight reduction for Earth's orbital infrastructure. He pioneered research into lightweight, graphite-epoxy battery casings to replace heavy metallic housings, testing nickel-cadmium cells through simulated geosynchronous orbit-eclipse seasons to ensure communication satellites could survive for decades without failing.
+      </p>
+
+      <p>
+        This work ties directly into the next portion of his career, and takes him back to his beginnings in the automotive industry. In 1987, General Motors partnered with AeroVironment and Hughes to build the SunRaycer, a revolutionary solar-powered vehicle designed to contest the inaugural World Solar Challenge across the Australian Outback. On the SunRaycer project, he functioned as a primary battery design engineer and lead technical researcher representing Hughes Aircraft. He is officially credited in the Society of Automotive Engineers (SAE) archives as one of the definitive engineers of the vehicle's power architecture, co-authoring the official technical documentation titled: <a href="https://saemobilus.sae.org/content/sp-845" target="_blank" rel="noopener"><em>"GM Sunraycer Case History Lecture 3-4: Design and Performance of the GM Sunraycer Battery"</em></a> alongside his colleagues N. Chorneau and D. Pickett.
+      </p>
+
+      <p>
+        In this capacity, he helped engineer a custom, ultra-lightweight silver-zinc secondary battery pack. This pack had to flawlessly store transient energy harvested from the car's cutting-edge gallium-arsenide solar array, delivering bursts of raw power when navigating hills or cloudy stretches. And he unequivocally delivered. The engineering was so pristine that the GM SunRaycer didn't just win the 1,800-mile race across the continent. It crossed the finish line more than two full days ahead of the nearest competitor. The car currently sits in the Smithsonian in Washington, D.C.
+      </p>
+
+    </article>
+
+    <!-- Visual Spread 4: The GM SunRaycer in Australia -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/sunraycer_web.jpg" alt="The GM SunRaycer solar racer preserved on museum display at the Smithsonian National Museum of American History">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>The GM SunRaycer on Museum Display:</strong> Preserved at the Smithsonian National Museum of American History in Washington, D.C., the pioneering solar vehicle was powered by custom silver-zinc secondary cells engineered by Sam Bogner and Hughes Aircraft. The SunRaycer conquered the 1,867-mile World Solar Challenge across the Australian Outback from Darwin to Adelaide in 1987 (averaging 41.6 mph), crossing the finish line more than two full days ahead of the nearest competitor. (Photo: Smithsonian National Museum of American History / GM Media Archives).
+        </figcaption>
+      </figure>
+    </div>
+
+    <article class="container-prose prose">
+
+      <p>
+        Unfortunately, I don't recall ever meeting my great-uncle. My grandpa Alan mentioned his older brother, but as a kid, I don't think I ever paid much attention. Then one day, less than a year ago, my dad casually mentioned his work on the SunRaycer. I was beyond intrigued. That was when I discovered all of this for the first time. So, while I was never regaled with stories of his work in space, which, even as a child, I would have found profoundly interesting, I hope the work that follows, enabled by his early research at JPL, might continue, in a much smaller way, my family's legacy on the Red Planet.
+      </p>
+
+      <p>
+        I didn't think I could ever do anything as interesting. It turns out that today, I could do a surprising amount of it. NASA publishes raw images and telemetry from its rovers, including pointing direction, focus distance, and solar angles. And modern AI, when rigorously guided by human oversight, is much better at math than I will ever be.
+      </p>
+
+    </article>
     </section>
 
-    <!-- Section: Methodology & Forensic Evidence -->
-    <section id="evidence" class="content-section">
-      <div class="container-prose">
-        <span class="section-label">Section 02</span>
-        <h2 class="section-heading">Forensic Evidence &amp; Optical Metrology</h2>
-        <p>
-          <strong>A Note on Terminology:</strong> In contemporary computing, the term <em>photogrammetry</em> is frequently conflated with multi-view stereo (SfM/MVS), which generates point clouds from dozens or hundreds of overlapping camera angles. What is conducted here is rigorous <strong>monocular optical metrology and perspective projection analysis</strong>.
-        </p>
-        <p>
-          Because Curiosity&rsquo;s Mastcam-100 is a calibrated laboratory sensor with rigidly recorded focal parameters, spatial pointing vectors, and celestial solar illumination from JPL SPICE ephemerides, single-station perspective projection allows exact three-dimensional measurements and bounding-geometry solutions to be derived from first principles.
-        </p>
-      </div>
+    <section id="telemetry-findings">
+      <hr>
 
-      <!-- Figure 1: Shadow Analysis -->
-      <div class="container-breakout">
-        <figure class="academic-figure">
-          <div class="figure-media" data-caption="Figure 1. Solar Ephemeris & Shadow Trigonometry on Sol 3556">
-            <img src="data/thumb_mask.jpg" alt="Solar shadow geometry and relief verification on Mars Sol 3556">
-          </div>
-          <figcaption class="figure-caption">
-            <strong>Figure 1. Solar Ephemeris &amp; Vertical Relief Mensuration.</strong>
-            Curiosity imaged the target under high-noon solar illumination (&theta;&nbsp;=&nbsp;69.8&deg;, &phi;&nbsp;=&nbsp;29.8&deg;). The cast shadow projected across the regolith substrate measures 12.5&nbsp;pixels (3.97&nbsp;mm). Trigonometric inversion ($h = s \cdot \tan\theta$) establishes a physical vertical relief of $10.8 \pm 0.22\,\text{mm}$, matching the transverse diameter of the cylinder within 0.2&nbsp;mm. This mathematical concordance proves the object is a free-standing convex three-dimensional body resting on the terrain, conclusively ruling out planar mineral veins, paint streaks, or albedo illusions.
-          </figcaption>
-        </figure>
-      </div>
+      <article class="container-prose prose">
 
-      <div class="container-prose">
-        <p>
-          To test whether the object was a subjective artifact of visual pareidolia or physically decoupled from its geological backdrop, we applied directional $3 \times 3$ spatial Sobel gradient filters ($G_x, G_y$) across the calibrated radiance frame.
-        </p>
-      </div>
+      <h2>What I actually did: Dissecting the data</h2>
 
-      <!-- Figure 2: Sobel Analysis -->
-      <div class="container-breakout">
-        <figure class="academic-figure">
-          <div class="figure-media" data-caption="Figure 2. Spatial Sobel Gradient Filtering & Edge Isolation">
-            <img src="data/sobel_analysis_panel.png" alt="Spatial Sobel gradient edge analysis isolating the cylinder">
-          </div>
-          <figcaption class="figure-caption">
-            <strong>Figure 2. Spatial Derivative Sobel Gradient Filtering.</strong>
-            Horizontal ($G_x$) and vertical ($G_y$) spatial convolution isolates directional luminance transitions. The surrounding mudstone matrix and regolith display stochastic, fragmented, isotropic edge distributions. In contrast, the cylindrical feature exhibits 100% boundary coherence: two strictly parallel longitudinal generators ($R^2 = 0.9985$) and closed elliptical end contours. The object is completely decoupled from the fractured sedimentary bedding of Gale Crater.
-          </figcaption>
-        </figure>
-      </div>
+      <p>
+        Before you can ask what something is, you have to find out what it actually measures. Here is what happened when we dug into NASA's raw files:
+      </p>
 
-      <div class="container-prose">
-        <p>
-          Finally, we constructed a 6-DOF central-perspective wireframe model incorporating Mastcam-100 optical parameters ($f = 100\,\text{mm}$, pixel pitch $7.4\,\mu\text{m}$, elevation pitch $-15.1^\circ$).
-        </p>
-      </div>
+      <ul>
+        <li>
+          <strong>We busted the "20-centimeter" rumor.</strong> Online commentators claimed the object was 20 centimeters long by assuming it was sitting on a distant cliff 45 meters away. But NASA's telemetry logs showed the camera's focus motor count was set to 2705, meaning the lens was focused at exactly <strong>3.96 meters</strong> from the rover. The object isn't on a distant cliff; it's sitting right in front of Curiosity. That dropped its true dimensions to roughly <strong>3.5 centimeters long and 11 millimeters across</strong> or about the diameter of a AA battery.
+        </li>
+        <li>
+          <strong>We tested the shadow with solar math.</strong> The mission records showed the Martian Sun was sitting at an elevation of 69.8&deg; (nearly straight overhead at noon). At that angle, an object's shadow on the ground must be compressed to just 37% of its physical height. When we measured the shadow fringe beneath the cylinder and compared it to what the Sun's position dictated, it matched to within a fraction of a millimeter. That proved beyond doubt that this is a real, rigid, three-dimensional physical object casting a genuine shadow on the soil, not a digital smudge, a compression defect, or an optical illusion.
+        </li>
+        <li>
+          <strong>We pulled the boundaries apart with edge filters.</strong> To keep my eyes from tricking me, I had the AI write code applying spatial "Sobel gradient filters." This math measures how abruptly brightness changes across pixels. It proved that the dark circle on the end wasn't a shadow thrown on the ground, it was the cylinder's own flat, self-shadowed face, completely separate from the neighboring rock and the dirt beneath it.
+        </li>
+      </ul>
 
-      <!-- Figure 3: 3D Overlay & Rear Cap Discovery -->
-      <div class="container-breakout">
-        <figure class="academic-figure">
-          <div class="figure-media" data-caption="Figure 3. Central-Perspective Ray-Traced 3D Overlay Showing Terminating Rear Cap">
-            <img src="data/martian-cylinder-overlay-1792827816792.png" alt="3D Central-perspective wireframe model overlay showing finite cylinder rear cap">
-          </div>
-          <figcaption class="figure-caption">
-            <strong>Figure 3. 3D Central-Perspective Ray-Traced Overlay and Rear Cap Discovery.</strong>
-            Direct ray-traced alignment ($110 \times 34\,\text{pixels}$, aspect ratio $3.24:1$, tilt $\phi = 156^\circ$) matches both the front circular face ellipse and the entire longitudinal cylindrical highlight. Crucially, perspective convergence resolves the distinct terminating rear ellipse where the cylindrical barrel contacts the granular regolith. This establishes that the object does not extend indefinitely underground as a drill core or mineral vein, but is a <strong>finite, discrete, free-standing cylinder</strong> measuring $34.9 \times 10.8\,\text{mm}$.
-          </figcaption>
-        </figure>
-      </div>
+    </article>
+
+    <!-- Visual Spread 5: Full Mastcam Context Frame (Resolving the 20cm Cliff Myth) -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/mastcam_full_context.png" alt="Full NASA Curiosity Mastcam-100 frame showing distant Bolivar cliff face versus immediate foreground cylinder">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Resolving the 20-Centimeter Rumor:</strong> The full 1328 &times; 1184 pixel Mastcam-100 field of view (Sol 3556). Internet commentators assumed the cylinder was embedded in the distant Bolivar cliff face (~45 meters away), which would scale a 35-pixel feature to ~20 cm. NASA's camera focus motor telemetry (<code>MSL:FOCUS_POSITION_COUNT = 2705</code>) proves the lens was locked onto the foreground regolith at 3.96 meters, constraining the true exposed length to 35 mm.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Visual Spread 6: Scale Comparison (Cylinder vs. AA Battery) -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/scale_comparison.png" alt="Scale diagram comparing the Martian Cylinder to a standard AA battery">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Physical Scale Comparison:</strong> With a diameter of 11.5 &plusmn; 0.8 mm (10.8–12.5 mm depth-of-field envelope) and an exposed length of 35 &plusmn; 2 mm, the Martian cylinder is roughly the girth of a standard AA battery (14.5 mm diameter) and about two-thirds its length. It is an engineered-scale millimeter component, not a boulder.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Visual Spread 7: Shadow Ray-Tracing & Ground Truth Mask -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/thumb_mask.jpg" alt="Ground-truth physical segmentation and solar shadow ray-tracing of the Sol 3556 cylinder">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Solar Ephemeris Ray-Tracing Decomposition:</strong> Decoupling the object's self-shadowed planar face (pink) from its ground cast shadow fringe (orange). At a high solar elevation of 69.82&deg;, the expected cast shadow length is compressed to 36.8% of physical vertical relief. The measured shadow (3.11 &plusmn; 0.22 mm) along the +23.37&deg; solar azimuth vector matches the predicted 8.46 mm exposed cylinder height to sub-millimeter precision.
+        </figcaption>
+      </figure>
+    </div>
     </section>
 
-    <!-- Section: Failure of Conventional Explanations -->
-    <section id="provenance" class="content-section">
-      <div class="container-prose">
-        <span class="section-label">Section 03</span>
-        <h2 class="section-heading">Failure of Conventional Provenance Models</h2>
-        <p class="lead">
-          In public discourse, anomalies are frequently dismissed with generic appeals to &ldquo;rover debris&rdquo; or &ldquo;just a weird rock.&rdquo; However, when subjected to quantitative physical and geological constraints, every conventional hypothesis fails.
-        </p>
+    <section id="studio-tool">
+      <hr>
 
-        <!-- Hypo 1 -->
-        <div class="hypothesis-row">
-          <div class="hypo-header-row">
-            <span class="hypo-name">Hypothesis 1: Terrestrial Spacecraft Jettison (EDL Ballast / Hardware)</span>
-            <span class="hypo-verdict verdict-refuted">Physically Refuted</span>
+      <article class="container-prose prose">
+
+      <h2>Building the tool and finding the back edge</h2>
+
+      <p>
+        Ten years ago, I couldn't have done this analysis because the tools were out of reach. Reading NASA's data format, working out camera geometry, writing code for edge detection, fitting ellipses, running the error checks... each of those is a specialty.
+      </p>
+
+      <p>
+        AI collapsed that barrier. It wrote the Python code that reads the data format and calculates the center of the image. It explained what a "Sobel filter" is. It did the arithmetic I can't do and the geometry I never learned. When I asked "what does that mean?", it explained, as many times as I needed.
+      </p>
+
+      <blockquote>
+        "The barrier to rigorous analysis is lower than it has ever been. But the AI got things wrong. Repeatedly. It was honestly exhausting and at some points infuriating. The things that it couldn't seem to do, even with its ability to do calculus and trigonometry in seconds, were to me, dead simple."
+      </blockquote>
+
+      <p>
+        It kept making the same kinds of mistakes:
+      </p>
+
+      <ul>
+        <li>
+          <strong>It mixed up two different shadows.</strong> The cylinder's end face is dark because it's turned away from the Sun. That's <em>its own</em> shading. Separately, the cylinder throws a shadow on the ground. The software saw "dark" and lumped them together, then built measurements on a shape that didn't exist. I could see, just by looking, that those were two different things.
+        </li>
+        <li>
+          <strong>It tried to fit a perfect circle to something that wasn't one.</strong> When you look at a circle from an angle, it becomes an ellipse. The AI kept forcing a circle onto a tilted view. It's the kind of mistake that most intelligent people wouldn't make, mostly because they have spent a lifetime of looking at shadows and shapes in the world.
+        </li>
+        <li>
+          <strong>It swallowed a neighboring rock.</strong> Next to the cylinder was a lump that wasn't part of it. The software kept including it in the outline until I told it to leave that part out.
+        </li>
+      </ul>
+
+      <p>
+        I finally had the AI build a custom web-based photogrammetry tool that allowed me to overlay a physically accurate 3D cylinder directly onto the NASA photo and manipulate it in real-time. It was as simple as using a mouse wheel to zoom and dragging the mouse to adjust rotation, perspective tilt, and length.
+      </p>
+
+    </article>
+
+    <!-- Interactive Cylinder Photogrammetry Studio Embed -->
+    <div class="figure-breakout">
+      <div class="tool-embed-wrap">
+        <div class="tool-embed-header">
+          <div class="tool-embed-title">
+            <span class="tool-status-dot"></span>
+            <span>Interactive 3D Photogrammetry Studio &bull; Sol 3556 Overlay</span>
           </div>
-          <p class="hypo-details">
-            Curiosity&rsquo;s entry balance masses (tungsten ballast) and sky-crane descent stage impacted Bradbury Landing in August 2012, over <strong>20 kilometers</strong> northwest of Sol 3556. In Mars&rsquo;s tenuous 6.0&nbsp;hPa atmosphere (density $\approx 0.015\,\text{kg/m}^3$), the aerodynamic dynamic pressure required to loft a dense metallic or composite cylinder across 20&nbsp;km of jagged mountainous terrain exceeds Martian atmospheric physics by multiple orders of magnitude. Furthermore, the cylinder exhibits no impact deformation, shearing, or buckling ($R^2 = 0.9985$), which is inconsistent with high-velocity ballistic ground impact.
-          </p>
+          <div class="tool-embed-actions">
+            <a href="cylinder-tool/index.html" class="tool-embed-btn" target="_blank" rel="noopener">Open Studio Fullscreen &nearr;</a>
+          </div>
         </div>
-
-        <!-- Hypo 2 -->
-        <div class="hypothesis-row">
-          <div class="hypo-header-row">
-            <span class="hypo-name">Hypothesis 2: Active Rover Chassis Shedding During Traverse</span>
-            <span class="hypo-verdict verdict-refuted">Inconsistent with Records &amp; Stratigraphy</span>
-          </div>
-          <p class="hypo-details">
-            NASA MSL engineering logs record no loss of pins, structural cylinders, or mechanical fasteners along this drive. Moreover, the lower 33% of the cylinder ($\approx 2.0\text{--}2.5\,\text{mm}$) is embedded beneath compacted sediment along a crisp ground horizon. In Gale Crater, background dust accumulation settles at $20\text{--}40\,\mu\text{m}$ per Martian year. Burying an object 2&nbsp;mm deep via passive sedimentation requires approximately <strong>90 Earth years</strong>&mdash;nearly an order of magnitude longer than Curiosity&rsquo;s entire 10-year surface presence at the time of imaging.
-          </p>
-        </div>
-
-        <!-- Hypo 3 -->
-        <div class="hypothesis-row">
-          <div class="hypo-header-row">
-            <span class="hypo-name">Hypothesis 3: Eolian Ventifact or Diagenetic Concretion</span>
-            <span class="hypo-verdict verdict-orthogonal">Geometrically Orthogonal</span>
-          </div>
-          <p class="hypo-details">
-            Wind-blown sand abrasion in Gale Crater produces ventifacts: asymmetric, fluted, multi-faceted stones (dreikanter) aligned with seasonal saltation vectors. Isotropic diagenetic diffusion produces spherical nodules or irregular botryoidal clusters. Natural geological processes on Mars do not produce right circular cylinders bounded by mutually parallel linear generators and terminating in a perpendicular planar circular cap ($3.24:1$ aspect ratio). Unidirectional wind abrasion mimicking a lathe with sub-pixel rotational symmetry across geological timescales is physically untenable.
-          </p>
+        <iframe src="cylinder-tool/index.html" class="tool-embed-iframe" title="Interactive 3D Cylinder Photogrammetry Tool"></iframe>
+        <div class="tool-embed-hint">
+          <span>&larr; Drag inside viewport to rotate perspective &bull; Scroll wheel to zoom &bull; Sliders adjust length, radius, and tilt</span>
+          <span>Camera Depression: -22.0&deg;</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Section: The Anomaly of Unknown Provenance -->
-    <section id="unknown" class="content-section">
-      <div class="container-prose">
-        <span class="section-label">Section 04</span>
-        <h2 class="section-heading">The Unresolved Anomaly: An Artifact of Unknown Provenance</h2>
-
-        <div class="anomaly-callout">
-          <h3>The Data Remain the Data</h3>
-          <p>
-            When an object displays manufactured tolerances, rigid rotational symmetry, and discrete planar terminations, but cannot be reconciled with known terrestrial spacecraft debris or natural geological abrasion, scientific rigor demands leaving the hypothesis space open: <strong>the feature is an anomalous artifact of unconfirmed provenance.</strong>
-          </p>
+    <!-- Overlay Screenshot Figure -->
+    <div class="figure-breakout">
+      <figure class="academic-figure">
+        <div class="figure-media">
+          <img src="data/martian-cylinder-overlay-1792827816792.png" alt="3D cylinder overlay aligned with the Sol 3556 Mastcam-100 image">
         </div>
+        <figcaption class="figure-caption">
+          <strong>The Breakthrough: Finding the Finite Rear Boundary:</strong> By locking the perspective tilt to match Curiosity's 22.0&deg; downward camera depression angle and extending the 3D model, the back cap aligns exactly where the rock highlight terminates and transitions into regolith. This confirms the object is not an infinitely plunging rod, but a finite cylinder possessing a 3.24 : 1 length-to-diameter ratio.
+        </figcaption>
+      </figure>
+    </div>
 
-        <p>
-          Busting the viral 20 cm myth did not explain the cylinder away; it eliminated the comfortable assumption that this was simply an uncalibrated optical illusion on a distant cliff. What remains is far more challenging: a discrete, intact, manufactured-tolerance cylinder resting in the foreground Martian dirt, partially buried by decadal sediment accumulation.
-        </p>
-        <p>
-          This perspective directly echoes the scientific challenge articulated by astrophysicist <strong>Avi Loeb</strong>:
-        </p>
-        <blockquote style="border-left: 2px solid var(--border-hairline); padding-left: 20px; margin: 24px 0; color: #e2e8f0; font-family: var(--font-serif); font-size: 17px; font-style: italic;">
-          &ldquo;Science must be guided by empirical curiosity rather than dogmatic dismissal. If the cylinder is human mission debris, its cataloging is vital for space archaeology and mission safety; if it is geological, it represents a previously unrecognized sedimentary mechanism; and if it is an artifact of unknown origin, its confirmation would be of paramount scientific importance.&rdquo;
-        </blockquote>
-        <p>
-          True empirical science does not force premature closure simply because an observation is uncomfortable or points toward possibilities we feel unprepared to acknowledge. Definitive elemental identification requires Curiosity to conduct contact forensics&mdash;deploying the Mars Hand Lens Imager (MAHLI) for micro-textural imaging, the Alpha Particle X-ray Spectrometer (APXS) for stoichiometry, or ChemCam laser-induced breakdown spectroscopy (LIBS) to measure metallic composition. Until such measurements are acquired, the Sol 3556 cylinder remains an unresolved macro-anomaly on the surface of Mars.
-        </p>
-      </div>
+    <article class="container-prose prose">
+
+      <p>
+        That's when the breakthrough happened:
+      </p>
+
+      <p>
+        By dragging the length slider and locking the perspective tilt to match Curiosity's 22&deg; downward camera angle, <strong>the back edge of the cylinder lined up with the rock highlight.</strong>
+      </p>
+
+      <p>
+        People assumed the cylinder was either a broken stub or a continuous rod plunging indefinitely into the Martian dirt. But the 3D model revealed that the rear cap terminates right where the highlight ends and meets the regolith. It is an exposed, self-contained, discrete cylinder: <strong>110 pixels by 34 pixels</strong>, giving an exact length-to-diameter aspect ratio of <strong>3.24 : 1</strong> (&approx; 35 mm &times; 11 mm).
+      </p>
+
+      <p>
+        Notice what I contributed. It wasn't equations. It was <strong>judgment</strong>. I knew what a shadow looks like. I knew how a cylinder behaves. I knew when something looked wrong. The AI had the mathematical ability. I had the <em>common sense</em> to tell it when it was pointed in the wrong direction.
+      </p>
+
+      <hr>
+
+      <h2>Embodied experience still matters</h2>
+
+      <p>
+        I think this is the most important thing I learned, and I'd like you to take it away from this article.
+      </p>
+
+      <p>
+        An AI has read about shadows. I have <em>stood</em> in them. It knows the word "perspective." I've driven through a tunnel and seen the end getting closer. It can describe a coin on a table. I've flipped one and watched the circle become an ellipse.
+      </p>
+
+      <p>
+        That lived, physical understanding of how things look and behave is not a small thing. It's what let me notice, quickly and without any formal training, when the analysis had drifted away from reality.
+      </p>
+
+      <p>
+        AI can be confidently, fluently wrong. It can produce a clean chart and a convincing explanation of a result that's broken.
+      </p>
+
+      <p>
+        The people who are going to excel moving forward won't be the ones who trust AI the most or the least. They'll be the ones who combine <strong>powerful tools with real-world wisdom</strong> and stay in charge of the process.
+      </p>
+
+      <hr>
+
+      <h2>Why this actually matters</h2>
+
+      <p>
+        Why does measuring a tiny 3.5-centimeter object on Mars matter?
+      </p>
+
+      <ol>
+        <li>
+          <strong>It replaces wild speculation with checkable facts.</strong> In an online landscape divided between wild claims ("it's proof of an alien probe!") and lazy dismissal ("it's just a rock, stop looking"), numbers provide sanity. Anyone with a computer and curiosity can download NASA's Sol 3556 dataset, run the equations, and verify the dimensions for themselves. That is how science is supposed to work.
+        </li>
+        <li>
+          <strong>It shows that curiosity doesn't need credentials to be rigorous.</strong> You don't need a PhD or a corporate lab grant to audit space agency data. The data belongs to the public. If you are willing to learn, ask hard questions, and refuse to accept comfortable assumptions, you can do genuine planetary forensics from your living room.
+        </li>
+        <li>
+          <strong>It demonstrates the future of human-AI collaboration.</strong> AI isn't an oracle that hands down absolute truth, nor is it a useless novelty. It's an exoskeleton for human curiosity. When guided by someone who refuses to let it hallucinate, it allows one person to do the work that once required an entire research team.
+        </li>
+      </ol>
+
+      <hr>
+
+      <h2>You can do this too</h2>
+
+      <p>
+        NASA's rover images are public. So are images from the Hubble and James Webb telescopes, satellite archives, weather data, seismic logs, and thousands of other datasets. For most of history, serious investigation required a university, a lab, and a funding source. Now it requires <strong>curiosity, patience, and a willingness to be corrected.</strong>
+      </p>
+
+      <p>
+        If you're thinking about trying something like this, here's what I'd suggest:
+      </p>
+
+      <ol>
+        <li><strong>Start with a question you can actually answer.</strong> Not "is this alien?" but "how big is this, really?" Small, measurable questions lead somewhere.</li>
+        <li><strong>Use the original data, not screenshots.</strong> Compressed social media images throw away exactly the information you need.</li>
+        <li><strong>Let AI do the heavy lifting, but never the thinking.</strong> Ask it to explain everything. Ask it to show its work. Ask "how would I know if this were wrong?"</li>
+        <li><strong>Trust your eyes and your instincts.</strong> If a result looks off, make the software justify itself.</li>
+        <li><strong>Be honest about what you don't know.</strong> The most credible sentence in my paper is the one that says that I don't know what the object is.</li>
+        <li><strong>Share your work openly.</strong> Let other people check it, argue with it, and break it. That's how science works.</li>
+      </ol>
+
+    </article>
     </section>
 
-    <!-- Section: Interactive 3D Ray-Tracer -->
-    <section class="content-section">
-      <div class="container-breakout">
-        <div class="tool-institutional-box">
-          <div class="tool-info">
-            <h3>Interactive Perspective Ray-Tracing Laboratory</h3>
-            <p>
-              Inspect the raw Sol 3556 Mastcam-100 frame in an interactive WebGL central-perspective workspace. Manipulate 6-DOF cylinder rotation, scale, aspect ratio, and solar shadow vectors in real time to verify the mathematical solution.
-            </p>
-          </div>
-          <a href="cylinder-tool/index.html" class="btn-tool" target="_blank" rel="noopener">
-            Launch Ray-Tracer &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
+    <section id="hypotheses">
+      <hr>
 
-    <!-- Section: Archival Documents & Citations -->
-    <section id="documents" class="content-section">
-      <div class="container-prose">
-        <span class="section-label">Section 05</span>
-        <h2 class="section-heading">Archival Documents &amp; Citations</h2>
-        <p>
-          All manuscripts, raw NASA PDS telemetry headers, and source code are openly published for peer review and replication.
-        </p>
+      <article class="container-prose prose">
 
-        <div class="docs-list">
-          <a href="martian_cylinder_paper.pdf" class="doc-item" target="_blank" rel="noopener">
-            <div>
-              <div class="doc-item-title">Technical Preprint Manuscript (PDF)</div>
-              <div class="doc-item-meta">11 pages &bull; Complete mathematical derivations, focus calibration, and error propagation</div>
+      <h2>What happens next: The three hypotheses</h2>
+
+      <p>
+        I still don't know what that object is. But now I know that it's actually cylindrical. And I know that it shouldn't be there.
+      </p>
+
+      <p>
+        In the technical paper, I evaluated the three competing hypotheses:
+      </p>
+
+      <h3>1. Terrestrial rover or landing debris</h3>
+
+      <p>
+        The most intuitive assumption is that Curiosity dropped a bolt, spacer, or piece of hardware, or that debris drifted from the 2012 Entry, Descent, and Landing (EDL) event. But this runs into severe physical problems:
+      </p>
+
+      <ul>
+        <li>
+          <strong>The distance gap:</strong> Curiosity's landing site (Bradbury Landing), where the sky crane and heat shield crashed, is over 28 kilometers away along the rover's winding drive path, and roughly 13 to 15 kilometers (8 to 9 miles) in a direct straight line through the air. In Mars's thin atmosphere (with less than 1% of Earth's air density), wind simply cannot loft and carry a solid structural cylinder across 13 kilometers of rugged mountainous terrain.
+        </li>
+        <li>
+          <strong>The sediment clock (80 to 200 years):</strong> The cylinder isn't resting loosely on top of fresh dust. Its lower third (&approx; 2 mm of vertical relief) is embedded in the compacted soil matrix along a straight ground interface. Crucially, the surrounding substrate is an undisturbed, cohesive duricrust completely devoid of windward deflation moats, scour trenches, or leeward sand shadow drifts that would occur if seasonal storms had banked loose sand against a recent obstacle. In Gale Crater, background atmospheric dust settles at only about 10 to 25 &mu;m per Earth year. Accumulating 2 millimeters of natural sediment fallout to bury that lower third requires roughly <strong>80 to 200 years</strong>. Curiosity had only been on Mars for 10 years at the time of the photo. Because Gale Crater has hosted no other mission in history, this passive dust clock rules out terrestrial spacecraft debris.
+        </li>
+        <li>
+          <strong>No mechanical trauma:</strong> The cylinder shows no sheared mounting brackets, severed cabling, or buckling from a high-velocity ballistic impact (R&sup2; = 0.9985 straightness).
+        </li>
+        <li>
+          <strong>Tested against surrounding rocks:</strong> When we measured a control sample of twenty other rocks across the same frame, natural basalt and sandstone clasts averaged a generator straightness fit of only 0.10, with none scoring above 0.27. The cylinder's 0.9985 straightness is an extreme ten-sigma statistical outlier.
+        </li>
+      </ul>
+
+      <h3>2. A wind-carved rock (ventifact) or mineral concretion</h3>
+
+      <p>
+        The standard geological dismissal is that it is just a rock shaped by natural forces. But the math doesn't fit the geology:
+      </p>
+
+      <ul>
+        <li>
+          <strong>What is a ventifact?</strong> A ventifact (from the Latin for "wind-made") is a rock that has been sculpted, faceted, or polished by wind-blown sand over thousands or millions of years. Think of natural sandblasting. Because Martian wind blows primarily from dominant directions, saltating sand grains strike exposed surfaces, carving sharp ridges (keels), flat slanted faces (facets), and scooped grooves. You see them on Earth in places like Antarctica or the Mojave Desert.
+        </li>
+        <li>
+          <strong>Wind is not a lathe:</strong> While natural sandblasting easily produces smooth stones or rounded pebbles (several natural rocks in the surrounding field score over 90% in projected roundness), it <strong>does not act like a lathe</strong>. Natural wind abrasion cannot carve the three defining geometric signatures of an engineered cylinder:
+          <ol>
+            <li>Two strictly straight, mutually parallel sides (R&sup2; = 0.9985 straightness, an extreme ten-sigma anomaly compared to the jagged margins of surrounding rocks).</li>
+            <li>A crisp, flat planar end cap terminating perpendicular to the body.</li>
+            <li>An elongated 3.24 : 1 length-to-width aspect ratio (over twelve standard deviations away from the roughly equal dimensions of surrounding gravel).</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Concretions grow into spheres, not cylinders:</strong> Mineral nodules in Gale Crater (formed by chemical precipitation in groundwater) grow outward equally in all directions, creating spheres (like the famous Martian "blueberries") or lumpy clusters, not a clean elongated cylinder with an invariant cross-section.
+        </li>
+      </ul>
+
+      <h3>3. An artifact of unknown provenance</h3>
+
+      <p>
+        Because the cylinder displays manufactured tolerances, yet cannot be easily explained by drifting landing debris or natural geology, scientific rigor demands keeping a third possibility on the table: that it could be an artificial artifact of unconfirmed origin.
+      </p>
+
+      <p>
+        When I say "something stranger," I mean something that most mainstream planetary science is hesitant to say out loud, but that every curious person wonders about in the quiet of their thoughts: could Mars have once hosted an ancient technological presence? If I am being completely candid about what drives my imagination, the spark of curiosity that kept me up late staring at pixel grids, I sincerely hope that this cylinder might turn out to be evidence of that.
+      </p>
+
+      <p>
+        Theoretical plasma physicist Dr. John Brandenburg pointed to isotopic Xenon-129 anomalies on Mars. Penn State astrophysicist Dr. Jason Wright published papers detailing how durable non-biological artifacts (technosignatures) could survive buried in planetary soil for billions of years. When I look at this clean cylinder with its flat circular end face, I think about those models.
+      </p>
+
+      <p>
+        <strong>Do I know that's what it is? Absolutely not.</strong>
+      </p>
+
+      <p>
+        And that honesty is what keeps this work credible. The math does not prove an ancient artifact; it only proves that the object is small, physically real, precisely shaped (3.5 cm &times; 1.1 cm), and unaccounted for by conventional optical glitches or known rover shedding.
+      </p>
+
+      <p>
+        The honest answer is that the analysis narrows the possibilities, and a close-up look from Curiosity's contact instruments, including the MAHLI hand lens (resolving microscopic machining marks versus mineral crystal cleavage) and the ChemCam laser spectrometer (detecting alloy metals versus basaltic silicates), would do far more than any amount of image processing from Earth. That's what Avi Loeb asked for, and I agree with him.
+      </p>
+
+      <p>
+        The point isn't to jump to conclusions. The point is that <em>we are allowed to look, and we are allowed to wonder.</em>
+      </p>
+
+      <p>
+        Whatever the answer turns out to be, something has already changed. A person with no engineering degree and no math training was able to sit down with public data and produce a careful, checkable analysis.
+      </p>
+
+      <p>
+        The world is full of data. The tools are widely available. What it still needs is people willing to look carefully, ask honest questions, and use their own eyes and judgment to steer.
+      </p>
+
+      <hr>
+
+      <h2>Companion research & verification documents</h2>
+
+      <p>
+        For scientists, researchers, and citizen scientists who wish to independently verify the photogrammetry, check the equations, or reproduce the statistical null distribution, the complete dataset and formal technical paper are openly accessible:
+      </p>
+
+    </article>
+
+    <!-- Download Cards -->
+    <div class="figure-breakout">
+      <div class="download-grid">
+        <div class="download-card">
+          <div>
+            <div class="download-card-type">Peer-Reviewable Paper</div>
+            <div class="download-card-title">Morphological and Photometric Analysis of an Unidentified Cylindrical Feature</div>
+            <div class="download-card-desc">
+              Complete mathematical proofs, CAHV camera matrices, SPICE solar ephemeris, Sobel spatial gradient matrices, and the empirical N = 20 background geological null distribution.
             </div>
-            <span class="doc-item-action">Download PDF &rarr;</span>
-          </a>
-
-          <a href="citizen_science_article.pdf" class="doc-item" target="_blank" rel="noopener">
-            <div>
-              <div class="doc-item-title">Citizen Science Narrative Monograph (PDF)</div>
-              <div class="doc-item-meta">7 pages &bull; Epistemology of human-guided AI, telemetry forensics, and debunking viral consensus</div>
-            </div>
-            <span class="doc-item-action">Download PDF &rarr;</span>
-          </a>
-
-          <a href="DRXX-metadata.txt" class="doc-item" target="_blank" rel="noopener">
-            <div>
-              <div class="doc-item-title">NASA PDS RDR Telemetry Header (TXT)</div>
-              <div class="doc-item-meta">Product ID: 3556MR1025170721700585C00_DRXX &bull; INSTRUMENT_FOCUS_POSITION = 2705</div>
-            </div>
-            <span class="doc-item-action">View Header &rarr;</span>
-          </a>
-
-          <a href="https://github.com" class="doc-item" target="_blank" rel="noopener">
-            <div>
-              <div class="doc-item-title">Open Source GitHub Repository</div>
-              <div class="doc-item-meta">Complete LaTeX source code, Python analysis scripts, WebGL tools, and raw image assets</div>
-            </div>
-            <span class="doc-item-action">View Repository &rarr;</span>
+          </div>
+          <a href="martian_cylinder_paper.pdf" class="download-btn primary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Technical Paper (14 pp PDF)
           </a>
         </div>
 
-        <!-- BibTeX Box -->
-        <div class="citation-block">
-          <div class="citation-header">
-            <span class="citation-label">BibTeX Citation</span>
-            <button id="btnCopyBibtex" class="copy-btn">Copy BibTeX</button>
+        <div class="download-card">
+          <div>
+            <div class="download-card-type">Citizen Science Monograph</div>
+            <div class="download-card-title">How AI Lowered the Barrier to Rigorous Science</div>
+            <div class="download-card-desc">
+              The full narrative essay, Sam Bogner's JPL heritage, the GM SunRaycer, and the philosophical implications of human-AI collaboration in planetary research.
+            </div>
           </div>
-          <pre id="bibtexCode" class="bibtex-text">@article{bogner2026martian_cylinder,
-  title   = {Photometric & Optical Metrology of the Sol 3556 Gale Crater Anomaly: Monocular Perspective Modeling, Ephemeris Shadow Mensuration, and Failure Analysis of Conventional Provenance Models},
-  author  = {Bogner, Justin},
-  journal = {Archival Monograph in Planetary Optical Metrology},
-  year    = {2026},
-  url     = {https://github.com/justin-bogner/martian-cylinder},
-  note    = {NASA PDS Product ID: 3556MR1025170721700585C00\_DRXX}
-}</pre>
-          <span id="copyFeedback" style="display: none; position: absolute; right: 22px; bottom: 14px; font-size: 11px; color: #10b981; font-family: var(--font-mono);">Copied</span>
+          <a href="citizen_science_article.pdf" class="download-btn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Essay Monograph (10 pp PDF)
+          </a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-type">Interactive Tool</div>
+            <div class="download-card-title">Martian Cylinder Photogrammetry Studio</div>
+            <div class="download-card-desc">
+              Real-time 3D cylinder overlay tool. Drag mouse to rotate perspective, adjust length and radius sliders, and inspect the fit against NASA raw imagery in real-time.
+            </div>
+          </div>
+          <a href="cylinder-tool/index.html" class="download-btn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            Launch 3D Studio Tool
+          </a>
         </div>
       </div>
+    </div>
     </section>
+
   </main>
 
-  <!-- Institutional Footer -->
-  <footer class="institutional-footer">
-    <div class="container-prose">
-      <div class="footer-dedication">
-        In memory of <strong>Richard &ldquo;Sam&rdquo; Bogner</strong> (1931&ndash;2015), aerospace battery engineer at NASA&rsquo;s Jet Propulsion Laboratory (JPL) on Mariner 9 and the Surveyor lunar landers.
-      </div>
-      <div class="footer-attribution">
-        Data courtesy of NASA / JPL-Caltech / Malin Space Science Systems (MSSS) / PDS Geosciences Node. Curiosity Mastcam-100 Sol 3556. Independent archival investigation.
-      </div>
-    </div>
+  <!-- Editorial Footer -->
+  <footer class="container-prose" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-hairline); font-size: 13px; color: var(--text-muted); font-family: var(--font-sans);">
+    <p>
+      Dedicated to the memory of <strong>Richard "Sam" Bogner</strong> (1931–2015), chemical engineer and battery pioneer for Surveyor, Mariner, and the GM SunRaycer.
+    </p>
+    <p style="font-size: 12px; color: var(--text-dim);">
+      Data source: NASA / JPL-Caltech / MSSS Planetary Data System (PDS) archive product <code>3556MR1025170721700585C00</code>. Independent research produced with AI pair-programming assistance. All code, data, and models are open for verification and scientific peer review.
+    </p>
   </footer>
 
-  <!-- Lightbox Modal -->
-  <div id="imageModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-container">
-      <button id="modalClose" class="modal-close" aria-label="Close modal">&times;</button>
-      <img id="modalImg" class="modal-img" src="" alt="Enlarged view">
+  <!-- Lightbox Modal Overlay -->
+  <div id="imageModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button id="modalClose" class="modal-close" aria-label="Close Lightbox">&times;</button>
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="Enlarged view">
       <div id="modalCaption" class="modal-caption"></div>
     </div>
   </div>
 
+  <!-- Site Interactions -->
   <script src="site.js"></script>
 </body>
 </html>

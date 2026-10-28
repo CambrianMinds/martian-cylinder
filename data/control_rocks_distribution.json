@@ -1,0 +1,338 @@
+{
+  "rocks": [
+    {
+      "id": "R01",
+      "name": "Adjacent shelf rock (upper right flank)",
+      "type": "Platy sandstone shelf",
+      "center_xy": [
+        298.7,
+        238.3
+      ],
+      "major_px": 51.31,
+      "minor_px": 39.4,
+      "major_mm": 16.26,
+      "minor_mm": 12.49,
+      "circ_ratio": 0.7679,
+      "aspect_ratio": 1.3,
+      "r2_parallelism": 0.1682
+    },
+    {
+      "id": "R02",
+      "name": "Small rounded pebble north of cylinder",
+      "type": "Rounded pebble",
+      "center_xy": [
+        269.9,
+        201.8
+      ],
+      "major_px": 42.98,
+      "minor_px": 24.93,
+      "major_mm": 13.62,
+      "minor_mm": 7.9,
+      "circ_ratio": 0.58,
+      "aspect_ratio": 1.72,
+      "r2_parallelism": 0.2708
+    },
+    {
+      "id": "R03",
+      "name": "Elongated clast east of cylinder",
+      "type": "Elongated basalt fragment",
+      "center_xy": [
+        354.9,
+        285.8
+      ],
+      "major_px": 68.43,
+      "minor_px": 57.58,
+      "major_mm": 21.69,
+      "minor_mm": 18.25,
+      "circ_ratio": 0.8414,
+      "aspect_ratio": 1.19,
+      "r2_parallelism": 0.0849
+    },
+    {
+      "id": "R04",
+      "name": "Sub-angular cobble southeast",
+      "type": "Sub-angular cobble",
+      "center_xy": [
+        348.2,
+        348.0
+      ],
+      "major_px": 76.06,
+      "minor_px": 66.07,
+      "major_mm": 24.11,
+      "minor_mm": 20.95,
+      "circ_ratio": 0.8687,
+      "aspect_ratio": 1.15,
+      "r2_parallelism": 0.0739
+    },
+    {
+      "id": "R05",
+      "name": "Flat plate southwest of cylinder",
+      "type": "Tabular sandstone plate",
+      "center_xy": [
+        236.5,
+        357.6
+      ],
+      "major_px": 83.19,
+      "minor_px": 71.46,
+      "major_mm": 26.37,
+      "minor_mm": 22.65,
+      "circ_ratio": 0.859,
+      "aspect_ratio": 1.16,
+      "r2_parallelism": 0.0258
+    },
+    {
+      "id": "R06",
+      "name": "Angular rock west of cylinder",
+      "type": "Angular basalt clast",
+      "center_xy": [
+        188.0,
+        283.7
+      ],
+      "major_px": 77.73,
+      "minor_px": 67.91,
+      "major_mm": 24.64,
+      "minor_mm": 21.53,
+      "circ_ratio": 0.8736,
+      "aspect_ratio": 1.14,
+      "r2_parallelism": 0.2397
+    },
+    {
+      "id": "R07",
+      "name": "Small nodular grain northwest",
+      "type": "Sub-spherical nodule",
+      "center_xy": [
+        206.5,
+        235.4
+      ],
+      "major_px": 37.68,
+      "minor_px": 36.18,
+      "major_mm": 11.94,
+      "minor_mm": 11.47,
+      "circ_ratio": 0.9602,
+      "aspect_ratio": 1.04,
+      "r2_parallelism": 0.0595
+    },
+    {
+      "id": "R08",
+      "name": "Prominent angular boulder upper left",
+      "type": "Angular basalt boulder",
+      "center_xy": [
+        69.4,
+        65.5
+      ],
+      "major_px": 97.95,
+      "minor_px": 68.99,
+      "major_mm": 31.05,
+      "minor_mm": 21.87,
+      "circ_ratio": 0.7044,
+      "aspect_ratio": 1.42,
+      "r2_parallelism": 0.044
+    },
+    {
+      "id": "R09",
+      "name": "Faceted rock upper middle",
+      "type": "Faceted ventifact-like rock",
+      "center_xy": [
+        243.1,
+        72.5
+      ],
+      "major_px": 82.01,
+      "minor_px": 77.23,
+      "major_mm": 26.0,
+      "minor_mm": 24.48,
+      "circ_ratio": 0.9418,
+      "aspect_ratio": 1.06,
+      "r2_parallelism": 0.0833
+    },
+    {
+      "id": "R10",
+      "name": "Elongated fractured slab upper right",
+      "type": "Elongated fracture slab",
+      "center_xy": [
+        417.7,
+        54.3
+      ],
+      "major_px": 109.98,
+      "minor_px": 81.56,
+      "major_mm": 34.86,
+      "minor_mm": 25.86,
+      "circ_ratio": 0.7416,
+      "aspect_ratio": 1.35,
+      "r2_parallelism": 0.0203
+    },
+    {
+      "id": "R11",
+      "name": "Rounded cobble mid-left",
+      "type": "Rounded pebble",
+      "center_xy": [
+        74.5,
+        145.9
+      ],
+      "major_px": 74.08,
+      "minor_px": 60.74,
+      "major_mm": 23.48,
+      "minor_mm": 19.26,
+      "circ_ratio": 0.82,
+      "aspect_ratio": 1.22,
+      "r2_parallelism": 0.0998
+    },
+    {
+      "id": "R12",
+      "name": "Fluted rock middle center",
+      "type": "Fluted clast",
+      "center_xy": [
+        197.5,
+        154.0
+      ],
+      "major_px": 75.85,
+      "minor_px": 54.39,
+      "major_mm": 24.04,
+      "minor_mm": 17.24,
+      "circ_ratio": 0.717,
+      "aspect_ratio": 1.39,
+      "r2_parallelism": 0.0329
+    },
+    {
+      "id": "R13",
+      "name": "Dipping sandstone slab mid-right",
+      "type": "Dipping sandstone plate",
+      "center_xy": [
+        388.4,
+        149.6
+      ],
+      "major_px": 88.38,
+      "minor_px": 65.66,
+      "major_mm": 28.02,
+      "minor_mm": 20.82,
+      "circ_ratio": 0.7429,
+      "aspect_ratio": 1.35,
+      "r2_parallelism": 0.0537
+    },
+    {
+      "id": "R14",
+      "name": "Irregular jagged rock lower left",
+      "type": "Jagged basalt clast",
+      "center_xy": [
+        74.6,
+        378.7
+      ],
+      "major_px": 103.58,
+      "minor_px": 90.08,
+      "major_mm": 32.84,
+      "minor_mm": 28.56,
+      "circ_ratio": 0.8697,
+      "aspect_ratio": 1.15,
+      "r2_parallelism": 0.0133
+    },
+    {
+      "id": "R15",
+      "name": "Pebble cluster member A lower center",
+      "type": "Sub-rounded pebble",
+      "center_xy": [
+        245.0,
+        413.7
+      ],
+      "major_px": 58.04,
+      "minor_px": 51.89,
+      "major_mm": 18.4,
+      "minor_mm": 16.45,
+      "circ_ratio": 0.894,
+      "aspect_ratio": 1.12,
+      "r2_parallelism": 0.0978
+    },
+    {
+      "id": "R16",
+      "name": "Pebble cluster member B lower center",
+      "type": "Sub-rounded pebble",
+      "center_xy": [
+        295.4,
+        417.4
+      ],
+      "major_px": 58.52,
+      "minor_px": 57.53,
+      "major_mm": 18.55,
+      "minor_mm": 18.24,
+      "circ_ratio": 0.9832,
+      "aspect_ratio": 1.02,
+      "r2_parallelism": 0.0462
+    },
+    {
+      "id": "R17",
+      "name": "Smooth weathered stone mid-lower right",
+      "type": "Weathered basalt stone",
+      "center_xy": [
+        422.2,
+        362.9
+      ],
+      "major_px": 73.61,
+      "minor_px": 71.81,
+      "major_mm": 23.33,
+      "minor_mm": 22.76,
+      "circ_ratio": 0.9756,
+      "aspect_ratio": 1.03,
+      "r2_parallelism": 0.0331
+    },
+    {
+      "id": "R18",
+      "name": "Elongated sliver right margin",
+      "type": "Elongated sliver",
+      "center_xy": [
+        455.6,
+        229.6
+      ],
+      "major_px": 79.33,
+      "minor_px": 66.24,
+      "major_mm": 25.15,
+      "minor_mm": 21.0,
+      "circ_ratio": 0.835,
+      "aspect_ratio": 1.2,
+      "r2_parallelism": 0.192
+    },
+    {
+      "id": "R19",
+      "name": "Small circular pebble upper right",
+      "type": "Circular pebble",
+      "center_xy": [
+        454.6,
+        120.9
+      ],
+      "major_px": 53.66,
+      "minor_px": 44.49,
+      "major_mm": 17.01,
+      "minor_mm": 14.1,
+      "circ_ratio": 0.8292,
+      "aspect_ratio": 1.21,
+      "r2_parallelism": 0.2545
+    },
+    {
+      "id": "R20",
+      "name": "Tapered angular rock center",
+      "type": "Tapered ventifact",
+      "center_xy": [
+        317.5,
+        193.4
+      ],
+      "major_px": 73.29,
+      "minor_px": 56.41,
+      "major_mm": 23.23,
+      "minor_mm": 17.88,
+      "circ_ratio": 0.7697,
+      "aspect_ratio": 1.3,
+      "r2_parallelism": 0.1901
+    }
+  ],
+  "summary": {
+    "circ_mean": 0.828745,
+    "circ_median": 0.8382000000000001,
+    "circ_std": 0.0995476141100328,
+    "circ_min": 0.58,
+    "circ_max": 0.9832,
+    "r2_mean": 0.10418999999999998,
+    "r2_median": 0.0786,
+    "r2_std": 0.08148653815201624,
+    "r2_min": 0.0133,
+    "r2_max": 0.2708,
+    "z_circ": 1.0523105042398242,
+    "z_r2": 10.974941631851271
+  }
+}

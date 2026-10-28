@@ -80,15 +80,25 @@ function initSite() {
     document.body.style.overflow = '';
   }
 
-  // Bind to evidence cards
-  const evidenceMediaList = document.querySelectorAll('.evidence-media');
-  evidenceMediaList.forEach((media) => {
+  // Bind to figure media and figure cards
+  const clickableMediaList = document.querySelectorAll('.figure-media, .figure-card-img-wrap, .lead-figure .image-frame');
+  clickableMediaList.forEach((media) => {
     media.addEventListener('click', () => {
       const img = media.querySelector('img');
-      const caption = media.getAttribute('data-caption') || (img ? img.alt : '');
-      if (img) {
-        openModal(img.src, caption);
+      if (!img) return;
+      
+      let caption = media.getAttribute('data-caption');
+      if (!caption) {
+        const figure = media.closest('figure, .figure-card');
+        if (figure) {
+          const capEl = figure.querySelector('figcaption, .figure-card-caption');
+          if (capEl) caption = capEl.innerText.trim();
+        }
       }
+      if (!caption && img.alt) {
+        caption = img.alt;
+      }
+      openModal(img.src, caption);
     });
   });
 
@@ -111,28 +121,33 @@ function initSite() {
   });
 
   // 3. Navigation link active state tracking on scroll
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], main[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
   function highlightNavOnScroll() {
-    const scrollY = window.pageYOffset;
-    sections.forEach((section) => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 100;
-      const sectionId = section.getAttribute('id');
+    const scrollPos = window.pageYOffset + 140;
+    let currentId = '';
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.getAttribute('id');
       }
     });
+
+    if (currentId) {
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
   }
 
   window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
+  highlightNavOnScroll();
 }
 
 if (document.readyState === 'loading') {
