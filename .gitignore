@@ -1,10 +1,23 @@
+# LaTeX build artifacts
 *.aux
 *.log
 *.out
 *.toc
 *.synctex.gz
+*.fls
+*.fdb_latexmk
 texput.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local scratch and audit directories
 scratch/
+audit/
+
+# Legacy root images (use data/ equivalents)
 jpl-sign.jpg
 uncle-sam.jpg
 GM_Sunraycer.jpg

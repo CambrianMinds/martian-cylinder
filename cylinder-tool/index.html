@@ -155,12 +155,12 @@
             <div class="control-label-row">
               <span>Cylinder Length</span>
               <div class="val-input-wrapper">
-                <input type="number" id="lengthInput" class="val-input" min="20" max="1000" step="1" value="175" style="color: var(--accent-gold);">
+                <input type="number" id="lengthInput" class="val-input" min="20" max="1000" step="1" value="110" style="color: var(--accent-gold);">
                 <span class="val-unit">px</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="lengthSlider" min="20" max="800" value="175" step="1">
+              <input type="range" id="lengthSlider" min="20" max="800" value="110" step="1">
             </div>
           </div>
 
@@ -168,12 +168,12 @@
             <div class="control-label-row">
               <span>Cylinder Diameter</span>
               <div class="val-input-wrapper">
-                <input type="number" id="diaInput" class="val-input" min="10" max="600" step="1" value="105">
+                <input type="number" id="diaInput" class="val-input" min="10" max="600" step="1" value="34">
                 <span class="val-unit">px</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="diaSlider" min="10" max="500" value="105" step="1">
+              <input type="range" id="diaSlider" min="10" max="500" value="34" step="1">
             </div>
           </div>
 
@@ -181,12 +181,12 @@
             <div class="control-label-row">
               <span>Aspect Ratio (L/D)</span>
               <div class="val-input-wrapper">
-                <input type="number" id="aspectInput" class="val-input" min="0.2" max="10.0" step="0.01" value="1.67">
+                <input type="number" id="aspectInput" class="val-input" min="0.2" max="10.0" step="0.01" value="3.24">
                 <span class="val-unit">:1</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="aspectSlider" min="0.2" max="6.0" value="1.67" step="0.01">
+              <input type="range" id="aspectSlider" min="0.2" max="6.0" value="3.24" step="0.01">
             </div>
           </div>
         </div>
@@ -201,12 +201,12 @@
             <div class="control-label-row">
               <span>Planar Angle (360°)</span>
               <div class="val-input-wrapper">
-                <input type="number" id="rotInput" class="val-input" min="0" max="360" step="1" value="318">
+                <input type="number" id="rotInput" class="val-input" min="0" max="360" step="1" value="218">
                 <span class="val-unit">°</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="rotSlider" min="0" max="360" value="318" step="1">
+              <input type="range" id="rotSlider" min="0" max="360" value="218" step="1">
             </div>
           </div>
 
@@ -216,12 +216,12 @@
             <div class="control-label-row">
               <span>3D Perspective Tilt (360°)</span>
               <div class="val-input-wrapper">
-                <input type="number" id="tiltInput" class="val-input" min="0" max="360" step="1" value="48">
+                <input type="number" id="tiltInput" class="val-input" min="0" max="360" step="1" value="156">
                 <span class="val-unit">°</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="tiltSlider" min="0" max="360" value="48" step="1">
+              <input type="range" id="tiltSlider" min="0" max="360" value="156" step="1">
             </div>
           </div>
 
@@ -230,12 +230,12 @@
             <div class="control-label-row">
               <span>Perspective Depth (Focal Dist)</span>
               <div class="val-input-wrapper">
-                <input type="number" id="camRatioInput" class="val-input" min="1.0" max="10.0" step="0.1" value="2.8">
+                <input type="number" id="camRatioInput" class="val-input" min="1.0" max="10.0" step="0.1" value="3.96">
                 <span class="val-unit">×</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="camRatioSlider" min="1.0" max="10.0" value="2.8" step="0.1">
+              <input type="range" id="camRatioSlider" min="1.0" max="10.0" value="3.96" step="0.1">
             </div>
           </div>
 
@@ -453,11 +453,11 @@
       <div class="telemetry-grid">
         <div class="metric-card">
           <div class="metric-label">Orientation</div>
-          <div class="metric-value highlight-cyan" id="teleAngle">318.0°</div>
+          <div class="metric-value highlight-cyan" id="teleAngle">218.0°</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">3D Tilt (360°)</div>
-          <div class="metric-value highlight-mars" id="teleTilt">48.0°</div>
+          <div class="metric-value highlight-mars" id="teleTilt">156.0°</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">Front Circle</div>
@@ -473,15 +473,15 @@
         </div>
         <div class="metric-card">
           <div class="metric-label">Dimensions</div>
-          <div class="metric-value" id="teleDimensions">175 × 105 px</div>
+          <div class="metric-value" id="teleDimensions">110 × 34 px</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">Aspect Ratio</div>
-          <div class="metric-value" id="teleRatio">1.67 : 1</div>
+          <div class="metric-value" id="teleRatio">3.24 : 1</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">Est. Physical</div>
-          <div class="metric-value highlight-cyan" id="telePhysical">14.4 × 8.6 mm</div>
+          <div class="metric-value highlight-cyan" id="telePhysical">34.9 × 10.8 mm</div>
         </div>
       </div>
     </div>

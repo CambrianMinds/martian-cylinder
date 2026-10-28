@@ -57,16 +57,16 @@
     }
   };
 
-  // Instantiate the Martian Cylinder
+  // Instantiate the Martian Cylinder (Pre-calibrated to Sol 3556 Figure 4 Fit: 110×34 px, θ=218°, Tilt=156°, AR=3.24:1)
   const cylinder = new MartianCylinder({
-    x: 400,
-    y: 300,
-    baseLength: 175,
-    baseDiameter: 105,
+    x: 246.8,
+    y: 268.7,
+    baseLength: 110,
+    baseDiameter: 34,
     scale: 1.0,
-    rotation: -42 * Math.PI / 180,
-    tilt: 48 * Math.PI / 180,
-    taper: 0.88,
+    rotation: 218 * Math.PI / 180,
+    tilt: 156 * Math.PI / 180,
+    camRatio: 3.96,
     color: '#38bdf8',
     renderMode: 'semi-transparent'
   });
@@ -196,9 +196,14 @@
       state.imageHeight = img.naturalHeight || img.height;
       state.sobelCacheCanvas = null; // Invalidate Sobel cache
 
-      // Center the cylinder on the image anomaly
-      cylinder.x = state.imageWidth / 2;
-      cylinder.y = state.imageHeight / 2;
+      // Center the cylinder on the Sol 3556 anomaly if loading the default 500x450 crop, otherwise image center
+      if (state.imageWidth === 500 && state.imageHeight === 450) {
+        cylinder.x = 246.8;
+        cylinder.y = 268.7;
+      } else {
+        cylinder.x = state.imageWidth / 2;
+        cylinder.y = state.imageHeight / 2;
+      }
 
       // Fit image inside viewport so cylinder on Mars is centered on user's screen
       fitImageToViewport();
@@ -829,15 +834,23 @@
     // NASA Sol 3556 Mastcam-100 Calibration Preset Button
     if (elements.btnNasaCalib) {
       elements.btnNasaCalib.addEventListener('click', () => {
-        // True Mastcam-100 optical geometry from Sol 3556 DRCL/EDR label:
-        // Sequence: 10251707, Focal length: 100mm, Focus distance: 3.96m (2705 counts)
-        // Bedding strike planar angle: 209°, Rock perspective tilt: 121°
-        cylinder.rotation = (209 * Math.PI) / 180;
-        cylinder.tilt = (121 * Math.PI) / 180;
+        // Verified Mastcam-100 optical geometry & photogrammetric fit from Sol 3556 paper (Section 4.3, Figure 4):
+        // Sequence: mcam02517, Focal length: 100mm, Focus distance: 3.957m (2705 counts)
+        // Cylinder fit: 110x34 px (AR 3.24:1), Planar angle: 218°, Perspective tilt: 156° (alpha=24.0°)
+        cylinder.scale = 1.0;
+        cylinder.baseDiameter = 34;
+        cylinder.baseLength = 110;
+        cylinder.aspectRatio = 110 / 34;
+        cylinder.rotation = (218 * Math.PI) / 180;
+        cylinder.tilt = (156 * Math.PI) / 180;
         cylinder.camRatio = 3.96;
+        if (state.imageWidth === 500 && state.imageHeight === 450) {
+          cylinder.x = 246.8;
+          cylinder.y = 268.7;
+        }
         syncControlsFromCylinder();
         triggerRedraw();
-        showToast('NASA Sol 3556 Preset: 209° Planar, 121° Tilt, 3.96m Focal Depth');
+        showToast('NASA Sol 3556 Fit Applied: 110×34 px (AR 3.24:1), θ=218°, Tilt=156°, R=3.96m');
       });
     }
 

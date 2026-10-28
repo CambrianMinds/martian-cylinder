@@ -1,36 +1,47 @@
 # The Martian Cylinder Investigation: Sol 3556 Anomaly
 
-> A citizen science and planetary photogrammetry investigation of an anomalous, highly regular cylindrical macro-inclusion in NASA Curiosity Mastcam imagery (Sol 3556, Paraitepuy Pass, Gale Crater).
+> A citizen science and planetary photogrammetry investigation of an anomalous, highly regular cylindrical feature in NASA Curiosity Mastcam imagery (Sol 3556, Paraitepuy Pass, Gale Crater).
 
 ## Executive Summary
-This project presents an empirical investigation into a solitary, geometrically regular cylindrical object identified in NASA Mars Science Laboratory (Curiosity) Mastcam Right 100 mm imagery (PDS Product `3556MR1025170721700585C00`, captured August 7, 2022). Utilizing raw NASA PDS telemetry, sub-pixel edge detection, three-dimensional forward projection modeling, and shadow ray-tracing, this investigation determines the physical dimensions, orientation, and geological context of the object, while framing the epistemological implications of AI-assisted citizen science.
+This project presents an empirical forensic investigation into a solitary, geometrically regular cylindrical object identified in NASA Mars Science Laboratory (*Curiosity*) Mastcam Right 100 mm imagery (PDS Product `3556MR1025170721700585C00`, captured August 7, 2022 at 12:10:25 LTST). Utilizing raw NASA PDS telemetry, CAHVOR camera matrix transformations, solar ephemeris shadow ray-tracing, sub-pixel Sobel gradient edge decoupling, 3D central-perspective photogrammetric modeling, and an empirical null distribution of $N = 20$ background clasts, this study establishes the physical dimensions, orientation, and statistical significance of the feature while demonstrating the methodology of human-guided AI in citizen planetary science.
 
 ## Key Technical Findings
-- **Instrument**: Curiosity Mastcam Right 100 mm (M-100), focal length f = 100 mm.
-- **PDS Product ID**: `3556MR1025170721700585C00` (EDR: `3556MR1025170721700585E01`).
-- **Location**: Gale Crater, Paraitepuy Pass, lower Mount Sharp (Aeolis Mons), sol 3556.
-- **Distance to Target (Rover Range)**: 2.14 ± 0.08 meters.
-- **Estimated Dimensions**:
-  - Diameter: 14.1 ± 0.9 mm (consistent with standard AA battery diameter of 14.2 mm).
-  - Visible Length: 38.6 ± 2.1 mm (partially embedded; standard AA length is 50.5 mm).
-  - Exposed Cross-Section: Semi-circular / cylindrical arc, right-end circular terminus.
-- **Sun Elevation / Shadow Match**: Solar azimuth 281.4°, elevation 49.6°. Cast shadow length and taper are fully consistent with a 3D cylindrical occlusion.
-- **Three Leading Hypotheses**:
-  1. *Curiosity Spacecraft Jettison / Debris*: Hardware shed from cruise stage, entry-descent-landing (EDL) sky crane, or rover thermal/electrical harnesses.
-  2. *Anomalous Diagenetic Mineral Concretion / Weathering Cast*: Preferential cementation in sedimentary sulfate-bearing sandstone.
-  3. *Unidentified Exotic Macro-Inclusion*: Preserved artifact or anomalous formation under active study.
+- **Instrument**: Curiosity Mastcam Right 100 mm (M-100), focal length $f = 100\text{ mm}$, $f/12$, pixel pitch $7.4\,\mu\text{m}$ ($\text{IFOV} = 0.074\text{ mrad/pixel}$).
+- **PDS Product ID**: `3556MR1025170721700585C00` (`DRCL`, `DRCX`, `DRLX`, `DRXX`).
+- **Location**: Gale Crater, Paraitepuy Pass, lower Mount Sharp (Aeolis Mons), Sol 3556 (Site 96, Drive 2376).
+- **Focus & Slant Range**: Focus motor encoder count `2705`, calibrated best focus distance $3.957\text{ m}$ (optical depth-of-field slant range band: $3.63\text{--}4.30\text{ m}$; PDS focus range $3.6\text{--}4.4\text{ m}$).
+- **Pixel Scale**: $0.293\text{ mm/pixel}$ (normal) to $0.317\text{ mm/pixel}$ (ground-projected at $-22.0047^\circ$ camera elevation; full DoF range $0.269\text{--}0.318\text{ mm/pixel}$).
+- **Physical Dimensions**:
+  - **Transverse Diameter ($D$)**: $11.5 \pm 0.8\text{ mm}$ ($10.8\text{--}12.5\text{ mm}$ across $34.0\text{--}37.63\text{ px}$; Sobel ellipse major diameter $2a = 11.93\text{ mm}$ at $0.317\text{ mm/px}$).
+  - **Total Exposed Length ($L$)**: $35 \pm 2\text{ mm}$ ($34.9 \pm 0.8\text{ mm}$ sub-pixel fit across $110\text{ px}$).
+  - **Length-to-Diameter Aspect Ratio ($L/D$)**: $3.24 : 1$ ($110\text{ px} \times 34\text{ px}$).
+  - **End-Cap Circularity ($b/a$)**: $0.9335$ (matching 3D viewing foreshortening $\cos\beta$ to within $1.8^\circ$).
+  - **Generator Parallelism ($R^2$)**: $0.9985$ ($\Delta\theta < 0.2^\circ$).
+- **Solar Ephemeris & Shadow Mensuration**:
+  - Solar elevation $\theta_\odot = 69.8224^\circ$, solar azimuth $\phi_\odot = 186.8169^\circ$ (shadow compression factor $\cot(69.8224^\circ) = 0.3675$).
+  - Projected 2D image-plane shadow vector $+23.3728^\circ$; measured ground cast shadow $3.11 \pm 0.22\text{ mm}$ ($9.8 \pm 0.7\text{ px}$), matching the $8.46 \pm 0.60\text{ mm}$ exposed vertical relief ($66.5\%$ exposed, $33.5\%$ buried).
+- **Statistical Controls ($N = 20$ Surrounding Clasts)**:
+  - Natural clast circularity: $\mu = 0.829 \pm 0.100$ ($\pm 0.102$ sample SD; cylinder $z = +1.05\,\sigma$, $p = 0.15$).
+  - Natural clast aspect ratio: $\mu = 1.23 \pm 0.16$ ($1.226 \pm 0.167$ sample SD; cylinder $3.24:1$ is $+12.56\,\sigma$ tabulated / $+12.06\,\sigma$ sample SD, $p \ll 10^{-9}$).
+  - Natural clast generator parallelism: $\overline{R^2} = 0.104 \pm 0.081$ ($\pm 0.084$ sample SD, $\max = 0.271$; cylinder $0.9985$ is $+10.97\,\sigma$ population SD / $+10.70\,\sigma$ sample SD, $p \ll 10^{-9}$).
+- **Three Candidate Hypotheses**:
+  1. *Mission Hardware or EDL Debris*: Constrained by the $28.4\text{ km}$ traverse ($13\text{--}15\text{ km}$ direct air line) from Bradbury Landing, absence of impact/shearing deformation, and an $80\text{--}320\text{ Earth year}$ ($80\text{--}200\text{ yr}$ for $2.0\text{ mm}$ vertical burial; $128\text{--}320\text{ yr}$ for $3.2\text{ mm}$ chord) passive dust sedimentation clock.
+  2. *Aeolian Ventifact or Diagenetic Concretion*: Inconsistent with directional aeolian abrasion and isotropic nodule precipitation ($+10.97\,\sigma$ generator parallelism and $+12.56\,\sigma$ aspect ratio outlier).
+  3. *Manufactured Artifact of Unconfirmed Provenance*: Testable via in-situ MAHLI micro-imaging ($14\text{--}20\,\mu\text{m/pixel}$) and ChemCam LIBS elemental spectroscopy.
 
 ## Primary Documentation & Research Files
-- [Main Essay & Monograph](https://cambrianminds.github.io/martian-cylinder/): Full longform multimedia essay on the historical JPL heritage (Richard "Sam" Bogner), AI pair programming methodology, and photogrammetry results.
-- [Technical Paper (PDF)](https://cambrianminds.github.io/martian-cylinder/martian_cylinder_paper.pdf): Complete 14-page formal scientific paper formatted in LaTeX with rigorous equations, telemetry tables, error propagation, and peer references.
-- [Technical Paper (Markdown)](https://cambrianminds.github.io/martian-cylinder/martian_cylinder_paper.md): Full raw Markdown of the 14-page formal paper for LLM ingestion and text processing.
-- [Citizen Science Article (PDF)](https://cambrianminds.github.io/martian-cylinder/citizen_science_article.pdf): 10-page standalone editorial essay and methodology report.
+- [Main Essay & Monograph](https://cambrianminds.github.io/martian-cylinder/): Full longform multimedia essay on the historical JPL heritage (Richard "Sam" Bogner), human-AI collaboration methodology, and photogrammetry results.
+- [Technical Paper (PDF)](https://cambrianminds.github.io/martian-cylinder/martian_cylinder_paper.pdf): Formal scientific paper formatted in LaTeX with equations, telemetry tables, error propagation, and verified references.
+- [Technical Paper (Markdown)](https://cambrianminds.github.io/martian-cylinder/martian_cylinder_paper.md): Full raw Markdown of the formal paper for LLM ingestion and text processing.
+- [Citizen Science Article (PDF)](https://cambrianminds.github.io/martian-cylinder/citizen_science_article.pdf): Standalone editorial essay and methodology report.
 - [Citizen Science Article (Markdown)](https://cambrianminds.github.io/martian-cylinder/citizen_science_article.md): Raw Markdown text of the citizen science essay.
-- [Interactive 3D Cylinder Studio Tool](https://cambrianminds.github.io/martian-cylinder/cylinder-tool/index.html): WebGL 3D projection tool for fitting 3D cylinders to calibrated Mastcam pixels in real-time.
-- [Raw PDS Label & Telemetry Header](https://cambrianminds.github.io/martian-cylinder/DRXX-metadata.txt): Complete ASCII PDS VICAR/ODL metadata dump for Sol 3556 frame 3556MR1025170721700585C00.
+- [Interactive 3D Cylinder Studio Tool](https://cambrianminds.github.io/martian-cylinder/cylinder-tool/index.html): HTML5 Canvas 3D central-perspective projection tool pre-calibrated to the Sol 3556 cylinder geometry.
+- [Reproducible Verification Suite (`reproduce_analysis.py`)](https://cambrianminds.github.io/martian-cylinder/reproduce_analysis.py): Standalone Python script verifying all PDS telemetry, optical depth-of-field, solar ray-tracing, Sobel edge fitting, and $N = 20$ control rock statistics directly from the raw data.
+- [Raw PDS Label & Telemetry Header](https://cambrianminds.github.io/martian-cylinder/DRXX-metadata.txt): Complete ASCII PDS3 VICAR/ODL metadata dump for Sol 3556 frame `3556MR1025170721700585C00`.
 
 ## Authors & Citation
 - **Author**: Justin Bogner
 - **Organization**: Cambrian Minds
-- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), Space Power Systems Engineer, NASA Jet Propulsion Laboratory (Surveyor 3, Mariner 9, Viking, GM SunRaycer).
+- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), Space Power Systems Engineer, NASA Jet Propulsion Laboratory (Surveyor, Mariner Mars 1971 / Mariner 9, Hughes Space and Communications, GM SunRaycer).
+- **Report Number**: CMR-2026-01
 - **Date**: October 2026

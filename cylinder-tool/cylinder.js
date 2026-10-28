@@ -14,20 +14,20 @@
 class MartianCylinder {
   constructor(options = {}) {
     // Position on canvas/image (in image coordinate space)
-    this.x = options.x || 300;
-    this.y = options.y || 250;
+    this.x = options.x || 246.8;
+    this.y = options.y || 268.7;
 
-    // Base dimensions (defines the fixed aspect ratio)
-    this.baseLength = options.baseLength || 180;    // Nominal length
-    this.baseDiameter = options.baseDiameter || 108; // Nominal diameter
+    // Base dimensions (defines the fixed aspect ratio: Sol 3556 fit 110x34 px, AR 3.24:1)
+    this.baseLength = options.baseLength || 110;    // Nominal length (px)
+    this.baseDiameter = options.baseDiameter || 34; // Nominal diameter (px)
     this.aspectRatio = this.baseLength / this.baseDiameter; // Default ~1.67
 
     // Scale multiplier (dragging corners changes this uniformly!)
     this.scale = options.scale || 1.0;
 
     // Angles
-    this.rotation = options.rotation !== undefined ? options.rotation : (-42 * Math.PI / 180); // 360° planar angle (radians)
-    this.tilt = options.tilt !== undefined ? options.tilt : (48 * Math.PI / 180); // 360° perspective tilt (radians)
+    this.rotation = options.rotation !== undefined ? options.rotation : (218 * Math.PI / 180); // 360° planar angle (radians)
+    this.tilt = options.tilt !== undefined ? options.tilt : (156 * Math.PI / 180); // 360° perspective tilt (radians)
 
     // Perspective Camera Distance Ratio (Z0 = L * camRatio)
     // Controls how pronounced the perspective scaling is (back circle smaller than front circle)
@@ -41,8 +41,8 @@ class MartianCylinder {
     this.showAxis = options.showAxis !== undefined ? options.showAxis : true;
     this.showEllipseAxes = options.showEllipseAxes !== undefined ? options.showEllipseAxes : true;
     this.showShadow = options.showShadow !== undefined ? options.showShadow : false;
-    this.sunAzimuth = options.sunAzimuth || 295; // degrees
-    this.sunElevation = options.sunElevation || 69.7; // degrees (Curiosity Sol 3556 metadata)
+    this.sunAzimuth = options.sunAzimuth || 186.8169; // degrees (Curiosity Sol 3556 SPICE ephemeris)
+    this.sunElevation = options.sunElevation || 69.8224; // degrees (Curiosity Sol 3556 SPICE ephemeris)
     
     // Interactive State & Handles Visibility
     this.showHandles = options.showHandles !== undefined ? options.showHandles : true;

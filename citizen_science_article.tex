@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{geometry}
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={Justin Bogner},pdftitle={Measuring the Martian Cylinder: How Open Data, AI, and Human Common Sense Audited a Viral Space Anomaly}]{hyperref}
 \usepackage[font=small,labelfont=bf]{caption}
 
 \geometry{
@@ -17,10 +17,10 @@
     right=1.1in
 }
 
-\setlength{\parskip}{0.8em}
+\setlength{\parskip}{0.68em}
 \setlength{\parindent}{0pt}
 
-\newcommand{\horizontalrule}{\vspace{0.8em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.8em}}
+\newcommand{\horizontalrule}{\vspace{0.55em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.55em}}
 
 \begin{document}
 
@@ -42,7 +42,7 @@
 
 In August 2022, NASA's \textit{Curiosity} rover took a photo on Mars. In the lower right corner was something strange. There appeared to be a cylinder poking out of the dirt. It's surrounded by pebbles and dirt, things that one would expect to find on Mars. The object was, at least to me, obviously anomalous.
 
-People noticed. Some said it was debris from the rover. Some said it was just a strange rock. And of course some people immediately jumped to aliens. Even astrophysicist Avi Loeb \href{https://avi-loeb.medium.com/is-the-mysterious-cylinder-on-mars-photographed-in-2022-by-the-curiosity-rover-a-human-made-debris-2b509f6e1f06}{wrote that NASA should take a closer look}.
+People noticed. Some said it was debris from the rover. Some said it was just a strange rock. And of course some people immediately jumped to aliens. Even astrophysicist Avi Loeb \href{https://avi-loeb.medium.com/is-the-mysterious-cylinder-on-mars-photographed-in-2022-by-the-curiosity-rover-a-human-made-6fcd8e242fea}{wrote that NASA should take a closer look}.
 
 I'd seen it discussed on podcasts and YouTube videos, but no one ever seemed to actually meaningfully dig into the data. No one seemed to be doing any actual work, just making a lot of noise. This applies both directions, from the scientific community and the more heterodox crowd.
 
@@ -58,7 +58,7 @@ This story begins with another story: one that makes what is to come more intere
 
 During his time at JPL, he worked on evaluating and perfecting the high-energy silver-zinc battery packs that would power the Surveyor lunar landers. It wasn't just about making the batteries hold a charge; his team had to ensure these batteries could withstand the violent vibrations of a rocket launch, survive the deceleration of a lunar touchdown, and keep the spacecraft alive through freezing, two-week-long lunar nights where temperatures plummeted to hundreds of degrees below zero.
 
-From the Moon, his focus shifted outward to the Red Planet. He became the project engineer and the definitive voice on battery flight performance for the Mariner program, specifically Mariners 6, 7, 9, and 10. I looked up the \href{https://ntrs.nasa.gov/citations/19730014298}{historic NASA technical reports from the Mariner Mars 1971 mission}, and seeing his name right there on the cover was profoundly humbling. His work tracked how the silver-zinc cells degraded over the months of deep-space transit, managed the chemistry of \href{https://ntrs.nasa.gov/citations/19710005471}{separator systems to prevent short circuits}, modeled the exact discharge curves required when Mariner 9 entered orbit and dipped into the dark shadow of Mars, and a bunch of other stuff I still don't fully understand. When Mariner 9 successfully outlasted a planet-wide dust storm to map 100\% of the Martian surface, it did so powered by an architecture he engineered.
+From the Moon, his focus shifted outward to the Red Planet. He became the project engineer and the definitive voice on battery flight performance for the Mariner program, specifically Mariners 6, 7, 9, and 10. I looked up the \href{data/bogner_mariner1971_report.pdf}{historic NASA technical reports from the Mariner Mars 1971 mission}, and seeing his name right there on the cover was profoundly humbling. His work tracked how deep-space silver-zinc and nickel-cadmium cells degraded over months of interplanetary transit, managed the chemistry of \href{https://ntrs.nasa.gov/citations/19710005471}{separator systems to prevent short circuits}, modeled the exact discharge curves required when Mariner 9 entered orbit and dipped into the dark shadow of Mars, and a bunch of other stuff I still don't fully understand. When Mariner 9 successfully outlasted a planet-wide dust storm to map 100\% of the Martian surface, it did so powered by an architecture he engineered.
 
 As the space race began to transition into the commercial satellite boom of the late 1970s and 1980s, Uncle Sam brought his expertise to Hughes Space and Communications. At Hughes, he moved away from the volatile inner solar system and focused on longevity and weight reduction for Earth's orbital infrastructure. He pioneered research into lightweight, graphite-epoxy battery casings to replace heavy metallic housings, testing nickel-cadmium cells through simulated geosynchronous orbit-eclipse seasons to ensure communication satellites could survive for decades without failing.
 

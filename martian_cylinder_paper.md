@@ -1,17 +1,13 @@
 # Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery: Constraints on Aeolian, Diagenetic, and Artificial Provenance via Sub-Pixel Gradient Forensics
 
 **Justin Bogner**  
-*Sol 3556 Archive Re-evaluation · October 2026*
-
----
+*Cambrian Minds · Sol 3556 Archive Re-evaluation · Technical Report CMR-2026-01 · October 2026*
 
 ### Abstract
 
-On Sol 3556 (August 7, 2022), the Mars Science Laboratory (*Curiosity*) Mast Camera (Mastcam Right, $100\text{ mm}$) captured an anomalous, highly regular cylindrical object partially embedded in the regolith of Paraitepuy Pass in Gale Crater (PDS Product: `3556MR1025170721700585C00`). Early public discussions estimated the object at $\sim 20\text{ cm}$ in length, sparking debate regarding potential mission debris versus unusual geology, and prompting calls by astrophysicists such as Avi Loeb for contact forensics. In this paper, we present the first rigorous photometric, geometric, and gradient-based forensic analysis of the authentic NASA Planetary Data System (PDS) archive frames. Utilizing the camera's CAHV geometric model, focus motor position count ($2705$, calibrating to a nominal target distance of $3.957\text{ m}$ within an optical depth-of-field band of $3.63\text{--}4.30\text{ m}$), and solar ephemeris ($\theta_\odot = 69.8224^\circ$), we establish that the object is located in the immediate rover foreground rather than a distant cliff face. Propagating the depth-of-field scale uncertainty yields true physical dimensions of $D = 11.5 \pm 0.8\text{ mm}$ ($10.8\text{--}12.5\text{ mm}$) across its planar end-cap face and $L \approx 3.5\text{ cm}$ ($35 \pm 2\text{ mm}$) in exposed length, with a true diameter-to-relief correspondence governed by an extreme solar shadow compression factor of $\cot(69.82^\circ) = 0.3675$. Furthermore, we demonstrate that the measured ground cast shadow dimensions ($3.11 \pm 0.22\text{ mm}$) match precisely what is mathematically dictated by the solar elevation angle and the physical vertical relief ($8.46\text{ mm}$) of the exposed cylinder. By applying horizontal Sobel spatial gradient operators ($S_x$), we mathematically decouple the physical cylinder face from two confusing artifacts: an independent background rock shelf on the upper-right flank and a $23.37^\circ$ ground cast shadow fringe. Sub-pixel regression along the uncompromised body-to-face boundary reveals mutually parallel linear generators ($R^2 = 0.9985$, $\Delta\theta < 0.2^\circ$) and a projected circularity ratio of $0.9335$ (matching the 3D viewing foreshortening angle). To establish statistical controls, we measure an empirical null distribution of $N = 20$ surrounding basaltic clasts in the same frame: while natural clasts achieve projected roundness up to $0.98$ ($\mu = 0.829 \pm 0.099$), natural rocks exhibit poor generator parallelism ($\overline{R^2} = 0.104 \pm 0.081$, $\max = 0.271$). The cylinder's generator parallelism constitutes an extreme $+10.97\,\sigma$ outlier ($p \ll 0.001$), with its $3.24:1$ aspect ratio representing a $+12.56\,\sigma$ anomaly. We evaluate three candidate provenance hypotheses: (1) rover chassis shedding or Entry, Descent, and Landing (EDL) debris, (2) natural aeolian ventifaction or diagenetic nodular concretion, and (3) an intact manufactured artifact of unconfirmed provenance. We document the physical constraints ruling out aerodynamic transport from Bradbury Landing ($28.4\text{ km}$ rover traverse, $13\text{--}15\text{ km}$ direct air line) across Mars's $6\text{ hPa}$ atmosphere, the complete absence of mechanical failure signatures, and the $80\text{--}200\text{ Earth year}$ passive dust sedimentation clock that chronologically excludes Curiosity-derived hardware in Gale Crater (the crater's sole terrestrial mission). Finally, we specify concrete discriminants for arm-mounted contact forensics (MAHLI micro-textural tooling marks vs. crystal cleavage; ChemCam LIBS alloy stoichiometry vs. silicate basalt), providing an empirical roadmap for resolving the object's origin.
+On Sol 3556 (August 7, 2022), the Mars Science Laboratory (*Curiosity*) Mast Camera (Mastcam Right, $100\text{ mm}$) captured an anomalous, highly regular cylindrical object partially embedded in the regolith of Paraitepuy Pass in Gale Crater (PDS Product: `3556MR1025170721700585C00`). Public discussions estimated the object at $\sim 20\text{ cm}$ in length, sparking debate regarding potential mission debris versus unusual geology, and prompting calls by astrophysicist Avi Loeb for contact forensics. In this paper, we present the first rigorous photometric, geometric, and gradient-based forensic analysis of the authentic NASA Planetary Data System (PDS) archive frames. Utilizing the camera's CAHVOR geometric model, focus motor position count ($2705$, calibrating to a nominal target distance of $3.957\text{ m}$ within an optical depth-of-field band of $3.63\text{--}4.30\text{ m}$), and solar ephemeris ($\theta_\odot = 69.8224^\circ$, $\phi_\odot = 186.8169^\circ$), we establish that the object is located in the immediate rover foreground rather than a distant cliff face. Propagating both normal ($0.293\text{ mm/pixel}$) and ground-projected ($0.317\text{ mm/pixel}$) pixel scales across the depth-of-field envelope yields true physical dimensions of $D = 11.5 \pm 0.8\text{ mm}$ ($10.8\text{--}12.5\text{ mm}$) across its planar end-cap face and $L \approx 3.5\text{ cm}$ ($35 \pm 2\text{ mm}$) in exposed length, with a true diameter-to-relief correspondence governed by an extreme solar shadow compression factor of $\cot(69.8224^\circ) = 0.3675$. Furthermore, we demonstrate that the measured ground cast shadow dimensions ($3.11 \pm 0.22\text{ mm}$) match precisely what is mathematically dictated by the solar elevation angle and the physical vertical relief ($8.46\text{ mm}$) of the exposed cylinder. By applying horizontal Sobel spatial gradient operators ($S_x$), we mathematically decouple the physical cylinder face from two confounding features: an independent background rock shelf on the upper-right flank and a $+23.37^\circ$ ground cast shadow fringe. Sub-pixel regression along the uncompromised body-to-face boundary reveals mutually parallel linear generators ($R^2 = 0.9985$, $\Delta\theta < 0.2^\circ$) and a projected circularity ratio of $0.9335$ (matching the 3D viewing foreshortening angle). To establish statistical controls, we measure an empirical null distribution of $N = 20$ surrounding basaltic and sandstone clasts in the same frame: while natural clasts achieve projected roundness up to $0.98$ ($\mu = 0.829 \pm 0.100$ population SD, $\pm 0.102$ sample SD), natural rocks exhibit poor generator parallelism ($\overline{R^2} = 0.104 \pm 0.081$ population SD, $\pm 0.084$ sample SD; $\max = 0.271$). The cylinder's generator parallelism constitutes an extreme $+10.97\,\sigma$ outlier ($+10.70\,\sigma$ sample SD; $p \ll 10^{-9}$), with its $3.24:1$ aspect ratio representing a $+12.56\,\sigma$ anomaly ($+12.06\,\sigma$ unrounded sample SD). We evaluate three candidate provenance hypotheses: (1) rover chassis shedding or Entry, Descent, and Landing (EDL) debris, (2) natural aeolian ventifaction or diagenetic nodular concretion, and (3) an intact manufactured artifact of unconfirmed provenance. We document the physical constraints ruling out aerodynamic transport from Bradbury Landing ($28.4\text{ km}$ rover traverse, $13\text{--}15\text{ km}$ direct air line) across Mars's $6\text{ hPa}$ atmosphere, the complete absence of mechanical failure signatures, and the $80\text{--}320\text{ Earth year}$ passive dust sedimentation clock ($80\text{--}200\text{ years}$ for a conservative $2.0\text{ mm}$ vertical burial horizon; $128\text{--}320\text{ years}$ for the full $3.2\text{ mm}$ buried chord) that chronologically excludes Curiosity-derived hardware in Gale Crater. Finally, we specify concrete discriminants for arm-mounted contact forensics (MAHLI micro-textural tooling marks vs. crystal cleavage; ChemCam LIBS alloy stoichiometry vs. silicate basalt), providing an empirical roadmap for resolving the object's origin.
 
 **Keywords:** Mars Science Laboratory, Curiosity Rover, Mastcam, Planetary Forensics, Image Processing, Sobel Filter, Aeolian Geomorphology, Null Distribution.
-
----
 
 ## 1. Introduction and Discovery Context
 
@@ -25,13 +21,11 @@ Located in the lower-right quadrant of the raw $1328 \times 1184$ detector frame
 
 **Figure 1. Curiosity Mastcam Right Sol 3556 contextual observation (PDS Product: `3556MR1025170721700585C00`).**  
 *(a) Full raw detector frame ($1328 \times 1184$ pixels):* Acquired at Paraitepuy Pass at a camera depression angle of $-22.0^\circ$ and optimal slant range $R = 3.957\text{ m}$. The anomalous cylindrical feature is situated in the lower-right quadrant ($X \approx 1069\text{ px}$, $Y \approx 991\text{ px}$).  
-*(b) Regional in-situ context crop ($500 \times 450$ pixels):* Highlighting the object's stratigraphic setting, demonstrating in-situ emplacement within the regolith matrix adjacent to dipping sandstone plates.
+*(b) Regional in-situ context crop ($500 \times 450$ pixels, `DRCL` offset $x_0 = 800, y_0 = 700$):* Highlighting the object's stratigraphic setting, demonstrating in-situ emplacement within the regolith matrix adjacent to dipping sandstone plates.
 
-Initial public commentary, published in scientific blogs and media analyses, notably by Harvard astrophysicist Avi Loeb [1], speculated that the cylinder measured roughly $20\text{ cm}$ ($8\text{ inches}$) in length. Loeb pointed out the stark geometric departure of the object from the surrounding jagged basaltic rocks and advocated that NASA's mission team task *Curiosity*'s arm-mounted instruments to conduct in-situ contact forensics. Proposed investigations included micro-imaging via the Mars Hand Lens Imager (MAHLI), elemental stoichiometry via the Alpha Particle X-ray Spectrometer (APXS), or remote elemental ablation via the ChemCam Laser-Induced Breakdown Spectrometer (LIBS).
+Public commentary, published in scientific blogs and media analyses, notably by Harvard astrophysicist Avi Loeb [1], noted early estimates that the cylinder measured roughly $20\text{ cm}$ ($8\text{ inches}$) in length. Loeb pointed out the stark geometric departure of the object from the surrounding jagged basaltic rocks and advocated that NASA's mission team task *Curiosity*'s arm-mounted instruments to conduct in-situ contact forensics. Proposed investigations included micro-imaging via the Mars Hand Lens Imager (MAHLI), elemental stoichiometry via the Alpha Particle X-ray Spectrometer (APXS), or remote elemental ablation via the ChemCam Laser-Induced Breakdown Spectrometer (LIBS).
 
 Despite this attention, no formal peer-reviewed study has extracted the raw mission telemetry, modeled the camera optical transformation, or evaluated the sub-pixel edge gradients of the object. Furthermore, the persistent assumption that the object measured $20\text{ cm}$ in length introduced widespread confusion regarding its physical nature. In this work, we present a complete forensic reconstruction of the feature, reconciling the raw PDS telemetry, sub-pixel gradient fields, and physical geomorphological constraints.
-
----
 
 ## 2. Methodology: Human-Guided AI Forensic Collaboration
 
@@ -47,17 +41,15 @@ Early in the computational investigation, automated algorithmic pipelines repeat
 
 ### 2.2 Human Oversight as the Algorithmic Corrective
 
-While the AI system possessed the mathematical capacity to execute sub-pixel numerical calculus, solve CAHV matrix inversions, and compute least-squares algebraic regressions, it lacked the perceptual discernment to recognize when its models violated physical reality.
+While the AI system possessed the mathematical capacity to execute sub-pixel numerical calculus, solve CAHVOR matrix inversions, and compute least-squares algebraic regressions, it lacked the perceptual discernment to recognize when its models violated physical reality.
 
 The human researcher, relying on visual inspection and spatial common sense, intervened at each critical failure mode:
 
-- Identifying that the upper-right "lump" was an independent rock with a distinct vertical shadow shelf, directing the algorithm to exclude that spatial coordinate box ($X \in [75, 87]$, $Y \in [36, 49]$).
+- Identifying that the upper-right "lump" was an independent rock with a distinct vertical shadow shelf, directing the algorithm to exclude that spatial coordinate box ($X \in [75, 87]$, $Y \in [36, 49]$ within the $120 \times 120$ feature sub-raster).
 - Recognizing that the horizontal Sobel operator ($S_x = \partial I / \partial x$) provided an uncompromised negative-gradient crescent along the left rim that completely decoupled the physical cylinder face from the external ground shadow.
-- Enforcing the geometric truth that a tilted circular cylinder must project as an ellipse whose minor-to-major axis ratio matches the cosine of the camera's depression angle.
+- Enforcing the geometric truth that a tilted circular cylinder must project as an ellipse whose minor-to-major axis ratio matches the cosine of the camera's 3D viewing angle relative to the cap normal.
 
 This symbiotic feedback loop—human perceptual critique directing algorithmic execution—allowed an investigator without formal engineering credentials to drive a mathematically rigorous forensic study, demonstrating the potential of human-guided AI in citizen planetary science.
-
----
 
 ## 3. PDS Telemetry, Optical Scale, and Solar Ray-Tracing
 
@@ -82,23 +74,23 @@ where $N = 12$ is the focal ratio and $c = 7.4\ \mu\text{m}$ is the detector cir
 
 $$D_{\text{near}} = \frac{H \cdot s_0}{H + s_0} \approx 3.82\text{ m}, \qquad D_{\text{far}} = \frac{H \cdot s_0}{H - s_0} \approx 4.10\text{ m}$$
 
-When projected onto the sloping regolith surface beneath the rover (camera mast mounted at $Z = -1.973\text{ m}$, depression angle $-22.0047^\circ$, central ray intersection $R_{\text{ground}} = 5.26\text{ m}$), the lower-right detector sector ($Y = 991$ within the $1180$-line raster) constrains the local ground target to a plausible slant range band of:
+When projected onto the sloping regolith surface beneath the rover (camera mast mounted at $Z \approx -1.973\text{ m}$ above the local ground plane, depression angle $-22.0047^\circ$, central ray horizontal ground intersection $R_{\text{ground}} = 5.26\text{ m}$), the lower-right detector sector ($Y = 991$ within the $1180$-line `DRCL` / $1184$-line `DRCX` raster; PDS focus envelope $3.6\text{--}4.4\text{ m}$) constrains the local ground target to a plausible slant range band of:
 
 $$R_{\text{target}} \approx 3.63\text{ to } 4.30\text{ meters}$$
 
-Propagating this distance band across the Mastcam-100 angular pixel scale ($\text{IFOV} = 7.4 \times 10^{-5}\text{ rad}$) yields a ground-projected pixel scale spanning:
+Propagating this distance band across the Mastcam-100 angular pixel scale ($\text{IFOV} = 7.4 \times 10^{-5}\text{ rad}$) yields a normal (line-of-sight perpendicular) pixel scale $s_{\perp} = R \cdot \text{IFOV} \in [0.269,\, 0.318]\text{ mm/pixel}$ (nominal $s_{\perp}(3.957\text{ m}) = 0.293\text{ mm/pixel}$) and a ground-projected scale incorporating the oblique viewing geometry ($s_{\text{ground}} = s_{\perp}/\cos 22.5^\circ \approx 0.317\text{ mm/pixel}$ at nominal focus):
 
-$$s = R \cdot \text{IFOV} \in [0.269,\, 0.318]\text{ mm/pixel} \quad (\text{nominal } s_0 \approx 0.293\text{--}0.317\text{ mm/pixel})$$
+$$s_{\perp} \in [0.269,\, 0.318]\text{ mm/pixel} \quad (\text{nominal } s_0 \approx 0.293\text{ normal to } 0.317\text{ ground-projected mm/pixel})$$
 
 ### 3.2 Resolution of the Scale Discrepancy
 
 The widespread public claim that the Sol 3556 cylinder measures $\sim 20\text{ cm}$ in length arose from assuming the object was located on the distant Bolivar cliff face referenced in the operational sequence descriptor (*"Stereo documentation of bedding styles exposed in Bolivar cliff face"*). A target at a distance of $45\text{ meters}$ would indeed scale a $35$-pixel transverse feature to $\approx 18\text{--}20\text{ cm}$.
 
-However, at $45\text{ meters}$, the camera's focus motor would have been commanded to infinity (`INFINITY_CONSTANT`), and individual millimeter-scale sand grains surrounding the object would be completely unresolved blur circles. The focus telemetry confirms beyond ambiguity that the feature is located in the immediate foreground. Propagating the full depth-of-field slant range band ($3.63\text{--}4.30\text{ m}$) yields an honest physical diameter of:
+However, at $45\text{ meters}$, the camera's focus motor would have been commanded to infinity (`INFINITY_CONSTANT`), and individual millimeter-scale sand grains surrounding the object would be completely unresolved blur circles. The focus telemetry confirms beyond ambiguity that the feature is located in the immediate foreground. Combining both transverse pixel estimators—the $34.0\text{ px}$ 3D photogrammetric cylinder barrel width and the $37.63\text{ px}$ 2D Sobel gradient ellipse major axis (which includes $\sim 1.8\text{ px}$ of $3 \times 3$ kernel convolution broadening)—across the normal ($0.293\text{ mm/px}$) to ground-projected ($0.317\text{ mm/px}$) calibration scales and depth-of-field envelope ($3.63\text{--}4.30\text{ m}$) yields a conservative physical diameter bound of:
 
-$$D = 37.6\text{ pixels} \times s \implies \mathbf{10.8\text{ to } 12.5\text{ mm}} \quad (\text{nominal } \mathbf{11.5 \pm 0.8\text{ mm}})$$
+$$D \in [34.0,\, 37.63]\text{ pixels} \times s \implies \mathbf{10.8\text{ to } 12.5\text{ mm}} \quad (\text{nominal } \mathbf{11.5 \pm 0.8\text{ mm}})$$
 
-and an exposed longitudinal length of $\mathbf{35 \pm 2\text{ mm}}$ ($3.5\text{ cm}$). This represents a realistic $\pm 7\%$ physical uncertainty (governed by the optical depth-of-field envelope), rather than an overly tight $\pm 3\%$ statistical fit precision. Crucially, this honest error propagation reinforces the core forensic finding: even at the extreme far limit of the depth of field ($4.30\text{ m}$), the diameter cannot exceed $12.5\text{ mm}$. The object is definitively an engineered-scale millimeter component, not a twenty-centimeter boulder.
+and an exposed longitudinal length of $\mathbf{35 \pm 2\text{ mm}}$ ($3.5\text{ cm}$). This represents a realistic $\pm 7\%$ physical uncertainty (governed by the optical depth-of-field envelope and kernel scale bounds), rather than an overly tight $\pm 3\%$ statistical fit precision. Crucially, this honest error propagation reinforces the core forensic finding: even at the extreme far limit of the depth of field ($4.30\text{ m}$), the diameter cannot exceed $12.5\text{ mm}$. The object is definitively an engineered-scale millimeter component, not a twenty-centimeter boulder.
 
 ### 3.3 Solar Ephemeris, Shadow Compression, and Vertical Relief Mensuration
 
@@ -118,7 +110,7 @@ Conversely, the physical vertical relief is uniquely constrained by inverting th
 
 $$h = S_{\text{ground}} \cdot \tan(69.8224^\circ) \approx 2.7212 \cdot S_{\text{ground}}$$
 
-Because the Martian sun was positioned only $20.18^\circ$ from zenith, surface cast shadows are compressed to just $36.8\%$ of an object's true height. Projecting the 3D ground shadow vector through the CAHV camera model yields a 2D sensor displacement vector $(\Delta u, \Delta v) = (0.2407\,h, 0.1040\,h)$, defining an image plane shadow angle of:
+Because the Martian sun was positioned only $20.18^\circ$ from zenith, surface cast shadows are compressed to just $36.8\%$ of an object's true height. Projecting the 3D ground shadow vector through the camera viewing transformation (camera azimuth $227.7412^\circ$, elevation $-22.0047^\circ$) yields a 2D sensor displacement vector $(\Delta u, \Delta v) = (0.240725\,h, 0.104035\,h)$, defining an image plane shadow angle of:
 
 $$\theta_{\text{shadow}} = \arctan\left(\frac{0.104035}{0.240725}\right) = +23.3728^\circ$$
 
@@ -136,7 +128,7 @@ This matches the observed ground shadow fringe extending from the lower flank of
 - *Green contour:* Upper exposed boundary arc of the circular end-cap rim.  
 - *Blue contour:* Outer envelope bounding the ground cast shadow footprint.
 
-From the geometric reconstruction of the cylinder end cap ($D = 11.93\text{ mm}$), the linear regolith contact interface (the red boundary line in Figure 2) demonstrates that the cylinder is buried to approximately $33.5\%$ of its diameter ($d_{\text{buried}} \approx 2.95\text{--}3.47\text{ mm}$). Consequently, the exposed relief rising above the local ground plane is:
+From the geometric reconstruction of the cylinder end cap ($D = 11.93\text{ mm}$ at $0.317\text{ mm/px}$), the linear regolith contact interface (the red boundary line in Figure 2) demonstrates that the cylinder is buried to approximately $33.5\%$ of its diameter ($d_{\text{buried}} \approx 2.95\text{--}3.47\text{ mm}$ along the inclined face chord, corresponding to $\approx 2.0\text{--}3.2\text{ mm}$ of vertical sediment depth). Consequently, the exposed relief rising above the local ground plane is:
 
 $$h_{\text{exposed}} \approx 0.665 \cdot D \approx 8.0\text{ to } 8.5\text{ mm} \quad (\approx 25.2\text{ to } 26.8\text{ pixels})$$
 
@@ -162,19 +154,11 @@ This independently derived diameter matches the sub-pixel Sobel ellipse regressi
 
 This rigorous correspondence eliminates any alternative interpretation of the dark crescent as an imaging artifact, surface smudge, or digital defect. The shadow dimensions are exactly what is mathematically dictated by the solar elevation angle and the physical three-dimensional relief of a rigid, partially buried cylinder emerging from the Martian surface.
 
-$$D_{\text{reconstructed}} = h_{\text{calc}} + d_{\text{buried}} \approx 8.46\text{ mm} + 3.20\text{ mm} = \mathbf{11.66\text{ to } 11.93\text{ mm}}$$
-
-This independently derived diameter matches the sub-pixel Sobel ellipse regression ($2a = 11.93\text{ mm}$) to within $0.27\text{ mm}$ ($< 2.3\%$).
-
-This rigorous correspondence eliminates any alternative interpretation of the dark crescent as an imaging artifact, surface smudge, or digital defect. The shadow dimensions are exactly what is mathematically dictated by the solar elevation angle and the physical three-dimensional relief of a rigid, partially buried cylinder emerging from the Martian surface.
-
----
-
 ## 4. Sobel Gradient Analysis and Feature Decoupling
 
 ### 4.1 The Horizontal Gradient ($S_x$) as Prime Discriminator
 
-To eliminate subjective manual delineation, we implemented spatial Sobel gradient filtering across the native $120 \times 120$ sub-raster centered on the feature. The horizontal Sobel operator ($S_x$) proved to be the decisive tool for feature decoupling:
+To eliminate subjective manual delineation, we implemented spatial Sobel gradient filtering across the native $120 \times 120$ sub-raster centered on the feature (`DRCL` origin $x_0 = 1009, y_0 = 940$). The horizontal Sobel operator ($S_x$) proved to be the decisive tool for feature decoupling:
 
 $$S_x(x, y) = \frac{1}{4} \begin{bmatrix} -1 & 0 & +1 \\ -2 & 0 & +2 \\ -1 & 0 & +1 \end{bmatrix} * I(x, y)$$
 
@@ -200,7 +184,7 @@ In $S_x$, boundaries with horizontal normal components produce opposite-signed e
 
 Extracting sub-pixel quadratic zero-crossings across the uncompromised boundaries yielded $N = 89$ high-confidence edge points distributed across all four quadrants.
 
-Applying an orthogonal Direct Least Squares Ellipse fit (Fitzgibbon algorithm [4]) to this decoupled dataset reveals:
+Applying an orthogonal Direct Least Squares Ellipse fit (Fitzgibbon algorithm [5]) to this decoupled dataset (at the ground-projected calibration scale $s_{\text{ground}} = 0.317\text{ mm/pixel}$) reveals:
 
 $$\begin{aligned}
 \text{Fitted Center } (X_c, Y_c) &= (58.74\text{ px}, 51.85\text{ px}) \\
@@ -237,8 +221,7 @@ The model ($110 \times 34\text{ pixels}$, aspect ratio $3.24 : 1$, planar orient
 Applying this model directly across the Mastcam-100 imagery (Figure 4) yields a definitive fit:
 
 $$\begin{aligned}
-$$\begin{aligned}
-\text{Transverse Diameter } (D) &= 34\text{ pixels} \implies \mathbf{10.8\text{ to } 12.5\text{ mm}} \quad (\text{nominal } 11.5 \pm 0.8\text{ mm}) \\
+\text{Transverse Diameter } (D) &= 34\text{ pixels} \implies \mathbf{10.8\text{ mm}}\text{ at } s_{\text{ground}} \quad (\text{composite envelope } \mathbf{10.8\text{ to } 12.5\text{ mm}}, \text{ nominal } 11.5 \pm 0.8\text{ mm}) \\
 \text{Total Exposed Length } (L) &= 110\text{ pixels} \implies \mathbf{34.9 \pm 0.8\text{ mm}} \quad (\text{physical bound } 35 \pm 2\text{ mm}) \\
 \text{Aspect Ratio } (L / D) &= \mathbf{3.24 : 1} \\
 \text{Planar Orientation } (\theta) &= 218^\circ \quad (\text{longitudinal axis bearing } 38^\circ\text{--}218^\circ) \\
@@ -256,9 +239,9 @@ A critical requirement of rigorous forensic analysis is establishing an empirica
 
 To evaluate whether the cylinder's geometric invariants ($b/a = 0.9335$, $R^2 = 0.9985$, aspect ratio $3.24:1$) could be mimicked by natural Gale Crater geomorphology, we conducted identical sub-pixel edge extraction, moment ellipse fitting, and linear boundary regressions across an empirical control sample of $N = 20$ background rocks and clasts in the same Mastcam frame (Product ID: `3556MR1025170721700585C00`). The control sample spans diverse natural geomorphologies situated at comparable slant ranges, including rounded regolith pebbles, angular basalt clasts, dipping sandstone plates, faceted ventifact stones, and sub-spherical diagenetic nodules.
 
-Because natural rocks lack true cylindrical generators by definition, we establish a conservative metric that grants each clast the maximum possible benefit of the doubt for linear boundary morphology: we rotate all boundary gradient points into the object's principal inertia coordinates $(u, v)$ aligned with its major axis $\theta_{\text{inertia}}$, segment the boundary into upper and lower lateral flanks ($|v| > 0.1 \cdot v_{\max}$), and perform ordinary least-squares linear regression ($v = m \cdot u + c$) along the longest continuous straight edge. We record the maximum flank linearity $R^2 = \max(R^2_{\text{top}}, R^2_{\text{bottom}})$. For clast R02, for instance, this isolates its flattest fracture facet ($R^2 = 0.2708$). Even under this permissive best-edge formulation, the natural population averages $\overline{R^2} = 0.104 \pm 0.082$, with no rock exceeding $0.271$.
+Because natural rocks lack true cylindrical generators by definition, we establish a conservative metric that grants each clast the maximum possible benefit of the doubt for linear boundary morphology: we rotate all boundary gradient points into the object's principal inertia coordinates $(u, v)$ aligned with its major axis $\theta_{\text{inertia}}$, segment the boundary into upper and lower lateral flanks ($|v| > 0.1 \cdot v_{\max}$), and perform ordinary least-squares linear regression ($v = m \cdot u + c$) along the longest continuous straight edge. We record the maximum flank linearity $R^2 = \max(R^2_{\text{top}}, R^2_{\text{bottom}})$. For clast R02, for instance, this isolates its flattest fracture facet ($R^2 = 0.2708$). Even under this permissive best-edge formulation, the natural population averages $\overline{R^2} = 0.104 \pm 0.081$ (population SD, $\text{ddof}=0$; $\pm 0.084$ unbiased sample SD, $\text{ddof}=1$), with no rock exceeding $0.271$.
 
-**Table 1. Empirical geometric null distribution of background rocks and clasts in the Sol 3556 Mastcam field of view ($N = 20$).** Comparing 2D circularity ratio ($b/a$), aspect ratio ($L/W$), and opposing generator parallelism ($R^2$) across natural basaltic and sandstone clasts against the Martian cylinder feature.
+**Table 1. Empirical geometric null distribution of background rocks and clasts in the Sol 3556 Mastcam field of view ($N = 20$).** Comparing 2D circularity ratio ($b/a$), aspect ratio ($L/W$), and opposing generator parallelism ($R^2$) across natural basaltic and sandstone clasts against the Martian cylinder feature. Both population ($\text{ddof}=0$) and unbiased sample ($\text{ddof}=1$, in parentheses) standard deviations and $z$-scores are reported.
 
 | ID | Geomorphological Classification | Size (mm) | Circularity ($b/a$) | Aspect ($L/W$) | Parallelism ($R^2$) |
 | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -282,18 +265,16 @@ Because natural rocks lack true cylindrical generators by definition, we establi
 | R18 | Elongated basalt sliver | $25.2 \times 21.0$ | 0.8350 | 1.20 | 0.1920 |
 | R19 | Circular pebble | $17.0 \times 14.1$ | 0.8292 | 1.21 | 0.2545 |
 | R20 | Tapered ventifact clast | $23.2 \times 17.9$ | 0.7697 | 1.30 | 0.1901 |
-| **Mean ($\mu \pm \sigma$)** | **Background Control Population** | --- | **$0.829 \pm 0.100$** | **$1.23 \pm 0.16$** | **$0.104 \pm 0.082$** |
-| **Median [Range]** | **Background Control Population** | --- | $0.838$ [$0.580\text{--}0.983$] | $1.19$ [$1.02\text{--}1.72$] | $0.079$ [$0.013\text{--}0.271$] |
+| **Mean ($\mu \pm \sigma$)** | **Background Control Population** | --- | **$0.829 \pm 0.100\ (0.102)$** | **$1.23 \pm 0.16\ (0.167)$** | **$0.104 \pm 0.081\ (0.084)$** |
+| **Median [Range]** | **Background Control Population** | --- | $0.838$ [$0.580\text{--}0.983$] | $1.20$ [$1.02\text{--}1.72$] | $0.079$ [$0.013\text{--}0.271$] |
 | **Sol 3556 Cylinder** | **Target Anomaly** | **$34.9 \times 11.5$** | **$0.9335$** | **$3.24$** | **$0.9985$** |
-| **Significance** | **$z$-score vs. Geological Controls** | --- | $+1.05\,\sigma$ ($p = 0.15$) | **$+12.56\,\sigma$** ($p \ll 10^{-9}$) | **$+10.97\,\sigma$** ($p \ll 10^{-9}$) |
+| **Significance** | **$z$-score vs. Geological Controls** | --- | $+1.05\,\sigma\ (+1.03\,\sigma)$ | **$+12.56\,\sigma\ (+12.06\,\sigma)$** | **$+10.97\,\sigma\ (+10.70\,\sigma)$** |
 
 The empirical null distribution (Table 1) demonstrates several decisive statistical findings:
 
-1. **Circularity Alone is Insufficient:** In projected 2D imaging, individual natural pebbles and diagenetic nodules frequently exhibit circularity ratios exceeding $0.90$ (e.g., R07 at $0.960$, R16 at $0.983$, and R17 at $0.976$). Across the population, the mean circularity is $0.829 \pm 0.100$. The cylinder's projected circularity ($0.9335$) represents a modest $+1.05\,\sigma$ deviation ($p \approx 0.15$). Thus, circularity alone does not establish anomaly.
-2. **Parallel Linear Generators are Geologically Absent:** Natural basaltic debris, sandstone fractures, and ventifacts exhibit jagged, fluted, or tapered boundaries. When regressing the longest straight lateral edge across all 20 control rocks, the mean linear fit is only $\overline{R^2} = 0.104 \pm 0.082$ (median $0.079$, maximum $0.271$). The cylinder's mutual generator parallelism ($R^2 = 0.9985$) constitutes an extreme **$+10.97\,\sigma$** outlier ($p \ll 10^{-9}$). Natural geological processes in Gale Crater simply do not produce mutually parallel linear boundaries.
-3. **The Multidimensional Anomaly:** While spherical nodules achieve high circularity, they possess aspect ratios close to unity ($L/W \approx 1.02\text{--}1.06$). Conversely, elongated rocks in the scene exhibit low circularity ($b/a \approx 0.58\text{--}0.77$) and jagged margins ($R^2 < 0.28$). In the natural population, aspect ratios average $1.23 \pm 0.16$ (maximum $1.72$). The cylinder combines an aspect ratio of $3.24:1$ (**$+12.56\,\sigma$**) with a planar circular end cap ($b/a = 0.9335$) and linear generators ($R^2 = 0.9985$). In bivariate feature space, the joint probability of natural basaltic debris simultaneously exhibiting these parameters is statistically negligible ($p \ll 0.001$).
-
----
+1. **Circularity Alone is Insufficient:** In projected 2D imaging, individual natural pebbles and diagenetic nodules frequently exhibit circularity ratios exceeding $0.90$ (e.g., R07 at $0.960$, R16 at $0.983$, and R17 at $0.976$). Across the population, the mean circularity is $0.829 \pm 0.100$ ($\pm 0.102$ sample SD). The cylinder's projected circularity ($0.9335$) represents a modest $+1.05\,\sigma$ ($+1.03\,\sigma$ sample) deviation ($p \approx 0.15$). Thus, circularity alone does not establish anomaly.
+2. **Parallel Linear Generators are Geologically Absent:** Natural basaltic debris, sandstone fractures, and ventifacts exhibit jagged, fluted, or tapered boundaries. When regressing the longest straight lateral edge across all 20 control rocks, the mean linear fit is only $\overline{R^2} = 0.104 \pm 0.081$ ($\pm 0.084$ sample SD; median $0.079$, maximum $0.271$). The cylinder's mutual generator parallelism ($R^2 = 0.9985$) constitutes an extreme **$+10.97\,\sigma$** (**$+10.70\,\sigma$** sample SD) outlier ($p \ll 10^{-9}$). Natural geological processes in Gale Crater simply do not produce mutually parallel linear boundaries.
+3. **The Multidimensional Anomaly:** While spherical nodules achieve high circularity, they possess aspect ratios close to unity ($L/W \approx 1.02\text{--}1.06$). Conversely, elongated rocks in the scene exhibit low circularity ($b/a \approx 0.58\text{--}0.77$) and jagged margins ($R^2 < 0.28$). In the natural population, aspect ratios average $1.23 \pm 0.16$ ($1.226 \pm 0.167$ sample SD, maximum $1.72$). The cylinder combines an aspect ratio of $3.24:1$ (**$+12.56\,\sigma$** from tabulated parameters; **$+12.37\,\sigma$** population SD; **$+12.06\,\sigma$** sample SD) with a planar circular end cap ($b/a = 0.9335$) and linear generators ($R^2 = 0.9985$). In bivariate feature space, the joint probability of natural basaltic debris simultaneously exhibiting these parameters is statistically negligible ($p \ll 0.001$).
 
 ## 5. Evaluation of Candidate Hypotheses
 
@@ -305,17 +286,17 @@ A natural initial assumption is that the object represents terrestrial spacecraf
 
 **Absence of Impact Deformation:** The object does not visually or geometrically resemble lightweight crumpled foil, torn thermal blanket sheeting, or sheared scrap. It maintains unyielding cylindrical linearity ($R^2 = 0.9985$) without the buckling, crumpling, or tearing expected from high-velocity ballistic ground impact or chassis shearing.
 
-**Stratigraphic Emplacement and Sediment Clock:** The cylinder is not resting loosely atop fresh surface dust. Its lower third ($\approx 33.5\%$, $d_{\text{buried}} \approx 2.95\text{--}3.47\text{ mm}$, nominal $3.20\text{ mm}$) is embedded within the compacted regolith matrix along a linear ground interface, demonstrating true in-situ stratigraphic emplacement. Crucially, this burial cannot be attributed to transient aeolian sand banking, wind scour, or hardware sinking into loose granular regolith. High-resolution Mastcam forensics confirm that the surrounding substrate consists of a cohesive, pebble-armored duricrust completely devoid of windward deflation moats, scour trenches, or leeward sand shadow tails characteristic of active aeolian saltation around recent obstacle deposits. In Gale Crater, background passive atmospheric dust fallout settles at a measured empirical rate of $20\text{--}40\ \mu\text{m}$ per Martian year, corresponding to $10\text{--}25\ \mu\text{m}$ per Earth year [6, 7, 8]. Accumulating $3.2\text{ mm}$ of sediment by passive fallout requires an honest chronological window of **$80\text{ to } 200\text{ Earth years}$**.
+**Stratigraphic Emplacement and Sediment Clock:** The cylinder is not resting loosely atop fresh surface dust. Its lower third ($\approx 33.5\%$, $d_{\text{buried}} \approx 2.95\text{--}3.47\text{ mm}$ along the inclined face chord, corresponding to $\approx 2.0\text{--}3.2\text{ mm}$ of vertical sediment thickness) is embedded within the compacted regolith matrix along a linear ground interface, demonstrating true in-situ stratigraphic emplacement. Crucially, this burial cannot be attributed to transient aeolian sand banking, wind scour, or hardware sinking into loose granular regolith. High-resolution Mastcam forensics confirm that the surrounding substrate consists of a cohesive, pebble-armored duricrust completely devoid of windward deflation moats, scour trenches, or leeward sand shadow tails characteristic of active aeolian saltation around recent obstacle deposits. On Mars, background passive atmospheric dust fallout settles at a measured empirical rate of $20\text{--}40\ \mu\text{m}$ per Martian year, corresponding to $10\text{--}25\ \mu\text{m}$ per Earth year [6, 7, 8]. Accumulating $2.0\text{ mm}$ (vertical horizon) to $3.2\text{ mm}$ (full buried chord) of sediment by passive fallout requires an honest chronological window of **$80\text{ to } 200\text{ Earth years}$** (for $2.0\text{ mm}$) up to **$128\text{ to } 320\text{ Earth years}$** (for $3.2\text{ mm}$).
 
-Crucially, Gale Crater has hosted only one landed mission in human history: the *Curiosity* rover itself, which arrived on August 6, 2012. Because Curiosity had been operating for exactly ten Earth years at the time of the Sol 3556 observation (August 7, 2022), passive accumulation of $3.2\text{ mm}$ of overburden is chronologically incompatible with any hardware shed by Curiosity. Furthermore, because no prior terrestrial spacecraft has ever visited Gale Crater, this sedimentation clock definitively closes the deductive chain, ruling out all known human mission provenance.
+Crucially, Gale Crater has hosted only one landed mission in human history: the *Curiosity* rover itself, which arrived on August 6, 2012. Because Curiosity had been operating for exactly ten Earth years at the time of the Sol 3556 observation (August 7, 2022), passive accumulation of $2.0\text{--}3.2\text{ mm}$ of overburden is chronologically incompatible with any hardware shed by Curiosity. Furthermore, because no prior terrestrial spacecraft has ever visited Gale Crater, this sedimentation clock definitively closes the deductive chain, ruling out all known human mission provenance.
 
 ### 5.2 Hypothesis 2: Aeolian Ventifact or Diagenetic Concretion
 
 Geological explanations frequently invoke wind abrasion or chemical precipitation. However, these mechanisms are fundamentally irreconcilable with the measured geometric invariants:
 
-**Geomorphological & Diagenetic Incompatibility:** Wind-blown sand on Mars produces ventifacts—fluted, grooved, and faceted rocks shaped by saltating sand grains [9, 10]. However, aeolian ventifaction is a strictly directional abrasion process governed by prevailing wind vectors; it produces asymmetric keels, curvilinear flutes, pits, and irregular tapering rather than rotational axial symmetry. While diagenetic mineral precipitation is well-documented in Gale Crater (such as the hematite concretions at Yellowknife Bay [11, 12]), isotropic chemical diffusion through porous rock strata produces spheroids, ellipsoids, or irregular botryoidal clusters.
+**Geomorphological & Diagenetic Incompatibility:** Wind-blown sand on Mars produces ventifacts—fluted, grooved, and faceted rocks shaped by saltating sand grains [9, 10]. However, aeolian ventifaction is a strictly directional abrasion process governed by prevailing wind vectors; it produces asymmetric keels, curvilinear flutes, pits, and irregular tapering rather than rotational axial symmetry. While diagenetic mineral precipitation is well-documented in Gale Crater (such as concretions at Yellowknife Bay [11, 12]), isotropic chemical diffusion through porous rock strata produces spheroids, ellipsoids, or irregular botryoidal clusters.
 
-No known aeolian or diagenetic mechanism produces this specific combination: mutually parallel linear generators ($R^2 = 0.9985$, $\Delta\theta < 0.2^\circ$), a perpendicular planar circular end cap ($b/a = 0.9335$), and a $3.24:1$ aspect ratio at sub-millimeter precision. As demonstrated by our empirical null distribution (Section 4.4), natural basaltic debris exhibits an average generator fit of only $\overline{R^2} = 0.104 \pm 0.082$. The burden of proof rests on a geological hypothesis to demonstrate an empirical or hydrodynamic mechanism capable of mimicking a mechanical lathe—maintaining $360^\circ$ circular cross-section and parallel linear boundaries over geological timescales under unidirectional sand saltation.
+No known aeolian or diagenetic mechanism produces this specific combination: mutually parallel linear generators ($R^2 = 0.9985$, $\Delta\theta < 0.2^\circ$), a perpendicular planar circular end cap ($b/a = 0.9335$), and a $3.24:1$ aspect ratio at sub-millimeter precision. As demonstrated by our empirical null distribution (Section 4.4), natural basaltic debris exhibits an average generator fit of only $\overline{R^2} = 0.104 \pm 0.081$. The burden of proof rests on a geological hypothesis to demonstrate an empirical or hydrodynamic mechanism capable of mimicking a mechanical lathe—maintaining $360^\circ$ circular cross-section and parallel linear boundaries over geological timescales under unidirectional sand saltation.
 
 ### 5.3 Hypothesis 3: An Artifact of Unknown Provenance
 
@@ -336,15 +317,15 @@ This perspective aligns with the scientific rationale articulated by astrophysic
 
 These two measurements provide unambiguous empirical tests capable of settling the object's provenance beyond dispute.
 
----
-
 ## 6. Conclusion
 
 Our forensic analysis of the authentic Sol 3556 PDS telemetry establishes that the anomalous cylindrical feature at Paraitepuy Pass is located in the immediate rover foreground ($R = 3.63\text{--}4.30\text{ m}$), with true physical dimensions of $D = 11.5 \pm 0.8\text{ mm}$ in diameter and $L \approx 35 \pm 2\text{ mm}$ in exposed length ($3.24:1$ aspect ratio). This definitive scale calibration completely refutes public speculation of a $20\text{ cm}$ component while establishing the object as an engineered-scale millimeter cylinder.
 
-By measuring an empirical null distribution across $N = 20$ surrounding basaltic clasts, we demonstrate that while individual natural clasts achieve projected roundness, natural rocks exhibit poor generator parallelism ($\overline{R^2} = 0.104 \pm 0.082$). The cylinder's mutual generator parallelism ($R^2 = 0.9985$) constitutes an extreme $+10.97\,\sigma$ outlier ($p \ll 0.001$), with its $3.24:1$ aspect ratio representing a $+12.56\,\sigma$ anomaly. Evaluating candidate hypotheses reveals that natural ventifact processes are virtually incompatible with the sub-pixel circularity and Euclidean invariants observed. Furthermore, the object's stratigraphic burial beneath an $80\text{--}200\text{ year}$ dust accumulation horizon chronologically excludes Curiosity-derived hardware in Gale Crater (the crater's sole terrestrial mission), while its absence of mechanical failure signatures presents severe obstacles to conventional shedding models. Consequently, the hypothesis of an artificial artifact of unknown provenance remains fully viable. As empirical science demands, and as urged by Loeb, targeted multispectral or in-situ MAHLI/ChemCam re-examination is strongly recommended.
+By measuring an empirical null distribution across $N = 20$ surrounding basaltic clasts, we demonstrate that while individual natural clasts achieve projected roundness, natural rocks exhibit poor generator parallelism ($\overline{R^2} = 0.104 \pm 0.081$ population SD, $\pm 0.084$ sample SD). The cylinder's mutual generator parallelism ($R^2 = 0.9985$) constitutes an extreme $+10.97\,\sigma$ ($+10.70\,\sigma$ sample SD) outlier ($p \ll 10^{-9}$), with its $3.24:1$ aspect ratio representing a $+12.56\,\sigma$ ($+12.06\,\sigma$ sample SD) anomaly. Evaluating candidate hypotheses reveals that natural ventifact processes are virtually incompatible with the sub-pixel circularity and Euclidean invariants observed. Furthermore, the object's stratigraphic burial beneath an $80\text{--}320\text{ year}$ dust accumulation horizon ($80\text{--}200\text{ years}$ for a conservative $2.0\text{ mm}$ vertical burial depth) chronologically excludes Curiosity-derived hardware in Gale Crater (the crater's sole terrestrial mission), while its absence of mechanical failure signatures presents severe obstacles to conventional shedding models. Consequently, the hypothesis of an artificial artifact of unknown provenance remains viable. As empirical science demands, and as urged by Loeb [1], targeted multispectral or in-situ MAHLI/ChemCam re-examination is strongly recommended.
 
----
+## Data and Code Availability
+
+All raw NASA Planetary Data System (PDS) image frames (`DRCL`, `DRCX`, `DRLX`, `DRXX`), ODL/VICAR telemetry labels (`3556MR1025170721700585C00`), empirical background clast measurements (`data/control_rocks_distribution.json`), interactive 3D photogrammetric studio code (`cylinder-tool/`), and the standalone deterministic Python verification suite (`reproduce_analysis.py`) are publicly archived in the companion repository at [https://github.com/cambrianminds/martian-cylinder](https://github.com/cambrianminds/martian-cylinder).
 
 ## Acknowledgments
 
@@ -352,24 +333,22 @@ The author wishes to dedicate this work to the memory of his great-uncle, Richar
 
 The author also gratefully acknowledges the NASA Planetary Data System (PDS), the Mars Science Laboratory (MSL) science and engineering teams at NASA/JPL-Caltech, and Malin Space Science Systems (MSSS) for their exemplary stewardship and open dissemination of Curiosity's raw image archives.
 
----
-
 ## References
 
-[1] A. Loeb, "A Metallic-Looking Cylinder on Mars," *Medium / The Galileo Project*, August 11, 2022.  
-[2] M. C. Malin, et al., "The Mars Science Laboratory (MSL) Mast Cameras (Mastcam) Flight Instruments," *Earth and Space Science*, vol. 4, no. 8, pp. 506–539, 2017.  
-[3] J. F. Bell III, et al., "In-flight Calibration and Performance of the Mars Science Laboratory Mast Cameras (Mastcam)," *Earth and Space Science*, vol. 4, no. 7, pp. 396–452, 2017.  
-[4] J. N. Maki, et al., "The Mars Science Laboratory Mast Camera (Mastcam) Investigation," *Space Science Reviews*, vol. 170, no. 1–4, pp. 77–93, 2012.  
-[5] A. Fitzgibbon, M. Pilu, and R. B. Fisher, "Direct Least Squares Fitting of Ellipses," *IEEE Transactions on Pattern Analysis and Machine Intelligence*, vol. 21, no. 5, pp. 476–480, 1999.  
-[6] K. M. Kinch, et al., "Dust Deposition on the Mars Science Laboratory Curiosity Rover: First Two Martian Years," *Earth and Space Science*, vol. 2, no. 4, pp. 144–172, 2015.  
-[7] R. D. Lorenz, "Martian Dust Accumulation and Solar Panel Degradation Rates: A Review," *Icarus*, vol. 348, p. 113840, 2020.  
-[8] G. A. Landis and P. P. Jenkins, "Measurement of the Settling Rate of Atmospheric Dust on Mars by the MAHR Experiment on Mars Pathfinder," *Journal of Geophysical Research: Planets*, vol. 105, no. E1, pp. 1855–1857, 2000.  
-[9] N. T. Bridges, et al., "The Rock Abrasion Tool on the Mars Exploration Rovers: Overview and Selected Results," *Journal of Geophysical Research: Planets*, vol. 119, no. 6, pp. 1374–1391, 2014.  
-[10] J. E. Laity and N. T. Bridges, "Ventifacts on Earth and Mars: Morphology, Dynamics, and Wind Regime," *Geomorphology*, vol. 105, no. 3–4, pp. 202–217, 2009.  
-[11] M. A. Chan, et al., "Diagenetic Hematite Concretions in the Navajo Sandstone: Terrestrial Analog for Martian Blueberries," *Nature*, vol. 429, no. 6993, pp. 731–734, 2004.  
-[12] J. P. Grotzinger, et al., "A Habitable Fluvio-Lacustrine Environment at Yellowknife Bay, Gale Crater, Mars," *Science*, vol. 343, no. 6169, p. 1242777, 2014.  
-[13] A. R. Vasavada, et al., "Overview of the Mars Science Laboratory Mission: Bradbury Landing to Yellowknife Bay and Beyond," *Journal of Geophysical Research: Planets*, vol. 119, no. 6, pp. 1134–1161, 2014.  
-[14] R. C. Wiens, et al., "The ChemCam Instrument Suite on the Mars Science Laboratory (MSL) Rover: Body Unit and LIBS Overview," *Space Science Reviews*, vol. 170, no. 1–4, pp. 167–227, 2012.  
-[15] K. S. Edgett, et al., "Curiosity's Mars Hand Lens Imager (MAHLI) Investigation," *Space Science Reviews*, vol. 170, no. 1–4, pp. 259–317, 2012.  
-[16] R. S. Bogner, "Surveyor Batteries: Final Engineering Report," *NASA Technical Memorandum TM 33-432*, Jet Propulsion Laboratory, Pasadena, CA, 1970.  
-[17] R. S. Bogner, "Mariner Mars 1971 Battery Design and Flight Performance," *JPL Technical Memorandum TM 33-591*, Jet Propulsion Laboratory, Pasadena, CA, 1973.
+[1] A. Loeb, "Is the Mysterious Cylinder on Mars, Photographed in 2022 by the Curiosity Rover, a Human-Made Debris?," *Medium*, March 7, 2026. Available: https://avi-loeb.medium.com/is-the-mysterious-cylinder-on-mars-photographed-in-2022-by-the-curiosity-rover-a-human-made-6fcd8e242fea  
+[2] M. C. Malin, et al., "The Mars Science Laboratory (MSL) Mast cameras and Descent imager: Investigation and instrument descriptions," *Earth and Space Science*, vol. 4, no. 8, pp. 506–539, 2017, doi:10.1002/2016EA000252.  
+[3] J. F. Bell III, et al., "The Mars Science Laboratory Curiosity rover Mastcam instruments: Preflight and in-flight calibration, validation, and data archiving," *Earth and Space Science*, vol. 4, no. 7, pp. 396–452, 2017, doi:10.1002/2016EA000219.  
+[4] J. N. Maki, et al., "The Mars Science Laboratory Engineering Cameras," *Space Science Reviews*, vol. 170, no. 1–4, pp. 77–93, 2012, doi:10.1007/s11214-012-9882-4.  
+[5] A. Fitzgibbon, M. Pilu, and R. B. Fisher, "Direct Least Squares Fitting of Ellipses," *IEEE Transactions on Pattern Analysis and Machine Intelligence*, vol. 21, no. 5, pp. 476–480, 1999, doi:10.1109/34.765658.  
+[6] K. M. Kinch, et al., "Dust deposition on the decks of the Mars Exploration Rovers: 10 years of dynamics on the panoramic camera calibration targets," *Earth and Space Science*, vol. 2, no. 5, pp. 144–172, 2015, doi:10.1002/2014EA000073.  
+[7] R. D. Lorenz, et al., "Lander and rover histories of dust accumulation on and removal from solar arrays on Mars," *Planetary and Space Science*, vol. 207, p. 105337, 2021, doi:10.1016/j.pss.2021.105337.  
+[8] G. A. Landis and P. P. Jenkins, "Measurement of the settling rate of atmospheric dust on Mars by the MAE instrument on Mars Pathfinder," *Journal of Geophysical Research: Planets*, vol. 105, no. E1, pp. 1855–1857, 2000, doi:10.1029/1999JE001029.  
+[9] N. T. Bridges, F. J. Calef, et al., "The rock abrasion record at Gale Crater: Mars Science Laboratory results from Bradbury Landing to Rocknest," *Journal of Geophysical Research: Planets*, vol. 119, no. 6, pp. 1374–1389, 2014, doi:10.1002/2013JE004579.  
+[10] J. E. Laity and N. T. Bridges, "Ventifacts on Earth and Mars: Analytical, field, and laboratory studies supporting sand abrasion and windward feature development," *Geomorphology*, vol. 105, no. 3–4, pp. 202–217, 2009, doi:10.1016/j.geomorph.2008.09.014.  
+[11] M. A. Chan, et al., "A possible terrestrial analogue for haematite concretions on Mars," *Nature*, vol. 429, no. 6993, pp. 731–734, 2004, doi:10.1038/nature02600.  
+[12] J. P. Grotzinger, et al., "A Habitable Fluvio-Lacustrine Environment at Yellowknife Bay, Gale Crater, Mars," *Science*, vol. 343, no. 6169, p. 1242777, 2014, doi:10.1126/science.1242777.  
+[13] A. R. Vasavada, et al., "Overview of the Mars Science Laboratory mission: Bradbury Landing to Yellowknife Bay and beyond," *Journal of Geophysical Research: Planets*, vol. 119, no. 6, pp. 1134–1161, 2014, doi:10.1002/2014JE004622.  
+[14] R. C. Wiens, et al., "The ChemCam Instrument Suite on the Mars Science Laboratory (MSL) Rover: Body Unit and Combined System Tests," *Space Science Reviews*, vol. 170, no. 1–4, pp. 167–227, 2012, doi:10.1007/s11214-012-9902-4.  
+[15] K. S. Edgett, et al., "Curiosity's Mars Hand Lens Imager (MAHLI) Investigation," *Space Science Reviews*, vol. 170, no. 1–4, pp. 259–317, 2012, doi:10.1007/s11214-012-9910-4.  
+[16] A. J. Moses, W. M. Hetherington, D. Weinberger, A. A. Uchiyama, R. S. Bogner, and W. L. Long, "Surveyor Batteries—Final Engineering Report," *JPL Technical Memorandum 33-432*, Jet Propulsion Laboratory, Pasadena, CA, Feb. 15, 1970.  
+[17] R. S. Bogner, "Mariner Mars 1971 Battery Design, Test, and Flight Performance," *JPL Technical Memorandum 33-591* (NASA-CR-132986; N73-25095), Jet Propulsion Laboratory, Pasadena, CA, Apr. 15, 1973.
