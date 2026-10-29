@@ -33,3 +33,4 @@ jobs:
       - name: Run Deterministic Verification Suite (--crop-only)
         run: |
           python reproduce_analysis.py --crop-only
+
