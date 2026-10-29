@@ -17,10 +17,10 @@ This repository contains the complete NASA Planetary Data System (PDS) raw telem
 | **Normal & Axial Pixel Scale** | $\text{IFOV} = 0.074\text{ mrad/px}$ | $0.269\text{--}0.318\text{ mm/px}$ ($s_\perp$) to $0.291\text{--}0.344\text{ mm/px}$ ($s_{\text{axial}}$) | Mastcam-100 ($f=100\text{ mm}, f/12, c=7.4\,\mu\text{m}$) |
 | **Transverse Diameter ($D$)** | $11.0 \pm 1.2\text{ mm}$ (nominal) | $9.1\text{--}12.0\text{ mm}$ ($s_\perp$) / $10.8\text{--}12.5\text{ mm}$ ($s_{\text{axial}}$) | Normal silhouette vs. 3D axial envelope |
 | **Exposed Longitudinal Length ($L$)** | $35 \pm 2\text{ mm}$ | $32.0\text{--}37.9\text{ mm}$ ($110.0\text{ px}$; nominal $34.87\text{ mm}$) | 3D Central-Perspective Projection (Fig. 4) |
-| **Aspect Ratio ($L/D$)** | $3.24 : 1$ | $+12.06\,\sigma$ sample SD; Cantelli $p < 0.007$; rank $1/21$ | Natural clasts ($N=20$): $\mu = 1.23 \pm 0.16$ |
-| **End-Cap Circularity ($b/a$)** | $0.9335$ | $+1.05\,\sigma$ ($p = 0.15$) vs. controls | Matches 3D viewing foreshortening $\cos\beta$ ($1.8^\circ$) |
-| **Generator Parallelism ($R^2$)** | $0.9985$ ($\Delta\theta < 0.7^\circ$) | $+10.70\,\sigma$ sample SD; Cantelli $p < 0.009$; rank $1/21$ | Natural clasts ($N=20$): $\overline{R^2} = 0.104 \pm 0.081$ |
-| **Solar Shadow Compression** | $\cot(69.8224^\circ) = 0.3675$ | Measured shadow $3.11 \pm 0.22\text{ mm}$ at $+23.3728^\circ$ | Matches $8.46 \pm 0.60\text{ mm}$ exposed vertical relief |
+| **Aspect Ratio ($L/D$)** | $3.24 : 1$ | $+12.06\,\sigma$ sample SD; Cantelli $p < 0.007$; rank $1/21$ | Natural clasts ($N=20$): $\mu = 1.23 \pm 0.16$ (live verified) |
+| **End-Cap Circularity ($b/a$)** | $0.9335$ | $+1.03\,\sigma$ sample SD ($p = 0.15$); perspective invariant | Matches 3D viewing foreshortening $\cos\beta$ ($1.8^\circ$) |
+| **Generator Parallelism ($R^2$)** | $0.9985$ ($\Delta\theta < 0.7^\circ$) | $+10.70\,\sigma$ sample SD; Cantelli $p < 0.009$; rank $1/21$ | Natural clasts ($N=20$): $\overline{R^2} = 0.104 \pm 0.081$, max $0.271$ |
+| **Solar Shadow & Relief** | $\cot(69.8224^\circ) = 0.3675$ | $S = 9.8\pm 0.7\text{ px} \implies h \in [7.8, 8.5]\text{ mm}$, $D_{\text{recon}} \in [10.8, 11.7]\text{ mm}$ | Reconciled across normal ($0.293$) & ground ($0.317\text{ mm/px}$) scales |
 | **Regolith Burial & Dust Clock** | $33.5\%$ buried ($2.0\text{--}3.2\text{ mm}$) | $80\text{--}200\text{ yr}$ ($2.0\text{ mm}$) to $128\text{--}320\text{ yr}$ ($3.2\text{ mm}$) | Passive fallout rate $10\text{--}25\,\mu\text{m/Earth yr}$ |
 
 ## Repository Structure
@@ -75,7 +75,13 @@ pip install -r requirements.txt
 python3 reproduce_analysis.py
 ```
 
-The script verifies the SHA-256 checksums of all eight raw NASA PDS `.IMG`/`.LBL` archive files, parses the ODL telemetry header, validates the CAHVOR camera matrix intrinsics and optical depth-of-field equations, projects the SPICE solar shadow vector ($+23.3728^\circ$), verifies the exact pixel provenance of `crop_bottom_right.png` (`DRCL[700:1150, 800:1300]`) and the $120 \times 120$ Sobel sub-raster (`DRCL[940:1060, 1009:1129]`), and recomputes both population ($\text{ddof}=0$) and unbiased sample ($\text{ddof}=1$) $z$-scores for the $N=20$ background control clasts.
+For lightweight or sandbox-constrained environments without the full 40 MB raw PDS binaries, run with `--crop-only`:
+
+```bash
+python3 reproduce_analysis.py --crop-only
+```
+
+The script verifies the SHA-256 checksums of all eight raw NASA PDS `.IMG`/`.LBL` archive files (in standard mode), parses the ODL telemetry header, validates the CAHVOR camera matrix intrinsics and optical depth-of-field equations, projects the SPICE solar shadow vector ($+23.3728^\circ$), reconstructs the dual-scale vertical shadow relief, verifies the exact pixel provenance of `crop_bottom_right.png` (`DRCL[700:1150, 800:1300]`) and the $120 \times 120$ Sobel sub-raster (`DRCL[940:1060, 1009:1129]`), extracts and verifies all $N=20$ background control clasts directly from live `DRCL.png` detector pixels ($\text{SNR} > 1.5$), and recomputes both population ($\text{ddof}=0$) and unbiased sample ($\text{ddof}=1$) $z$-scores and Cantelli inequalities.
 
 ### 2. Recompile the LaTeX Manuscripts
 

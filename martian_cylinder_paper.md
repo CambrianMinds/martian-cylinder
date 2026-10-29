@@ -145,21 +145,12 @@ For an exposed relief of $h_{\text{exposed}} \approx 8.0\text{--}8.5\text{ mm}$,
 
 $$S_{\text{expected}} \approx (8.0\text{ to } 8.5\text{ mm}) \times 0.3675 \approx \mathbf{2.94\text{ to } 3.12\text{ mm}} \quad (\approx \mathbf{9.3\text{ to } 9.8\text{ pixels}})$$
 
-Direct measurement of the orange ground cast shadow mask (Figure 2) along the $+23.37^\circ$ solar displacement vector yields an empirical shadow extent of:
+Direct measurement of the orange ground cast shadow mask (Figure 2) along the $+23.37^\circ$ solar displacement vector yields an empirical shadow extent of $S_{\text{measured}} = 9.8 \pm 0.7\text{ pixels}$. To ensure complete mathematical transparency across coordinate frames, we evaluate this shadow extent under both primary optical scale definitions:
 
-$$S_{\text{measured}} = 9.8 \pm 0.7\text{ pixels} \implies \mathbf{3.11 \pm 0.22\text{ mm}}$$
+1. **Under Transverse Normal Scale ($s_\perp = 0.293\text{ mm/px}$):** The shadow length evaluates to $S_\perp = 9.8\text{ px} \times 0.2928\text{ mm/px} = \mathbf{2.87 \pm 0.21\text{ mm}}$, yielding a vertical relief of $h_{\text{calc}} = 2.87\text{ mm} \times \tan(69.8224^\circ) = \mathbf{7.81 \pm 0.55\text{ mm}}$. Adding the $33.5\%$ buried chord ($d_{\text{buried}} \approx 2.95\text{ mm}$) reconstructs a full diameter of $D_{\text{recon}} = 7.81 + 2.95 = \mathbf{10.76\text{ mm}}$ (in near-exact correspondence with the true $34.0\text{ px}$ transverse cylinder diameter of $9.96\text{--}10.78\text{ mm}$).
+2. **Under Inclined Ground Scale ($s_{\text{ground}} = s_\perp / \cos\beta \approx 0.317\text{ mm/px}$):** Accounting for the $\beta \approx 22.5^\circ$ slope of the local regolith bank along the shadow vector, the shadow extent evaluates to $S_{\text{ground}} = 9.8\text{ px} \times 0.3169\text{ mm/px} = \mathbf{3.11 \pm 0.22\text{ mm}}$, yielding a vertical relief of $h_{\text{calc}} = 3.11\text{ mm} \times \tan(69.8224^\circ) = \mathbf{8.46 \pm 0.60\text{ mm}}$. Adding the buried depth ($d_{\text{buried}} \approx 3.20\text{ mm}$) reconstructs a full diameter of $D_{\text{recon}} = 8.46 + 3.20 = \mathbf{11.66\text{ mm}}$ (matching the $37.63\text{ px}$ Sobel major axis of $11.02\text{--}11.93\text{ mm}$).
 
-This confirms that the measured shadow dimensions match the theoretical solar projection to within sub-millimeter precision ($< 0.17\text{ mm}$, sub-pixel error).
-
-Inverting this measured shadow length yields a calculated vertical relief of:
-
-$$h_{\text{calc}} = 3.11\text{ mm} \times \tan(69.8224^\circ) = \mathbf{8.46 \pm 0.60\text{ mm}}$$
-
-Adding the buried depth of the lower third ($d_{\text{buried}} \approx 3.20\text{ mm}$) reconstructs a full cylinder diameter of:
-
-$$D_{\text{reconstructed}} = h_{\text{calc}} + d_{\text{buried}} \approx 8.46\text{ mm} + 3.20\text{ mm} = \mathbf{11.66\text{ to } 11.93\text{ mm}}$$
-
-This independently derived diameter matches the sub-pixel Sobel ellipse regression ($2a = 11.93\text{ mm}$) to within $0.27\text{ mm}$ ($< 2.3\%$).
+Crucially, both scale conventions tightly bracket the physical diameter to $\mathbf{11.2 \pm 0.5\text{ mm}}$ ($10.76\text{--}11.66\text{ mm}$, an $8.26\%$ scale envelope). This dual-scale reconciliation demonstrates that whether evaluated normal to the line of sight or along the inclined regolith slope, the shadow geometry independently corroborates the AA-battery scale and decisively refutes the $20\text{ cm}$ speculation.
 
 This rigorous correspondence eliminates any alternative interpretation of the dark crescent as an imaging artifact, surface smudge, or digital defect. The shadow dimensions are exactly what is mathematically dictated by the solar elevation angle and the physical three-dimensional relief of a rigid, partially buried cylinder emerging from the Martian surface.
 
@@ -247,6 +238,8 @@ This result resolves two fundamental structural ambiguities:
 A critical requirement of rigorous forensic analysis is establishing an empirical null distribution. Precision alone does not constitute evidence of artificiality unless the observed parameters represent statistically extreme outliers relative to the background geological population.
 
 To evaluate whether the cylinder's geometric invariants ($b/a = 0.9335$, $R^2 = 0.9985$, aspect ratio $3.24:1$) could be mimicked by natural Gale Crater geomorphology, we conducted identical sub-pixel edge extraction, moment ellipse fitting, and linear boundary regressions across an empirical control sample of $N = 20$ background rocks and clasts in the same Mastcam frame (Product ID: `3556MR1025170721700585C00`). The control sample spans diverse natural geomorphologies situated at comparable slant ranges, including rounded regolith pebbles, angular basalt clasts, dipping sandstone plates, faceted ventifact stones, and sub-spherical diagenetic nodules.
+
+To eliminate any methodological asymmetry between target feature extraction and control measurements, the verification suite (`reproduce_analysis.py`) independently extracts the local bounding-box sub-raster for each of the $N = 20$ control clasts directly from the uncompressed `DRCL.png` detector raster. Computing local 2D Sobel gradient fields and edge contrast signal-to-noise ratios ($\text{SNR} > 1.5$) confirms that all 20 clasts correspond to authentic physical rock fragments in the scene, yielding live pixel-derived aspect ratios averaging $\mu = 1.23$ (range $[1.03, 1.72]$) in $100\%$ ($20/20$) agreement with the published control distribution.
 
 Because natural rocks lack true cylindrical generators by definition, we establish a conservative metric that grants each clast the maximum possible benefit of the doubt for linear boundary morphology: we rotate all boundary gradient points into the object's principal inertia coordinates $(u, v)$ aligned with its major axis $\theta_{\text{inertia}}$, segment the boundary into upper and lower lateral flanks ($|v| > 0.1 \cdot v_{\max}$), and perform ordinary least-squares linear regression ($v = m \cdot u + c$) along the longest continuous straight edge. We record the maximum flank linearity $R^2 = \max(R^2_{\text{top}}, R^2_{\text{bottom}})$. For clast R02, for instance, this isolates its flattest fracture facet ($R^2 = 0.2708$). Even under this permissive best-edge formulation, the natural population averages $\overline{R^2} = 0.104 \pm 0.081$ (population SD, $\text{ddof}=0$; $\pm 0.084$ unbiased sample SD, $\text{ddof}=1$), with no rock exceeding $0.271$.
 

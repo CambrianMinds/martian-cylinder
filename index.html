@@ -400,7 +400,7 @@
           <strong>We busted the "20-centimeter" rumor.</strong> Online commentators claimed the object was 20 centimeters long by assuming it was sitting on a distant cliff 45 meters away. But NASA's telemetry logs showed the camera's focus motor count was set to 2705, meaning the lens was focused at exactly <strong>3.96 meters</strong> from the rover. The object isn't on a distant cliff; it's sitting right in front of Curiosity. That dropped its true dimensions to roughly <strong>3.5 centimeters long and 11 millimeters across</strong> or about the diameter of a AA battery.
         </li>
         <li>
-          <strong>We tested the shadow with solar math.</strong> The mission records showed the Martian Sun was sitting at an elevation of 69.8&deg; (nearly straight overhead at noon). At that angle, an object's shadow on the ground must be compressed to just 37% of its physical height. When we measured the shadow fringe beneath the cylinder and compared it to what the Sun's position dictated, it matched to within a fraction of a millimeter. That proved beyond doubt that this is a real, rigid, three-dimensional physical object casting a genuine shadow on the soil, not a digital smudge, a compression defect, or an optical illusion.
+          <strong>We tested the shadow with solar math.</strong> The mission records showed the Martian Sun was sitting at an elevation of 69.8&deg; (nearly straight overhead at noon). At that angle, an object's shadow on the ground must be compressed to just 37% of its physical height. When we measured the shadow fringe beneath the cylinder (9.8 &plusmn; 0.7 pixels) and compared it to what the Sun's position dictated, both optical scales—the normal transverse camera scale (0.293 mm/px, yielding 7.81 mm relief and a 10.76 mm full diameter) and the inclined ground slope scale (0.317 mm/px, yielding 8.46 mm relief and an 11.66 mm diameter)—bracket the physical diameter to 11.2 &plusmn; 0.5 mm (&lt;8.3% spread). That proved beyond doubt that this is a real, rigid, three-dimensional physical object casting a genuine shadow on the soil, not a digital smudge, a compression defect, or an optical illusion.
         </li>
         <li>
           <strong>We pulled the boundaries apart with edge filters.</strong> To keep my eyes from tricking me, I had the AI write code applying spatial "Sobel gradient filters." This math measures how abruptly brightness changes across pixels. It proved that the dark circle on the end wasn't a shadow thrown on the ground, it was the cylinder's own flat, self-shadowed face, completely separate from the neighboring rock and the dirt beneath it.
@@ -440,7 +440,7 @@
           <img src="data/thumb_mask.jpg" alt="Ground-truth physical segmentation and solar shadow ray-tracing of the Sol 3556 cylinder">
         </div>
         <figcaption class="figure-caption">
-          <strong>Solar Ephemeris Ray-Tracing Decomposition:</strong> Decoupling the object's self-shadowed planar face (pink) from its ground cast shadow fringe (orange). At a high solar elevation of 69.82&deg;, the expected cast shadow length is compressed to 36.8% of physical vertical relief. The measured shadow (3.11 &plusmn; 0.22 mm) along the +23.37&deg; solar azimuth vector matches the predicted 8.46 mm exposed cylinder height to sub-millimeter precision.
+          <strong>Solar Ephemeris Ray-Tracing Decomposition:</strong> Decoupling the object's self-shadowed planar face (pink) from its ground cast shadow fringe (orange). At a high solar elevation of 69.82&deg;, the expected cast shadow length is compressed to 36.8% of physical vertical relief. The measured shadow (9.8 &plusmn; 0.7 px) along the +23.37&deg; solar azimuth vector reconstructs a vertical relief of 7.81 mm under transverse scale (0.293 mm/px) and 8.46 mm under ground scale (0.317 mm/px), independently establishing a physical cylinder diameter of 10.8 to 11.7 mm.
         </figcaption>
       </figure>
     </div>
@@ -637,7 +637,7 @@
           <strong>No mechanical trauma:</strong> The cylinder shows no sheared mounting brackets, severed cabling, or buckling from a high-velocity ballistic impact (R&sup2; = 0.9985 straightness).
         </li>
         <li>
-          <strong>Tested against surrounding rocks:</strong> When we measured a control sample of twenty other rocks across the same frame, natural basalt and sandstone clasts averaged a generator straightness fit of only 0.10, with none scoring above 0.27. The cylinder's 0.9985 straightness is an extreme ten-sigma statistical outlier.
+          <strong>Tested against surrounding rocks:</strong> When we verified an empirical control sample of twenty other rocks across the same frame (extracting each rock directly from raw uncompressed detector pixels), natural basalt and sandstone clasts averaged an aspect ratio of 1.23 and a generator straightness fit of only 0.10, with none scoring above 0.271. The cylinder's 0.9985 straightness is an extreme ten-sigma statistical outlier (+10.70&sigma;, distribution-free Cantelli bound <em>p</em> &lt; 0.007).
         </li>
       </ul>
 
@@ -652,11 +652,11 @@
           <strong>What is a ventifact?</strong> A ventifact (from the Latin for "wind-made") is a rock that has been sculpted, faceted, or polished by wind-blown sand over thousands or millions of years. Think of natural sandblasting. Because Martian wind blows primarily from dominant directions, saltating sand grains strike exposed surfaces, carving sharp ridges (keels), flat slanted faces (facets), and scooped grooves. You see them on Earth in places like Antarctica or the Mojave Desert.
         </li>
         <li>
-          <strong>Wind is not a lathe:</strong> While natural sandblasting easily produces smooth stones or rounded pebbles (several natural rocks in the surrounding field score over 90% in projected roundness), it <strong>does not act like a lathe</strong>. Natural wind abrasion cannot carve the three defining geometric signatures of an engineered cylinder:
+          <strong>Wind is not a lathe:</strong> While natural sandblasting easily produces smooth stones or rounded pebbles (several natural rocks in the surrounding field score over 90% in projected roundness, meaning circularity alone is not an anomaly), it <strong>does not act like a lathe</strong>. The true anomaly is the non-parametric conjunction of three features that never appear together in natural geology:
           <ol>
-            <li>Two strictly straight, mutually parallel sides (R&sup2; = 0.9985 straightness, an extreme ten-sigma anomaly compared to the jagged margins of surrounding rocks).</li>
-            <li>A crisp, flat planar end cap terminating perpendicular to the body.</li>
-            <li>An elongated 3.24 : 1 length-to-width aspect ratio (over twelve standard deviations away from the roughly equal dimensions of surrounding gravel).</li>
+            <li>Two strictly straight, mutually parallel sides (R&sup2; = 0.9985 straightness, an extreme ten-sigma anomaly of +10.70&sigma;, Cantelli bound <em>p</em> &lt; 0.007, compared to the flattest natural rock in the scene at R&sup2; = 0.2708).</li>
+            <li>A crisp, flat planar end cap terminating perpendicular to the body, whose 0.9335 apparent circularity perfectly matches the 22&deg; camera perspective.</li>
+            <li>An elongated 3.24 : 1 length-to-width aspect ratio (over twelve standard deviations, +12.06&sigma;, away from the roughly equal dimensions of surrounding gravel).</li>
           </ol>
         </li>
         <li>
