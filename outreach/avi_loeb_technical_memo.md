@@ -42,8 +42,9 @@ We write to share our findings and provide the verified physical parameters for 
 
 3. **Statistically Anomalous Against Background Clasts ($N=20$)**:
    * We measured a control population of $N=20$ natural clasts across the identical raw frame (`3556MR1025170721700585C00_DRCL`).
-   * The cylinder's generator straightness ($R^2 = 0.9985$, angular divergence $\Delta\theta < 0.2^\circ$) represents a **$+10.70\sigma$ (sample) / $+10.97\sigma$ (population)** outlier compared to natural clast morphology ($\mu_{R^2} = 0.104 \pm 0.081$).
+   * The cylinder's generator straightness ($R^2 = 0.9988$, angular divergence $\Delta\theta < 0.7^\circ$) represents a **$+10.70\sigma$ (sample) / $+10.97\sigma$ (population)** outlier compared to natural clast morphology ($\mu_{R^2} = 0.104 \pm 0.081$). It exceeds the straightest natural clast in the frame ($R^2 = 0.2708$) by nearly **$3.7\times$**.
    * Its aspect ratio ($3.24 : 1$) is a **$+12.06\sigma$ (sample) / $+12.56\sigma$ (population)** departure from natural rock fragmentation distributions ($\mu = 1.23 \pm 0.16$).
+   * Under distribution-free non-parametric testing, one-sided Cantelli bounds establish that these departures occur at $p < 0.0087$ and $p < 0.0069$ without requiring Gaussian distributional assumptions.
 
 4. **Solar Ephemeris Ray-Tracing Match**:
    * Inverting the 2D sensor cast shadow vector yields an angle of $\theta_{\text{shadow}} = +23.3728^\circ$, matching NASA SPICE solar ephemeris for Sol 3556 12:10:25 LTST ($\theta_\odot = 69.8224^\circ, \phi_\odot = 186.8169^\circ$) to within $0.1^\circ$, independently confirming vertical relief ($h = 8.46 \pm 0.60\text{ mm}$).

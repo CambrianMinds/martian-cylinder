@@ -39,7 +39,8 @@ Our group conducted a formal forensic photogrammetry audit directly against the 
 
 3. **Geomorphological Null Distribution ($N=20$)**:
    * We measured an empirical control sample of $N=20$ natural clasts across the identical frame.
-   * The feature's generator straightness ($R^2 = 0.9985$, angular divergence $\Delta\theta < 0.2^\circ$) and aspect ratio ($3.24:1$) represent **$+10.70\sigma$ and $+12.06\sigma$ sample deviations** against surrounding rock morphology.
+   * The feature's generator straightness ($R^2 = 0.9988$, angular divergence $\Delta\theta < 0.7^\circ$) and aspect ratio ($3.24:1$) represent **$+10.70\sigma$ and $+12.06\sigma$ sample deviations** against surrounding rock morphology.
+   * Under distribution-free Cantelli bounds, these anomalies achieve $p < 0.0087$ and $p < 0.0069$; the cylinder's generator straightness is nearly **$3.7\times$ higher** than the straightest natural rock in the scene ($R^2 = 0.2708$).
 
 4. **Sediment Deposition Constraints on Rover Debris**:
    * The absence of windward deflation moats or leeward sand shadow drifts indicates the regolith interface is in long-term aeolian equilibrium.
