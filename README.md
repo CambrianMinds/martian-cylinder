@@ -14,12 +14,12 @@ This repository contains the complete NASA Planetary Data System (PDS) raw telem
 | :--- | :--- | :--- | :--- |
 | **PDS Product ID** | `3556MR1025170721700585C00` | `DRCL`, `DRCX`, `DRLX`, `DRXX` | NASA PDS Archive (Release `0032`) |
 | **Focus Motor Count & Slant Range** | `2705` counts $\rightarrow 3.957\text{ m}$ | $3.63\text{--}4.30\text{ m}$ optical DoF ($3.6\text{--}4.4\text{ m}$ PDS) | `MSL:FOCUS_POSITION_COUNT`, Eq. (1)–(3) |
-| **Angular & Ground Pixel Scale** | $\text{IFOV} = 0.074\text{ mrad/px}$ | $0.293\text{ mm/px}$ (normal) to $0.317\text{ mm/px}$ (ground) | Mastcam-100 ($f=100\text{ mm}, f/12, c=7.4\,\mu\text{m}$) |
-| **Transverse Diameter ($D$)** | $11.5 \pm 0.8\text{ mm}$ | $10.8\text{--}12.5\text{ mm}$ ($34.0\text{--}37.63\text{ px}$) | 3D Perspective Model & Sobel Ellipse Fit |
-| **Exposed Longitudinal Length ($L$)** | $35 \pm 2\text{ mm}$ | $34.9 \pm 0.8\text{ mm}$ ($110.0\text{ px}$) | 3D Central-Perspective Projection (Fig. 4) |
-| **Aspect Ratio ($L/D$)** | $3.24 : 1$ | $+12.56\,\sigma$ ($+12.06\,\sigma$ sample SD) vs. controls | Natural clasts ($N=20$): $\mu = 1.23 \pm 0.16$ |
+| **Normal & Axial Pixel Scale** | $\text{IFOV} = 0.074\text{ mrad/px}$ | $0.269\text{--}0.318\text{ mm/px}$ ($s_\perp$) to $0.291\text{--}0.344\text{ mm/px}$ ($s_{\text{axial}}$) | Mastcam-100 ($f=100\text{ mm}, f/12, c=7.4\,\mu\text{m}$) |
+| **Transverse Diameter ($D$)** | $11.0 \pm 1.2\text{ mm}$ (nominal) | $9.1\text{--}12.0\text{ mm}$ ($s_\perp$) / $10.8\text{--}12.5\text{ mm}$ ($s_{\text{axial}}$) | Normal silhouette vs. 3D axial envelope |
+| **Exposed Longitudinal Length ($L$)** | $35 \pm 2\text{ mm}$ | $32.0\text{--}37.9\text{ mm}$ ($110.0\text{ px}$; nominal $34.87\text{ mm}$) | 3D Central-Perspective Projection (Fig. 4) |
+| **Aspect Ratio ($L/D$)** | $3.24 : 1$ | $+12.06\,\sigma$ sample SD; Cantelli $p < 0.007$; rank $1/21$ | Natural clasts ($N=20$): $\mu = 1.23 \pm 0.16$ |
 | **End-Cap Circularity ($b/a$)** | $0.9335$ | $+1.05\,\sigma$ ($p = 0.15$) vs. controls | Matches 3D viewing foreshortening $\cos\beta$ ($1.8^\circ$) |
-| **Generator Parallelism ($R^2$)** | $0.9985$ ($\Delta\theta < 0.2^\circ$) | $+10.97\,\sigma$ ($+10.70\,\sigma$ sample SD) vs. controls | Natural clasts ($N=20$): $\overline{R^2} = 0.104 \pm 0.081$ |
+| **Generator Parallelism ($R^2$)** | $0.9985$ ($\Delta\theta < 0.7^\circ$) | $+10.70\,\sigma$ sample SD; Cantelli $p < 0.009$; rank $1/21$ | Natural clasts ($N=20$): $\overline{R^2} = 0.104 \pm 0.081$ |
 | **Solar Shadow Compression** | $\cot(69.8224^\circ) = 0.3675$ | Measured shadow $3.11 \pm 0.22\text{ mm}$ at $+23.3728^\circ$ | Matches $8.46 \pm 0.60\text{ mm}$ exposed vertical relief |
 | **Regolith Burial & Dust Clock** | $33.5\%$ buried ($2.0\text{--}3.2\text{ mm}$) | $80\text{--}200\text{ yr}$ ($2.0\text{ mm}$) to $128\text{--}320\text{ yr}$ ($3.2\text{ mm}$) | Passive fallout rate $10\text{--}25\,\mu\text{m/Earth yr}$ |
 

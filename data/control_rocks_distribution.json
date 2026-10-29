@@ -14,7 +14,17 @@
       "minor_mm": 12.49,
       "circ_ratio": 0.7679,
       "aspect_ratio": 1.3,
-      "r2_parallelism": 0.1682
+      "r2_parallelism": 0.1682,
+      "drcl_center_xy": [
+        1098.7,
+        938.3
+      ],
+      "drcl_bbox_xywh": [
+        1073.05,
+        918.6,
+        51.31,
+        39.4
+      ]
     },
     {
       "id": "R02",
@@ -30,7 +40,17 @@
       "minor_mm": 7.9,
       "circ_ratio": 0.58,
       "aspect_ratio": 1.72,
-      "r2_parallelism": 0.2708
+      "r2_parallelism": 0.2708,
+      "drcl_center_xy": [
+        1069.9,
+        901.8
+      ],
+      "drcl_bbox_xywh": [
+        1048.41,
+        889.33,
+        42.98,
+        24.93
+      ]
     },
     {
       "id": "R03",
@@ -46,7 +66,17 @@
       "minor_mm": 18.25,
       "circ_ratio": 0.8414,
       "aspect_ratio": 1.19,
-      "r2_parallelism": 0.0849
+      "r2_parallelism": 0.0849,
+      "drcl_center_xy": [
+        1154.9,
+        985.8
+      ],
+      "drcl_bbox_xywh": [
+        1120.69,
+        957.01,
+        68.43,
+        57.58
+      ]
     },
     {
       "id": "R04",
@@ -62,7 +92,17 @@
       "minor_mm": 20.95,
       "circ_ratio": 0.8687,
       "aspect_ratio": 1.15,
-      "r2_parallelism": 0.0739
+      "r2_parallelism": 0.0739,
+      "drcl_center_xy": [
+        1148.2,
+        1048.0
+      ],
+      "drcl_bbox_xywh": [
+        1110.17,
+        1014.97,
+        76.06,
+        66.07
+      ]
     },
     {
       "id": "R05",
@@ -78,7 +118,17 @@
       "minor_mm": 22.65,
       "circ_ratio": 0.859,
       "aspect_ratio": 1.16,
-      "r2_parallelism": 0.0258
+      "r2_parallelism": 0.0258,
+      "drcl_center_xy": [
+        1036.5,
+        1057.6
+      ],
+      "drcl_bbox_xywh": [
+        994.9,
+        1021.87,
+        83.19,
+        71.46
+      ]
     },
     {
       "id": "R06",
@@ -94,7 +144,17 @@
       "minor_mm": 21.53,
       "circ_ratio": 0.8736,
       "aspect_ratio": 1.14,
-      "r2_parallelism": 0.2397
+      "r2_parallelism": 0.2397,
+      "drcl_center_xy": [
+        988.0,
+        983.7
+      ],
+      "drcl_bbox_xywh": [
+        949.13,
+        949.75,
+        77.73,
+        67.91
+      ]
     },
     {
       "id": "R07",
@@ -110,7 +170,17 @@
       "minor_mm": 11.47,
       "circ_ratio": 0.9602,
       "aspect_ratio": 1.04,
-      "r2_parallelism": 0.0595
+      "r2_parallelism": 0.0595,
+      "drcl_center_xy": [
+        1006.5,
+        935.4
+      ],
+      "drcl_bbox_xywh": [
+        987.66,
+        917.31,
+        37.68,
+        36.18
+      ]
     },
     {
       "id": "R08",
@@ -126,7 +196,17 @@
       "minor_mm": 21.87,
       "circ_ratio": 0.7044,
       "aspect_ratio": 1.42,
-      "r2_parallelism": 0.044
+      "r2_parallelism": 0.044,
+      "drcl_center_xy": [
+        869.4,
+        765.5
+      ],
+      "drcl_bbox_xywh": [
+        820.42,
+        731.0,
+        97.95,
+        68.99
+      ]
     },
     {
       "id": "R09",
@@ -142,7 +222,17 @@
       "minor_mm": 24.48,
       "circ_ratio": 0.9418,
       "aspect_ratio": 1.06,
-      "r2_parallelism": 0.0833
+      "r2_parallelism": 0.0833,
+      "drcl_center_xy": [
+        1043.1,
+        772.5
+      ],
+      "drcl_bbox_xywh": [
+        1002.09,
+        733.88,
+        82.01,
+        77.23
+      ]
     },
     {
       "id": "R10",
@@ -158,7 +248,17 @@
       "minor_mm": 25.86,
       "circ_ratio": 0.7416,
       "aspect_ratio": 1.35,
-      "r2_parallelism": 0.0203
+      "r2_parallelism": 0.0203,
+      "drcl_center_xy": [
+        1217.7,
+        754.3
+      ],
+      "drcl_bbox_xywh": [
+        1162.71,
+        713.52,
+        109.98,
+        81.56
+      ]
     },
     {
       "id": "R11",
@@ -174,7 +274,17 @@
       "minor_mm": 19.26,
       "circ_ratio": 0.82,
       "aspect_ratio": 1.22,
-      "r2_parallelism": 0.0998
+      "r2_parallelism": 0.0998,
+      "drcl_center_xy": [
+        874.5,
+        845.9
+      ],
+      "drcl_bbox_xywh": [
+        837.46,
+        815.53,
+        74.08,
+        60.74
+      ]
     },
     {
       "id": "R12",
@@ -190,7 +300,17 @@
       "minor_mm": 17.24,
       "circ_ratio": 0.717,
       "aspect_ratio": 1.39,
-      "r2_parallelism": 0.0329
+      "r2_parallelism": 0.0329,
+      "drcl_center_xy": [
+        997.5,
+        854.0
+      ],
+      "drcl_bbox_xywh": [
+        959.58,
+        826.8,
+        75.85,
+        54.39
+      ]
     },
     {
       "id": "R13",
@@ -206,7 +326,17 @@
       "minor_mm": 20.82,
       "circ_ratio": 0.7429,
       "aspect_ratio": 1.35,
-      "r2_parallelism": 0.0537
+      "r2_parallelism": 0.0537,
+      "drcl_center_xy": [
+        1188.4,
+        849.6
+      ],
+      "drcl_bbox_xywh": [
+        1144.21,
+        816.77,
+        88.38,
+        65.66
+      ]
     },
     {
       "id": "R14",
@@ -222,7 +352,17 @@
       "minor_mm": 28.56,
       "circ_ratio": 0.8697,
       "aspect_ratio": 1.15,
-      "r2_parallelism": 0.0133
+      "r2_parallelism": 0.0133,
+      "drcl_center_xy": [
+        874.6,
+        1078.7
+      ],
+      "drcl_bbox_xywh": [
+        822.81,
+        1033.66,
+        103.58,
+        90.08
+      ]
     },
     {
       "id": "R15",
@@ -238,7 +378,17 @@
       "minor_mm": 16.45,
       "circ_ratio": 0.894,
       "aspect_ratio": 1.12,
-      "r2_parallelism": 0.0978
+      "r2_parallelism": 0.0978,
+      "drcl_center_xy": [
+        1045.0,
+        1113.7
+      ],
+      "drcl_bbox_xywh": [
+        1015.98,
+        1087.76,
+        58.04,
+        51.89
+      ]
     },
     {
       "id": "R16",
@@ -254,7 +404,17 @@
       "minor_mm": 18.24,
       "circ_ratio": 0.9832,
       "aspect_ratio": 1.02,
-      "r2_parallelism": 0.0462
+      "r2_parallelism": 0.0462,
+      "drcl_center_xy": [
+        1095.4,
+        1117.4
+      ],
+      "drcl_bbox_xywh": [
+        1066.14,
+        1088.63,
+        58.52,
+        57.53
+      ]
     },
     {
       "id": "R17",
@@ -270,7 +430,17 @@
       "minor_mm": 22.76,
       "circ_ratio": 0.9756,
       "aspect_ratio": 1.03,
-      "r2_parallelism": 0.0331
+      "r2_parallelism": 0.0331,
+      "drcl_center_xy": [
+        1222.2,
+        1062.9
+      ],
+      "drcl_bbox_xywh": [
+        1185.39,
+        1027.0,
+        73.61,
+        71.81
+      ]
     },
     {
       "id": "R18",
@@ -286,7 +456,17 @@
       "minor_mm": 21.0,
       "circ_ratio": 0.835,
       "aspect_ratio": 1.2,
-      "r2_parallelism": 0.192
+      "r2_parallelism": 0.192,
+      "drcl_center_xy": [
+        1255.6,
+        929.6
+      ],
+      "drcl_bbox_xywh": [
+        1215.93,
+        896.48,
+        79.33,
+        66.24
+      ]
     },
     {
       "id": "R19",
@@ -302,7 +482,17 @@
       "minor_mm": 14.1,
       "circ_ratio": 0.8292,
       "aspect_ratio": 1.21,
-      "r2_parallelism": 0.2545
+      "r2_parallelism": 0.2545,
+      "drcl_center_xy": [
+        1254.6,
+        820.9
+      ],
+      "drcl_bbox_xywh": [
+        1227.77,
+        798.65,
+        53.66,
+        44.49
+      ]
     },
     {
       "id": "R20",
@@ -318,7 +508,17 @@
       "minor_mm": 17.88,
       "circ_ratio": 0.7697,
       "aspect_ratio": 1.3,
-      "r2_parallelism": 0.1901
+      "r2_parallelism": 0.1901,
+      "drcl_center_xy": [
+        1117.5,
+        893.4
+      ],
+      "drcl_bbox_xywh": [
+        1080.86,
+        865.19,
+        73.29,
+        56.41
+      ]
     }
   ],
   "summary": {
