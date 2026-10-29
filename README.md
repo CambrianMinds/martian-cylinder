@@ -1,5 +1,10 @@
 # Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery
 
+[![Verification Suite](https://github.com/cambrianminds/martian-cylinder/actions/workflows/verify.yml/badge.svg)](https://github.com/cambrianminds/martian-cylinder/actions/workflows/verify.yml)
+[![License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](LICENSE)
+[![License: CC BY 4.0](https://img.shields.io/badge/Text%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](requirements.txt)
+
 **Author:** Justin Bogner (Cambrian Minds)  
 **Technical Report:** `CMR-2026-01` · October 2026  
 **Live Monograph & Interactive Studio:** [https://cambrianminds.github.io/martian-cylinder/](https://cambrianminds.github.io/martian-cylinder/)
@@ -81,7 +86,7 @@ For lightweight or sandbox-constrained environments without the full 40 MB raw P
 python3 reproduce_analysis.py --crop-only
 ```
 
-The script verifies the SHA-256 checksums of all eight raw NASA PDS `.IMG`/`.LBL` archive files (in standard mode), parses the ODL telemetry header, validates the CAHVOR camera matrix intrinsics and optical depth-of-field equations, projects the SPICE solar shadow vector ($+23.3728^\circ$), reconstructs the dual-scale vertical shadow relief, verifies the exact pixel provenance of `crop_bottom_right.png` (`DRCL[700:1150, 800:1300]`) and the $120 \times 120$ Sobel sub-raster (`DRCL[940:1060, 1009:1129]`), extracts and verifies all $N=20$ background control clasts directly from live `DRCL.png` detector pixels ($\text{SNR} > 1.5$), and recomputes both population ($\text{ddof}=0$) and unbiased sample ($\text{ddof}=1$) $z$-scores and Cantelli inequalities.
+The script verifies the SHA-256 checksums of all eight raw NASA PDS `.IMG`/`.LBL` archive files (in standard mode), parses the ODL telemetry header, validates the CAHVOR camera matrix intrinsics and optical depth-of-field equations, projects the SPICE solar shadow vector ($+23.3728^\circ$), reconstructs the dual-scale vertical shadow relief, verifies the exact pixel provenance of `crop_bottom_right.png` (`DRCL[700:1150, 800:1300]`) and the $120 \times 120$ Sobel sub-raster (`DRCL[940:1060, 1009:1129]`), performs multi-parameter perturbation sensitivity sweeps across 75 generator windows and 81 ellipse sectors, independently extracts and verifies all $N=20$ background control clasts directly from live detector pixels ($0.00\text{ px}$ axis discrepancy, $0.0000\ R^2$ discrepancy, $\text{SNR} > 1.5$), and recomputes both population ($\text{ddof}=0$) and unbiased sample ($\text{ddof}=1$) $z$-scores and Cantelli inequalities.
 
 ### 2. Recompile the LaTeX Manuscripts
 

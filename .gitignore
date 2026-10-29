@@ -22,6 +22,9 @@ jpl-sign.jpg
 uncle-sam.jpg
 GM_Sunraycer.jpg
 
-# Untracked press releases / media drafts
+# Untracked press releases / media drafts / internal workbench files
 press_release.md
-outreach/press_release.md
+outreach/
+GOAL.md
+eval-this.md
+AUDIT_RESOLUTION_WALKTHROUGH.md
