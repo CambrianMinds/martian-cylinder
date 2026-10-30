@@ -1,12 +1,13 @@
 # Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23789091.svg)](https://doi.org/10.5281/zenodo.23789091)
 [![Verification Suite](https://github.com/cambrianminds/martian-cylinder/actions/workflows/verify.yml/badge.svg)](https://github.com/cambrianminds/martian-cylinder/actions/workflows/verify.yml)
 [![License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/Text%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](requirements.txt)
 
 **Author:** Justin Bogner (Cambrian Minds)  
-**Technical Report:** `CMR-2026-01` · October 2026  
+**Technical Report:** `CMR-2026-01` · October 2026 · **DOI:** [`10.5281/zenodo.23789091`](https://doi.org/10.5281/zenodo.23789091)  
 **Live Monograph & Interactive Studio:** [https://cambrianminds.github.io/martian-cylinder/](https://cambrianminds.github.io/martian-cylinder/)
 
 ## Overview
