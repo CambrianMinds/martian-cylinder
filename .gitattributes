@@ -1,0 +1,7 @@
+* text=auto eol=lf
+data/** -text
+*.IMG binary
+*.fits binary
+*.png binary
+*.jpg binary
+*.pdf binary

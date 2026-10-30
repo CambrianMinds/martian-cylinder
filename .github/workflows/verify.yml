@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master, main ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   verify:
     name: Verify Telemetry, Geometry & Statistics
@@ -30,7 +33,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Deterministic Verification Suite (--crop-only)
+      - name: Run Full NASA PDS Archive Verification Suite
+        run: |
+          python reproduce_analysis.py
+
+      - name: Run Lightweight Sandbox Verification (--crop-only)
         run: |
           python reproduce_analysis.py --crop-only
 

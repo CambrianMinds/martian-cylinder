@@ -260,6 +260,16 @@ def main() -> int:
     all_files_present = all(os.path.exists(os.path.join(data_dir, fn)) for fn in EXPECTED_SHA256)
     lightweight_mode = args.crop_only or not all_files_present
 
+    def compute_verified_sha256(fp: str, expected_h: str) -> str:
+        raw = open(fp, "rb").read()
+        actual_h = hashlib.sha256(raw).hexdigest()
+        if actual_h != expected_h and fp.lower().endswith((".json", ".lbl", ".txt")):
+            # Normalize Windows Git core.autocrlf line-ending conversions if present
+            norm_h = hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
+            if norm_h == expected_h:
+                return norm_h
+        return actual_h
+
     if lightweight_mode:
         print("\n[1] NASA Archive Integrity Check (Lightweight Sandbox / Crop Mode)")
         required_subset = ["crop_bottom_right.png", "control_rocks_distribution.json"]
@@ -267,7 +277,7 @@ def main() -> int:
             required_subset.append("3556MR1025170721700585C00_DRCL.png")
         for fn in required_subset:
             fp = os.path.join(data_dir, fn)
-            actual_h = hashlib.sha256(open(fp, "rb").read()).hexdigest()
+            actual_h = compute_verified_sha256(fp, EXPECTED_SHA256[fn])
             assert actual_h == EXPECTED_SHA256[fn], f"SHA-256 mismatch for {fn}!"
             sz = os.path.getsize(fp)
             print(f"  ✓ {fn:<35} | {sz:>9,d} B | sha256: {actual_h[:16]}...{actual_h[-8:]}")
@@ -279,7 +289,7 @@ def main() -> int:
             if not os.path.exists(fp):
                 print(f"  ERROR: Missing required file: {fp}")
                 return 1
-            actual_h = hashlib.sha256(open(fp, "rb").read()).hexdigest()
+            actual_h = compute_verified_sha256(fp, expected_h)
             assert actual_h == expected_h, f"SHA-256 mismatch for {fn}!\nExpected: {expected_h}\nActual:   {actual_h}"
             sz = os.path.getsize(fp)
             print(f"  ✓ {fn:<35} | {sz:>9,d} B | sha256: {actual_h[:16]}...{actual_h[-8:]}")
