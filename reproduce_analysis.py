@@ -634,6 +634,40 @@ def main() -> int:
     print(f"  • Ellipse Perturbation Sweep     : {len(pert_circs)} wide-search configs   -> b/a = {np.mean(pert_circs):.4f} ± {np.std(pert_circs):.4f} (range [{np.min(pert_circs):.4f}, {np.max(pert_circs):.4f}])")
     assert np.mean(pert_r2s) > 0.995 and np.min(pert_r2s) > 0.990, "Perturbed unconstrained generator windows must maintain R^2 > 0.990!"
 
+    # --- Weak-Perspective Taper Constraint & Rear Terminus Sobel Rim Forensics ---
+    z0_mm = 3957.0
+    l_mm = 35.0
+    rho_cam = z0_mm / l_mm
+    dz_3d_mm = l_mm * abs(math.cos(math.radians(66.0)))  # 3D tilt angle cos(66 deg) = sin(24 deg)
+    dz_end_mm = l_mm * abs(math.cos(math.radians(24.0)))  # End-face tilt cos(24 deg)
+    ratio_3d = (z0_mm - 0.5 * dz_3d_mm) / (z0_mm + 0.5 * dz_3d_mm)
+    ratio_end = (z0_mm - 0.5 * dz_end_mm) / (z0_mm + 0.5 * dz_end_mm)
+    dr_min_px = 17.0 * (1.0 - ratio_3d)
+    dr_max_px = 18.8 * (1.0 - ratio_end)
+
+    rear_arc_rows = []
+    for y_r in range(4, 13):
+        bx_r = max(range(14, 24), key=lambda x_r: G_mag[y_r, x_r])
+        sx_r = float(Sx[y_r, bx_r])
+        sy_r = float(Sy[y_r, bx_r])
+        gm_r = float(G_mag[y_r, bx_r])
+        ang_r = math.degrees(math.atan2(sy_r, sx_r))
+        rear_arc_rows.append((y_r, bx_r, sx_r, sy_r, gm_r, ang_r))
+
+    rot_span_deg = rear_arc_rows[0][5] - rear_arc_rows[5][5]  # y=4 (+71.9 deg) to y=9 (-40.2 deg)
+    min_sx_rear = min(r[2] for r in rear_arc_rows[1:])  # y=5..12
+    max_sx_rear = max(r[2] for r in rear_arc_rows[1:])
+    apex_x_7 = rear_arc_rows[3][1]  # y=7
+    apex_x_8 = rear_arc_rows[4][1]  # y=8
+    sy_7 = rear_arc_rows[3][3]
+    sy_8 = rear_arc_rows[4][3]
+
+    print(f"  • Weak-Perspective Contraction   : rho_cam = {rho_cam:.2f}, r_rear/r_front = [{ratio_end:.4f}, {ratio_3d:.4f}] (Δr = {dr_min_px:.2f}–{dr_max_px:.2f} px << 1.59 px RMSE)")
+    print(f"  • Rear Terminus Sobel Rim Arc    : y = 4..12, apex x = {apex_x_7} (y=7..8), S_x = +{min_sx_rear:.1f} to +{max_sx_rear:.1f} DN/px, normal rotation = {rot_span_deg:.1f}°")
+    assert 0.991 < ratio_end < ratio_3d < 0.997, "Weak-perspective contraction ratio must lie in [0.9920, 0.9964]!"
+    assert apex_x_7 == 16 and apex_x_8 == 16 and sy_7 > 0.0 and sy_8 < 0.0, "Rear rim Sobel apex must inflect at x=16 between y=7 and y=8!"
+    assert min_sx_rear > 15.0 and rot_span_deg > 110.0, "Rear rim transverse Sobel arc must exceed +15 DN/px and rotate > 110 deg!"
+
     # ------------------------------------------------------------------
     # 5. Section 4.4: Statistical Controls & Distribution-Free Bounds
     # ------------------------------------------------------------------
@@ -703,15 +737,36 @@ def main() -> int:
     print("    ranking 1/21 in both dimensions simultaneously without relying on unverified parameter independence assumptions.")
 
     # ------------------------------------------------------------------
-    # 6. Section 5.1: Gale Crater Passive Dust Sedimentation Clock
+    # 6. Section 5.1 & 5.2: Sedimentation Clock, Soil Bearing & Wind Bounds
     # ------------------------------------------------------------------
-    print("\n[6] Section 5.1: Gale Crater Passive Dust Sedimentation Clock")
+    print("\n[6] Section 5.1 & 5.2: Sedimentation Clock, Geotechnical Bearing & Aerodynamic Bounds")
     rate_min_um_yr = 10.0  # 20 um / Martian year ≈ 10.6 um / Earth year
     rate_max_um_yr = 25.0  # 40 um / Martian year ≈ 21.3–25 um / Earth year
     for depth_mm, desc in [(2.0, "Conservative vertical burial horizon"), (3.2, "Full 33.5% buried diametric chord")]:
         t_min = (depth_mm * 1000.0) / rate_max_um_yr
         t_max = (depth_mm * 1000.0) / rate_min_um_yr
         print(f"  • {desc:<38} ({depth_mm:.1f} mm) : {t_min:.0f} to {t_max:.0f} Earth years (vs. Curiosity 10.0 yr surface residence)")
+
+    # Geotechnical bearing stress vs. Martian regolith ultimate capacity (q_u = 15..50 kPa)
+    g_mars = 3.721
+    a_proj_m2 = 0.0112 * 0.035  # 3.92e-4 m^2
+    v_solid_m3 = math.pi * (0.0056**2) * 0.035  # 3.448e-6 m^3
+    rho_atm = 0.015  # 6 hPa Gale Crater atmosphere (kg/m^3)
+    cd_cyl = 1.0
+    bl_shear = math.sqrt(10.0)  # u(1.5m)/u(5.4mm) = ln(1500/z0)/ln(5.4/z0) ≈ 3.162 (or ground lift C_L ≈ 0.10)
+    c_sound = 240.0
+
+    for mat_name, rho_kgm3 in [("Aluminum 6061/7075", 2700.0), ("Titanium Ti-6Al-4V", 4430.0), ("CRES 304 / Inconel", 7900.0)]:
+        m_kg = rho_kgm3 * v_solid_m3
+        w_n = m_kg * g_mars
+        sigma_kpa = (w_n / a_proj_m2) / 1000.0
+        sf_min = 15.0 / sigma_kpa
+        v_local = math.sqrt((2.0 * w_n) / (rho_atm * cd_cyl * a_proj_m2))
+        v_15m = v_local * bl_shear
+        mach_loft = v_15m / c_sound
+        print(f"  • {mat_name:<20} (m={m_kg*1000:4.1f} g) : sigma_c = {sigma_kpa:.2f} kPa (SF >= {sf_min:.0f}x), v_local = {v_local:.0f} m/s, v_1.5m = {v_15m:.0f} m/s (Mach {mach_loft:.2f})")
+        assert sf_min > 50.0, f"Static bearing safety factor for {mat_name} must exceed 50x!"
+        assert v_local > 90.0 and v_15m > 300.0, f"Aerodynamic lofting velocity for {mat_name} must exceed 90 m/s local / 300 m/s at 1.5m!"
 
     print("\n" + "=" * 78)
     print(" ALL CRYPTOGRAPHIC, GEOMETRIC, AND STATISTICAL CHECKS PASSED (EXIT CODE 0)")

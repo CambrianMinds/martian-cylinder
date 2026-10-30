@@ -1,39 +1,180 @@
 \documentclass[11pt,a4paper]{article}
 
+\pdfmapfile{+Inter.map}
+\pdfmapfile{+fira.map}
+\pdfmapfile{+txfonts.map}
+\pdfmapfile{+newtx.map}
+\pdfmapfile{+newtxsf.map}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[protrusion=true,expansion=false]{microtype}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{geometry}
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={Justin Bogner},pdftitle={How AI Lowered the Barrier to Rigorous Science, and Why It Still Needs a Human Who Has Lived in the World}]{hyperref}
-\usepackage[font=small,labelfont=bf]{caption}
 
+% --- Modern Typography: Inter Sans + NewTX Sans Math + Fira Mono (Lining Figures) ---
+\usepackage[sfdefault,scale=0.92]{inter}
+\usepackage[scaled=0.86,lining]{FiraMono}
+\usepackage{amsmath}
+\usepackage{newtxsf}
+\usepackage[protrusion=true,expansion=false]{microtype}
+
+% --- Layout, Colors & Editorial Components ---
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% --- Curated Modern Color Palette (Deep Space Slate & Martian Ochre) ---
+\definecolor{spacenavy}{RGB}{15, 23, 42}      % Slate 900: Primary headings & title
+\definecolor{slatetext}{RGB}{30, 41, 59}      % Slate 800: Body copy
+\definecolor{slatemuted}{RGB}{100, 116, 139}  % Slate 500: Subtitles, headers, metadata
+\definecolor{marsochre}{RGB}{194, 65, 12}     % Martian Terracotta: Editorial accents & markers
+\definecolor{telemetryblue}{RGB}{3, 105, 161} % JPL Telemetry Blue: Hyperlinks & citations
+\definecolor{surfacelight}{RGB}{248, 250, 252}% Slate 50: Subtle callout background
+\definecolor{surfacewarm}{RGB}{255, 247, 237} % Warm Ochre 50: Highlight box background
+\definecolor{bordersubtle}{RGB}{226, 232, 240}% Slate 200: Hairline dividers
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=telemetryblue,
+    urlcolor=telemetryblue,
+    citecolor=telemetryblue,
+    pdfauthor={Justin Bogner},
+    pdftitle={How AI Lowered the Barrier to Rigorous Science}
+]{hyperref}
+
+\usepackage[
+    font={small,color=slatetext},
+    labelfont={bf,color=spacenavy},
+    justification=raggedright,
+    singlelinecheck=false,
+    skip=6pt
+]{caption}
+
+% --- Page Geometry & Proportions ---
 \geometry{
     top=0.95in,
     bottom=0.95in,
     left=1.05in,
-    right=1.05in
+    right=1.05in,
+    headheight=15pt,
+    footskip=26pt
 }
 
-\setlength{\parskip}{0.60em}
+\color{slatetext}
+\linespread{1.11}
+\setlength{\parskip}{0.58em}
 \setlength{\parindent}{0pt}
+\emergencystretch=1.5em
 
-\newcommand{\horizontalrule}{\vspace{0.55em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.55em}}
+% --- Float Placement & Spacing ---
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.88}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.88}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{14pt plus 2pt minus 3pt}
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}
+
+% --- Running Headers & Footers ---
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\textcolor{slatemuted}{\textbf{CITIZEN SCIENCE \& PLANETARY FORENSICS} \quad|\quad How AI Lowered the Barrier to Rigorous Science}}
+\fancyhead[R]{\footnotesize\textcolor{slatemuted}{\texttt{CMR-2026-01}}}
+\fancyfoot[C]{\footnotesize\textcolor{slatemuted}{\thepage}}
+
+% --- Modern Section & Subsection Styling (with Integrated Accent Rule) ---
+\newcommand{\sectionrulebox}[1]{%
+  \parbox{\linewidth}{%
+    \raggedright
+    \textcolor{marsochre}{\rule{2.8em}{1.6pt}}%
+    \textcolor{bordersubtle}{\rule{\dimexpr\linewidth-2.8em\relax}{0.6pt}}\\[0.35em]%
+    #1%
+  }%
+}
+\titleformat{\subsection}[block]
+  {\normalfont\Large\bfseries\color{spacenavy}}
+  {}{0pt}
+  {\sectionrulebox}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.45em}
+
+\titleformat{\subsubsection}[block]
+  {\normalfont\large\bfseries\color{marsochre}}
+  {}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{1.1em}{0.3em}
+
+% --- Editorial Divider Rule (now integrated into \subsection to prevent page-break orphans) ---
+\newcommand{\horizontalrule}{}
+
+% --- Modern List Styling ---
+\setlist[itemize]{
+    leftmargin=1.4em,
+    itemsep=0.45em,
+    topsep=0.35em,
+    label={\textcolor{marsochre}{\small$\blacksquare$}}
+}
+\setlist[enumerate]{
+    leftmargin=1.6em,
+    itemsep=0.45em,
+    topsep=0.35em,
+    label={\bfseries\textcolor{marsochre}{\arabic*.}}
+}
+
+% --- Editorial Callout Boxes ---
+\newtcolorbox{editorialcallout}{
+    enhanced,
+    blanker,
+    borderline west={3pt}{0pt}{marsochre},
+    colback=surfacewarm,
+    left=14pt,
+    right=14pt,
+    top=9pt,
+    bottom=9pt,
+    before skip=0.7em,
+    after skip=0.7em
+}
+
+\newtcolorbox{methodbox}[1]{
+    enhanced,
+    colback=surfacelight,
+    colframe=bordersubtle,
+    borderline west={3pt}{0pt}{telemetryblue},
+    arc=1.5mm,
+    boxrule=0.6pt,
+    left=14pt,
+    right=14pt,
+    top=9pt,
+    bottom=9pt,
+    fonttitle=\bfseries\color{spacenavy},
+    colbacktitle=surfacelight,
+    title={#1},
+    titlerule=0pt,
+    before skip=0.9em,
+    after skip=0.5em
+}
 
 \begin{document}
+\thispagestyle{empty}
 
-{\LARGE\textbf{How AI Lowered the Barrier to Rigorous Science, and Why It Still Needs a Human Who Has Lived in the World}}
+% --- Modern Magazine-Style Title Header ---
+\noindent{\footnotesize\bfseries\textcolor{marsochre}{CITIZEN SCIENCE \& PLANETARY FORENSICS \quad\textbullet\quad FEATURE ARTICLE}}\par
+\vspace{0.3em}
+\noindent{\fontsize{21}{25}\selectfont\bfseries\color{spacenavy} How AI Lowered the Barrier to Rigorous Science\par}
+\vspace{0.45em}
+\noindent{\large\color{slatemuted} An Inquisitive Amateur, an AI Pair Programmer, and JPL Space Race Heritage Audit Raw NASA Telemetry on an Anomalous Cylinder in Gale Crater\par}
+\vspace{0.6em}
+\noindent\textcolor{marsochre}{\rule{3.5em}{2pt}}\textcolor{bordersubtle}{\rule{\dimexpr\linewidth-3.5em\relax}{0.6pt}}\par
+\vspace{0.35em}
+\noindent{\small\textcolor{spacenavy}{\textbf{By Justin Bogner}} \ \textcolor{slatemuted}{\textbullet\ October 2026 \ \textbullet\ Technical Report \texttt{CMR-2026-01} \ \textbullet\ DOI: \href{https://doi.org/10.5281/zenodo.23789092}{\texttt{10.5281/zenodo.23789092}}}}\par
+\vspace{0.8em}
 
-\vspace{0.4em}
-\large\textit{An Inquisitive Amateur, an AI Pair Programmer, and JPL Space Race Heritage Audit Raw NASA Telemetry on an Anomalous Cylinder in Gale Crater}
-
-\vspace{1em}
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\linewidth]{data/crop_bottom_right.png}
-	\caption*{The object in context: a small cylinder in the Martian regolith.}
+	\includegraphics[width=0.92\linewidth]{data/crop_bottom_right.png}
+	\caption*{\textbf{The Sol 3556 Anomaly in Context:} A small, highly regular cylinder embedded in the coarse regolith of Paraitepuy Pass, Gale Crater. Captured by NASA's \textit{Curiosity} rover using the Mastcam Right $100\,\text{mm}$ camera on August 7, 2022 (PDS Product: \texttt{3556MR1025170721700585C00}).}
 \end{figure}
 
 \horizontalrule
@@ -56,13 +197,51 @@ On that note, a disclaimer: I'm not an engineer and I'm not a mathematician. I'v
 
 This story begins with another story: one that makes what is to come more interesting. Not more credible, but certainly more entertaining. We begin in Decatur, Indiana, in 1931. My great-grandmother Flossie gave birth to a baby boy, Richard ``Sam'' Bogner, whose work would, a few decades later, make the work I have done today possible. Named after his father, my great-uncle Sam would eventually graduate from Ball State Teachers College in Muncie, now Ball State University, in 1959. His career as a chemical engineer began with Delco Remy, a major automotive electrical parts manufacturing division of General Motors located in Anderson, Indiana. In 1966, he joined the exodus of young men from this region, an area still known for producing top-tier engineering talent, who took their degrees to the front lines of the space race. Sam relocated his family to Pasadena, California, to work at NASA's Jet Propulsion Laboratory, or JPL.
 
+\begin{figure}[!ht]
+	\centering
+	\begin{minipage}[c]{0.44\linewidth}
+		\centering
+		\includegraphics[height=5.2cm,keepaspectratio]{data/uncle_sam.jpg}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.53\linewidth}
+		\centering
+		\includegraphics[width=\linewidth,height=5.2cm,keepaspectratio]{data/jpl_sign_web.jpg}
+	\end{minipage}
+	\caption*{\textbf{Left:} Richard ``Sam'' Bogner (1931--2015), chemical engineer from Decatur, Indiana; battery system project engineer at NASA JPL for Surveyor and Mariner programs, Hughes Space and Communications, and GM SunRaycer. \textbf{Right:} The mid-century entrance to NASA's Jet Propulsion Laboratory in Pasadena, California.}
+\end{figure}
+
 During his time at JPL, he worked on evaluating and perfecting the high-energy silver-zinc battery packs that would power the Surveyor lunar landers. It wasn't just about making the batteries hold a charge; his team had to ensure these batteries could withstand the violent vibrations of a rocket launch, survive the deceleration of a lunar touchdown, and keep the spacecraft alive through freezing, two-week-long lunar nights where temperatures plummeted to hundreds of degrees below zero.
 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.72\linewidth]{data/surveyor3_apollo12.jpg}
+	\caption*{\textbf{Surveyor 3 on the Lunar Surface (Oceanus Procellarum):} Apollo 12 Commander Pete Conrad examines the Surveyor 3 lander in November 1969, with the Lunar Module \textit{Intrepid} visible on the horizon. Sam Bogner qualified the silver-zinc battery packs that enabled Surveyor to survive launch vibration, lunar impact deceleration, and two-week cryogenic nights. (NASA Photo AS12-48-7135).}
+\end{figure}
+
 From the Moon, his focus shifted outward to the Red Planet. He became the project engineer and the definitive voice on battery flight performance for the Mariner program, specifically Mariners 6, 7, 9, and 10. I looked up the \href{data/bogner_mariner1971_report.pdf}{historic NASA technical reports from the Mariner Mars 1971 mission}, and seeing his name right there on the cover was profoundly humbling. His work tracked how deep-space silver-zinc and nickel-cadmium cells degraded over months of interplanetary transit, managed the chemistry of \href{https://ntrs.nasa.gov/citations/19710005471}{separator systems to prevent short circuits}, modeled the exact discharge curves required when Mariner 9 entered orbit and dipped into the dark shadow of Mars, and a bunch of other stuff I still don't fully understand. When Mariner 9 successfully outlasted a planet-wide dust storm to map 100\% of the Martian surface, it did so powered by an architecture he engineered.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{minipage}[c]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth,height=5.6cm,keepaspectratio]{data/mariner9_final_checks.jpg}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth,height=5.6cm,keepaspectratio]{data/bogner_mariner1971_titlepage.png}
+	\end{minipage}
+	\caption*{\textbf{Left:} Technicians and engineers in cleanroom garments conduct final system checks on the Mariner 9 spacecraft prior to its May 1971 launch to Mars (NASA/JPL). \textbf{Right:} NASA Technical Memorandum JPL-TM-33-591 (April 1973), \textit{``Mariner Mars 1971 Battery Design, Test, and Flight Performance''} authored by R.~S.~Bogner.}
+\end{figure}
 
 As the space race began to transition into the commercial satellite boom of the late 1970s and 1980s, Uncle Sam brought his expertise to Hughes Space and Communications. At Hughes, he moved away from the volatile inner solar system and focused on longevity and weight reduction for Earth's orbital infrastructure. He pioneered research into lightweight, graphite-epoxy battery casings to replace heavy metallic housings, testing nickel-cadmium cells through simulated geosynchronous orbit-eclipse seasons to ensure communication satellites could survive for decades without failing.
 
 This work ties directly into the next portion of his career, and takes him back to his beginnings in the automotive industry. In 1987, General Motors partnered with AeroVironment and Hughes to build the SunRaycer, a revolutionary solar-powered vehicle designed to contest the inaugural World Solar Challenge across the Australian Outback. On the SunRaycer project, he functioned as a primary battery design engineer and lead technical researcher representing Hughes Aircraft. He is officially credited in the Society of Automotive Engineers (SAE) archives as one of the definitive engineers of the vehicle's power architecture, co-authoring the official technical documentation titled: \href{https://saemobilus.sae.org/content/sp-845}{\textit{``GM Sunraycer Case History Lecture 3-4: Design and Performance of the GM Sunraycer Battery''}} alongside his colleagues N.~Chorneau and D.~Pickett. In this capacity, he helped engineer a custom, ultra-lightweight silver-zinc secondary battery pack. This pack had to flawlessly store transient energy harvested from the car's cutting-edge gallium-arsenide solar array, delivering bursts of raw power when navigating hills or cloudy stretches. And he unequivocally delivered. The engineering was so pristine that the GM SunRaycer didn't just win the 1,800-mile race across the continent. It crossed the finish line more than two full days ahead of the nearest competitor. The car currently sits in the Smithsonian in Washington, D.C.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.78\linewidth]{data/sunraycer_web.jpg}
+	\caption*{\textbf{The GM SunRaycer on Museum Display:} Preserved at the Smithsonian National Museum of American History in Washington, D.C., the pioneering solar vehicle was powered by custom silver-zinc secondary cells engineered by Sam Bogner and Hughes Aircraft, winning the 1,867-mile World Solar Challenge across the Australian Outback in 1987 by more than two days.}
+\end{figure}
 
 I would love to say that I grew up listening to my great-uncle Sam tell stories about NASA, rocket ships, or the space race. Unfortunately, I don't recall ever meeting him. My grandpa Alan mentioned his older brother from time to time, but as a kid, I don't think I ever paid much attention. Then one day, less than a year ago, my dad casually mentioned his work on the SunRaycer. I was beyond intrigued. That was when I discovered all of this for the first time. So, while I was never regaled with stories of his work in space---which, even as a child, I would have found profoundly interesting---I hope the work that follows, enabled by his early research at JPL, might continue, in a much smaller way, my family's legacy on the Red Planet.
 
@@ -80,17 +259,39 @@ Before you can ask what something is, you have to find out what it actually meas
 	\item \textbf{We pulled the boundaries apart with edge filters.} To keep my eyes from tricking me, I had the AI write code applying spatial ``Sobel gradient filters.'' This math measures how abruptly brightness changes across pixels. It proved that the dark circle on the end wasn't a shadow thrown on the ground, it was the cylinder's own flat, self-shadowed face, completely separate from the neighboring rock and the dirt beneath it.
 \end{itemize}
 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.82\linewidth]{data/mastcam_full_context.png}
+	\caption*{\textbf{Resolving the 20-Centimeter Rumor:} The full $1328 \times 1184$ pixel Mastcam-100 field of view (Sol 3556). Internet commentators assumed the cylinder was embedded in the distant Bolivar cliff face ($\sim 45\,\text{m}$ away), which would scale a 35-pixel feature to $\sim 20\,\text{cm}$. NASA's camera focus motor telemetry (\texttt{MSL:FOCUS\_POSITION\_COUNT = 2705}) proves the lens was locked onto the foreground regolith at $3.96\,\text{m}$, constraining the true exposed length to $35\,\text{mm}$.}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\begin{minipage}[c]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth,height=4.8cm,keepaspectratio]{data/scale_comparison.png}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth,height=4.8cm,keepaspectratio]{data/thumb_mask.jpg}
+	\end{minipage}
+	\caption*{\textbf{Left (Physical Scale Comparison):} With a diameter of $11.5 \pm 0.8\,\text{mm}$ and an exposed length of $35 \pm 2\,\text{mm}$, the Martian cylinder is roughly the girth of a standard AA battery ($14.5\,\text{mm}$ diameter) and about two-thirds its length. \textbf{Right (Solar Ephemeris Ray-Tracing):} Decoupling the object's self-shadowed planar face (pink) from its ground cast shadow fringe (orange) under the $69.82^\circ$ noon solar elevation.}
+\end{figure}
+
 \horizontalrule
 
-\subsection*{Building the tool and finding the back edge}
+\subsection*{Building the tool and checking the back edge}
 
 Ten years ago, I couldn't have done this analysis because the tools were out of reach. Reading NASA's data format, working out camera geometry, writing code for edge detection, fitting ellipses, running the error checks\dots\ each of those is a specialty.
 
 AI collapsed that barrier. It wrote the Python code that reads the data format and calculates the center of the image. It explained what a ``Sobel filter'' is. It did the arithmetic I can't do and the geometry I never learned. When I asked ``what does that mean?'', it explained, as many times as I needed.
 
-\textbf{The barrier to rigorous analysis is lower than it has ever been.}
+\begin{editorialcallout}
+\textbf{\color{spacenavy}The barrier to rigorous analysis is lower than it has ever been.}
 
-But here's the part people skip. \textbf{The AI got things wrong. Repeatedly.} It was honestly exhausting and at some points infuriating. The things that it couldn't seem to do, even with its ability to do calculus and trigonometry in seconds, were to me, dead simple.
+\smallskip
+But here's the part people skip. \textbf{\color{marsochre}The AI got things wrong. Repeatedly.} It was honestly exhausting and at some points infuriating. The things that it couldn't seem to do, even with its ability to do calculus and trigonometry in seconds, were to me, dead simple.
+\end{editorialcallout}
 
 It kept making the same kinds of mistakes:
 
@@ -100,19 +301,17 @@ It kept making the same kinds of mistakes:
 	\item \textbf{It swallowed a neighboring rock.} Next to the cylinder was a lump that wasn't part of it. The software kept including it in the outline until I told it to leave that part out.
 \end{itemize}
 
-I finally had the AI build a custom web-based photogrammetry tool that allowed me to overlay a physically accurate 3D cylinder directly onto the NASA photo and manipulate it in real-time. It was as simple as using a mouse wheel to zoom and dragging the mouse to adjust rotation, perspective tilt, and length.
-
-\begin{figure}[htbp]
+\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.88\linewidth]{data/martian-cylinder-overlay-1792827816792.png}
-	\caption*{Interactive 3D photogrammetric overlay tool showing the cylinder fitted to the Sol 3556 Mastcam-100 imagery.}
+	\includegraphics[width=0.92\linewidth]{data/sobel_analysis_panel.png}
+	\caption*{\textbf{Sub-Pixel Spatial Gradient Forensics:} Six-panel computer-vision analysis showing raw crop, horizontal Sobel gradient ($S_x$) isolating the left circular rim, total gradient magnitude, direct Fitzgibbon ellipse fit ($b/a = 0.9335$) and parallel longitudinal generators ($R^2 = 0.9985$), directional gradient field, and transverse cross-sectional profile.}
 \end{figure}
 
-That's when the breakthrough happened:
+I also had the AI build a custom web-based photogrammetry tool that allowed me to overlay a 3D cylinder model directly onto the NASA photo and manipulate its rotation, perspective tilt, and length in real-time. Working with that 3D model alongside the Sobel edge filters helped clarify two things about the object's shape and its back end:
 
-By dragging the length slider and locking the perspective tilt to match Curiosity's $22^\circ$ downward camera angle, \textbf{the back edge of the cylinder lined up with the rock highlight.}
+First, because a true cylinder has the same physical radius at both ends, locking the model to Curiosity's $22^\circ$ downward camera angle confirmed that the object isn't a pointed cone or a tapered rock shard. At four meters away through a telephoto lens, optical perspective shrinks the back end by less than a sixth of a pixel ($0.8\%$). That means an untapered cylinder \textit{has} to show parallel sides all the way back---which is why the front and rear have the same physical radius to within measurement precision.
 
-People assumed the cylinder was either a broken stub or a continuous rod plunging indefinitely into the Martian dirt. But the 3D model revealed that the rear cap terminates right where the highlight ends and meets the regolith. It is an exposed, self-contained, discrete cylinder: \textbf{110 pixels by 34 pixels}, giving an exact length-to-diameter aspect ratio of \textbf{$3.24 : 1$} ($\approx 35\text{ mm} \times 11\text{ mm}$).
+Second, people had assumed the cylinder was either a broken stub or a continuous rod plunging indefinitely into the Martian dirt. When we checked the back tip where the sunlit highlight meets the soil using the same Sobel edge filter we used on the front face, the upper half of that boundary didn't just fade out along the straight dirt line; it traced a crisp, curved rim turning through $112^\circ$ of arc right where the barrel ends and meets the regolith. Even if a skeptic argues that the sloping dirt at the bottom is hiding more of the shaft, the exposed barrel forms a self-contained cylinder at least \textbf{110 pixels by 34 pixels}, giving a length-to-diameter aspect ratio of \textbf{$3.24 : 1$} ($\approx 35\text{ mm} \times 11\text{ mm}$).
 
 Notice what I contributed. It wasn't equations. It was \textbf{judgment}. I knew what a shadow looks like. I knew how a cylinder behaves. I knew when something looked wrong. The AI had the mathematical ability. I had the \textit{common sense} to tell it when it was pointed in the wrong direction.
 
@@ -171,24 +370,39 @@ In the technical paper, I evaluated the three competing hypotheses:
 The most intuitive assumption is that Curiosity dropped a bolt, spacer, or piece of hardware, or that debris drifted from the 2012 Entry, Descent, and Landing (EDL) event. But this runs into severe physical problems:
 
 \begin{itemize}
-	\item \textbf{The distance gap:} Curiosity's landing site (Bradbury Landing), where the sky crane and heat shield crashed, is over 28 kilometers away along the rover's winding drive path, and roughly 13 to 15 kilometers (8 to 9 miles) in a direct straight line through the air. In Mars's thin atmosphere (with less than 1\% of Earth's air density), wind simply cannot loft and carry a solid structural cylinder across 13 kilometers of rugged mountainous terrain.
-	\item \textbf{The sediment clock (80 to 200 years):} The cylinder isn't resting loosely on top of fresh dust. Its lower third ($\approx 2\,\text{mm}$ of vertical relief) is embedded in the compacted soil matrix along a straight ground interface. In Gale Crater, background atmospheric dust settles at only about $10\text{ to }25\,\mu\text{m}$ per Earth year. Accumulating 2 millimeters of natural sediment fallout to bury that lower third requires roughly \textbf{80 to 200 years}. Curiosity had only been on Mars for 10 years at the time of the photo. Because Gale Crater has hosted no other mission in history, this passive dust clock rules out terrestrial spacecraft debris.
+	\item \textbf{The distance and supersonic wind gap:} Curiosity's landing site (Bradbury Landing), where the sky crane and heat shield crashed, is over 28 kilometers away along the rover's winding drive path, and roughly 13 to 15 kilometers (8 to 9 miles) in a direct straight line---plus a 610-meter climb uphill onto Mount Sharp. When \textit{Perseverance} found a piece of thermal blanket in 2022, it was paper-thin foil that catches the breeze like a kite. In Mars's thin atmosphere (less than 1\% of Earth's air density), lofting a solid AA-battery-sized metal cylinder requires \textbf{supersonic winds of 750 to 1,300 miles per hour (Mach 1.4 to Mach 2.4)}. Martian gusts in Gale Crater top out around 75 mph.
+	\item \textbf{The rover's own diary says its hands were in its pockets:} What if Curiosity dropped a part right there? Inside the raw data file is a mechanical log called the Rover Motion Counter. At that stop, the counters for the drill, soil scoop, dust brush, and sample funnel were all sitting at zero. Even better, Curiosity's robotic arm sits on its front bumper and can only reach 2.1 meters---while this object was photographed nearly 4 meters away behind the rover's left shoulder, on untouched ground with no wheel tracks in sight.
+	\item \textbf{It doesn't match the spare parts list:} We checked NASA's engineering blueprints for every cylindrical part on the rover. Curiosity's drill bits are 16 millimeters wide (nearly 50\% fatter) and carved with deep spiral grooves like a masonry bit. Aerospace bolts have wide hexagonal heads, external threads, and safety wire. Pin-pullers and wax actuators keep their pins locked inside housings so they can't litter the planet. And the pieces of broken wheel tread Curiosity has shed over the years are flat, 1.5-millimeter-thick strips of aluminum, not solid round rods.
+	\item \textbf{The sediment clock (80 to 320 years) and why it couldn't sink:} The cylinder isn't resting loosely on top of fresh dust. Its lower third ($\approx 2\text{ to }3.2\,\text{mm}$ of depth) is embedded in the crusted soil matrix along a straight ground interface. Could a heavy metal part have simply sunk into soft dirt under its own weight? Under Mars's weak gravity, a AA-battery-sized cylinder of aluminum or steel weighs less than a few coins and presses down with less than 0.3 kilopascals---while Curiosity's wheel sensors proved Gale Crater's salt-crusted dirt is \textbf{50 to 500 times too hard} for it to sink in. Nor could a passing windstorm have banked sand around it overnight: wind blowing past an obstacle carves a horseshoe-shaped trench (``scour moat'') in front and leaves a tapered sand tail behind it, and neither is there. In Gale Crater, passive atmospheric dust settles at only $10\text{ to }25\,\mu\text{m}$ per Earth year (and rover UV sensors show seasonal winds scrub much of that away). Accumulating 2 to 3.2 millimeters of natural sediment fallout requires roughly \textbf{80 to 320 years} (80 to 200 years for a conservative 2-millimeter vertical depth). Curiosity had only been on Mars for 10 years at the time of the photo, and no other mission in history has ever landed within 500 kilometers of Gale Crater.
 	\item \textbf{No mechanical trauma:} The cylinder shows no sheared mounting brackets, severed cabling, or buckling from a high-velocity ballistic impact ($R^2 = 0.9985$ straightness).
 	\item \textbf{Tested against surrounding rocks:} When we verified an empirical control sample of twenty other rocks across the same frame (extracting each rock directly from the raw pixel detector), natural basalt and sandstone clasts averaged an aspect ratio of $1.23$ and a generator straightness fit of only $0.10$, with none scoring above $0.271$. The cylinder's $0.9985$ straightness is an extreme ten-sigma statistical outlier ($+10.70\sigma$, Cantelli bound $p < 0.009$).
 \end{itemize}
 
 \subsubsection*{2. A wind-carved rock (ventifact) or mineral concretion}
-The standard geological dismissal is that it is just a rock shaped by natural forces. But the math doesn't fit the geology:
+The standard geological dismissal is that it is just a rock shaped by natural forces. Better yet, we don't have to guess what Martian ventifacts or mineral concretions look like---we can compare the cylinder directly against NASA's own textbook photos of them:
+
+\begin{figure}[!ht]
+	\centering
+	\begin{minipage}[t]{0.485\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{data/NLB_700661467EDR_F0933078NCAM00299M_.jpg}
+	\end{minipage}\hfill
+	\begin{minipage}[t]{0.485\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{data/PIA19113_concretions.jpg}
+	\end{minipage}
+	\caption*{\textbf{Left (What Real Gale Crater Ventifacts Look Like):} \textit{Curiosity} Left Navcam image (\texttt{NLB\_700661467EDR\_\allowbreak F0933078NCAM00299M\_}) taken on Sol 3415 atop the nearby Greenheugh pediment, featured in NASA's \href{https://science.nasa.gov/blog/sols-3417-3418-a-view-filled-with-ventifacts/}{\textit{``Sols 3417--3418: A View Filled With Ventifacts''}} mission update. Wind-blown sand carves flattened facets and sharp angular keels (\textit{Dreikanter}), not smooth round cylinders (NASA/JPL-Caltech). \textbf{Right (What Real Martian Concretions Look Like):} \textit{Opportunity} Microscopic Imager view of hematite-rich mineral concretions (``blueberries'') near Fram Crater ($3\,\text{cm}$ across, Sol 84, \href{https://science.nasa.gov/photojournal/martian-concretions-near-fram-crater/}{NASA Photojournal PIA19113}). Groundwater precipitation grows spherical nodules ($L/W \approx 1.0$), not elongated straight-walled cylinders (NASA/JPL-Caltech/Cornell/USGS).}
+\end{figure}
 
 \begin{itemize}
-	\item \textbf{What is a ventifact?} A ventifact (from the Latin for ``wind-made'') is a rock that has been sculpted, faceted, or polished by wind-blown sand over thousands or millions of years. Think of natural sandblasting. Because Martian wind blows primarily from dominant directions, saltating sand grains strike exposed surfaces, carving sharp ridges (keels), flat slanted faces (facets), and scooped grooves. You see them on Earth in places like Antarctica or the Mojave Desert.
-	\item \textbf{Wind is not a lathe:} While natural sandblasting easily produces smooth stones or rounded pebbles (several natural rocks in the surrounding field score over 90\% in projected roundness, meaning circularity alone is not an anomaly), it \textbf{does not act like a lathe}. The true anomaly is the non-parametric conjunction of three features that never appear together in natural geology:
-	\begin{enumerate}
-		\item Two strictly straight, mutually parallel sides ($R^2 = 0.9985$ straightness, an extreme ten-sigma anomaly of $+10.70\sigma$, Cantelli bound $p < 0.009$, compared to the flattest natural rock in the scene at $R^2 = 0.2708$).
-		\item A crisp, flat planar end cap terminating perpendicular to the body, whose $0.9335$ apparent circularity perfectly matches the $22^\circ$ camera perspective.
-		\item An elongated $3.24 : 1$ length-to-width aspect ratio (over twelve standard deviations, $+12.06\sigma$, Cantelli bound $p < 0.007$, away from the roughly equal dimensions of surrounding gravel).
-	\end{enumerate}
-	\item \textbf{Concretions grow into spheres, not cylinders:} Mineral nodules in Gale Crater (formed by chemical precipitation in groundwater) grow outward equally in all directions, creating spheres (like the famous Martian ``blueberries'') or lumpy clusters, not a clean elongated cylinder with an invariant cross-section.
+	\item \textbf{What is a ventifact---and what does NASA say they look like in Gale Crater?} A ventifact (from the Latin for ``wind-made'') is a rock that has been sculpted, faceted, or polished by wind-blown sand over thousands or millions of years. Think of natural sandblasting. Just $\sim 140\,\text{sols}$ before taking the cylinder photo, \textit{Curiosity} drove onto the nearby Greenheugh pediment and found itself surrounded by hundreds of genuine Gale Crater ventifacts (above left). In NASA's official mission blog (\href{https://science.nasa.gov/blog/sols-3417-3418-a-view-filled-with-ventifacts/}{\textit{``Sols 3417--3418: A View Filled With Ventifacts''}}), JPL Planetary Geologist Dr.~Abigail Fraeman defined them in one sentence: \textit{``rocks which have been abraded by wind-blown sand into distinctive, flattened facets with crisp edges.''} Look at those rocks in NASA's Sol 3415 photo: because wind blows from dominant directions, saltating sand carves flat slanted faces, sharp triangular ridges (keels), and jagged wedges---not smooth, round cylinders.
+	\item \textbf{Wind is not a lathe:} While natural sandblasting easily produces faceted stones or rounded pebbles (several natural rocks in the surrounding field score over 90\% in projected roundness, meaning circularity alone is not an anomaly), it \textbf{does not act like a lathe}. If a rock is anchored in the dirt, wind carves flat angled facets and sharp ridges like the Greenheugh pediment rocks; if a pebble tumbles along the ground, its corners chip away first, rounding the ends into a football or egg shape and destroying any flat $90^\circ$ circular face. The true anomaly is the non-parametric conjunction of three features that never appear together in natural geology:
+	      \begin{enumerate}
+		      \item Two strictly straight, mutually parallel sides ($R^2 = 0.9985$ straightness, an extreme ten-sigma anomaly of $+10.70\sigma$, Cantelli bound $p < 0.009$, compared to the flattest natural rock in the scene at $R^2 = 0.2708$).
+		      \item A crisp, flat planar end cap terminating perpendicular to the body, whose $0.9335$ apparent circularity perfectly matches the $22^\circ$ camera perspective.
+		      \item An elongated $3.24 : 1$ length-to-width aspect ratio (over twelve standard deviations, $+12.06\sigma$, Cantelli bound $p < 0.007$, away from the roughly equal dimensions of surrounding gravel).
+	      \end{enumerate}
+	\item \textbf{Concretions grow into spheres or crusty hollow pipes, not machined rods:} As shown in NASA's famous close-up of Martian ``blueberries'' near Fram Crater (\href{https://science.nasa.gov/photojournal/martian-concretions-near-fram-crater/}{PIA19113}, above right), mineral nodules formed by chemical precipitation in groundwater grow outward equally in all directions, creating spheres ($L/W \approx 1.0$) or lumpy clusters. Even on Earth, in places like Utah's Navajo Sandstone where groundwater cements iron oxide into ``pipe concretions,'' those pipes have bumpy, flaring sandstone crusts and hollow centers---more like a crusty piece of rigatoni than a smooth, solid cylinder with a flat circular face. And natural six-sided mineral crystals have flat polygon sides that gleam in discrete steps, whereas our Sobel directional filter proved the cylinder curves smoothly all the way around.
 \end{itemize}
 
 \subsubsection*{3. An artifact of unknown provenance}
@@ -210,8 +424,19 @@ Whatever the answer turns out to be, something has already changed. A person wit
 
 The world is full of data. The tools are widely available. What it still needs is people willing to look carefully, ask honest questions, and use their own eyes and judgment to steer.
 
-\horizontalrule
+\vspace{0.6em}
+\begin{methodbox}{How This Was Built}
+I'm not an engineer or a mathematician. I'm a regular guy who loves rigorous inquiry into anomalous data. I used AI to write the Python scripts, parse NASA's PDS telemetry headers, run the linear algebra, and typeset the \LaTeX\ paper. I told the AI what to test and caught the software when it did something counter-intuitive, like including the cast shadow into the end face of the object, or lumping in the rock next to it.
 
-\textit{The accompanying technical paper,\\``Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery,'' contains the complete methods, equations, and figures for anyone who wants to check the work, or improve on it.}
+\medskip
+It didn't take months of grant funding or an institutional research team. It took an inquisitive amateur in Indiana, a few days, raw public NASA files, and an AI that can calculate without emotion.
+
+\medskip
+For years, podcasts, social media, and some academics repeated claims that this was an eight-inch pipe, arguing over rover debris and alien artifacts without anyone actually opening the mission records to check. The telemetry was sitting on NASA's servers the entire time. You don't have to trust me, and you don't have to trust the AI. I didn't. The raw NASA files and \texttt{reproduce\_analysis.py} are in the \href{https://github.com/cambrianminds/martian-cylinder}{open GitHub repository} and permanently archived on Zenodo (\href{https://doi.org/10.5281/zenodo.23789092}{doi:10.5281/zenodo.23789092}). Run the math yourself.
+
+\medskip\noindent\textcolor{bordersubtle}{\rule{\linewidth}{0.6pt}}\medskip
+
+\small\color{slatemuted}\textit{The accompanying technical paper, ``Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery,'' contains the complete methods, equations, and figures for anyone who wants to check the work, or improve on it.}
+\end{methodbox}
 
 \end{document}
