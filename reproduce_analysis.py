@@ -315,11 +315,13 @@ def main() -> int:
     hs = float(np.linalg.norm(np.cross(A, H_vec)))
     vs = float(np.linalg.norm(np.cross(A, V_vec)))
 
-    # Viewing elevation and axial inclination:
-    # Cylinder longitudinal axis is inclined by beta approx 21.0-23.8 deg relative to sensor plane
-    # cos(beta) = b/a approx 0.924 -> 1 / cos(beta) = 1.08225
+    # LEGACY (audit finding 2): 1/cos(beta) with cos(beta) = b/a = 0.924 is the CAP foreshortening
+    # factor, not the axial one.  If the end-face normal is the cylinder axis, projected axis length
+    # scales by sin(theta) = sqrt(1 - (b/a)^2), i.e. a de-foreshortening factor of ~2.8, not 1.08.
+    # The legacy factor is retained ONLY so the published tables remain reproducible; the corrected,
+    # internally consistent reconstruction is in audit_reanalysis.py.
     cos_beta = 0.924
-    axial_factor = 1.0 / cos_beta  # 1.08225
+    axial_factor = 1.0 / cos_beta  # LEGACY 1.08225 (see note above)
 
     # Slant range bounds: [3.63 m, 3.957 m, 4.30 m]
     ranges = [("Near Bound (3.63 m)", 3.63), ("Nominal Focus (3.957 m)", s0_m), ("Far Bound (4.30 m)", 4.30)]
@@ -356,7 +358,7 @@ def main() -> int:
     print("  " + "-" * 74)
     print(f"  • Normal Transverse Diameter     : {d3d_perp_vals[0]:.2f}–{sobel_perp_vals[2]:.2f} mm (Nominal: {d3d_perp_vals[1]:.2f}–{sobel_perp_vals[1]:.2f} mm at {s0_m:.3f} m)")
     print(f"  • 3D Axial Scale Diameter        : {d3d_axial_vals[0]:.2f}–{sobel_axial_vals[2]:.2f} mm (Nominal: {d3d_axial_vals[1]:.2f}–{sobel_axial_vals[1]:.2f} mm at {s0_m:.3f} m)")
-    print(f"  • Exposed Length (110 px axial)  : {len_axial_vals[0]:.1f}–{len_axial_vals[2]:.1f} mm (Nominal: {len_axial_vals[1]:.2f} mm at {s0_m:.3f} m; physical bound 35 ± 2 mm)")
+    print(f"  • [LEGACY] Length from 110 px x 1/cos(beta): {len_axial_vals[0]:.1f}–{len_axial_vals[2]:.1f} mm (Nominal: {len_axial_vals[1]:.2f} mm at {s0_m:.3f} m; physical bound 35 ± 2 mm)")
 
     assert abs(H_m - 112.61) < 0.05
     assert abs(D_near - 3.82) < 0.02 and abs(D_far - 4.10) < 0.02
@@ -730,6 +732,8 @@ def main() -> int:
     print(f"  • Aspect Ratio Empirical Rank    : {rank_asp}/{n_total} (p_emp = {p_emp_asp:.4f}, exceeds max control rock by {asp_factor:.2f}×)")
     print(f"  • Parallelism Empirical Rank     : {rank_r2}/{n_total} (p_emp = {p_emp_r2:.4f}, exceeds max control rock by {r2_factor:.2f}×)")
 
+    print("\n  AUDIT NOTE: the z-scores / Cantelli bounds above are descriptive (N=20 hand-picked controls, post-hoc target,")
+    print("  rotation-sensitive R^2 metric).  They are NOT calibrated p-values.  See audit_reanalysis.py and AUDIT_RESPONSE.md.")
     print("\n  Note on Geometric Conjunction (Resolves Metric Independence Audit):")
     print("  • End-face circularity (b/a = 0.9335, z = +1.03σ) is not an outlier in isolation (background rocks reach 0.983).")
     print("    Instead, circularity acts as an orthogonal perspective constraint confirming an inclined right circular face.")
@@ -769,7 +773,8 @@ def main() -> int:
         assert v_local > 90.0 and v_15m > 300.0, f"Aerodynamic lofting velocity for {mat_name} must exceed 90 m/s local / 300 m/s at 1.5m!"
 
     print("\n" + "=" * 78)
-    print(" ALL CRYPTOGRAPHIC, GEOMETRIC, AND STATISTICAL CHECKS PASSED (EXIT CODE 0)")
+    print(" DETERMINISTIC REPRODUCTION OF PUBLISHED NUMBERS PASSED (EXIT CODE 0)")
+    print(" (This is reproduction, not independent validation of the physical model; see AUDIT_RESPONSE.md.)")
     print("=" * 78)
     return 0
 

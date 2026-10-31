@@ -228,14 +228,14 @@
           <!-- Perspective Strength / Camera Distance -->
           <div class="control-row">
             <div class="control-label-row">
-              <span>Perspective Depth (Focal Dist)</span>
+              <span>Camera Range (commanded focus, m)</span>
               <div class="val-input-wrapper">
-                <input type="number" id="camRatioInput" class="val-input" min="1.0" max="10.0" step="0.1" value="3.96">
-                <span class="val-unit">×</span>
+                <input type="number" id="camRatioInput" class="val-input" min="0.5" max="10.0" step="0.01" value="3.96">
+                <span class="val-unit">m</span>
               </div>
             </div>
             <div class="slider-container">
-              <input type="range" id="camRatioSlider" min="1.0" max="10.0" value="3.96" step="0.1">
+              <input type="range" id="camRatioSlider" min="0.5" max="10.0" value="3.96" step="0.01">
             </div>
           </div>
 

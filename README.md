@@ -1,4 +1,8 @@
-# Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery
+﻿# Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery
+
+> [!WARNING]
+> **Post-publication audit notice (2026-10-30).** An independent audit (`audit.md`) identified a projection inconsistency, a viewer camera-distance error, and non-equivalent target/control straightness metrics. The corrected analysis and its consequences are in [`AUDIT_RESPONSE.md`](AUDIT_RESPONSE.md): the ~35 mm length is not a tight bound (23-49 mm), the 'natural clasts lack straight edges' claim is not supported as written, and the sigma / Cantelli figures are descriptive only. Numbers below are the original, pre-audit values.
+
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23789092.svg)](https://doi.org/10.5281/zenodo.23789092)
 [![Verification Suite](https://github.com/cambrianminds/martian-cylinder/actions/workflows/verify.yml/badge.svg)](https://github.com/cambrianminds/martian-cylinder/actions/workflows/verify.yml)

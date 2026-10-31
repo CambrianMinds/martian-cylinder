@@ -70,6 +70,8 @@
     color: '#38bdf8',
     renderMode: 'semi-transparent'
   });
+  // Physical camera range (Sol 3556 commanded best-focus distance, 3.957 m; NOT a measured object range)
+  cylinder.setCameraDistanceMm(3957);
 
   // DOM Elements
   const elements = {
@@ -511,7 +513,7 @@
     const lenPx = Math.round(cylinder.length);
     const diaPx = Math.round(cylinder.diameter);
     const aspect = cylinder.aspectRatio;
-    const camRatio = cylinder.camRatio;
+    const camDistM = cylinder.cameraDistanceMm ? cylinder.cameraDistanceMm / 1000 : cylinder.camRatio;
     const opacityPct = Math.round(cylinder.opacity * 100);
     const lw = cylinder.lineWidth || 1.5;
 
@@ -530,9 +532,9 @@
       elements.tiltInput.value = tiltDeg;
     }
 
-    if (elements.camRatioSlider) elements.camRatioSlider.value = camRatio;
+    if (elements.camRatioSlider) elements.camRatioSlider.value = camDistM;
     if (elements.camRatioInput && document.activeElement !== elements.camRatioInput) {
-      elements.camRatioInput.value = camRatio.toFixed(1);
+      elements.camRatioInput.value = camDistM.toFixed(2);
     }
 
     if (elements.aspectSlider) elements.aspectSlider.value = aspect.toFixed(2);
@@ -812,20 +814,20 @@
       });
     });
 
-    // Perspective depth / camera distance slider & numeric input
+    // Camera range slider / numeric input (metres; converted to physical mm in the model)
     if (elements.camRatioSlider) {
       elements.camRatioSlider.addEventListener('input', (e) => {
-        cylinder.camRatio = parseFloat(e.target.value);
-        if (elements.camRatioInput) elements.camRatioInput.value = cylinder.camRatio.toFixed(1);
+        cylinder.setCameraDistanceMm(parseFloat(e.target.value) * 1000);
+        if (elements.camRatioInput) elements.camRatioInput.value = parseFloat(e.target.value).toFixed(2);
         triggerRedraw();
       });
     }
     if (elements.camRatioInput) {
       elements.camRatioInput.addEventListener('input', (e) => {
         const val = parseFloat(e.target.value);
-        if (!isNaN(val) && val >= 1.0) {
-          cylinder.camRatio = val;
-          if (elements.camRatioSlider) elements.camRatioSlider.value = Math.min(10, Math.max(1.0, val));
+        if (!isNaN(val) && val >= 0.5) {
+          cylinder.setCameraDistanceMm(val * 1000);
+          if (elements.camRatioSlider) elements.camRatioSlider.value = Math.min(10, Math.max(0.5, val));
           triggerRedraw();
         }
       });
@@ -843,7 +845,7 @@
         cylinder.aspectRatio = 110 / 34;
         cylinder.rotation = (218 * Math.PI) / 180;
         cylinder.tilt = (156 * Math.PI) / 180;
-        cylinder.camRatio = 3.96;
+        cylinder.setCameraDistanceMm(3957);
         if (state.imageWidth === 500 && state.imageHeight === 450) {
           cylinder.x = 246.8;
           cylinder.y = 268.7;

@@ -33,6 +33,14 @@ class MartianCylinder {
     // Controls how pronounced the perspective scaling is (back circle smaller than front circle)
     this.camRatio = options.camRatio !== undefined ? options.camRatio : 2.8;
 
+    // Physical camera model (audit finding 3). When cameraDistanceMm is set, the
+    // camera distance in image-pixel units is Z0 = cameraDistanceMm / mmPerPx, where
+    // mmPerPx is the normal-to-sight scale at that range (R * IFOV). This makes the
+    // perspective contraction independent of the (non-physical) pixel length of the
+    // overlay. camRatio is then only a derived, dimensionless readout (Z0 / L).
+    this.cameraDistanceMm = options.cameraDistanceMm !== undefined ? options.cameraDistanceMm : null;
+    this.mmPerPx = options.mmPerPx !== undefined ? options.mmPerPx : null;
+
     // Visual styles
     this.color = options.color || '#00f0ff';
     this.opacity = options.opacity !== undefined ? options.opacity : 0.75;
@@ -170,6 +178,27 @@ class MartianCylinder {
     };
   }
 
+  /** Mastcam-100 IFOV (rad/px): 7.4 um pitch / 100 mm focal length. */
+  static get IFOV() { return 7.4e-5; }
+
+  /** Set physical camera range; mmPerPx follows as R * IFOV (normal-to-sight scale). */
+  setCameraDistanceMm(mm) {
+    this.cameraDistanceMm = mm;
+    this.mmPerPx = mm * MartianCylinder.IFOV;
+  }
+
+  /**
+   * Camera distance in image-pixel units.
+   * Physical mode: cameraDistanceMm / mmPerPx (e.g. 3957 mm / 0.2928 mm/px = 1/IFOV).
+   * Legacy mode: L * camRatio (dimensionless distance-to-length ratio, floor 1.2).
+   */
+  getCameraDistancePx() {
+    if (this.cameraDistanceMm && this.mmPerPx) {
+      return this.cameraDistanceMm / this.mmPerPx;
+    }
+    return Math.max(this.length * 1.2, this.length * this.camRatio);
+  }
+
   /**
    * Compute geometric projection parameters in image coordinate space
    * Using Central Perspective Projection Physics:
@@ -181,7 +210,7 @@ class MartianCylinder {
     const tilt = this.tilt; // 0 to 2*PI (360 degrees)
 
     // Camera reference distance
-    const Z0 = Math.max(L * 1.2, L * this.camRatio);
+    const Z0 = this.getCameraDistancePx();
 
     // 3D Depths:
     const cosTilt = Math.cos(tilt);
@@ -884,4 +913,5 @@ class MartianCylinder {
   }
 }
 
-window.MartianCylinder = MartianCylinder;
+if (typeof window !== 'undefined') window.MartianCylinder = MartianCylinder;
+if (typeof module !== 'undefined' && module.exports) module.exports = MartianCylinder;

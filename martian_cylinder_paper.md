@@ -1,4 +1,8 @@
-# Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery: Constraints on Aeolian, Diagenetic, and Artificial Provenance via Sub-Pixel Gradient Forensics
+﻿# Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery: Constraints on Aeolian, Diagenetic, and Artificial Provenance via Sub-Pixel Gradient Forensics
+
+> [!WARNING]
+> **Post-publication audit notice (2026-10-30).** An independent audit (`audit.md`) identified a projection inconsistency, a viewer camera-distance error, and non-equivalent target/control straightness metrics. The corrected analysis and its consequences are in [`AUDIT_RESPONSE.md`](AUDIT_RESPONSE.md): the ~35 mm length is not a tight bound (23-49 mm), the 'natural clasts lack straight edges' claim is not supported as written, and the sigma / Cantelli figures are descriptive only. Numbers below are the original, pre-audit values.
+
 
 **Justin Bogner**  
 *Cambrian Minds · Sol 3556 Archive Re-evaluation · Technical Report CMR-2026-01 · October 2026 · DOI: [10.5281/zenodo.23789092](https://doi.org/10.5281/zenodo.23789092)*

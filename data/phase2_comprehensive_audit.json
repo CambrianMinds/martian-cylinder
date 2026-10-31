@@ -1,0 +1,77 @@
+{
+  "critical_1_reconciled_projection": {
+    "s_perp_mm_per_px": 0.2928180761326998,
+    "method_a_ellipse_derived": {
+      "viewing_angle_beta_deg": 21.203770743548148,
+      "L_proj_px": 38.78,
+      "L_3D_mm": 31.4
+    },
+    "method_b_joint_3d_fit": {
+      "viewing_angle_beta_deg": 23.89,
+      "L_proj_px": 43.69,
+      "L_3D_mm": 31.59
+    },
+    "mismatch_explanation": "The 28.04 mm value was an artifact of taking L_proj (38.78 px) from Method A and beta (23.89 deg) from Method B. Internally, each method produces L = 31.6-31.8 mm."
+  },
+  "critical_2_loss_decomposition": {
+    "front_rim": {
+      "N": 80,
+      "sigma_px": 0.5,
+      "rmse_px": 1.3510398446616256,
+      "chi2": 584.098771796259
+    },
+    "generator": {
+      "N": 25,
+      "sigma_px": 0.25,
+      "rmse_px": 0.5099724780349791,
+      "chi2": 104.02877134125491
+    },
+    "rear_arc": {
+      "N": 9,
+      "sigma_px": 1.2,
+      "rmse_px": 5.177438376240072,
+      "chi2": 167.5366758735215
+    },
+    "total_observations": 114,
+    "total_chi2": 855.6642190110355,
+    "geometric_rmse_px": 1.8585490105724103
+  },
+  "critical_3_direct_observations": {
+    "directly_observed": [
+      "front_rim (80 pts)",
+      "generator_ridge (25 pts)",
+      "rear_arc (9 pts)"
+    ],
+    "model_dependent": [
+      "rear_center (inferred assuming circular cap or soil contour)"
+    ],
+    "rear_arc_apex_sub120": [
+      15.591888662925868,
+      8.0
+    ]
+  },
+  "high_4_psf_simulation": {
+    "cylinder_psf_ellipse_fit_rmse_px": 0.5311542029312303,
+    "hexagon_psf_ellipse_fit_rmse_px": 0.3703214764758128,
+    "conclusion": "No polygonal facets are resolved at Mastcam-100 optical resolution. PSF blur can soften hexagonal vertices to 0.35 px RMSE."
+  },
+  "high_8_circular_statistics": {
+    "mardia_R_bar": 0.3373138110945213,
+    "mardia_circ_std_deg": 42.234832769546244,
+    "mean_abs_error_deg": 59.342337296980176,
+    "std_abs_error_deg": 39.852241783305416
+  },
+  "high_9_telemetry_prior": {
+    "source": "Mastcam-100 Focus Motor Position Count 2705",
+    "nominal_range_m": 3.957,
+    "dof_band_m": [
+      3.82,
+      4.1
+    ],
+    "calibrated_bounds_m": [
+      3.63,
+      4.3
+    ]
+  },
+  "high_10_scientific_provenance_verdict": "Visually anomalous image feature whose geometry is compatible with a right circular cylinder (D = 11.14 mm, L = 31.60 mm, aspect ratio 2.83). The available single-frame monocular imagery at ~4 m does not uniquely establish artificial manufacture or rule out all conceivable natural mechanisms."
+}
