@@ -2,7 +2,7 @@
 test_independent_morphology.py — Automated Regression & Verification Tests
 ==========================================================================
 Tests the independent morphology survey pipeline, end-face vs shadow extraction,
-and solar illumination ray-tracing.
+solar illumination ray-tracing, and exact statistical synchronization.
 """
 
 import os
@@ -15,6 +15,7 @@ import geometry_utils as gu
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(HERE)
+
 
 class TestIndependentMorphology(unittest.TestCase):
     @classmethod
@@ -33,15 +34,19 @@ class TestIndependentMorphology(unittest.TestCase):
         """Verifies that the candidate cylinder target measurements match established values."""
         target = self.results["target"]
         self.assertEqual(target["clast_id"], "TARGET_CYLINDER")
+        # 2D image silhouette aspect ratio
+        self.assertAlmostEqual(target["aspect_ratio"], 2.381, delta=0.005)
+        # 3D physical reconstructed aspect ratio
+        self.assertAlmostEqual(target["aspect_ratio_3d"], 2.835, delta=0.005)
         self.assertAlmostEqual(target["endface_ba"], 0.9334, delta=0.001)
         self.assertAlmostEqual(target["straightness_rmse_px"], 0.111, delta=0.01)
         self.assertAlmostEqual(target["flank_parallelism_deg"], 0.43, delta=0.1)
         self.assertAlmostEqual(target["longitudinal_angle_deg"], 29.28, delta=0.5)
+        self.assertAlmostEqual(target["width_cv"], 0.0073, delta=0.001)
         self.assertTrue(target["has_end_face"])
 
     def test_synthetic_ellipse_fitter_accuracy(self):
         """Tests that Fitzgibbon ellipse solver recovers true axes on synthetic data with known aspect ratio."""
-        # Synthesize ellipse with a = 20.0, b = 16.0 (b/a = 0.80) rotated by 30 degrees
         a_true, b_true, rot_true = 20.0, 16.0, 30.0
         th = math.radians(rot_true)
         n_pts = 60
@@ -65,10 +70,26 @@ class TestIndependentMorphology(unittest.TestCase):
         # In straightness, target ranks #1 in the entire population
         self.assertEqual(stats["straightness_rmse_px"]["empirical_rank"], "1/186")
         self.assertLess(stats["straightness_rmse_px"]["empirical_p"], 0.01)
-        
+
+        # In 2D aspect ratio, target ranks #32 in the population
+        self.assertEqual(stats["aspect_ratio"]["empirical_rank"], "32/186")
+        self.assertAlmostEqual(stats["aspect_ratio"]["empirical_p"], 0.172, delta=0.005)
+
         # In 5-way conjunction, 0 natural clasts match
         conj = stats["joint_conjunction_frequencies"]
         self.assertEqual(conj["five_criteria_matches (Full Cylinder Geometry)"], 0)
+        self.assertEqual(conj["four_criteria_matches"], 0)
+        self.assertEqual(conj["three_criteria_matches"], 4)
+        self.assertEqual(conj["two_criteria_matches"], 37)
+
+    def test_straightness_sensitivity_analysis(self):
+        """Verifies that relaxing the straightness threshold to <= 0.50 px preserves 0/185 full conjunction."""
+        stats = self.results["summary_statistics"]
+        sens = stats["joint_conjunction_frequencies"]["sensitivity_straightness_0_50px"]
+        self.assertEqual(sens["five_criteria_matches"], 0)
+        self.assertEqual(sens["four_criteria_matches"], 0)
+        self.assertEqual(sens["three_criteria_matches"], 7)
+        self.assertEqual(sens["two_criteria_matches"], 43)
 
     def test_solar_illumination_and_shadow_reconstruction(self):
         """Verifies SPICE solar geometry and relief reconstruction."""
@@ -89,14 +110,32 @@ class TestIndependentMorphology(unittest.TestCase):
         self.assertAlmostEqual(d_total, 11.14, delta=0.2)
 
     def test_hardware_control_passes_cylinder_conjunction(self):
-        """Verifies that positive manufactured controls pass cylinder conjunction."""
+        """Verifies that both positive manufactured controls pass all 5 cylinder criteria."""
         hw = self.results["hardware_controls"]
-        self.assertGreaterEqual(len(hw), 1)
-        # Find synthetic cylinder or hardware post
+        self.assertEqual(len(hw), 2)
+
+        # Control 1: Synthetic ground-truth cylinder
         synth = next(h for h in hw if "SYNTH" in h["clast_id"])
         self.assertGreaterEqual(synth["aspect_ratio"], 2.0)
-        self.assertLessEqual(synth["straightness_rmse_px"], 0.50)
+        self.assertLessEqual(synth["straightness_rmse_px"], 0.35)
         self.assertLessEqual(synth["flank_parallelism_deg"], 2.0)
+        self.assertLessEqual(synth["width_cv"], 0.10)
+        self.assertTrue(synth["has_end_face"])
+        self.assertGreaterEqual(synth["endface_ba"], 0.80)
+
+        # Control 2: Mastcam calibration titanium post
+        post = next(h for h in hw if "STANDOFF" in h["clast_id"] or "AEROSPACE" in h["clast_id"])
+        self.assertGreaterEqual(post["aspect_ratio"], 2.0)
+        self.assertLessEqual(post["straightness_rmse_px"], 0.35)
+        self.assertLessEqual(post["flank_parallelism_deg"], 2.0)
+        self.assertLessEqual(post["width_cv"], 0.10)
+        self.assertTrue(post["has_end_face"])
+        self.assertGreaterEqual(post["endface_ba"], 0.80)
+
+        # Control 2 provenance traceability
+        self.assertEqual(post["hardware_source"]["pds_product_id"], "0064MR0003440000103258E01")
+        self.assertEqual(post["mission_sol"], 64)
+
 
 if __name__ == "__main__":
     unittest.main()

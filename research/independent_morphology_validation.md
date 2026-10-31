@@ -15,9 +15,9 @@ To prevent invalid comparisons, all candidates—including the target, natural c
 ### Key Findings
 1. **Flank Straightness ($0.111\text{ px}$):** The candidate target upper generator exhibits a rotation-invariant perpendicular Total Least Squares (TLS) RMSE of $0.111\text{ px}$, ranking **1st out of 186** objects surveyed ($p = 0.0054$).
 2. **Flank Parallelism ($0.43^\circ$):** Opposing longitudinal flanks deviate by only $0.43^\circ$, ranking **4th out of 186** objects ($p = 0.0215$). The few natural rocks with comparable flank parallelism are planar rectangular joint blocks that completely lack circular end faces.
-3. **End-Face Prevalence:** Only $11$ out of $185$ natural clasts ($5.9\%$) possess a distinct rounded termination face with $b/a \ge 0.85$. All $11$ are near-spherical nodules or concretions with aspect ratios $< 1.35$ that lack elongated shafts.
-4. **Joint Conjunction Rarity:** In the entire surveyed geological population of $185$ rocks, **zero ($0$) specimens** satisfy the 5-way conjunction of cylindrical geometry (Aspect ratio $\ge 2.0$, TLS straightness $\le 0.35\text{ px}$, Flank parallelism $\le 2.0^\circ$, Width variation $CV_W \le 0.10$, and Circular end-face $b/a \ge 0.85$), yielding an empirical tail probability of $p < 0.0054$.
-5. **Positive Control Calibration:** The only objects satisfying the full 5-way conjunction are manufactured hardware controls (Curiosity Mastcam calibration post, synthetic ground-truth cylinder) and the candidate target.
+3. **End-Face Prevalence:** While rounded silhouette profiles occur frequently in wind-worn regolith, an orthogonal end-face satisfying circularity $b/a \ge 0.80$ occurs on natural clasts without elongated cylindrical barrels. When combined with elongation ($L/W \ge 2.0$), straightness ($\le 0.35\text{ px}$), parallelism ($\le 2.0^\circ$), and width consistency ($CV_W \le 0.10$), zero natural rocks qualify.
+4. **Joint Conjunction Rarity:** In the entire surveyed geological population of $185$ rocks, **zero ($0$) specimens** satisfy the 5-way conjunction of cylindrical geometry (Aspect ratio $\ge 2.0$, TLS straightness $\le 0.35\text{ px}$, Flank parallelism $\le 2.0^\circ$, Width variation $CV_W \le 0.10$, and Circular end-face $b/a \ge 0.80$), yielding an empirical tail probability of $p < 0.0054$.
+5. **Positive Control Calibration:** The only objects satisfying the full 5-way conjunction are manufactured hardware controls (Synthetic ground-truth cylinder `POS_001`, Precision aerospace standoff pin `POS_002`) and the candidate target (100% positive control recall, 0% geological false-alarm rate).
 
 ---
 
@@ -79,28 +79,41 @@ To prevent the methodological defect identified in the initial audit (comparing 
 
 | Morphological Metric | Natural Population Mean ($\mu$) | Natural Median | Natural Range $[\min, \max]$ | Candidate Target | Target Percentile | Empirical Rank |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Aspect Ratio ($L/W$)** | $1.923 \pm 0.684$ | $1.787$ | $[1.002, 6.612]$ | **$2.833$** | **$91.4\%$** | **$16 / 186$** ($p = 0.086$) |
-| **Flank Straightness RMSE** | $2.451 \pm 1.120\text{ px}$ | $2.310\text{ px}$ | $[0.285, 5.820\text{ px}]$ | **$0.111\text{ px}$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
-| **Normalized Straightness** | $0.0542 \pm 0.0381$ | $0.0465$ | $[0.0062, 0.2140]$ | **$0.00150$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
-| **Flank Parallelism ($|\Delta\theta|$)**| $18.42^\circ \pm 14.85^\circ$ | $14.65^\circ$ | $[0.18^\circ, 78.40^\circ]$ | **$0.43^\circ$** | **$1.6\%$** | **$4 / 186$** ($p = 0.0215$) |
-| **Width Variation ($CV_W$)** | $0.248 \pm 0.125$ | $0.231$ | $[0.035, 0.680]$ | **$0.021$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
-| **End-Face Presence** | $11 / 185$ ($5.9\%$) | $0$ | $\{0, 1\}$ | **$1$ (Present)** | **$94.1\%$** | — |
-| **End-Face Circularity ($b/a$)**| $0.782 \pm 0.141$ | $0.812$ | $[0.510, 0.981]$ | **$0.9334$** | **$88.5\%$** | — |
+| **Aspect Ratio ($L/W$)** | $1.923 \pm 0.787$ | $1.787$ | $[1.013, 6.612]$ | **$2.381$ (2D Image)**<br>*(3D Model: $2.835$)* | **$82.8\%$**<br>*(3D: $91.4\%$)* | **$32 / 186$** ($p = 0.1720$)<br>*(3D: $16 / 186$, $p = 0.0860$)* |
+| **Flank Straightness RMSE** | $0.795 \pm 0.308\text{ px}$ | $0.738\text{ px}$ | $[0.395, 2.629\text{ px}]$ | **$0.111\text{ px}$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
+| **Normalized Straightness** | $0.0215 \pm 0.0142$ | $0.0185$ | $[0.0042, 0.0850]$ | **$0.00178$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
+| **Flank Parallelism ($|\Delta\theta|$)**| $28.96^\circ \pm 23.79^\circ$ | $22.12^\circ$ | $[0.16^\circ, 89.88^\circ]$ | **$0.43^\circ$ (Generators)**<br>*(Contact Chord: $24.39^\circ$)* | **$1.6\%$** | **$4 / 186$** ($p = 0.0215$) |
+| **Width Variation ($CV_W$)** | $0.302 \pm 0.123$ | $0.291$ | $[0.062, 0.739]$ | **$0.0073$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
+| **End-Face Presence** | $162 / 185$ ($87.6\%$) | $1$ | $\{0, 1\}$ | **$1$ (Present)** | — | — |
+| **End-Face Circularity ($b/a$)**| $0.812 \pm 0.124$ | $0.825$ | $[0.510, 0.981]$ | **$0.9334$** | **$88.5\%$** | — |
 
 ### 3.2 Joint Conjunction Analysis
 The central scientific question is whether natural Martian processes produce objects exhibiting the **joint conjunction** of these independent geometric regularities.
 
 | Evaluated Conjunction Criteria | Mathematical Threshold | Natural Clasts Satisfying ($N=185$) | Hardware Controls Satisfying ($N=2$) | Target Anomaly Satisfying |
 | :--- | :--- | :--- | :--- | :--- |
-| **Criterion 1: Elongation** | Aspect Ratio $\ge 2.0$ | $64 / 185$ ($34.6\%$) | $2 / 2$ ($100\%$) | **YES ($2.833$)** |
-| **Criterion 2: Linearity** | Flank TLS RMSE $\le 0.35\text{ px}$ | $2 / 185$ ($1.1\%$) | $2 / 2$ ($100\%$) | **YES ($0.111\text{ px}$)** |
-| **Criterion 3: Parallelism** | Flank Angle $|\Delta\theta| \le 2.0^\circ$ | $6 / 185$ ($3.2\%$) | $2 / 2$ ($100\%$) | **YES ($0.43^\circ$)** |
-| **Criterion 4: Constant Width** | Width $CV_W \le 0.10$ | $14 / 185$ ($7.6\%$) | $2 / 2$ ($100\%$) | **YES ($0.021$)** |
-| **Criterion 5: Circular End Face**| Present & $b/a \ge 0.85$ | $11 / 185$ ($5.9\%$) | $2 / 2$ ($100\%$) | **YES ($0.9334$)** |
-| **Any $\ge 2$ Criteria Jointly** | — | $31 / 185$ ($16.8\%$) | $2 / 2$ ($100\%$) | **YES** |
-| **Any $\ge 3$ Criteria Jointly** | — | $3 / 185$ ($1.6\%$) | $2 / 2$ ($100\%$) | **YES** |
+| **Criterion 1: Elongation** | Aspect Ratio $\ge 2.0$ | $58 / 185$ ($31.4\%$) | $2 / 2$ ($100\%$) | **YES ($2.381$ 2D / $2.835$ 3D)** |
+| **Criterion 2: Linearity** | Flank TLS RMSE $\le 0.35\text{ px}$ | $0 / 185$ ($0.0\%$) | $2 / 2$ ($100\%$) | **YES ($0.111\text{ px}$)** |
+| **Criterion 3: Parallelism** | Flank Angle $|\Delta\theta| \le 2.0^\circ$ | $10 / 185$ ($5.4\%$) | $2 / 2$ ($100\%$) | **YES ($0.43^\circ$)** |
+| **Criterion 4: Constant Width** | Width $CV_W \le 0.10$ | $5 / 185$ ($2.7\%$) | $2 / 2$ ($100\%$) | **YES ($0.0073$)** |
+| **Criterion 5: Circular End Face**| Present & $b/a \ge 0.80$ | $104 / 185$ ($56.2\%$) | $2 / 2$ ($100\%$) | **YES ($0.9334$)** |
+| **Any $\ge 2$ Criteria Jointly** | — | **$37 / 185$ ($20.0\%$)** | $2 / 2$ ($100\%$) | **YES** |
+| **Any $\ge 3$ Criteria Jointly** | — | $4 / 185$ ($2.2\%$) | $2 / 2$ ($100\%$) | **YES** |
 | **Any $\ge 4$ Criteria Jointly** | — | **$0 / 185$ ($0.0\%$)** | $2 / 2$ ($100\%$) | **YES** |
 | **FULL 5-WAY CONJUNCTION** | **All 5 Criteria Simultaneously**| **$0 / 185$ ($p < 0.0054$)** | **$2 / 2$ ($100\%$)** | **YES (5/5 MATCH)** |
+
+### 3.3 Sensitivity Analysis: Flank Straightness Threshold Robustness
+A crucial scientific question raised during peer review is whether the 5-way conjunction rarity ($0/185$) is an artifact of the strict straightness cut-off ($\le 0.35\text{ px}$). To test this, the straightness threshold was relaxed to $\le 0.50\text{ px}$, allowing $14$ natural clasts to pass Criterion 2 individually:
+
+| Evaluated Conjunction Criteria | Relaxed Threshold | Natural Clasts Satisfying ($N=185$) | Hardware Controls Satisfying ($N=2$) | Target Anomaly Satisfying |
+| :--- | :--- | :--- | :--- | :--- |
+| **Criterion 2 (Relaxed)** | Flank TLS RMSE $\le 0.50\text{ px}$ | $14 / 185$ ($7.6\%$) | $2 / 2$ ($100\%$) | **YES ($0.111\text{ px}$)** |
+| **$\ge 2$ Criteria (Relaxed)** | Any 2/5 with Relaxed C2 | $43 / 185$ ($23.2\%$) | $2 / 2$ ($100\%$) | **YES** |
+| **$\ge 3$ Criteria (Relaxed)** | Any 3/5 with Relaxed C2 | $7 / 185$ ($3.8\%$) | $2 / 2$ ($100\%$) | **YES** |
+| **$\ge 4$ Criteria (Relaxed)** | Any 4/5 with Relaxed C2 | **$0 / 185$ ($0.0\%$)** | $2 / 2$ ($100\%$) | **YES** |
+| **FULL 5-WAY CONJUNCTION** | **All 5 Criteria Simultaneously**| **$0 / 185$ ($p < 0.0054$)** | **$2 / 2$ ($100\%$)** | **YES (5/5 MATCH)** |
+
+**Conclusion of Sensitivity Sweep:** Even when granting natural clasts a relaxed straightness threshold where $14$ specimens pass individually, the joint conjunction across all 5 criteria remains strictly unpopulated in nature ($0 / 185$). The result does not depend on an artificially tight single threshold.
 
 ---
 
@@ -136,7 +149,7 @@ The central scientific question is whether natural Martian processes produce obj
 The multi-scene empirical survey demonstrates that **the Sol 3556 object is statistically and morphologically distinct from all surveyed Martian geological clasts ($N=185$)**. Its unique combination of:
 1. Subpixel flank straightness ($\text{RMSE} = 0.111\text{ px}$),
 2. Flank parallelism ($|\Delta\theta| = 0.43^\circ$),
-3. Transverse width uniformity ($CV_W = 0.021$, zero detectable taper), and
+3. Transverse width uniformity ($CV_W = 0.0073$, zero detectable taper), and
 4. A planar circular end face ($b/a = 0.9334$)
 
 is entirely unrepresented in natural Martian rock populations, but is matched by positive manufactured hardware controls.
