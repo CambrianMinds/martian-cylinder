@@ -54,6 +54,10 @@ jobs:
         run: |
           python compile_phase2_reanalysis.py
 
+      - name: Generate and Validate Scientific Figures
+        run: |
+          python generate_all_scientific_figures.py
+
   js-tests:
     name: Projection engine tests (Node)
     runs-on: ubuntu-latest

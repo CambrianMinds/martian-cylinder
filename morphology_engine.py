@@ -84,6 +84,7 @@ def detect_end_face_rim(gray, sx, sy, xc, yc, u_axis, v_axis, length_px, width_p
         return False, None, None
 
     best_face = None
+    best_face_score = 999.0
 
     for sgn in (+1.0, -1.0):
         d_cand = max(2.0, (length_px / 2.0) - r_nom * 0.75)
@@ -145,10 +146,10 @@ def detect_end_face_rim(gray, sx, sy, xc, yc, u_axis, v_axis, length_px, width_p
                         if e_fit is not None and 0.65 <= e_fit["circ_ratio"] <= 1.05:
                             fit_r = e_fit["major_2a"] / 2.0
                             if 0.5 * r_nom <= fit_r <= 2.5 * r_nom:
-                                best_face = (True, float(e_fit["circ_ratio"]), e_fit)
-                                break
-        if best_face:
-            break
+                                cand_score = abs(e_fit["circ_ratio"] - 1.0)
+                                if cand_score < best_face_score:
+                                    best_face = (True, float(e_fit["circ_ratio"]), e_fit)
+                                    best_face_score = cand_score
 
     if best_face:
         return best_face[0], best_face[1], best_face[2]
@@ -306,8 +307,11 @@ def analyze_clast_morphology(
     if not math.isnan(up_angle) and not math.isnan(low_angle):
         diff_ang = abs(up_angle - low_angle) % 180.0
         flank_parallelism_deg = float(min(diff_ang, 180.0 - diff_ang))
+        opposing_flank_status = "measured"
     else:
         flank_parallelism_deg = float("nan")
+        opposing_flank_status = "occluded_or_insufficient_points"
+
 
     # -------------------------------------------------------------
     # 3. Width Consistency (Coefficient of Variation of Width CV_W)
@@ -387,6 +391,9 @@ def analyze_clast_morphology(
         "straightness_rmse_px": round(straightness_rmse_px, 3) if not math.isnan(straightness_rmse_px) else None,
         "normalized_straightness": round(normalized_straightness, 5) if not math.isnan(normalized_straightness) else None,
         "flank_parallelism_deg": round(flank_parallelism_deg, 2) if not math.isnan(flank_parallelism_deg) else None,
+        "opposing_flank_parallelism_deg": round(flank_parallelism_deg, 2) if not math.isnan(flank_parallelism_deg) else None,
+        "opposing_flank_status": opposing_flank_status,
+        "crown_highlight_parallelism_deg": None,
         "width_cv": round(width_cv, 4) if not math.isnan(width_cv) else None,
         "terminal_curvature_ratio": round(terminal_curvature_ratio, 3) if not math.isnan(terminal_curvature_ratio) else None,
         "has_end_face": bool(has_end_face),
