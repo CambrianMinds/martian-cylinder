@@ -76,46 +76,69 @@ Even though our blind test used completely independent code and edge-finding met
 | **Front Rim Width (in pixels)** | `40.30 px` | `39.44 – 39.90 px` | **Yes (within ~1–2%)** |
 | **Front Rim Tilt Ratio (`b/a`)** | `0.825` (tilted ~34.5°) | `0.833 – 0.839` (tilted ~33.0°–33.6°) | **Yes (within ~1°)** |
 | **Physical Diameter (at 13 ft / 3.96 m)** | `11.72 mm` (`5.86 mm` radius) | `11.55 – 11.68 mm` (`5.77 – 5.84 mm` radius) | **Yes (within ~0.1 mm!)** |
-| **Top Barrel Edge Angle** | `29.28°` | `29.92°` | **Yes (within ~0.6°)** |
-| **Top Edge Straightness (Wobble)** | `0.11 px` | `0.17 – 0.25 px` | **Yes (sub-pixel straight)** |
+| **Top Barrel Edge Angle** | `29.28°` | `28.89°` (true physical outer edge) | **Yes (within ~0.4°)** |
+| **Top Edge Straightness (Wobble)** | `0.11 px` | `0.24 px` (max curve `0.28 px`) | **Yes (sub-pixel straight)** |
 | **Front Rim Curve Accuracy** | `0.216 px` | `0.162 px` | **Yes (both < 1/4 pixel)** |
 | **Back End (Rear Terminus) Match** | *Not previously measured in that package* | **Matches 1-to-1 copy of front rim to `0.183 – 0.186 px` (`93.5%` width)** | **New independent confirmation!** |
-| **Unified Joint Cylinder Fit (All 85 Points)** | *Not previously performed* | **Single rigid cylinder at $31.1^\circ$ fits Front, Back, and Top Edge to $0.29\text{ px}$** | **All features locked together!** |
+| **Strict Right Circular Cylinder (Model 1, All 85 Pts)** | *Not previously performed* | **Strict 6-DOF cylinder at $30.3^\circ$ (zero offsets, exact outer tangent) fits all 85 points to $0.38\text{ px}$ (~110 \mu m)** | **Complete 3D lock without fudge factors!** |
 
 ---
 
-## 4.1 Solving the 3.3° Angle Puzzle (The Joint Cylinder Model)
+## 4.1 Solving the Angle Puzzle & Finding the True Outer Edge
 
 When you look closely at the independent measurements, you might notice a curious detail:
-- The top edge of the barrel points at roughly **$29.9^\circ$**.
-- The freely fitted front face ellipse points at roughly **$32.7^\circ$**.
+- The measured top edge of the body points at roughly **$28.9^\circ$**.
+- The freely fitted front face ellipse minor axis points at roughly **$32.7^\circ$**.
 - A line drawn between the centers of the front and back ends points at roughly **$33.2^\circ$**.
 
-That is a difference of about **$3.3^\circ$**. Could that mean the object isn't actually a straight cylinder? 
+That is an observed spread of about **$3.8^\circ$ to $4.3^\circ$**. Could that mean the object isn't actually a straight cylinder? 
 
-To answer this, we built a **single joint mathematical model** that locked all three features together into one rigid 3D object:
+To answer this, we built a **single joint mathematical model** ([step9_joint_geometric_model.py](file:///d:/projects/martian-cylinder/independent-reconstruction/step9_joint_geometric_model.py)) that locked all three features together into one rigid 3D object:
 - The center of the back end was **forced to sit directly behind the front end** along the exact same centerline (no independent sliding).
-- The top barrel edge was **forced to run parallel to that same centerline**.
+- The top edge of the body was **forced to be the exact outer tangent silhouette** of the cylinder (no independent offsets).
 - Both ends were forced to share the **exact same circular cross-section and diameter**.
 
 When we tested this rigid cylinder on all 85 data points at once, here is what we discovered:
 
 1. **A Circle's Angle is Slippery ($\pm 4.2^\circ$ Uncertainty):**
-   Because the front rim is viewed at a tilt and is nearly circular (only a 3-pixel difference between width and height), figuring out the exact "axis" of that curve from a partial arc has a natural wiggle room of about $\pm 4.2^\circ$. The $2.8^\circ$ difference between $32.7^\circ$ and $29.9^\circ$ is well within standard measurement uncertainty (less than $1\sigma$). It’s like trying to find the "pointiest" part of a nearly round dinner plate—a tiny change in one pixel nudges the apparent angle by several degrees.
+   Because the front rim is viewed at a tilt and is nearly circular (only a 3-pixel difference between width and height), figuring out the exact "axis" of that curve from a partial arc has a natural wiggle room of about $\pm 4.2^\circ$. The $3.8^\circ$ difference between $32.7^\circ$ and $28.9^\circ$ is only **$0.9\sigma$**, well within normal measurement noise. It’s like trying to find the "pointiest" part of a nearly round dinner plate—a tiny change in one pixel nudges the apparent angle by several degrees.
 2. **The Lever-Arm Effect:**
-   The entire visible length of the object is only about 40 pixels long. Shifting the center of the back end by just **1 single pixel** changes the angle between the two ends by **$1.45^\circ$**. Because the back cap is only a small 24-pixel arc poking out of the sand, its center naturally has about 1 pixel of uncertainty.
+   The entire visible length of the object is only about 40 pixels long. Shifting the center of the back end by just **1 single pixel** changes the angle between the two ends by **$1.41^\circ$**. Because the back cap is only a small 24-pixel arc poking out of the sand, its center naturally has about 1 pixel of uncertainty, which fully explains the center-to-center bearing.
 3. **Perspective is Too Small to Explain It:**
-   Looking through Curiosity’s 100 mm telephoto lens from 13 feet away, parallel lines converge by only **$0.13^\circ$** across a 1-centimeter target. Perspective distortion is far too small to explain a $3.3^\circ$ difference.
-4. **The Best Compromise Cylinder Fits Everything to 0.29 Pixels:**
-   When we let the computer find the single best compromise angle for a strict, unbending cylinder, it settled at **$31.1^\circ$**. 
-   At that single angle:
-   - The front face matches to **$0.21\text{ pixels}$**.
-   - The rear end matches to **$0.32\text{ pixels}$**.
-   - The top edge matches to **$0.35\text{ pixels}$**.
-   - **Across all 85 measurement points, the average error is only 0.29 pixels** (less than a third of a single pixel!).
-5. **Is the Object Tapered? (The Scale Ratio $s$):**
+   Looking through Curiosity’s 100 mm telephoto lens from 13 feet away, parallel lines converge by only **$0.13^\circ$** across a 1-centimeter target. Perspective distortion is far too small to explain a several-degree difference.
+4. **The False Gap Solved (Internal Reflection vs True Edge):**
+   In early computer runs, the algorithm showed an apparent 3.8-pixel gap on the top edge. When we examined the pixel profiles, we found the cause: the algorithm had been programmed to look for a brightness dip, which locked onto an **internal reflection line inside the body of the rock** ($r \approx 16.3\text{ px}$) instead of the true rock-to-dark-soil outer boundary ($r \approx 20.0\text{ px}$). Once we told the computer to look for the outer boundary where the bright rock meets the dark Martian soil, the 3.8-pixel gap collapsed completely down to sub-pixel noise ($0.64\text{ px}$).
+5. **The Strict Cylinder (Model 1) Matches Everything to Less Than 0.4 Pixels:**
+   With the true physical outer boundary in place, **Model 1 (a strict right circular cylinder with zero offsets and exact tangent silhouette)** settled at an axis angle of **$30.3^\circ$**:
+   - The front face matches to **$0.24\text{ pixels}$**.
+   - The rear end matches to **$0.48\text{ pixels}$**.
+   - The top edge matches to **$0.42\text{ pixels}$**.
+   - **Across all 85 measurement points, the overall error is only 0.38 pixels (less than four-tenths of a pixel, or about 110 microns on Mars)**.
+6. **Is the Object Tapered? (The Scale Ratio $s$):**
    When people freely fit the back cap, it often comes out slightly smaller—around $92\%\text{ to }94\%$ of the front rim's size. Does that mean it's a cone or taper?
-   **No.** When we scanned every possible size from $85\%$ to $115\%$, the fit to the rear arc changed by **less than 2 thousandths of a pixel** ($0.0017\text{ px}$). Because we only see a small curved slice of the back end, a slightly smaller circle shifted slightly to one side produces almost the exact same curve as a 100% full-sized cylinder! The image simply cannot prove any taper—the data are **100% consistent with a straight, constant-diameter cylinder ($s = 1.000$)**.
+   **No.** When we scanned every possible size from $85\%$ to $115\%$, the fit to the rear arc changed by **less than 2.5 hundredths of a pixel** ($0.025\text{ px}$). Because we only see a small curved slice of the back end, a slightly smaller circle shifted slightly to one side produces almost the exact same curve as a 100% full-sized cylinder! The image simply cannot prove any taper—the data are **100% consistent with a straight, constant-diameter cylinder ($s = 1.000$)**.
+
+---
+
+## 4.2 The Rock Test: How Smooth Is This Object Compared to Real Rocks?
+
+If someone claims this object is "just a rock," the obvious question to ask is: *how does its smoothness compare to the actual rocks sitting right next to it?*
+
+We benchmarked this object against the three nearest natural rocks in the same photo:
+
+1. **Edge Straightness (Micro-Wobble):**
+   - The top edge of this cylinder runs for 36 pixels with a wobble of only **$0.24\text{ pixels}$** (maximum curve of $0.28\text{ px}$).
+   - The three nearest natural rocks have edge wobbles of **$0.97\text{ pixels}$**, **$1.72\text{ pixels}$**, and **$1.95\text{ pixels}$**.
+   - **The surrounding natural rocks are 4 to 8 times rougher and more jagged.**
+2. **Surface Texture (Micro-Relief):**
+   - Measuring high-frequency surface texture (Laplacian variance), the cylinder body has a variance of $8.0 \times 10^{-5}$.
+   - The surrounding sedimentary rocks have variances between $1.6 \times 10^{-4}$ and $3.0 \times 10^{-4}$.
+   - **The cylinder's surface is 2 to 4 times smoother than the surrounding rocks**, lacking any of the pitting, vesicles, or layered ridges seen on natural Gale Crater stones.
+3. **The Light Gradient Across the Body (Round Pipe vs. Flat Rock Facets):**
+   - Martian winds carve rocks by sandblasting them, creating flat planes with sharp corners (what geologists call ventifacts).
+   - If this were a wind-carved rock, the sunlight across its body would show flat planes with sudden breaks.
+   - It doesn't. When we measured the light across the body of the object, there were no flat facets. The sunlight fades across the surface in a smooth, continuous convex curve—the exact mathematical shading of a round pipe. 
+   - When tested statistically, a flat-sided rock model is rejected by **more than 11 standard deviations ($z = 11.45\sigma$)**.
 
 ---
 
@@ -138,7 +161,8 @@ Any explanation for what this object actually is has to account for **all four f
 
 In plain terms, there are only two real-world possibilities:
 1. **An extraordinary geological coincidence:** A natural piece of Martian rock or mineral concretion (for instance, a weathered pebble or tubular nodule eroded out of the surrounding sandstone) that happens by pure chance to have a circular cross-section, a straight cylindrical barrel, and two matching curved ends—sitting in a field of otherwise jagged, blocky, angular broken rocks.
-2. **A cylindrical piece of hardware or debris (or an engineered tube/rod/pin):** Because right circular cylinders with constant diameter, straight sides, and perpendicular circular ends are the hallmark of machined or manufactured parts (like pins, bushings, sleeves, or fasteners), its geometry naturally looks artificial. (Of course, Curiosity itself is a rover driving across Mars, though any rover-debris explanation would have to ask how a dust-coated piece of hardware got into undisturbed soil in front of the rover.)
+2. **A cylindrical piece of hardware or debris (or an engineered tube/rod/pin):** Because right circular cylinders with constant diameter, straight sides, and perpendicular circular ends are the hallmark of machined or manufactured parts (like pins, bushings, sleeves, or fasteners), its geometry naturally looks artificial.
+   - *Could it be Curiosity landing hardware?* No. By Sol 3556, Curiosity was 10 years into its mission and over **28 kilometers (17 miles)** away from its landing site and sky crane impact, separated by steep mountain passes. Landing debris does not travel 18 miles across mountain terrain a decade later, and anything dropped recently would lie loose on top of the dust, not half-buried under the soil bed. Even NASA never claimed it was rover debris.
 
 ### Why Scientific Humility Still Matters
 A single 2D photograph taken from 13 feet away—where 1 pixel is about a third of a millimeter—**can prove that an object's shape matches a cylinder**, and **can prove that its front and back curves match each other to a sixth of a pixel**. 

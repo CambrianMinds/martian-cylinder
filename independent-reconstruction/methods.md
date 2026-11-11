@@ -60,14 +60,18 @@ confirming that camera lens distortion across the object's $\sim 45\text{ px}$ (
 ### 3.1 Empirical Noise and Blur Characterization
 High-frequency radiometric noise $\sigma_I$ is estimated from a homogeneous regolith patch (`x: 1000..1030, y: 925..942`) by subtracting a $\sigma = 1.5\text{ px}$ Gaussian background trend, yielding $\sigma_I = 7.782\times 10^{-3}\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$. Across the sunlit object boundary ($I_{\text{bright}} = 9.848\times 10^{-2}$, $I_{\text{shadow}} = 1.358\times 10^{-2}\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$), the contrast ratio is $7.25:1$ and the per-pixel edge signal-to-noise ratio is $\text{SNR}_{\text{edge}} = 10.91$.
 
-### 3.2 Directional Subpixel Profile Extraction
+### 3.2 Directional Subpixel Profile Extraction and Physical Edge Polarity
 To avoid integer-pixel grid discretization bias, boundaries are sampled along orthogonal 1D normal profiles $\mathbf{p}(s) = \mathbf{p}_{\text{base}} + s \hat{\mathbf{n}}$ using bilinear (`order=1`) and bicubic (`order=3`) interpolation:
-1. **Parametric Error-Function (`erf`) Edge Model**:
+1. **Physical Edge Polarity (`version = "physical-edge-polarity-v2"`)**:
+   Given normal vector $\hat{\mathbf{n}} = (-\hat{t}_y, \hat{t}_x)$ pointing outward toward the exterior:
+   - **Upper Exterior Boundary (Dorsal Limb)**: The physical material transition is from the bright sunlit rock body ($I \approx 0.098\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$) to the darker background regolith ($I \approx 0.045\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$) along $+\hat{\mathbf{n}}$. This physical drop in brightness corresponds to `grad_sign = +1` in the profile search coordinate. (Algorithms using `grad_sign = -1` inadvertently lock onto internal brightness depressions inside the rock body rather than the true material boundary).
+   - **Lower Exterior Boundary (Ventral Margin)**: The transition from the bright body to darker foreground soil along $+\hat{\mathbf{n}}$ corresponds to `grad_sign = -1`.
+2. **Parametric Error-Function (`erf`) Edge Model**:
    $$I(s) = I_{\text{low}} + \frac{I_{\text{high}} - I_{\text{low}}}{2}\left[1 + \operatorname{erf}\left(\frac{s - s_0}{\sqrt{2}\,\sigma_{\text{PSF}}}\right)\right]$$
    fitted via non-linear least squares (`scipy.optimize.curve_fit`) within a local window around the directional gradient extremum, yielding subpixel transition coordinate $s_0$, Gaussian blur width $\sigma_{\text{PSF}}$, step contrast $|I_{\text{high}} - I_{\text{low}}|$, and formal covariance uncertainty $\sigma_{s_0}$.
-2. **Non-Parametric Parabolic Gradient Peak**:
+3. **Non-Parametric Parabolic Gradient Peak**:
    The profile is smoothed with a $\sigma = 0.65\text{ px}$ Gaussian kernel, differentiated with respect to $s$, and the directional extremum of $\pm \partial I/\partial s$ is refined to subpixel precision via 3-point parabolic interpolation.
-3. **Total Edge Uncertainty**:
+4. **Total Edge Uncertainty**:
    For each extracted boundary point $i$, the orthogonal position uncertainty $\sigma_{\text{eff}, i}$ combines the formal profile fit uncertainty $\sigma_{\text{fit}, i}$, half the difference between the `erf` and parabolic-gradient estimators $\frac{1}{2}|s_{\text{erf}, i} - s_{\text{grad}, i}|$, and a systematic pixelation/demosaicing floor $\sigma_{\text{sys}} = 0.12\text{ px}$ in quadrature:
    $$\sigma_{\text{eff}, i} = \sqrt{\max\left(\sigma_{\text{fit}, i},\, \tfrac{1}{2}|s_{\text{erf}, i} - s_{\text{grad}, i}|,\, 0.05\right)^2 + 0.12^2}$$
 
@@ -107,5 +111,56 @@ Direct inspection of the 36-point radial front-rim profile (`theta` $\in [+150^\
 
 ### 6.2 Rear Terminal Contour Extraction Along the Blue-to-Green/Yellow Radiometric Boundary
 At the upper-left (rear) termination of the sunlit body (`x` $\in [1027, 1046]$, `y` $\in [944, 959]$), the background soil exhibits spectral luminance $I \le 0.080\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$ (darker blue in `viridis`), whereas the sunlit object exhibits $I \ge 0.088\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$ (lighter greens and yellows in `viridis`). To trace this boundary without clipping the protruding left nose at $(1028.0, 950.0)$ or jumping into the dark background pits at $y = 944\text{–}945$ (and suppressing the single detached 1-pixel background speckle at $(1040, 945)$ separated from the body by $(1040, 946)$ at $I = 0.081$), we cast 36 radial profiles outward from the rear-cap interior center $(1035.5, 951.2)$ across $\theta \in [-210^\circ, -35^\circ]$ in $5^\circ$ increments ($r \in [2.0, 11.5]\text{ px}$). Along each ray, we locate the innermost outward crossing of the midpoint threshold $I_{\text{iso}} = 0.0860\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$ and fit a local 1D error-function (`erf`) transition within $\pm 1.5\text{ px}$ of that crossing. We then apply identical orthogonal distance regression (`ODR`) conic and polygonal models (`M1`–`M6b`) and homothetic front-face shape translation/scaling tests to compare the curvature of the rear terminus directly against the clean front face.
+
+---
+
+## 7. Joint Geometric Modeling & Collinear Axis Resolution (`step9_joint_geometric_model.py`)
+
+To eliminate uncoupled parameter freedom and test whether a single continuous geometric cylinder accounts simultaneously for all visible aspects of the object, `step9_joint_geometric_model.py` performs joint optimization across $N = 85$ measured boundary points:
+1. **Front Rim Points ($N = 35$)**: Clean overhanging rim arc excluding the single pebble-contaminated outlier at $\theta = -45^\circ$.
+2. **Exposed Rear Arc Points ($N = 24$)**: Clean rear terminal contour ($i = 8\dots 31$, $\theta \in [-170^\circ, -55^\circ]$).
+3. **Upper Exterior Stations ($N = 26$)**: Subpixel points along the straight upper longitudinal boundary where the sunlit body meets dark background regolith.
+
+### 7.1 Mathematical Formulations of the Joint Models
+- **Model 1: Strict Right Circular Cylinder (6 DOF)**:
+  - Free parameters: $\mathbf{p}_1 = (x_{c,f}, y_{c,f}, a, b, L_{\text{proj}}, \theta_{\text{axis}})$.
+  - Constraints:
+    - Coaxial projected centers: $\mathbf{X}_{\text{rear}} = \mathbf{X}_{\text{front}} - L_{\text{proj}} (\cos\theta_{\text{axis}}, \sin\theta_{\text{axis}})^T$.
+    - Identical cross-section: $a_{\text{rear}} = a_{\text{front}} = a$, $b_{\text{rear}} = b_{\text{front}} = b$, and minor axis orientation $\phi_{\text{minor}} = \theta_{\text{axis}}$.
+    - Strict silhouette tangency: The upper straight boundary is strictly tangent to the outer envelope of the front and rear cross-sections at transverse offset $r_{\text{dor}} = a$, with zero uncoupled offset ($\Delta r = 0$).
+  - Residuals: Exact orthogonal distance from each of the 85 points to its corresponding geometric feature (front ellipse, rear ellipse, or upper tangent line).
+- **Model 2: Right Circular Cylinder with Free Dorsal Offset (7 DOF)**:
+  - Free parameters: $\mathbf{p}_2 = (x_{c,f}, y_{c,f}, a, b, L_{\text{proj}}, \theta_{\text{axis}}, r_{\text{dor}})$.
+  - Allows an uncoupled transverse offset $r_{\text{dor}}$ between the cylinder axis and the measured upper edge to test whether an internal reflection or crest line is being measured.
+- **Model 3: Unweighted Cylinder-Compatible Fit (7 Effective Parameters)**:
+  - Scans $\theta_{\text{axis}} \in [28.0^\circ, 35.0^\circ]$ to find the unweighted minimum total RMS residual across all 85 points with equal station weighting.
+- **Model 4: Tapered Conical Frustum with Coupled Silhouette Edge (8 DOF)**:
+  - Free parameters: $\mathbf{p}_4 = (x_{c,f}, y_{c,f}, a, b, L_{\text{proj}}, \theta_{\text{axis}}, s, r_{\text{dor}})$, where $s = a_{\text{rear}}/a_{\text{front}}$ is the taper scale ratio.
+  - The upper silhouette edge angle is coupled to the body axis via the taper angle: $\theta_{\text{dor}} = \theta_{\text{axis}} - \arctan((1-s)a/L_{\text{proj}})$.
+
+### 7.2 Profile Likelihood Analysis of the Taper Scale Ratio $s$
+To test whether the data mandate a tapered cone ($s < 1$) or are consistent with a constant-diameter cylinder ($s = 1$), the scale ratio $s$ is scanned over $s \in [0.80, 1.20]$. At each fixed $s$, the rear arc is fitted by finding the optimal center $(x_{c,r}, y_{c,r})$. The resulting profile likelihood $\Delta\text{RMS}(s)$ quantifies the degree to which arc curvature constrains tapering:
+$$\Delta\text{RMS}(s) = \text{RMS}_{\text{rear}}(s) - \text{RMS}_{\text{rear}}(s_{\text{opt}})$$
+Over a single-quadrant arc ($N = 24$, span $\approx 90^\circ$), changes in $s$ are almost perfectly degenerate with a subpixel shift of the center $(x_{c,r}, y_{c,r})$ along the chord normal, yielding $\Delta\text{RMS} < 0.025\text{ px}$ across the entire range $s \in [0.85, 1.15]$.
+
+---
+
+## 8. Comparative Smoothness, Straightness, and Photometric Shading Metrics
+
+To quantitatively benchmark the target object against surrounding natural Martian geology in the same image frame:
+1. **Edge Straightness & Sagitta Analysis**:
+   - For an extracted boundary spanning longitudinal length $L$, the best-fit line is found via orthogonal distance regression.
+   - Orthogonal RMS residual $\sigma_\perp = \sqrt{\frac{1}{N}\sum v_i^2}$ measures high-frequency wobble/roughness.
+   - Maximum sagitta deviation $\delta_{\text{sag}} = |c_2| (L/2)^2$ from quadratic regression $v(u) = c_0 + c_1 u + c_2 u^2$ measures large-scale curvature.
+   - Evaluated comparatively against the 3 nearest well-defined rock edges in the immediate vicinity ($x \in [1010, 1120], y \in [920, 1020]$).
+2. **Surface Texture via Discrete Laplacian Variance**:
+   - On normalized radiance patches, high-frequency texture is quantified by the variance of the discrete Laplacian operator:
+     $$\sigma_{\text{Lap}}^2 = \operatorname{Var}\left(\nabla^2 I\right)$$
+   - Smooth surfaces (e.g. machined metal or uniform coating) yield low variance, whereas natural pitted, vesicular, or fractured sedimentary rocks exhibit significantly elevated variance.
+3. **Transverse Photometric Shading (Cylindrical vs. Planar Facet)**:
+   - Evaluates whether cross-sectional luminance $I(v)$ follows a quadratic convex roll-off characteristic of a round cylindrical body:
+     $$I(v) = c_0 + c_1 v + c_2 v^2$$
+   - The statistical significance of curvature $z = |c_2| / \sigma_{c_2}$ evaluates the rejection of the flat-faceted rock hypothesis ($c_2 = 0$).
+
 
 
