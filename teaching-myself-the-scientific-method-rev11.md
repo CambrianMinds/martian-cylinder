@@ -403,7 +403,7 @@ Because the point isn't to collect mysteries. It's to build knowledge.
 
 And make no mistake: finding a mathematically uniform circular cylinder lying half-buried in the Martian dirt *is* extraordinary. It leaves us staring at a fascinating, inescapable fork in the road.
 
-Either Martian geology possesses an entirely unknown physical mechanism capable of carving or cementing a straight, hollow, circular cylinder with matching ends—which would be a massive planetary discovery in its own right—or we are looking at something manufactured that isn't ours.
+Either Martian geology possesses an entirely unknown physical mechanism capable of carving or cementing a right cylinder with matching ends—which would be a massive planetary discovery in its own right—or we are looking at something manufactured that isn't ours.
 
 Either answer is thrilling. Either answer means this isn't just "another rock."
 
