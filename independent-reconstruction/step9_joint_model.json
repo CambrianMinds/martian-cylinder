@@ -108,8 +108,8 @@
       }
     },
     "M3_Equal_Weight_Compromise_Cylinder_6DOF": {
-      "description": "Strict cylinder at global minimum unweighted total RMS (compromise axis angle = 31.06 deg)",
-      "k_params": 6,
+      "description": "Cylinder-compatible equal-diameter front/rear ellipses, collinear projected centers, and freely fitted dorsal offset; axis selected by unweighted scan (7 effective parameters)",
+      "k_params": 7,
       "params": {
         "xc_f": 1068.5804330304861,
         "yc_f": 986.1210758351311,
@@ -211,7 +211,7 @@
           "dorsal_rms": 0.4054460805372928,
           "total_rms": 0.33891797327494055
         },
-        "verdict": "A single strict cylinder axis at 31.06\u00b0 satisfies all three features simultaneously with sub-pixel residuals (Front 0.24 px, Rear 0.31 px, Dorsal 0.35 px, Total 0.30 px)."
+        "verdict": "A shared projected cylinder axis with a free dorsal offset provides subpixel fits. This is a seven-parameter cylinder-compatible image model, not the outer-silhouette-tangent constraint of Model 1."
       }
     }
   },

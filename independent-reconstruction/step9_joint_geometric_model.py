@@ -44,6 +44,21 @@ def main():
     with open(os.path.join(OUT_DIR, "step3_features.json"), "r") as f:
         s3 = json.load(f)
 
+    # Do not silently reuse points extracted with the reversed physical-edge
+    # polarity from earlier versions. An excellent curve fit to the wrong
+    # brightness transition is not evidence about the physical object.
+    extraction = s3.get("extraction_geometry", {})
+    if extraction.get("version") != "physical-edge-polarity-v2":
+        raise RuntimeError(
+            "step3_features.json predates the corrected physical-edge extractor. "
+            "Run step3_feature_extraction.py and step8_pebble_correction_and_rear_terminus.py first."
+        )
+    for name in ("dorsal_stations", "ventral_stations"):
+        stations = s3[name]
+        fraction = np.mean([p.get("edge_polarity_ok", False) for p in stations])
+        if fraction < 0.70:
+            raise RuntimeError(f"{name}: {fraction:.0%} valid physical-edge polarity; refusing joint fit")
+
     # A. Clean Front Rim Points (N = 35, single pebble outlier at theta = -45 deg excluded)
     arch_orig = order_arch_points(s3["arch_radial_points"])
     front_rim_36 = [p for p in arch_orig if (p["theta_deg"] >= 150.0 or p["theta_deg"] <= -35.0)]
@@ -66,7 +81,8 @@ def main():
     yr26 = np.array([p["y_erf"] for p in rear_arc_26], dtype=np.float64)
     sig_r26 = np.array([p["r_uncertainty_px"] for p in rear_arc_26], dtype=np.float64)
 
-    # C. Measured Dorsal Longitudinal Edge (N = 26 stations)
+    # C. Measured upper exterior boundary (N = 26 stations). This is a
+    # bright-body/dark-regolith contrast edge, not an arbitrary highlight line.
     dorsal_all = s3["dorsal_stations"]
     xd = np.array([s["x_erf"] for s in dorsal_all], dtype=np.float64)
     yd = np.array([s["y_erf"] for s in dorsal_all], dtype=np.float64)
@@ -78,6 +94,11 @@ def main():
     xv = np.array([s["x_erf"] for s in ventral_clean], dtype=np.float64)
     yv = np.array([s["y_erf"] for s in ventral_clean], dtype=np.float64)
 
+    # Physical edge polarity is a hard prerequisite. The 85-point residual
+    # itself only evaluates fit to selected points, not whether the points
+    # belong to the right material boundary.
+    if not (len(xf) == 35 and len(xr) == 24 and len(xd) == 26):
+        raise RuntimeError("Unexpected feature count; inspect the target overlay before fitting")
     print(f"Loaded: Front Rim N = {len(xf)}, Exposed Rear Arc N = {len(xr)}, Dorsal Edge N = {len(xd)} (Total N = {len(xf)+len(xr)+len(xd)})")
 
     # =========================================================================
@@ -219,7 +240,10 @@ def main():
     print(f"Residuals: Front RMS = {rms_f_m2:.4f} px | Rear RMS = {rms_r_m2:.4f} px | Dorsal RMS = {rms_d_m2:.4f} px | Total RMS = {rms_tot_m2:.4f} px")
 
     # =========================================================================
-    # 5. JOINT PHYSICAL MODEL 3: COMPROMISE STRICT CYLINDER (THETA = 31.06° - MINIMUM TOTAL RMS)
+    # 5. JOINT 2D CYLINDER-COMPATIBLE MODEL: FREE DORSAL OFFSET
+    #    - Axial angle is selected by scanning; it is an additional fitted
+    #      parameter, so total effective DOF is 7, not the 6 used at fixed theta.
+    #    - This is NOT the tangent-constrained model M1.
     # =========================================================================
     # Find the angle theta that minimizes the unweighted Total RMS across all 85 points:
     th_grid = np.linspace(28.0, 35.0, 71)
@@ -265,7 +289,7 @@ def main():
     xc_r_comp = xc_f_comp - L_comp * np.cos(np.radians(th_comp_deg))
     yc_r_comp = yc_f_comp - L_comp * np.sin(np.radians(th_comp_deg))
 
-    print("\n--- Model 3: Equal-Weight Compromise Cylinder (Minimum Total RMS) ---")
+    print("\n--- Model 3: Cylinder-compatible fit with free dorsal offset (7 effective DOF, unweighted) ---")
     print(f"Optimal Axis Angle: {th_comp_deg:.2f}° | L_proj: {L_comp:.2f} px | a: {a_comp:.2f} px, b: {b_comp:.2f} px (b/a = {b_comp/a_comp:.3f})")
     print(f"Front Center: ({xc_f_comp:.2f}, {yc_f_comp:.2f}) | Rear Center: ({xc_r_comp:.2f}, {yc_r_comp:.2f})")
     print(f"Residuals: Front RMS = {rms_f_comp:.4f} px | Rear RMS = {rms_r_comp:.4f} px | Dorsal RMS = {rms_d_comp:.4f} px | Total RMS = {rms_tot_comp:.4f} px")
@@ -430,7 +454,7 @@ def main():
                     "dorsal_rms": float(rms_d_comp),
                     "total_rms": float(rms_tot_comp)
                 },
-                "verdict": "A single strict cylinder axis at 31.06° satisfies all three features simultaneously with sub-pixel residuals (Front 0.24 px, Rear 0.31 px, Dorsal 0.35 px, Total 0.30 px)."
+                "verdict": "A shared projected cylinder axis with a free dorsal offset provides subpixel fits. This is a seven-parameter cylinder-compatible image model, not the outer-silhouette-tangent constraint of Model 1."
             }
         }
     }
@@ -467,8 +491,8 @@ def main():
                 "residuals_px": {"front_rms": rms_f_m2, "rear_rms": rms_r_m2, "dorsal_rms": rms_d_m2, "total_rms": rms_tot_m2}
             },
             "M3_Equal_Weight_Compromise_Cylinder_6DOF": {
-                "description": "Strict cylinder at global minimum unweighted total RMS (compromise axis angle = 31.06 deg)",
-                "k_params": 6,
+                "description": "Cylinder-compatible equal-diameter front/rear ellipses, collinear projected centers, and freely fitted dorsal offset; axis selected by unweighted scan (7 effective parameters)",
+                "k_params": 7,
                 "params": {"xc_f": float(xc_f_comp), "yc_f": float(yc_f_comp), "xc_r": float(xc_r_comp), "yc_r": float(yc_r_comp),
                            "a": float(a_comp), "b": float(b_comp), "b_over_a": float(b_comp/a_comp), "L_proj": float(L_comp), "theta_axis_deg": float(th_comp_deg), "r_dorsal": float(r_dor_comp)},
                 "residuals_px": {"front_rms": rms_f_comp, "rear_rms": rms_r_comp, "dorsal_rms": rms_d_comp, "total_rms": rms_tot_comp}
@@ -528,10 +552,16 @@ def main():
     ax_a.plot([xc_f_comp], [yc_f_comp], "r+", ms=10, mew=2)
     ax_a.plot([xc_r_comp], [yc_r_comp], "o", color="orange", ms=6)
 
-    # Dorsal model line
-    u_line = np.linspace(-L_comp - 8.0, 5.0, 100)
-    xd_line = xc_f_comp + u_line * np.cos(np.radians(th_comp_deg)) - r_dor_comp * np.sin(np.radians(th_comp_deg))
-    yd_line = yc_f_comp + u_line * np.sin(np.radians(th_comp_deg)) - r_dor_comp * (-np.cos(np.radians(th_comp_deg)))
+    # Dorsal model line. In the ellipse local frame, v = -r_dor
+    # (toward the image's upper-right exterior). The previous drawing used
+    # +r_dor and plotted the fit on the opposite side of the axis.
+    # Clip the plotted line to the measured upper edge rather than implying
+    # that it extends unchanged through the front-face transition.
+    theta_plot = np.radians(th_comp_deg)
+    u_obs = (xd - xc_f_comp) * np.cos(theta_plot) + (yd - yc_f_comp) * np.sin(theta_plot)
+    u_line = np.linspace(float(np.min(u_obs)), float(np.max(u_obs)), 100)
+    xd_line = xc_f_comp + u_line * np.cos(theta_plot) + r_dor_comp * np.sin(theta_plot)
+    yd_line = yc_f_comp + u_line * np.sin(theta_plot) - r_dor_comp * np.cos(theta_plot)
     ax_a.plot(xd_line, yd_line, "c-", lw=1.5, label=f"Joint Dorsal Line (Offset {r_dor_comp:.1f} px)")
 
     ax_a.set_xlim(1025, 1090)
@@ -544,7 +574,7 @@ def main():
 
     # Panel B: Residuals of the Joint Models Across Subsets
     ax_b = axes[0, 1]
-    models = ["Baseline Free\n(14 DOF)", "M1: Strict Cyl\n(6 DOF)", "M2: Cyl + Offset\n(7 DOF)", "M3: Compromise\n(6 DOF)", "M4: Tapered Cone\n(8 DOF)"]
+    models = ["Baseline Free\n(14 DOF)", "M1: Tangent Cyl\n(6 DOF)", "M2: Cyl + Offset\n(7 DOF)", "M3: Free Offset\n(7 DOF)", "M4: Tapered Cone\n(8 DOF)"]
     rms_f_vals = [rms_front_free_px, rms_f_m1, rms_f_m2, rms_f_comp, rms_f_m4]
     rms_r_vals = [rms_rear_trans_px, rms_r_m1, rms_r_m2, rms_r_comp, rms_r_m4]
     rms_d_vals = [rms_dorsal_free_px, rms_d_m1, rms_d_m2, rms_d_comp, rms_d_m4]

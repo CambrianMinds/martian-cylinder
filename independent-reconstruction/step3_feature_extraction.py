@@ -43,13 +43,16 @@ def extract_subpixel_profile_edges(
 ):
     """
     Sample 1D profiles perpendicular to a baseline segment from p_start to p_end.
-    `n_hat = [-t_hat[1], t_hat[0]]` points upward-right for a downward-right segment.
-      - For Dorsal edge: moving along +n_hat goes from dark soil into bright object -> grad_sign = +1.
-      - For Ventral edge: moving along +n_hat goes from dark soil into bright object -> grad_sign = +1.
+    `n_hat = [-t_hat[1], t_hat[0]]` points LEFT/DOWN for a downward-right segment in image coordinates (y increases downward).
+      - Dorsal (upper) outer edge: +n moves from DARK background into BRIGHT object -> grad_sign = +1.
+      - Ventral (lower-left) edge: +n moves from BRIGHT object into DARK soil -> grad_sign = -1.
+    Select the contrast transition of the physical object, not an oppositely signed interior edge.
     At each station, compute both:
       1) Directional Gaussian-smoothed parabolic gradient extremum (non-parametric subpixel edge)
       2) Local Error Function (erf) edge model fit around the directional gradient peak
     """
+    if grad_sign not in (-1, 1):
+        raise ValueError('grad_sign must be +1 (dark to bright) or -1 (bright to dark) along +n')
     p_start = np.array(p_start, dtype=float)
     p_end = np.array(p_end, dtype=float)
     t_vec = p_end - p_start
@@ -115,7 +118,15 @@ def extract_subpixel_profile_edges(
 
         pt_erf = base_pt + s_best * n_hat
         pt_grad = base_pt + s_grad * n_hat
+        # A geometric edge is only useful if the observed brightness step has the
+        # expected direction across the body/background interface.
+        minus_intensity = float(np.interp(s_best - 1.0, s_grid, prof_lin))
+        plus_intensity = float(np.interp(s_best + 1.0, s_grid, prof_lin))
+        signed_step = float(grad_sign * (plus_intensity - minus_intensity))
         stations.append({
+            'expected_grad_sign': int(grad_sign),
+            'signed_physical_edge_step': signed_step,
+            'edge_polarity_ok': bool(signed_step > 0.0),
             "station_idx": idx,
             "u_frac": float(u),
             "s_along_px": float(u * length),
@@ -291,8 +302,15 @@ def main():
     )
     # Zone 2: Ventral (Lower-Left) Edge: (1033.2, 952.5) to (1051.2, 989.5), grad_sign = +1
     ventral_full_stations_drxx = extract_subpixel_profile_edges(
-        drxx_lum, [1033.2, 952.5], [1051.2, 989.5], n_stations=26, half_width=3.5, grad_sign=+1
+        drxx_lum, [1033.2, 952.5], [1051.2, 989.5], n_stations=26, half_width=3.5, grad_sign=-1
     )
+    # Refuse a contour whose intensity transition contradicts the visible
+    # bright-object/dark-background boundary for most stations.
+    for name, points in [('dorsal', dorsal_stations_drxx), ('ventral', ventral_full_stations_drxx)]:
+        fraction = np.mean([p['edge_polarity_ok'] for p in points])
+        if fraction < 0.70:
+            raise RuntimeError(f'{name} edge polarity failed: {fraction:.0%} of stations follow the expected physical transition')
+
     # Clean ventral subset excluding the pebble contact region y in [978.5, 986.5]
     ventral_clean_stations_drxx = [
         s for s in ventral_full_stations_drxx if not (978.5 <= s["y_erf"] <= 986.5)
@@ -324,7 +342,7 @@ def main():
     for b_idx, b_name in enumerate(["Red_Band0", "Green_Band1", "Blue_Band2"]):
         b_img = drxx_rad[:, :, b_idx]
         d_st = extract_subpixel_profile_edges(b_img, [1036.0, 947.2], [1068.5, 963.6], n_stations=26, half_width=4.5, grad_sign=+1)
-        v_st = extract_subpixel_profile_edges(b_img, [1033.2, 952.5], [1051.2, 989.5], n_stations=26, half_width=3.5, grad_sign=+1)
+        v_st = extract_subpixel_profile_edges(b_img, [1033.2, 952.5], [1051.2, 989.5], n_stations=26, half_width=3.5, grad_sign=-1)
         df = fit_line_orthogonal([s["x_erf"] for s in d_st], [s["y_erf"] for s in d_st])
         vf = fit_line_orthogonal([s["x_erf"] for s in v_st], [s["y_erf"] for s in v_st])
         band_fits[b_name] = {
@@ -342,7 +360,7 @@ def main():
         drlx_lum, [1033.0, 944.2], [1065.5, 960.6], n_stations=26, half_width=4.5, grad_sign=+1
     )
     ventral_st_drlx = extract_subpixel_profile_edges(
-        drlx_lum, [1030.2, 949.5], [1048.2, 986.5], n_stations=26, grad_sign=+1
+        drlx_lum, [1030.2, 949.5], [1048.2, 986.5], n_stations=26, grad_sign=-1
     )
     dorsal_fit_drlx = fit_line_orthogonal([s["x_erf"] for s in dorsal_st_drlx], [s["y_erf"] for s in dorsal_st_drlx])
     ventral_fit_drlx = fit_line_orthogonal([s["x_erf"] for s in ventral_st_drlx], [s["y_erf"] for s in ventral_st_drlx])
@@ -372,6 +390,14 @@ def main():
         return (th_deg >= 160.0) or (th_deg <= -60.0)
 
     feature_data = {
+        "extraction_geometry": {
+            "version": "physical-edge-polarity-v2",
+            "image_y_axis": "down",
+            "normal_definition": "(-tangent_y, tangent_x)",
+            "dorsal_grad_sign": 1,
+            "ventral_grad_sign": -1,
+            "description": "Upper exterior dark-to-bright and lower exterior bright-to-dark along +normal."
+        },
         "radiometry_and_noise": {
             "soil_background_highfreq_noise_std_rad": soil_noise_std,
             "object_bright_mean_rad": obj_bright_mean,
