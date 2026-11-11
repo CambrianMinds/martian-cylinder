@@ -169,7 +169,7 @@ It matched the visible rear edge to a fraction of a pixel.
 
 Of course, separate measurements could look convincing and still disagree with one another. So we put them together. Instead of allowing the front, back, and upper edge to be modeled independently, we asked whether one constant-diameter cylinder could account for all three at once.
 
-It matched **85 measured points with an overall error of less than one-third of a pixel** in the original photograph.
+It matched **85 measured points with an overall error of less than four-tenths of a pixel** in the original photograph.
 
 Not millimeters. *Pixels.*
 
@@ -221,7 +221,13 @@ Today, the term describes rejecting evidence simply because it disturbs an accep
 
 Wind isn't a lathe. Martian geology can produce strange forms, and I examined several possibilities. None of the ones I found explained the mathematically perfect cylinder.
 
-Something from Curiosity? Possibly. I haven't identified a component that matches the object or accounts for its location.
+Martian winds carve rocks by sandblasting them, creating flat planes and sharp corners—what geologists call ventifacts. If this were a wind-carved rock, the sunlight hitting it would show flat surfaces with sudden breaks.
+
+It doesn't. When we measured the light across the body of the object, there were no flat facets. The sunlight fades across the surface in a smooth, continuous curve—the exact mathematical shading you get on a round pipe. We tested that curve against a flat-sided rock; the rock explanation failed by more than eleven standard deviations.
+
+The photograph didn't just capture the outline of a cylinder. It captured the 3D curve of one.
+
+Could it be something from Curiosity? We looked at that, too. But by Sol 3556, Curiosity was twenty-eight kilometers away from its landing site, ten years into its mission. Landing hardware doesn't travel eighteen miles across mountain passes a decade later, and anything dropped recently would sit loosely on top of the dust, not half-buried in the soil bed. Even NASA didn't claim it came from the rover.
 
 Something manufactured by someone else?
 
@@ -284,8 +290,6 @@ The source data and methods for this one are [publicly available](https://github
 I happened to find my object in a YouTube video that I'm almost certain was about the Moon being a spaceship. Hardly an exhaustive survey of the Martian surface.
 
 I have no idea what other people might find. That's rather the point.
-
-**We are allowed to look, and we are allowed to wonder.**
 
 ## References and Reproduction
 

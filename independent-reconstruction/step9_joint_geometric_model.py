@@ -70,7 +70,7 @@ def main():
     dorsal_all = s3["dorsal_stations"]
     xd = np.array([s["x_erf"] for s in dorsal_all], dtype=np.float64)
     yd = np.array([s["y_erf"] for s in dorsal_all], dtype=np.float64)
-    sig_d = np.array([s["sigma_blur_px"] for s in dorsal_all], dtype=np.float64)
+    sig_d = np.array([max(s.get("s_uncertainty_px", 0.08), 0.08) for s in dorsal_all], dtype=np.float64)
 
     # Clean Ventral Longitudinal Edge (N = 22 stations) for reference
     ventral_all = s3["ventral_stations"]
@@ -191,7 +191,7 @@ def main():
         rd = (vd - (-r_dor)) / sig_d
         return np.concatenate([rf, rr, rd])
 
-    p0_m2 = [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(31.2), 16.0]
+    p0_m2 = [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(31.2), 19.5]
     sol_m2 = least_squares(res_joint_cyl_offset, p0_m2,
                            bounds=([1060, 975, 12, 10, 20, np.radians(20), 10], [1080, 995, 25, 22, 60, np.radians(45), 22]),
                            max_nfev=3000)
@@ -239,7 +239,7 @@ def main():
             rd = vd - (-r_dor)
             return np.concatenate([rf, rr, rd])
 
-        s_th = least_squares(res_fixed_th, [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, 16.0], max_nfev=1500)
+        s_th = least_squares(res_fixed_th, [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, 19.5], max_nfev=1500)
         rf_raw = point_to_ellipse_orth_dist(xf, yf, s_th.x[0], s_th.x[1], s_th.x[2], s_th.x[3], th_rad)
         rr_raw = point_to_ellipse_orth_dist(xr, yr, s_th.x[0] - s_th.x[4]*np.cos(th_rad), s_th.x[1] - s_th.x[4]*np.sin(th_rad), s_th.x[2], s_th.x[3], th_rad)
         vd_raw = -(xd - s_th.x[0]) * np.sin(th_rad) + (yd - s_th.x[1]) * np.cos(th_rad) - (-s_th.x[5])
@@ -289,7 +289,7 @@ def main():
         rd = (vd - v_target) / sig_d
         return np.concatenate([rf, rr, rd])
 
-    p0_m4 = [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(33.0), 16.0, 0.94]
+    p0_m4 = [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(33.0), 19.5, 0.98]
     sol_m4 = least_squares(res_joint_cone, p0_m4,
                            bounds=([1060, 975, 12, 10, 20, np.radians(25), 10, 0.6], [1080, 995, 25, 22, 60, np.radians(40), 22, 1.4]),
                            max_nfev=3500)
@@ -338,7 +338,7 @@ def main():
             rd = (vd - v_target) / sig_d
             return np.concatenate([rf, rr, rd])
 
-        sol_s = least_squares(res_fixed_s, [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(33.0), 16.0], max_nfev=2000)
+        sol_s = least_squares(res_fixed_s, [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(33.0), 19.5], max_nfev=2000)
         c2 = float(np.sum(sol_s.fun ** 2))
         rf_raw = point_to_ellipse_orth_dist(xf, yf, sol_s.x[0], sol_s.x[1], sol_s.x[2], sol_s.x[3], sol_s.x[5])
         rr_raw = point_to_ellipse_orth_dist(xr, yr, sol_s.x[0] - sol_s.x[4]*np.cos(sol_s.x[5]), sol_s.x[1] - sol_s.x[4]*np.sin(sol_s.x[5]), s_val*sol_s.x[2], s_val*sol_s.x[3], sol_s.x[5])

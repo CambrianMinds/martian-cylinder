@@ -44,7 +44,7 @@ def extract_subpixel_profile_edges(
     """
     Sample 1D profiles perpendicular to a baseline segment from p_start to p_end.
     `n_hat = [-t_hat[1], t_hat[0]]` points upward-right for a downward-right segment.
-      - For Dorsal edge: moving along +n_hat goes from bright object to dark soil -> grad_sign = -1.
+      - For Dorsal edge: moving along +n_hat goes from dark soil into bright object -> grad_sign = +1.
       - For Ventral edge: moving along +n_hat goes from dark soil into bright object -> grad_sign = +1.
     At each station, compute both:
       1) Directional Gaussian-smoothed parabolic gradient extremum (non-parametric subpixel edge)
@@ -71,8 +71,9 @@ def extract_subpixel_profile_edges(
         # Directional gradient peak (grad_sign * dI/ds)
         prof_smooth = gaussian_filter(prof_lin, sigma=0.65 / ds)
         grad = np.gradient(prof_smooth, ds) * grad_sign
-        # Restrict peak search to central [-2.2, +2.2] px around baseline
-        central_mask = np.abs(s_grid) <= 2.2
+        # Restrict peak search to central [-search_width, +search_width] px around baseline
+        search_width = max(2.5, half_width - 1.0)
+        central_mask = np.abs(s_grid) <= search_width
         central_indices = np.where(central_mask)[0]
         k_max = int(central_indices[np.argmax(grad[central_indices])])
 
@@ -284,9 +285,9 @@ def main():
     snr_edge = (obj_bright_mean - shadow_core_mean) / soil_noise_std
 
     # 2. Extract Longitudinal Boundaries in DRXX
-    # Zone 1: Dorsal (Upper-Right) Edge: (1036.0, 947.2) to (1068.5, 963.6), grad_sign = -1
+    # Zone 1: Dorsal (Upper-Right) Edge: (1036.0, 947.2) to (1068.5, 963.6), grad_sign = +1
     dorsal_stations_drxx = extract_subpixel_profile_edges(
-        drxx_lum, [1036.0, 947.2], [1068.5, 963.6], n_stations=26, half_width=3.5, grad_sign=-1
+        drxx_lum, [1036.0, 947.2], [1068.5, 963.6], n_stations=26, half_width=4.5, grad_sign=+1
     )
     # Zone 2: Ventral (Lower-Left) Edge: (1033.2, 952.5) to (1051.2, 989.5), grad_sign = +1
     ventral_full_stations_drxx = extract_subpixel_profile_edges(
@@ -322,8 +323,8 @@ def main():
     band_fits = {}
     for b_idx, b_name in enumerate(["Red_Band0", "Green_Band1", "Blue_Band2"]):
         b_img = drxx_rad[:, :, b_idx]
-        d_st = extract_subpixel_profile_edges(b_img, [1036.0, 947.2], [1068.5, 963.6], n_stations=26, grad_sign=-1)
-        v_st = extract_subpixel_profile_edges(b_img, [1033.2, 952.5], [1051.2, 989.5], n_stations=26, grad_sign=+1)
+        d_st = extract_subpixel_profile_edges(b_img, [1036.0, 947.2], [1068.5, 963.6], n_stations=26, half_width=4.5, grad_sign=+1)
+        v_st = extract_subpixel_profile_edges(b_img, [1033.2, 952.5], [1051.2, 989.5], n_stations=26, half_width=3.5, grad_sign=+1)
         df = fit_line_orthogonal([s["x_erf"] for s in d_st], [s["y_erf"] for s in d_st])
         vf = fit_line_orthogonal([s["x_erf"] for s in v_st], [s["y_erf"] for s in v_st])
         band_fits[b_name] = {
@@ -338,7 +339,7 @@ def main():
 
     # DRLX (CAHV linearized) line fits (shifted by dx=-3, dy=-3)
     dorsal_st_drlx = extract_subpixel_profile_edges(
-        drlx_lum, [1033.0, 944.2], [1065.5, 960.6], n_stations=26, grad_sign=-1
+        drlx_lum, [1033.0, 944.2], [1065.5, 960.6], n_stations=26, half_width=4.5, grad_sign=+1
     )
     ventral_st_drlx = extract_subpixel_profile_edges(
         drlx_lum, [1030.2, 949.5], [1048.2, 986.5], n_stations=26, grad_sign=+1

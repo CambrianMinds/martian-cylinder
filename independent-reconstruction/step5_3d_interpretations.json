@@ -1,7 +1,7 @@
 {
   "perspective_foreshortening_proof": {
-    "observed_convergence_deg": 35.348,
-    "observed_convergence_unc_deg": 0.624,
+    "observed_convergence_deg": 36.461,
+    "observed_convergence_unc_deg": 0.741,
     "table_by_tilt_gamma": [
       {
         "axis_tilt_gamma_deg": 0.184,
@@ -64,16 +64,16 @@
   },
   "transverse_photometry_clinometry": {
     "n_total_samples": 145,
-    "flat_planar_facet_rms_rel": 0.01291,
-    "full_180deg_cylinder_cone_rms_rel": 0.011,
-    "convex_partial_arc_quadratic_rms_rel": 0.01098,
-    "quadratic_curvature_coeff_c2": -0.04112,
-    "quadratic_curvature_err": 0.00557,
-    "convexity_significance_z_sigma": 7.38,
-    "peak_brightness_transverse_coord_v_frac": -0.8924,
+    "flat_planar_facet_rms_rel": 0.03068,
+    "full_180deg_cylinder_cone_rms_rel": 0.03068,
+    "convex_partial_arc_quadratic_rms_rel": 0.02212,
+    "quadratic_curvature_coeff_c2": 0.12858,
+    "quadratic_curvature_err": 0.01123,
+    "convexity_significance_z_sigma": 11.45,
+    "peak_brightness_transverse_coord_v_frac": 0.1398,
     "solar_vector_in_object_frame": {
-      "s_axial_along_bisector": -0.9565,
-      "s_transverse_towards_dorsal": 0.272,
+      "s_axial_along_bisector": -0.9545,
+      "s_transverse_towards_dorsal": 0.2792,
       "s_outward_towards_camera": 0.1051
     }
   },
