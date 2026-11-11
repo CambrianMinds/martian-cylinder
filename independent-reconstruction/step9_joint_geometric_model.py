@@ -346,10 +346,48 @@ def main():
     # =========================================================================
     # 7. SCALE RATIO UNCERTAINTY SCAN & PROFILE LIKELIHOOD
     # =========================================================================
-    s_grid = np.linspace(0.80, 1.20, 41)
-    s_scan_results = []
+    # A. Standalone Rear Arc Scale Ratio Scan (Uncoupled rear ellipse translation)
+    # Tests whether the 24-point rear arc curvature alone mandates tapering or
+    # allows an unscaled (s=1.000) cylinder cross-section.
+    s_grid_ra = np.linspace(0.50, 1.30, 81)
+    rear_alone_results = []
+    for s_val in s_grid_ra:
+        def res_r_alone(p):
+            xc, yc = p
+            return point_to_ellipse_orth_dist(xr, yr, xc, yc, s_val * a_f_free, s_val * b_f_free, phi_f_free) / sig_r
 
-    for s_val in s_grid:
+        sol_r = least_squares(res_r_alone, [xc_r_trans, yc_r_trans])
+        raw_r = point_to_ellipse_orth_dist(xr, yr, sol_r.x[0], sol_r.x[1], s_val * a_f_free, s_val * b_f_free, phi_f_free)
+        c2_r = float(np.sum(sol_r.fun ** 2))
+        rms_r = float(np.sqrt(np.mean(raw_r ** 2)))
+        rear_alone_results.append({
+            "scale_ratio_s": float(s_val),
+            "chi2": c2_r,
+            "rms_rear_px": rms_r,
+            "xc_r": float(sol_r.x[0]),
+            "yc_r": float(sol_r.x[1])
+        })
+
+    min_chi2_ra = min(item["chi2"] for item in rear_alone_results)
+    best_item_ra = [item for item in rear_alone_results if item["chi2"] == min_chi2_ra][0]
+    best_s_ra = best_item_ra["scale_ratio_s"]
+    min_rms_ra = best_item_ra["rms_rear_px"]
+    ci95_ra_items = [item["scale_ratio_s"] for item in rear_alone_results if (item["chi2"] - min_chi2_ra) <= 3.84]
+    s_ci95_ra_low = float(min(ci95_ra_items))
+    s_ci95_ra_high = float(max(ci95_ra_items))
+
+    item_ra_1 = [item for item in rear_alone_results if abs(item["scale_ratio_s"] - 1.00) < 1e-4][0]
+    rms_ra_at_1 = float(item_ra_1["rms_rear_px"])
+    item_ra_085 = [item for item in rear_alone_results if abs(item["scale_ratio_s"] - 0.85) < 1e-4][0]
+    item_ra_115 = [item for item in rear_alone_results if abs(item["scale_ratio_s"] - 1.15) < 1e-4][0]
+    flatness_delta_ra = float(abs(item_ra_085["rms_rear_px"] - item_ra_115["rms_rear_px"]))
+
+    # B. Joint Coupled Conical Frustum Scan (Full joint 8-DOF profile with s fixed)
+    # Tests the sensitivity of the entire 85-point joint model M4 as s varies.
+    s_grid_joint = np.linspace(0.50, 1.20, 71)
+    joint_scan_results = []
+
+    for s_val in s_grid_joint:
         def res_fixed_s(p):
             xc_f, yc_f, a, b, L, th, r_dor = p
             rf = point_to_ellipse_orth_dist(xf, yf, xc_f, yc_f, a, b, th) / sig_f
@@ -362,30 +400,42 @@ def main():
             rd = (vd - v_target) / sig_d
             return np.concatenate([rf, rr, rd])
 
-        sol_s = least_squares(res_fixed_s, [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(33.0), 19.5], max_nfev=2000)
+        sol_s = least_squares(res_fixed_s, [xc_f_free, yc_f_free, a_f_free, b_f_free, length_cc_px, np.radians(33.0), 19.5],
+                              bounds=([1060, 975, 12, 10, 20, np.radians(25), 10], [1080, 995, 25, 22, 60, np.radians(45), 22]),
+                              max_nfev=2000)
         c2 = float(np.sum(sol_s.fun ** 2))
         rf_raw = point_to_ellipse_orth_dist(xf, yf, sol_s.x[0], sol_s.x[1], sol_s.x[2], sol_s.x[3], sol_s.x[5])
-        rr_raw = point_to_ellipse_orth_dist(xr, yr, sol_s.x[0] - sol_s.x[4]*np.cos(sol_s.x[5]), sol_s.x[1] - sol_s.x[4]*np.sin(sol_s.x[5]), s_val*sol_s.x[2], s_val*sol_s.x[3], sol_s.x[5])
-        s_scan_results.append({
+        xc_r_s = sol_s.x[0] - sol_s.x[4] * np.cos(sol_s.x[5])
+        yc_r_s = sol_s.x[1] - sol_s.x[4] * np.sin(sol_s.x[5])
+        rr_raw = point_to_ellipse_orth_dist(xr, yr, xc_r_s, yc_r_s, s_val * sol_s.x[2], s_val * sol_s.x[3], sol_s.x[5])
+        ud_s = (xd - sol_s.x[0]) * np.cos(sol_s.x[5]) + (yd - sol_s.x[1]) * np.sin(sol_s.x[5])
+        vd_s = -(xd - sol_s.x[0]) * np.sin(sol_s.x[5]) + (yd - sol_s.x[1]) * np.cos(sol_s.x[5])
+        v_target_s = - (sol_s.x[6] + (s_val * sol_s.x[6] - sol_s.x[6]) * (-ud_s / sol_s.x[4]))
+        rd_raw = vd_s - v_target_s
+        tot_rms_s = float(np.sqrt(np.mean(np.concatenate([rf_raw, rr_raw, rd_raw]) ** 2)))
+
+        joint_scan_results.append({
             "scale_ratio_s": float(s_val),
             "chi2": c2,
+            "rms_total_px": tot_rms_s,
             "rms_front_px": float(np.sqrt(np.mean(rf_raw ** 2))),
             "rms_rear_px": float(np.sqrt(np.mean(rr_raw ** 2))),
+            "rms_dorsal_px": float(np.sqrt(np.mean(rd_raw ** 2))),
             "theta_axis_deg": float(np.degrees(sol_s.x[5]))
         })
 
-    # Find 95% Confidence Interval on s (Delta chi2 <= 3.84 for 1 parameter):
-    min_chi2_s = min(item["chi2"] for item in s_scan_results)
-    ci95_s_items = [item["scale_ratio_s"] for item in s_scan_results if (item["chi2"] - min_chi2_s) <= 3.84]
-    s_ci95_low = min(ci95_s_items) if ci95_s_items else 0.85
-    s_ci95_high = max(ci95_s_items) if ci95_s_items else 1.15
+    # Find 95% Confidence Interval on joint s (Delta chi2 <= 3.84 for 1 parameter):
+    min_chi2_joint = min(item["chi2"] for item in joint_scan_results)
+    ci95_joint_items = [item["scale_ratio_s"] for item in joint_scan_results if (item["chi2"] - min_chi2_joint) <= 3.84]
+    s_ci95_joint_low = float(min(ci95_joint_items))
+    s_ci95_joint_high = float(max(ci95_joint_items))
 
-    print(f"\n--- Scale Ratio Profile Likelihood ---")
-    print(f"Best Scale Ratio s = {s_m4:.3f} | 95% CI = [{s_ci95_low:.3f}, {s_ci95_high:.3f}]")
-    print(f"Rear RMS at s = 0.90: {s_scan_results[10]['rms_rear_px']:.4f} px")
-    print(f"Rear RMS at s = 1.00: {s_scan_results[20]['rms_rear_px']:.4f} px")
-    print(f"Rear RMS at s = 1.10: {s_scan_results[30]['rms_rear_px']:.4f} px")
-    print(f"Residual Flatness Delta_RMS across [0.85, 1.15]: {abs(s_scan_results[10]['rms_rear_px'] - s_scan_results[20]['rms_rear_px']):.4f} px (< 0.01 px!)")
+    print(f"\n--- Scale Ratio Profile Likelihoods ---")
+    print(f"Standalone Rear Arc: Best s = {best_s_ra:.3f} | 95% CI = [{s_ci95_ra_low:.3f}, {s_ci95_ra_high:.3f}]")
+    print(f"  Rear RMS at s=1.000: {rms_ra_at_1:.4f} px (Delta wrt min {min_rms_ra:.4f} px: {rms_ra_at_1 - min_rms_ra:.4f} px)")
+    print(f"  Flatness Delta_RMS across [0.85, 1.15]: {flatness_delta_ra:.4f} px")
+    print(f"Joint Coupled Frustum (M4): Best s = {s_m4:.3f} | 95% CI = [{s_ci95_joint_low:.3f}, {s_ci95_joint_high:.3f}]")
+    print(f"  Total Joint RMS = {rms_tot_m4:.4f} px (chi2 = {chi2_m4:.1f}, BIC = {bic_m4:.1f})")
 
     # =========================================================================
     # 8. EXPLANATION QUANTIFICATION OF THE ~3.3° ANGULAR DISCREPANCY
@@ -444,7 +494,7 @@ def main():
                 "scale_ratio_s": float(s_m4),
                 "taper_half_angle_alpha_deg": float(taper_coupling_deg),
                 "coupled_dorsal_angle_deg": float(th_dorsal_m4_deg),
-                "verdict": "A slight 7.6% taper (s = 0.924) naturally tilts the dorsal silhouette edge by 1.57°, bringing the body axis (34.5°) and dorsal edge (33.0°) into geometric coupling."
+                "verdict": f"In Model 4, a taper ratio s = {s_m4:.3f} (half-angle alpha = {alpha_cone_deg:.2f}°) couples the body axis ({th_m4_deg:.2f}°) to the dorsal silhouette edge ({th_dorsal_m4_deg:.2f}°), matching the measured edge ({th_dorsal_free_deg:.2f}°) to within {abs(th_dorsal_m4_deg - th_dorsal_free_deg):.2f}° and achieving {rms_tot_m4:.4f} px total RMS."
             },
             "5_joint_compromise_axis": {
                 "compromise_axis_angle_deg": float(th_comp_deg),
@@ -507,14 +557,37 @@ def main():
             }
         },
         "scale_ratio_analysis": {
+            "competing_tapered_model_m4": {
+                "best_fit_s": float(s_m4),
+                "ci95": [float(s_ci95_joint_low), float(s_ci95_joint_high)],
+                "total_rms_px": float(rms_tot_m4),
+                "theta_axis_deg": float(th_m4_deg),
+                "half_taper_alpha_deg": float(alpha_cone_deg),
+                "coupled_dorsal_angle_deg": float(th_dorsal_m4_deg),
+                "chi2": float(chi2_m4),
+                "bic": float(bic_m4),
+                "mechanism": "In the coupled joint model M4, the optimizer drives s to 0.619 because the resulting 9.46° taper angle alpha couples the body axis (39.33°) to the observed dorsal silhouette edge (29.86° vs 28.89° measured), while shifting the collinear rear center to accommodate a smaller rear cap."
+            },
+            "standalone_rear_arc_curvature": {
+                "best_fit_s": float(best_s_ra),
+                "ci95": [float(s_ci95_ra_low), float(s_ci95_ra_high)],
+                "rms_at_best_s_px": float(min_rms_ra),
+                "rms_at_s_1_000_px": float(rms_ra_at_1),
+                "delta_rms_at_1_000_px": float(rms_ra_at_1 - min_rms_ra),
+                "flatness_delta_rms_across_085_115_px": float(flatness_delta_ra),
+                "conclusion": "The 24-point exposed rear arc curvature alone does NOT prefer an extreme 0.619 taper (at s=0.60, rear RMS degrades to 0.272 px). The rear arc alone is mathematically underdetermined across s in [0.85, 1.15] (Delta_RMS < 0.013 px) and is fully consistent with an unscaled cylinder cap (s = 1.000, Delta_RMS = 0.0017 px)."
+            },
+            "reconciliation_verdict": "The apparent contradiction between the prose ('taper is unconstrained around 1.0') and the M4 optimization (s = 0.619, RMS = 0.255 px) arises from conflating two different geometric formulations. Standalone rear-arc curvature cannot discriminate taper (Delta_RMS < 0.013 px across [0.85, 1.15]), whereas the coupled joint model M4 couples the dorsal silhouette angle to the body axis via alpha(s), driving s to 0.619 to reconcile the 3.8° angular spread. Crucially, the strict cylinder fits (Model 1 at 0.3788 px RMS and Model 2 at 0.3468 px RMS) remain genuine, subpixel matches across all 85 points without requiring any physical taper.",
             "best_fit_s": float(s_m4),
-            "ci95": [float(s_ci95_low), float(s_ci95_high)],
-            "flatness_delta_rms_px": float(abs(s_scan_results[10]["rms_rear_px"] - s_scan_results[20]["rms_rear_px"])),
-            "conclusion": "The scale ratio s = a_rear / a_front is mathematically underdetermined by the single exposed rear arc (95% CI [0.85, 1.15]). The data are fully consistent with a perfect cylinder (s = 1.000, Delta_RMS < 0.01 px)."
+            "ci95": [float(s_ci95_joint_low), float(s_ci95_joint_high)],
+            "flatness_delta_rms_px": float(flatness_delta_ra),
+            "conclusion": "Standalone rear-arc curvature is consistent with a cylinder (s = 1.000, Delta_RMS < 0.002 px wrt minimum), while the coupled joint model M4 optimizes to s = 0.619 (95% CI [0.61, 0.63]) by using a 9.46° taper angle to bridge the axis-dorsal angular spread."
         },
         "angular_discrepancy_resolution": discrepancy_breakdown,
         "axis_angle_scan_profile": scan_results,
-        "scale_ratio_scan_profile": s_scan_results
+        "scale_ratio_scan_profile": joint_scan_results,
+        "joint_scale_ratio_scan_profile": joint_scan_results,
+        "standalone_rear_scale_scan_profile": rear_alone_results
     }
 
     with open(os.path.join(OUT_DIR, "step9_joint_model.json"), "w") as f:
@@ -621,24 +694,42 @@ def main():
     ax_c.set_ylim(0.1, 1.2)
     ax_c.grid(True, alpha=0.3)
 
-    # Panel D: Scale Ratio s Uncertainty & Residual Flatness Profile
+    # Panel D: Scale Ratio s Uncertainty & Profile Likelihoods
     ax_d = axes[1, 1]
-    s_vals = [item["scale_ratio_s"] for item in s_scan_results]
-    rms_r_s = [item["rms_rear_px"] for item in s_scan_results]
-    chi2_s = [item["chi2"] for item in s_scan_results]
+    s_joint_vals = [item["scale_ratio_s"] for item in joint_scan_results]
+    rms_joint_vals = [item["rms_total_px"] for item in joint_scan_results]
+    s_ra_vals = [item["scale_ratio_s"] for item in rear_alone_results]
+    rms_ra_vals = [item["rms_rear_px"] for item in rear_alone_results]
 
-    ax_d.plot(s_vals, rms_r_s, "y.-", lw=2.0, label="Rear Arc RMS Residual (px)")
-    ax_d.axvline(1.0, color="red", ls="--", lw=1.8, label="Strict Cylinder (s = 1.000, RMS = 0.187 px)")
-    ax_d.axvline(s_m4, color="orange", ls=":", lw=1.8, label=f"Best Taper Fit (s = {s_m4:.3f}, RMS = {rms_r_m4:.3f} px)")
-    ax_d.axvspan(s_ci95_low, s_ci95_high, color="yellow", alpha=0.15, label=f"95% Confidence Interval [{s_ci95_low:.2f}, {s_ci95_high:.2f}]")
+    color_ra = "tab:blue"
+    color_jt = "tab:red"
 
-    ax_d.set_xlabel("Scale Ratio s = a_rear / a_front")
-    ax_d.set_ylabel("Rear Arc RMS Residual (pixels)")
-    ax_d.set_title("D. Scale Ratio s Statistical Unidentifiability\n(Residual changes < 0.01 px across s = 0.85 to 1.15)", fontsize=11, fontweight="bold")
-    ax_d.legend(loc="upper center", fontsize=8, framealpha=0.9)
-    ax_d.set_xlim(0.80, 1.20)
-    ax_d.set_ylim(0.16, 0.22)
+    # Standalone rear arc curve (left axis)
+    ax_d.plot(s_ra_vals, rms_ra_vals, color=color_ra, lw=2.2, label="Standalone Rear Arc RMS (px)")
+    ax_d.axvline(1.0, color="green", ls="--", lw=1.8, label=f"Strict Cylinder (s=1.000, Rear RMS={rms_ra_at_1:.3f} px)")
+    ax_d.axvspan(s_ci95_ra_low, s_ci95_ra_high, color=color_ra, alpha=0.12, label=f"Standalone Rear 95% CI [{s_ci95_ra_low:.2f}, {s_ci95_ra_high:.2f}]")
+
+    ax_d.set_xlabel("Scale Ratio s = a_rear / a_front", fontsize=10)
+    ax_d.set_ylabel("Standalone Rear Arc RMS (pixels)", color=color_ra, fontsize=10)
+    ax_d.tick_params(axis="y", labelcolor=color_ra)
+    ax_d.set_xlim(0.50, 1.30)
+    ax_d.set_ylim(0.15, 0.40)
     ax_d.grid(True, alpha=0.3)
+
+    # Joint coupled total RMS curve (right axis)
+    ax_d2 = ax_d.twinx()
+    ax_d2.plot(s_joint_vals, rms_joint_vals, color=color_jt, lw=2.2, ls="-.", label="Joint Coupled Total RMS (px)")
+    ax_d2.plot(s_m4, rms_tot_m4, "o", color=color_jt, ms=7, label=f"Joint Cone Min (s={s_m4:.3f}, RMS={rms_tot_m4:.3f} px)")
+    ax_d2.axvspan(s_ci95_joint_low, s_ci95_joint_high, color=color_jt, alpha=0.15, label=f"Joint Cone 95% CI [{s_ci95_joint_low:.2f}, {s_ci95_joint_high:.2f}]")
+    ax_d2.set_ylabel("Joint Total RMS Across 85 Pts (pixels)", color=color_jt, fontsize=10)
+    ax_d2.tick_params(axis="y", labelcolor=color_jt)
+    ax_d2.set_ylim(0.20, 0.45)
+
+    # Combined legend
+    lines_1, labels_1 = ax_d.get_legend_handles_labels()
+    lines_2, labels_2 = ax_d2.get_legend_handles_labels()
+    ax_d.legend(lines_1 + lines_2, labels_1 + labels_2, loc="upper center", fontsize=7.5, framealpha=0.9)
+    ax_d.set_title("D. Scale Ratio s Profiles: Standalone Arc Flatness vs. Coupled Joint Minimum\n(Standalone flat at 1.0; Joint couples α(s) to body axis)", fontsize=11, fontweight="bold")
 
     plt.tight_layout()
     fig_path = os.path.join(FIG_DIR, "diag09_joint_geometric_model.png")

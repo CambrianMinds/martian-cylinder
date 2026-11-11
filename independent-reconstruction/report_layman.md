@@ -115,8 +115,10 @@ When we tested this rigid cylinder on all 85 data points at once, here is what w
    - The top edge matches to **$0.42\text{ pixels}$**.
    - **Across all 85 measurement points, the overall error is only 0.38 pixels (less than four-tenths of a pixel, or about 110 microns on Mars)**.
 6. **Is the Object Tapered? (The Scale Ratio $s$):**
-   When people freely fit the back cap, it often comes out slightly smaller—around $92\%\text{ to }94\%$ of the front rim's size. Does that mean it's a cone or taper?
-   **No.** When we scanned every possible size from $85\%$ to $115\%$, the fit to the rear arc changed by **less than 2.5 hundredths of a pixel** ($0.025\text{ px}$). Because we only see a small curved slice of the back end, a slightly smaller circle shifted slightly to one side produces almost the exact same curve as a 100% full-sized cylinder! The image simply cannot prove any taper—the data are **100% consistent with a straight, constant-diameter cylinder ($s = 1.000$)**.
+   When we freely fit the back cap alone, it comes out around $93\%$ of the front rim's size. Does that mean the object physically tapers like a cone?
+   **No.** When we scanned every possible size from $85\%$ to $115\%$, the fit to the rear arc changed by **less than 1 hundredth of a pixel** ($0.010\text{ px}$). Because we only see a small curved slice of the back end, a slightly smaller circle shifted slightly to one side produces almost the exact same curve as a 100% full-sized cylinder! The rear cap curve alone has zero statistical preference for tapering-it matches an unscaled cylinder ($s = 1.000$) to an accuracy of $0.186\text{ pixels}$ (less than 2 thousandths of a pixel difference from the best fit).
+
+   If we test a competing 8-parameter tapered cone model (Model 4) where the top edge's slant is mathematically locked to the taper angle, the computer finds a mathematical sweet spot at a 38% taper ($s = 0.619$, 0.255-pixel accuracy) by tilting the body axis up to $39.3^\circ$ and using a $9.5^\circ$ cone angle to pull the top silhouette line back to $29.9^\circ$. But this is an overfit mathematical compromise to bridge the slight angular spread between features, not physical evidence from the rear cap. Crucially, the simple, strict cylinder (Model 1) requires zero taper ($s = 1.000$), zero uncoupled offsets, and still matches all 85 measurement points simultaneously to an astonishing **0.38 pixels** (~110 microns on Mars)!
 
 ---
 

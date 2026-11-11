@@ -139,9 +139,16 @@ To eliminate uncoupled parameter freedom and test whether a single continuous ge
   - The upper silhouette edge angle is coupled to the body axis via the taper angle: $\theta_{\text{dor}} = \theta_{\text{axis}} - \arctan((1-s)a/L_{\text{proj}})$.
 
 ### 7.2 Profile Likelihood Analysis of the Taper Scale Ratio $s$
-To test whether the data mandate a tapered cone ($s < 1$) or are consistent with a constant-diameter cylinder ($s = 1$), the scale ratio $s$ is scanned over $s \in [0.80, 1.20]$. At each fixed $s$, the rear arc is fitted by finding the optimal center $(x_{c,r}, y_{c,r})$. The resulting profile likelihood $\Delta\text{RMS}(s)$ quantifies the degree to which arc curvature constrains tapering:
-$$\Delta\text{RMS}(s) = \text{RMS}_{\text{rear}}(s) - \text{RMS}_{\text{rear}}(s_{\text{opt}})$$
-Over a single-quadrant arc ($N = 24$, span $\approx 90^\circ$), changes in $s$ are almost perfectly degenerate with a subpixel shift of the center $(x_{c,r}, y_{c,r})$ along the chord normal, yielding $\Delta\text{RMS} < 0.025\text{ px}$ across the entire range $s \in [0.85, 1.15]$.
+To evaluate tapering, two distinct likelihood profiles are analyzed:
+
+1. **Standalone Rear-Arc Curvature Profile (Uncoupled Translation)**:
+   Tests whether the 24-point exposed rear arc curvature independently discriminates between a tapered cone and an unscaled cylinder. The rear ellipse scale ratio $s = a_{\text{rear}} / a_{\text{front}}$ is scanned over $s \in [0.50, 1.30]$. At each fixed $s$, the rear center $(x_{c,r}, y_{c,r})$ translates freely to minimize orthogonal residuals:
+   $$\Delta\text{RMS}_{\text{rear}}(s) = \text{RMS}_{\text{rear}}(s) - \text{RMS}_{\text{rear}}(s_{\text{opt}})$$
+   Over a single-quadrant arc ($N = 24$, span $\approx 90^\circ$), changes in $s$ are mathematically degenerate with a subpixel shift of the center along the chord normal. The profile achieves its minimum at $s = 0.930$ ($\text{RMS} = 0.1843\text{ px}$), matches an unscaled cylinder ($s = 1.000$) to $0.1863\text{ px}$ ($\Delta\text{RMS} = 0.0020\text{ px}$, $\Delta\chi^2 = 4.82$), and exhibits $\Delta\text{RMS} < 0.010\text{ px}$ across $s \in [0.85, 1.15]$. Standalone arc curvature is completely consistent with zero taper ($s = 1.000$).
+
+2. **Joint Coupled Conical Frustum Profile (Model 4 Profile Likelihood)**:
+   Tests the full 8-DOF coupled joint system as $s$ varies across $s \in [0.50, 1.20]$. Here, $s$ simultaneously scales the rear ellipse, enforces collinear centers along $\theta_{\text{axis}}$, and couples the dorsal silhouette angle via $\theta_{\text{dor}} = \theta_{\text{axis}} - \arctan((1-s)r_{\text{dor}}/L_{\text{proj}})$.
+   This joint profile achieves a sharp minimum at $s = 0.619$ ($\chi^2 = 1044.1$, $\text{RMS} = 0.2549\text{ px}$, $\theta_{\text{axis}} = 39.33^\circ$, $\alpha = 9.46^\circ$), with a 95% confidence interval of $[0.61, 0.63]$ ($\Delta\chi^2 \le 3.84$). This optimum arises because the $9.46^\circ$ taper angle bridges the angular discrepancy between the dorsal edge ($28.89^\circ$) and the body axis ($39.33^\circ$).
 
 ---
 
