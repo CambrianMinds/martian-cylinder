@@ -1,0 +1,124 @@
+{
+  "intrinsics_drxx_cahvor": {
+    "hc_px": 699.4411557163015,
+    "vc_px": 518.2928025339925,
+    "hs_px": 13376.270297745015,
+    "vs_px": 13370.534941022059,
+    "aspect_ratio_vs_over_hs": 0.9995712290051493,
+    "skew_deg": -0.000560393955396421,
+    "computed_hfov_deg": 5.683676228470687,
+    "computed_vfov_deg": 5.0703973468960815,
+    "ifov_h_urad_per_px": 74.7592548401613,
+    "ifov_v_urad_per_px": 74.79132319021178
+  },
+  "intrinsics_drlx_cahv": {
+    "hc_px": 673.4326400448685,
+    "vc_px": 590.1942945380215,
+    "hs_px": 13593.659913478772,
+    "vs_px": 13593.664393295123,
+    "aspect_ratio_vs_over_hs": 1.0000003295518924,
+    "skew_deg": 1.253066699291594e-07,
+    "computed_hfov_deg": 5.571903934364932,
+    "computed_vfov_deg": 4.970448895156711,
+    "ifov_h_urad_per_px": 73.56370590148806,
+    "ifov_v_urad_per_px": 73.56368165843755
+  },
+  "extrinsics_verification": {
+    "pds_fixed_instrument_azimuth_deg": 227.7412,
+    "computed_drxx_axis_azimuth_deg": 227.9046,
+    "computed_drlx_axis_azimuth_deg": 227.7412,
+    "pds_fixed_instrument_elevation_deg": -22.0047,
+    "computed_drxx_axis_elevation_deg": -21.6775,
+    "computed_drlx_axis_elevation_deg": -22.0047,
+    "rover_tilt_deg_in_site_frame": 14.8444,
+    "camera_center_rover_nav_m": [
+      0.6840714,
+      0.6478303,
+      -1.926771
+    ],
+    "camera_center_site_m": [
+      -135.4634797462946,
+      86.02133077555936,
+      -22.610372316488032
+    ],
+    "camera_height_above_rover_origin_site_m": 2.101385316488031
+  },
+  "target_viewing_geometry": {
+    "target_pixel_drxx": [
+      1061.0,
+      980.0
+    ],
+    "target_ray_rover_nav": [
+      -0.0292234582072538,
+      0.8397685559590904,
+      0.5421575065539469
+    ],
+    "target_ray_site": [
+      -0.5990075964568599,
+      -0.6902091275157964,
+      0.40595721410126184
+    ],
+    "target_azimuth_site_deg": 229.0465,
+    "target_elevation_site_deg": -23.9511,
+    "grazing_angle_wrt_horizontal_deg": 23.9511,
+    "off_axis_angle_from_A_deg": 2.5054,
+    "off_axis_angle_from_O_deg": 2.3907,
+    "local_jacobian_singular_values_px_per_rad": [
+      13498.242607935814,
+      13418.427913239595
+    ],
+    "local_anisotropy_ratio_s1_over_s2": 1.005948,
+    "local_anisotropy_percent": 0.5948,
+    "mean_local_scale_px_per_rad": 13458.276,
+    "mean_local_ifov_urad_per_px": 74.304
+  },
+  "solar_illumination_geometry": {
+    "solar_azimuth_site_deg": 186.8169,
+    "solar_elevation_site_deg": 69.8224,
+    "sun_direction_site": [
+      -0.3424927876065054,
+      -0.040942254271253406,
+      -0.9386279466608232
+    ],
+    "sun_direction_rover_nav": [
+      0.43816568091540953,
+      0.36871309605821934,
+      -0.8197935647851217
+    ],
+    "sun_direction_camera_xyz": [
+      -0.44484,
+      -0.88943,
+      -0.10512
+    ],
+    "sun_direction_image_plane_angle_deg": -116.571,
+    "shadow_cast_image_plane_angle_deg": 63.429,
+    "solar_phase_angle_at_target_deg": 81.51
+  },
+  "distance_and_spatial_scale_bounds": {
+    "min_focus_3.600m": {
+      "distance_m": 3.6,
+      "mm_per_pixel_at_target": 0.26749,
+      "mm_per_pixel_paraxial": 0.26913
+    },
+    "best_focus_3.957m": {
+      "distance_m": 3.957,
+      "mm_per_pixel_at_target": 0.29402,
+      "mm_per_pixel_paraxial": 0.29582
+    },
+    "max_focus_4.400m": {
+      "distance_m": 4.4,
+      "mm_per_pixel_at_target": 0.32694,
+      "mm_per_pixel_paraxial": 0.32894
+    },
+    "horiz_plane_zsite_rover_origin": {
+      "distance_m": 5.1764,
+      "mm_per_pixel_at_target": 0.38462,
+      "mm_per_pixel_paraxial": 0.38698
+    },
+    "rover_nav_plane_z0": {
+      "distance_m": 3.5539,
+      "mm_per_pixel_at_target": 0.26407,
+      "mm_per_pixel_paraxial": 0.26569
+    }
+  }
+}

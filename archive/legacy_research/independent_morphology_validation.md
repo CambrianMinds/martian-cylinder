@@ -1,4 +1,5 @@
 # Independent Morphology Validation: Multi-Scene Population Survey of Martian Rock Morphology
+
 **Curiosity Mastcam-100 Anomaly (`3556MR1025170721700585C00`)**  
 **Repository:** `https://github.com/CambrianMinds/martian-cylinder`  
 **Execution Date:** October 31, 2026  
@@ -11,12 +12,14 @@
 This study executes an independent, quantitative multi-scene empirical survey comparing the morphological geometry of the Curiosity Sol 3556 Martian Cylinder candidate against a population of **$N = 185$ natural rock clasts** across **8 independent geological scenes** imaged by Curiosity's Mastcam-100 camera.
 
 To eliminate measurement bias, all candidates—including the target, natural clasts, and positive controls—were evaluated using an equivalent, rotation-invariant morphology engine (`morphology_engine.py`):
+
 - The idealized model binary mask was replaced by empirical segmentation derived from observed image pixels and subpixel boundary landmarks.
 - 2D image silhouette aspect ratio ($2.381$) is kept strictly separate from the inferred 3D model aspect ratio ($2.835$).
 - Internal crown-highlight parallelism ($0.43^\circ$) is treated separately from opposing-flank parallelism; because the opposing lower flank is occluded by the regolith contact line, this occlusion is explicitly recorded rather than inventing an unobserved value.
 - Positive controls report performance separately for synthetic analytical unit tests (`POS_001_SYNTH_CYLINDER`) and real photographic spacecraft hardware (`POS_002_AEROSPACE_STANDOFF`, Sol 64 Mastcam-100 photograph of Curiosity's arm bracket standoff pin).
 
 ### Key Findings
+
 1. **Flank Straightness ($0.111\text{ px}$):** The candidate target upper generator exhibits a rotation-invariant perpendicular Total Least Squares (TLS) RMSE of $0.111\text{ px}$ ($0.262\text{ px}$ over the observed binary mask), ranking **1st out of 186** objects surveyed ($p = 0.0054$). Natural clasts exhibit a minimum straightness RMSE of $0.395\text{ px}$ (median $0.738\text{ px}$).
 2. **Crown Highlight Parallelism ($0.43^\circ$):** The internal specular crown highlight parallels the upper generator within $0.43^\circ$, ranking **4th out of 186** objects ($p = 0.0215$). The opposing lower flank is partially submerged along an inclined regolith contact chord ($m = -0.4708$, angle $-25.21^\circ$), which is explicitly recorded as occluded.
 3. **End-Face Prevalence:** While rounded silhouette profiles occur in eroded clasts, an orthogonal end face satisfying circularity $b/a \ge 0.80$ is found in $137 / 185$ clasts, but only on irregular, non-cylindrical rocks. When combined with elongation ($L/W \ge 2.0$), straightness ($\le 0.35\text{ px}$), parallelism ($\le 2.0^\circ$), and width consistency ($CV_W \le 0.10$), zero natural rocks qualify.
@@ -30,6 +33,7 @@ To eliminate measurement bias, all candidates—including the target, natural cl
 ## 1. Source Imagery & Sampling Protocol
 
 ### 1.1 Imagery Selection Criteria
+
 To eliminate selection bias, source imagery was acquired directly from the NASA Planetary Data System (PDS) and the Mars Science Laboratory (MSL) raw image archives. All surveyed scenes were acquired with the **Mastcam Right (Mastcam-100)** telephoto camera (focal length $f = 100\text{ mm}$, pixel pitch $7.4\ \mu\text{m}$, instantaneous field of view $\text{IFOV} = 0.074\text{ mrad/pixel}$).
 
 | Scene Identifier | Sol | NASA PDS Product ID | Terrain / Geological Formation | Nature of Exposed Clasts |
@@ -37,15 +41,17 @@ To eliminate selection bias, source imagery was acquired directly from the NASA 
 | **Scene 1 (Target)** | 3556 | `3556MR1025170721700585C00` | Paraitepuy Pass Sulfate Unit | Sulfate-bearing mudstone regolith float |
 | **Scene 2 (Mosaic)** | 3556 | `3556MR1025170711700584C00` | Paraitepuy Pass Corridor | Sulfate bedrock & fractured detritus |
 | **Scene 3 (Mosaic)** | 3556 | `3556MR1025170731700586C00` | Paraitepuy Pass Corridor | Sulfate bedrock & fractured detritus |
-| **Scene 4 (Ventifact)**| 3415 | `3415MR1016480001600182C00` | Greenheugh Pediment | Wind-sculpted dreikanters & einkanters |
-| **Scene 5 (Ventifact)**| 3415 | `3415MR1016440141600181C00` | Greenheugh Pediment | Wind-abraded sandstone pebbles |
+| **Scene 4 (Ventifact)** | 3415 | `3415MR1016480001600182C00` | Greenheugh Pediment | Wind-sculpted dreikanters & einkanters |
+| **Scene 5 (Ventifact)** | 3415 | `3415MR1016440141600181C00` | Greenheugh Pediment | Wind-abraded sandstone pebbles |
 | **Scene 6 (Bedrock)** | 1850 | `1850MR0096810000204976C00` | Vera Rubin Ridge | Orthogonal fractured mudstone blocks |
 | **Scene 7 (Veins)** | 753 | `0753MR0032370300403753C00` | Garden City Outcrop | Spheroidal nodules & mineral vein ridges |
-| **Scene 8 (Concretions)**| 840 | `0840MR0037360500500885C00` | Pahrump Hills Exposure | Diagenetic concretions & spheroids |
-| **Photographic Control**| 64 | `0064MR0003440000103258E01` | Curiosity Rover Arm Deck | Real Curiosity rover arm bracket standoff pin |
+| **Scene 8 (Concretions)** | 840 | `0840MR0037360500500885C00` | Pahrump Hills Exposure | Diagenetic concretions & spheroids |
+| **Photographic Control** | 64 | `0064MR0003440000103258E01` | Curiosity Rover Arm Deck | Real Curiosity rover arm bracket standoff pin |
 
 ### 1.2 Objective Clast Segmentation Protocol
+
 Clasts were segmented automatically without subjective manual curation:
+
 1. 2D Sobel spatial gradients $S_x, S_y$ and magnitude $\|\nabla I\| = \sqrt{S_x^2 + S_y^2}$ were computed across each calibrated raster.
 2. An objective edge threshold was applied at the 84th percentile of local gradient magnitude.
 3. Morphological closing with a $5\times 5$ structuring element enclosed clast perimeters, followed by automated hole filling (`scipy.ndimage.binary_fill_holes`).
@@ -84,26 +90,28 @@ All $185$ clasts, positive controls, and the candidate object were evaluated thr
 | **Aspect Ratio ($L/W$)** | $1.923 \pm 0.787$ | $1.787$ | $[1.013, 6.612]$ | **$2.381$ (2D Image)**<br>*(3D Model: $2.835$)* | **$82.8\%$**<br>*(3D: $91.4\%$)* | **$32 / 186$** ($p = 0.1720$)<br>*(3D: $16 / 186$, $p = 0.0860$)* |
 | **Flank Straightness RMSE** | $0.795 \pm 0.308\text{ px}$ | $0.738\text{ px}$ | $[0.395, 2.629\text{ px}]$ | **$0.111\text{ px}$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
 | **Normalized Straightness** | $0.0215 \pm 0.0142$ | $0.0185$ | $[0.0042, 0.0850]$ | **$0.00178$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
-| **Parallelism ($|\Delta\theta|$)**| $28.96^\circ \pm 23.79^\circ$ | $22.12^\circ$ | $[0.16^\circ, 89.88^\circ]$ | **$0.43^\circ$ (Crown Highlight)**<br>*(Opposing: Occluded)* | **$1.6\%$** | **$4 / 186$** ($p = 0.0215$) |
+| **Parallelism ($ | \Delta\theta | $)** | $28.96^\circ \pm 23.79^\circ$ | $22.12^\circ$ | $[0.16^\circ, 89.88^\circ]$ | **$0.43^\circ$ (Crown Highlight)**<br>*(Opposing: Occluded)* | **$1.6\%$** | **$4 / 186$** ($p = 0.0215$) |
 | **Width Variation ($CV_W$)** | $0.302 \pm 0.123$ | $0.291$ | $[0.062, 0.739]$ | **$0.0073$** | **$0.0\%$ (Lowest)** | **$1 / 186$** ($p = 0.0054$) |
-| **End-Face Circularity ($b/a$)**| $0.812 \pm 0.124$ | $0.825$ | $[0.510, 0.981]$ | **$0.9334$** | **$88.5\%$** | — |
+| **End-Face Circularity ($b/a$)** | $0.812 \pm 0.124$ | $0.825$ | $[0.510, 0.981]$ | **$0.9334$** | **$88.5\%$** | — |
 
 ### 3.2 Joint Conjunction Analysis
+
 The central scientific question is whether natural Martian processes produce objects exhibiting the **joint conjunction** of these independent geometric regularities.
 
 | Evaluated Conjunction Criteria | Mathematical Threshold | Natural Clasts Satisfying ($N=185$) | Synthetic Control (`POS_001`) | Photographic Control (`POS_002`) | Target Anomaly Satisfying |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Criterion 1: Elongation** | Aspect Ratio $\ge 2.0$ | $58 / 185$ ($31.4\%$) | **YES ($2.87$)** | **YES ($2.48$)** | **YES ($2.381$ 2D / $2.835$ 3D)** |
 | **Criterion 2: Linearity** | Flank TLS RMSE $\le 0.35\text{ px}$ | $0 / 185$ ($0.0\%$) | **YES ($0.128\text{ px}$)** | NO ($0.517\text{ px}$) | **YES ($0.111\text{ px}$)** |
-| **Criterion 3: Parallelism** | Flank Angle $|\Delta\theta| \le 2.0^\circ$ | $10 / 185$ ($5.4\%$) | **YES ($0.45^\circ$)** | NO ($18.87^\circ$) | **YES ($0.43^\circ$ Crown)** |
+| **Criterion 3: Parallelism** | Flank Angle $ | \Delta\theta | \le 2.0^\circ$ | $10 / 185$ ($5.4\%$) | **YES ($0.45^\circ$)** | NO ($18.87^\circ$) | **YES ($0.43^\circ$ Crown)** |
 | **Criterion 4: Constant Width** | Width $CV_W \le 0.10$ | $5 / 185$ ($2.7\%$) | **YES ($0.0036$)** | NO ($0.227$) | **YES ($0.0073$)** |
-| **Criterion 5: Circular End Face**| Present & $b/a \ge 0.80$ | $137 / 185$ ($74.1\%$) | **YES ($0.988$)** | NO (No circular face) | **YES ($0.9334$)** |
+| **Criterion 5: Circular End Face** | Present & $b/a \ge 0.80$ | $137 / 185$ ($74.1\%$) | **YES ($0.988$)** | NO (No circular face) | **YES ($0.9334$)** |
 | **Any $\ge 2$ Criteria Jointly** | — | **$49 / 185$ ($26.5\%$)** | **YES** | NO (1/5) | **YES** |
 | **Any $\ge 3$ Criteria Jointly** | — | **$6 / 185$ ($3.2\%$)** | **YES** | NO (0/5) | **YES** |
 | **Any $\ge 4$ Criteria Jointly** | — | **$0 / 185$ ($0.0\%$)** | **YES** | NO (0/5) | **YES** |
-| **FULL 5-WAY CONJUNCTION** | **All 5 Criteria Simultaneously**| **$0 / 185$ ($p < 0.0054$)** | **YES (5/5 PASS)** | **NO (1/5, Tapered)** | **YES (5/5 MATCH)** |
+| **FULL 5-WAY CONJUNCTION** | **All 5 Criteria Simultaneously** | **$0 / 185$ ($p < 0.0054$)** | **YES (5/5 PASS)** | **NO (1/5, Tapered)** | **YES (5/5 MATCH)** |
 
 ### 3.3 Sensitivity Analysis: Flank Straightness Threshold Robustness
+
 To ensure that the 5-way conjunction rarity ($0/185$) is not an artifact of the strict straightness cut-off ($\le 0.35\text{ px}$), the threshold was relaxed to $\le 0.50\text{ px}$, allowing $14$ natural clasts to pass Criterion 2 individually:
 
 | Evaluated Conjunction Criteria | Relaxed Threshold | Natural Clasts Satisfying ($N=185$) | Synthetic Control (`POS_001`) | Target Anomaly Satisfying |
@@ -112,7 +120,7 @@ To ensure that the 5-way conjunction rarity ($0/185$) is not an artifact of the 
 | **$\ge 2$ Criteria (Relaxed)** | Any 2/5 with Relaxed C2 | $54 / 185$ ($29.2\%$) | **YES** | **YES** |
 | **$\ge 3$ Criteria (Relaxed)** | Any 3/5 with Relaxed C2 | $12 / 185$ ($6.5\%$) | **YES** | **YES** |
 | **$\ge 4$ Criteria (Relaxed)** | Any 4/5 with Relaxed C2 | **$0 / 185$ ($0.0\%$)** | **YES** | **YES** |
-| **FULL 5-WAY CONJUNCTION** | **All 5 Criteria Simultaneously**| **$0 / 185$ ($p < 0.0054$)** | **YES (5/5 PASS)** | **YES (5/5 MATCH)** |
+| **FULL 5-WAY CONJUNCTION** | **All 5 Criteria Simultaneously** | **$0 / 185$ ($p < 0.0054$)** | **YES (5/5 PASS)** | **YES (5/5 MATCH)** |
 
 **Conclusion of Sensitivity Sweep:** Even when granting natural clasts a relaxed straightness threshold where $14$ specimens pass individually, the joint conjunction across all 5 criteria remains strictly unpopulated in nature ($0 / 185$).
 
@@ -121,14 +129,17 @@ To ensure that the 5-way conjunction rarity ($0/185$) is not an artifact of the 
 ## 4. Geological Morphological Comparison by Formation
 
 ### 4.1 Ventifact Fields (Greenheugh Pediment, Sol 3415)
+
 - **Observations:** Ventifacts shaped by aeolian saltation abrasion exhibit flat, wind-polished facets and sharp dividing keels (*Dreikanters*).
 - **Discrepancy with Cylinder:** Saltating sand creates planar facets and sharp edges, but fluid mechanics strictly prevents wind from acting as an axisymmetric lathe. Ventifacts taper toward acute prows; none possess parallel generators ($|\Delta\theta| = 0.43^\circ$) or a perpendicular circular end cap ($b/a = 0.9334$).
 
 ### 4.2 Diagenetic Concretions & Nodules (Garden City & Pahrump Hills, Sols 753, 840)
+
 - **Observations:** Mineral precipitation in porous sediment produces spherical, oblate, or botryoidal nodular concretions.
 - **Discrepancy with Cylinder:** Spherical concretions have aspect ratios near $1.0\text{--}1.3$. Pipe concretions (e.g., terrestrial Navajo Sandstone analogs) form corrugated, bulbous, hollow cylindrical columns with rough, variable rinds ($CV_W > 0.25$). None display a smooth, non-tapered right-circular solid cross-section with planar termination.
 
 ### 4.3 Fractured Bedrock Joint Slabs (Vera Rubin Ridge, Sol 1850)
+
 - **Observations:** Sedimentary mudstone and sandstone fracture along orthogonal bedding planes and tectonic joints, producing elongated rectangular blocks.
 - **Discrepancy with Cylinder:** Planar joints account for high aspect ratio ($L/W > 3.0$) and straight shear edges. However, joint blocks possess polygonal cross-sections with sharp $90^\circ$ planar corners. When fitted to the target's boundary points, the fracture slab hypothesis (Model F) fails decisively ($\Delta\text{AIC} = +988.8$, $\Delta\text{BIC} = +991.5$, rim RMSE $2.25\text{ px}$ vs $1.35\text{ px}$).
 
@@ -148,6 +159,7 @@ To ensure that the 5-way conjunction rarity ($0/185$) is not an artifact of the 
 ## 6. Conclusion
 
 The multi-scene empirical survey demonstrates that **the Sol 3556 object is statistically and morphologically distinct from all surveyed Martian geological clasts ($N=185$)**. Its unique combination of:
+
 1. Subpixel flank straightness ($\text{RMSE} = 0.111\text{ px}$),
 2. High elongation with zero detectable taper ($CV_W = 0.0073$, taper $|R_2 - R_1| = 0.23\text{ mm}$),
 3. Parallel longitudinal ridges ($0.43^\circ$),

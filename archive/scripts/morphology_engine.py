@@ -146,6 +146,10 @@ def detect_end_face_rim(gray, sx, sy, xc, yc, u_axis, v_axis, length_px, width_p
                         if e_fit is not None and 0.65 <= e_fit["circ_ratio"] <= 1.05:
                             fit_r = e_fit["major_2a"] / 2.0
                             if 0.5 * r_nom <= fit_r <= 2.5 * r_nom:
+                                best_face = (True, float(e_fit["circ_ratio"]), e_fit)
+                                break
+        if best_face:
+            break
                                 cand_score = abs(e_fit["circ_ratio"] - 1.0)
                                 if cand_score < best_face_score:
                                     best_face = (True, float(e_fit["circ_ratio"]), e_fit)

@@ -1,0 +1,119 @@
+{
+  "DRXX": {
+    "file": "3556MR1025170721700585C00_DRXX.IMG",
+    "sha256": "45a3d5e5d32ed823e8a3e2ff0dc0f5ffeb5bd546c81be8d51e06c9f241b5e1fd",
+    "lbl_sha256": "1edeaab51a5c6cd2e3fcef86d001bc0a985e7e00ed2190482a754d4fecdaa62c",
+    "shape_yxc": [
+      1184,
+      1328,
+      3
+    ],
+    "dtype": ">u2",
+    "min_per_band": [
+      0,
+      0,
+      0
+    ],
+    "max_per_band": [
+      1847,
+      1391,
+      981
+    ],
+    "mean_per_band": [
+      806.4242796778329,
+      545.3704984634484,
+      278.2841653777271
+    ],
+    "unique_dn_count_band0": 1711,
+    "model_type": "CAHVOR"
+  },
+  "DRLX": {
+    "file": "3556MR1025170721700585C00_DRLX.IMG",
+    "sha256": "911e661c99a4453f4b3d4bd13a3d35f049c5df965fcb3c91b014a47c38c7605f",
+    "lbl_sha256": "cf737e82a6959a6526fbe4e7db218c9f974f54963c6f77e2eb0c1791d8897a00",
+    "shape_yxc": [
+      1180,
+      1323,
+      3
+    ],
+    "dtype": ">u2",
+    "min_per_band": [
+      0,
+      0,
+      0
+    ],
+    "max_per_band": [
+      4096,
+      4096,
+      4096
+    ],
+    "mean_per_band": [
+      811.6707591887979,
+      550.9579115261924,
+      284.26143267099684
+    ],
+    "unique_dn_count_band0": 1749,
+    "model_type": "CAHV"
+  },
+  "DRCX": {
+    "file": "3556MR1025170721700585C00_DRCX.IMG",
+    "sha256": "8aec700e07d61123151c0811332f76e10f13d1e3fb361de5b10476b4961c473f",
+    "lbl_sha256": "9831657be65c1a8a67675538d98649ecdd99ab64b034d808899b47dc99a3bf6a",
+    "shape_yxc": [
+      1184,
+      1328,
+      3
+    ],
+    "dtype": "uint8",
+    "min_per_band": [
+      0,
+      0,
+      0
+    ],
+    "max_per_band": [
+      255,
+      209,
+      197
+    ],
+    "mean_per_band": [
+      169.4958660656138,
+      124.82853394150928,
+      97.38887920770921
+    ],
+    "unique_dn_count_band0": 238,
+    "model_type": "CAHVOR"
+  },
+  "DRCL": {
+    "file": "3556MR1025170721700585C00_DRCL.IMG",
+    "sha256": "761c9c1774cfe5152ca7d5cb729de285d08fa78c3df05af8720cbd9599b37592",
+    "lbl_sha256": "6996aeeb37be13d267cc866b1cb48677cce77e58cddfe39eb004fb0c01bd74ca",
+    "shape_yxc": [
+      1180,
+      1323,
+      3
+    ],
+    "dtype": "uint8",
+    "min_per_band": [
+      0,
+      0,
+      0
+    ],
+    "max_per_band": [
+      255,
+      255,
+      255
+    ],
+    "mean_per_band": [
+      169.6294586007661,
+      125.12743956339598,
+      97.76027134017448
+    ],
+    "unique_dn_count_band0": 252,
+    "model_type": "CAHV"
+  },
+  "drlx_shift_at_target": {
+    "dx": -3,
+    "dy": -3,
+    "corr": 0.9977617519853171
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "perspective_foreshortening_proof": {
+    "observed_convergence_deg": 35.348,
+    "observed_convergence_unc_deg": 0.624,
+    "table_by_tilt_gamma": [
+      {
+        "axis_tilt_gamma_deg": 0.184,
+        "vanishing_point_dist_px": 43.2,
+        "predicted_limb_convergence_2alpha_deg": 38.2797,
+        "predicted_endface_b_over_a": 0.999995,
+        "required_3D_length_to_diameter_ratio": 435.95
+      },
+      {
+        "axis_tilt_gamma_deg": 1.0,
+        "vanishing_point_dist_px": 234.9,
+        "predicted_limb_convergence_2alpha_deg": 7.3071,
+        "predicted_endface_b_over_a": 0.999848,
+        "required_3D_length_to_diameter_ratio": 80.22
+      },
+      {
+        "axis_tilt_gamma_deg": 5.0,
+        "vanishing_point_dist_px": 1177.4,
+        "predicted_limb_convergence_2alpha_deg": 1.4598,
+        "predicted_endface_b_over_a": 0.996195,
+        "required_3D_length_to_diameter_ratio": 16.06
+      },
+      {
+        "axis_tilt_gamma_deg": 15.0,
+        "vanishing_point_dist_px": 3606.1,
+        "predicted_limb_convergence_2alpha_deg": 0.4766,
+        "predicted_endface_b_over_a": 0.965926,
+        "required_3D_length_to_diameter_ratio": 5.41
+      },
+      {
+        "axis_tilt_gamma_deg": 30.0,
+        "vanishing_point_dist_px": 7770.1,
+        "predicted_limb_convergence_2alpha_deg": 0.2212,
+        "predicted_endface_b_over_a": 0.866025,
+        "required_3D_length_to_diameter_ratio": 2.8
+      },
+      {
+        "axis_tilt_gamma_deg": 45.0,
+        "vanishing_point_dist_px": 13458.3,
+        "predicted_limb_convergence_2alpha_deg": 0.1277,
+        "predicted_endface_b_over_a": 0.707107,
+        "required_3D_length_to_diameter_ratio": 1.98
+      },
+      {
+        "axis_tilt_gamma_deg": 60.0,
+        "vanishing_point_dist_px": 23310.4,
+        "predicted_limb_convergence_2alpha_deg": 0.0737,
+        "predicted_endface_b_over_a": 0.5,
+        "required_3D_length_to_diameter_ratio": 1.62
+      },
+      {
+        "axis_tilt_gamma_deg": 75.0,
+        "vanishing_point_dist_px": 50227.0,
+        "predicted_limb_convergence_2alpha_deg": 0.0342,
+        "predicted_endface_b_over_a": 0.258819,
+        "required_3D_length_to_diameter_ratio": 1.45
+      }
+    ],
+    "conclusion": "An unburied right circular cylinder at D~4m in Mastcam-100 (f=13458 px) has perspective limb convergence of only 0.08 to 0.35 deg for plausible tilt angles (20-75 deg), ruling out pure perspective foreshortening of parallel cylinder edges at >50 sigma. Convergence of 35.35 deg requires either physical tapering (cone/wedge) or oblique progressive burial in regolith."
+  },
+  "transverse_photometry_clinometry": {
+    "n_total_samples": 145,
+    "flat_planar_facet_rms_rel": 0.01291,
+    "full_180deg_cylinder_cone_rms_rel": 0.011,
+    "convex_partial_arc_quadratic_rms_rel": 0.01098,
+    "quadratic_curvature_coeff_c2": -0.04112,
+    "quadratic_curvature_err": 0.00557,
+    "convexity_significance_z_sigma": 7.38,
+    "peak_brightness_transverse_coord_v_frac": -0.8924,
+    "solar_vector_in_object_frame": {
+      "s_axial_along_bisector": -0.9565,
+      "s_transverse_towards_dorsal": 0.272,
+      "s_outward_towards_camera": 0.1051
+    }
+  },
+  "cast_shadow_verification": {
+    "solar_shadow_2d_angle_deg": 63.429,
+    "mean_shadow_chord_length_px": 32.3,
+    "std_shadow_chord_length_px": 4.71,
+    "chords": [
+      {
+        "arch_x": 1056.1535034790113,
+        "arch_y": 975.479158954084,
+        "distal_x": 1070.6674514270064,
+        "distal_y": 1002.9635096925031,
+        "shadow_length_px": 31.073656977538327
+      },
+      {
+        "arch_x": 1057.121671468951,
+        "arch_y": 974.6216714689511,
+        "distal_x": 1070.6674514270064,
+        "distal_y": 1002.9635096925031,
+        "shadow_length_px": 31.40750948594631
+      },
+      {
+        "arch_x": 1057.839843242504,
+        "arch_y": 973.487473479231,
+        "distal_x": 1072.1462803028237,
+        "distal_y": 1002.3401541563444,
+        "shadow_length_px": 32.20464397895296
+      },
+      {
+        "arch_x": 1058.9204129393656,
+        "arch_y": 972.7470798406845,
+        "distal_x": 1075.5260740989079,
+        "distal_y": 1007.0514573536191,
+        "shadow_length_px": 38.108994491859086
+      },
+      {
+        "arch_x": 1059.8451593899076,
+        "arch_y": 971.7414271394783,
+        "distal_x": 1075.3650614029414,
+        "distal_y": 1001.8666786088403,
+        "shadow_length_px": 33.88559751341353
+      },
+      {
+        "arch_x": 1061.0150371767434,
+        "arch_y": 971.0929523462789,
+        "distal_x": 1077.0490158005268,
+        "distal_y": 1001.5393805287904,
+        "shadow_length_px": 34.40280157222661
+      },
+      {
+        "arch_x": 1062.0657524716116,
+        "arch_y": 970.0695276240259,
+        "distal_x": 1077.0490158005268,
+        "distal_y": 1001.5393805287904,
+        "shadow_length_px": 34.84814120919372
+      },
+      {
+        "arch_x": 1063.3322302847857,
+        "arch_y": 969.4456716685735,
+        "distal_x": 1078.737597313006,
+        "distal_y": 1001.0489522031403,
+        "shadow_length_px": 35.156286024082306
+      },
+      {
+        "arch_x": 1064.6539476928554,
+        "arch_y": 968.85923529281,
+        "distal_x": 1083.3675502808796,
+        "distal_y": 1003.9102100529077,
+        "shadow_length_px": 39.71963251520243
+      },
+      {
+        "arch_x": 1066.02140968154,
+        "arch_y": 968.099635325647,
+        "distal_x": 1082.0063096496376,
+        "distal_y": 999.5063096496376,
+        "shadow_length_px": 35.23967404016593
+      },
+      {
+        "arch_x": 1067.5,
+        "arch_y": 967.5460943617628,
+        "distal_x": 1084.1601329032505,
+        "distal_y": 998.9795113744821,
+        "shadow_length_px": 35.56562823906455
+      },
+      {
+        "arch_x": 1069.060288273693,
+        "arch_y": 967.1658234243048,
+        "distal_x": 1084.1601329032505,
+        "distal_y": 998.9795113744821,
+        "shadow_length_px": 35.2078082249052
+      },
+      {
+        "arch_x": 1070.6469366886947,
+        "arch_y": 967.1528351699174,
+        "distal_x": 1085.4869922540747,
+        "distal_y": 997.5946275660228,
+        "shadow_length_px": 33.86460591926
+      },
+      {
+        "arch_x": 1072.2420069190196,
+        "arch_y": 967.302589248376,
+        "distal_x": 1087.6374712007275,
+        "distal_y": 996.6263744185383,
+        "shadow_length_px": 33.11311967991411
+      },
+      {
+        "arch_x": 1073.8536544767096,
+        "arch_y": 967.5434777942233,
+        "distal_x": 1087.6374712007275,
+        "distal_y": 996.6263744185383,
+        "shadow_length_px": 32.176773239580704
+      },
+      {
+        "arch_x": 1075.495111735735,
+        "arch_y": 967.8544275524689,
+        "distal_x": 1089.7826211643376,
+        "distal_y": 995.3905568926973,
+        "shadow_length_px": 31.018679350292278
+      },
+      {
+        "arch_x": 1077.1283213276658,
+        "arch_y": 968.3232582688839,
+        "distal_x": 1089.7826211643376,
+        "distal_y": 995.3905568926973,
+        "shadow_length_px": 29.868820982512368
+      },
+      {
+        "arch_x": 1078.7871032711141,
+        "arch_y": 968.8803459614661,
+        "distal_x": 1091.1377822678987,
+        "distal_y": 993.6034491495806,
+        "shadow_length_px": 27.636406139717717
+      },
+      {
+        "arch_x": 1080.5098662728478,
+        "arch_y": 969.4954451301634,
+        "distal_x": 1089.4493306158056,
+        "distal_y": 986.9203176008655,
+        "shadow_length_px": 19.58315070563726
+      },
+      {
+        "arch_x": 1083.3375713016394,
+        "arch_y": 969.1624286983606,
+        "distal_x": 1091.9383339866386,
+        "distal_y": 989.309137645409,
+        "shadow_length_px": 21.866005425285753
+      }
+    ]
+  }
+}

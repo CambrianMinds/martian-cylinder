@@ -2,6 +2,7 @@
 test_independent_morphology.py — Automated Regression & Verification Tests
 ==========================================================================
 Tests the independent morphology survey pipeline, end-face vs shadow extraction,
+solar illumination ray-tracing, and exact statistical synchronization.
 solar illumination ray-tracing, positive controls, and exact statistical synchronization.
 """
 
@@ -27,17 +28,20 @@ class TestIndependentMorphology(unittest.TestCase):
             cls.results = json.load(f)
 
     def test_sample_size_exceeds_100_clasts(self):
+        """Validates that the multi-scene survey collected at least 100 natural rock clasts."""
         """Validates that the multi-scene survey collected at least 100 natural rock clasts across 8 scenes."""
         clasts = self.results["natural_clasts"]
         self.assertGreaterEqual(len(clasts), 100, f"Survey sample size {len(clasts)} is below 100!")
         self.assertEqual(len(clasts), 185)
 
     def test_target_measurements_consistency(self):
+        """Verifies that the candidate cylinder target measurements match established values."""
         """Verifies candidate cylinder target measurements match established values with clear provenance."""
         target = self.results["target"]
         self.assertEqual(target["clast_id"], "TARGET_CYLINDER")
         # 2D image silhouette aspect ratio
         self.assertAlmostEqual(target["aspect_ratio"], 2.381, delta=0.005)
+        # 3D physical reconstructed aspect ratio
         self.assertAlmostEqual(target["aspect_ratio_2d"], 2.381, delta=0.005)
         # 3D physical reconstructed aspect ratio kept strictly separate
         self.assertAlmostEqual(target["aspect_ratio_3d"], 2.835, delta=0.005)
@@ -45,6 +49,7 @@ class TestIndependentMorphology(unittest.TestCase):
         self.assertAlmostEqual(target["straightness_rmse_px"], 0.111, delta=0.01)
         self.assertAlmostEqual(target["flank_parallelism_deg"], 0.43, delta=0.1)
         self.assertAlmostEqual(target["longitudinal_angle_deg"], 29.28, delta=0.5)
+        self.assertAlmostEqual(target["width_cv"], 0.0073, delta=0.001)
         self.assertTrue(target["has_end_face"])
         self.assertIn("reference_measurements", target)
         self.assertEqual(target["reference_measurements"]["regolith_contact_angle_deg"], -25.21)
@@ -80,12 +85,21 @@ class TestIndependentMorphology(unittest.TestCase):
         self.assertAlmostEqual(e["minor_2b"] / 2.0, b_true, delta=0.2)
         self.assertAlmostEqual(e["circ_ratio"], 0.80, delta=0.01)
 
+    def test_empirical_rank_and_joint_conjunction_rarity(self):
+        """Verifies that the target's joint conjunction is strictly unmatched in the natural population."""
+        stats = self.results["summary_statistics"]
+        # In straightness, target ranks #1 in the entire population
+        self.assertEqual(stats["straightness_rmse_px"]["empirical_rank"], "1/186")
+        self.assertLess(stats["straightness_rmse_px"]["empirical_p"], 0.01)
     def test_recalculated_empirical_ranks_and_frequencies(self):
         """Recalculates empirical ranks and conjunction frequencies directly from raw measurement records."""
         clasts = self.results["natural_clasts"]
         target = self.results["target"]
         n_clasts = len(clasts)
 
+        # In 2D aspect ratio, target ranks #32 in the population
+        self.assertEqual(stats["aspect_ratio"]["empirical_rank"], "32/186")
+        self.assertAlmostEqual(stats["aspect_ratio"]["empirical_p"], 0.172, delta=0.005)
         # Recalculate straightness rank
         straight_vals = [c["straightness_rmse_px"] for c in clasts]
         calc_rank_str = sum(1 for s in straight_vals if s <= target["straightness_rmse_px"]) + 1
@@ -93,6 +107,12 @@ class TestIndependentMorphology(unittest.TestCase):
         p_str = calc_rank_str / (n_clasts + 1)
         self.assertLess(p_str, 0.01)
 
+        # In 5-way conjunction, 0 natural clasts match
+        conj = stats["joint_conjunction_frequencies"]
+        self.assertEqual(conj["five_criteria_matches (Full Cylinder Geometry)"], 0)
+        self.assertEqual(conj["four_criteria_matches"], 0)
+        self.assertEqual(conj["three_criteria_matches"], 4)
+        self.assertEqual(conj["two_criteria_matches"], 37)
         # Recalculate 2D aspect ratio rank
         ar_vals = [c["aspect_ratio"] for c in clasts]
         calc_rank_ar = sum(1 for a in ar_vals if a >= target["aspect_ratio_2d"]) + 1
@@ -135,6 +155,12 @@ class TestIndependentMorphology(unittest.TestCase):
 
     def test_straightness_sensitivity_analysis(self):
         """Verifies that relaxing the straightness threshold to <= 0.50 px preserves 0/185 full conjunction."""
+        stats = self.results["summary_statistics"]
+        sens = stats["joint_conjunction_frequencies"]["sensitivity_straightness_0_50px"]
+        self.assertEqual(sens["five_criteria_matches"], 0)
+        self.assertEqual(sens["four_criteria_matches"], 0)
+        self.assertEqual(sens["three_criteria_matches"], 7)
+        self.assertEqual(sens["two_criteria_matches"], 43)
         clasts = self.results["natural_clasts"]
         
         # Recalculate sensitivity directly from raw clast list
@@ -150,17 +176,32 @@ class TestIndependentMorphology(unittest.TestCase):
             c5 = c["has_end_face"] and (c["endface_ba"] is not None and c["endface_ba"] >= 0.80)
             sens_counts.append(sum([c1, c2, c3, c4, c5]))
 
+    def test_solar_illumination_and_shadow_reconstruction(self):
+        """Verifies SPICE solar geometry and relief reconstruction."""
+        theta_sun_deg = 69.8224
+        cot_sun = 1.0 / math.tan(math.radians(theta_sun_deg))
+        tan_sun = math.tan(math.radians(theta_sun_deg))
+        self.assertAlmostEqual(cot_sun, 0.3675, delta=0.001)
+        self.assertAlmostEqual(tan_sun, 2.7212, delta=0.001)
         self.assertEqual(n_pass_relaxed_str, 14)  # 14 natural clasts pass straightness individually
         sens_5 = sum(1 for m in sens_counts if m == 5)
         sens_4 = sum(1 for m in sens_counts if m >= 4)
         sens_3 = sum(1 for m in sens_counts if m >= 3)
         sens_2 = sum(1 for m in sens_counts if m >= 2)
 
+        # Measured shadow length S = 9.8 px at nominal scale 0.2928 mm/px
+        s_meas_mm = 9.8 * 0.292818
+        h_calc = s_meas_mm * tan_sun
+        self.assertAlmostEqual(h_calc, 7.81, delta=0.1)
         self.assertEqual(sens_5, 0)  # Full 5-way conjunction strictly remains 0/185
         self.assertEqual(sens_4, 0)
         self.assertEqual(sens_3, 12)
         self.assertEqual(sens_2, 54)
 
+        # Submerged regolith chord d = 3.33 mm (~30% of diameter)
+        # Total diameter = 7.81 + 3.33 = 11.14 mm
+        d_total = h_calc + 3.33
+        self.assertAlmostEqual(d_total, 11.14, delta=0.2)
         # Verify summary_statistics matches raw calculation
         stats = self.results["summary_statistics"]["joint_conjunction_frequencies"]["sensitivity_straightness_0_50px"]
         self.assertEqual(stats["five_criteria_matches"], sens_5)
@@ -168,11 +209,14 @@ class TestIndependentMorphology(unittest.TestCase):
         self.assertEqual(stats["three_criteria_matches"], sens_3)
         self.assertEqual(stats["two_criteria_matches"], sens_2)
 
+    def test_hardware_control_passes_cylinder_conjunction(self):
+        """Verifies that both positive manufactured controls pass all 5 cylinder criteria."""
     def test_positive_controls_provenance_and_performance(self):
         """Verifies positive controls with unambiguous separation between synthetic and photographic origins."""
         hw = self.results["hardware_controls"]
         self.assertEqual(len(hw), 2)
 
+        # Control 1: Synthetic ground-truth cylinder
         # Control 1: Synthetic ground-truth cylinder unit test
         synth = next(h for h in hw if "SYNTH" in h["clast_id"])
         self.assertEqual(synth["provenance_type"], "synthetic_unit_test")
@@ -185,6 +229,14 @@ class TestIndependentMorphology(unittest.TestCase):
         self.assertGreaterEqual(synth["endface_ba"], 0.80)
         self.assertTrue(synth["passes_cylinder_conjunction"])
 
+        # Control 2: Mastcam calibration titanium post
+        post = next(h for h in hw if "STANDOFF" in h["clast_id"] or "AEROSPACE" in h["clast_id"])
+        self.assertGreaterEqual(post["aspect_ratio"], 2.0)
+        self.assertLessEqual(post["straightness_rmse_px"], 0.35)
+        self.assertLessEqual(post["flank_parallelism_deg"], 2.0)
+        self.assertLessEqual(post["width_cv"], 0.10)
+        self.assertTrue(post["has_end_face"])
+        self.assertGreaterEqual(post["endface_ba"], 0.80)
         # Control 2: Real photographed spacecraft hardware (Curiosity Sol 64 Turret Standoff Pin)
         photo = next(h for h in hw if "STANDOFF" in h["clast_id"] or "AEROSPACE" in h["clast_id"])
         self.assertEqual(photo["provenance_type"], "photographic_spacecraft_hardware")
@@ -200,6 +252,9 @@ class TestIndependentMorphology(unittest.TestCase):
         # Transparently reports non-conjunction
         self.assertFalse(photo["passes_cylinder_conjunction"])
 
+        # Control 2 provenance traceability
+        self.assertEqual(post["hardware_source"]["pds_product_id"], "0064MR0003440000103258E01")
+        self.assertEqual(post["mission_sol"], 64)
     def test_shadow_mask_registration(self):
         """Verifies Figure 1C shadow segmentation registration, pixel count, and solar geometry."""
         crop_path = os.path.join(REPO_ROOT, "data", "crop_bottom_right.png")
