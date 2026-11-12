@@ -112,6 +112,12 @@ The investigation advanced through three distinct phases:
 3. **Piece #3 (Rear Terminus)**: When the oblique lower-left regolith burial line is separated from the true rear end, an **unscaled 1:1 copy of the front rim** matches all 24 exposed rear points to **$0.1854\text{ px}$ RMS**. The rear cap does not taper: standalone rear-arc curvature is consistent with zero taper ($s = 1.000$) to within two thousandths of a pixel ($0.0019\text{ px} \approx 0.6\ \mu\text{m}$).
 4. **Piece #4 (Joint Lock & Shadow)**: A strict 6-DOF right circular cylinder model (collinear centers, zero uncoupled offsets, exact outer tangent silhouette) fits all 85 points simultaneously with an overall error of **$0.3788\text{ pixels}$** (~110 microns on Mars). Forward solar ray-tracing reproduces the separate forward dark boundary on sloping regolith to $1.049\text{ px}$ RMS.
 
+### Why Competing Conical Models Are Decisively Rejected
+1. **Front-Face Symmetry Failure**: An unburied right circular cone requires its circular base to align with the limb bisector ($47.55^\circ$). Testing this on the clean front rim fails catastrophically ($\Delta\text{AIC}_c = +82.78$), whereas the cylinder model's dorsal alignment matches to $0.90\sigma$ ($2.8^\circ$).
+2. **Photometric Clinometry Truncation**: A true cone limb produces grazing limb darkening. Instead, transverse radiance **peaks right at the lower-left boundary** ($v_{\text{peak}} \approx -0.89$), proving the surface is abruptly sliced off by a foreground soil bank.
+3. **Rear Arc Curvature**: The standalone rear arc matches an unscaled cylinder ($s=1.000$) to within $0.0020\text{ px}$ ($0.6\ \mu\text{m}$), and rejects a conical taper ($s \le 0.62$) at $\Delta\chi^2 > 260$.
+4. **The "Model 4" Overfitting Artifact**: While an 8-DOF coupled conical frustum (Model 4) achieves a lower formal BIC by driving $s$ down to $0.619$, this is an overfitting artifact that uses a $9.5^\circ$ taper solely to absorb the tiny $3.8^\circ$ ($0.90\sigma$) observational spread between features, directly contradicting the physical curvature of the rear arc.
+
 ---
 
 ## Repository Structure

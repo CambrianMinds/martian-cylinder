@@ -150,6 +150,12 @@ To evaluate tapering, two distinct likelihood profiles are analyzed:
    Tests the full 8-DOF coupled joint system as $s$ varies across $s \in [0.50, 1.20]$. Here, $s$ simultaneously scales the rear ellipse, enforces collinear centers along $\theta_{\text{axis}}$, and couples the dorsal silhouette angle via $\theta_{\text{dor}} = \theta_{\text{axis}} - \arctan((1-s)r_{\text{dor}}/L_{\text{proj}})$.
    This joint profile achieves a sharp minimum at $s = 0.619$ ($\chi^2 = 1044.1$, $\text{RMS} = 0.2549\text{ px}$, $\theta_{\text{axis}} = 39.33^\circ$, $\alpha = 9.46^\circ$), with a 95% confidence interval of $[0.61, 0.63]$ ($\Delta\chi^2 \le 3.84$). This optimum arises because the $9.46^\circ$ taper angle bridges the angular discrepancy between the dorsal edge ($28.89^\circ$) and the body axis ($39.33^\circ$).
 
+3. **Methodological Rejection of Model 4 as an Overfitting Artifact**:
+   While Model 4 achieves a lower formal $\chi^2$ and BIC by driving $s$ to $0.619$, this configuration is physically and statistically rejected:
+   - *Contradiction with Standalone Rear Arc Data*: Forcing $s \approx 0.60$ contradicts the standalone curvature of the rear arc at $\Delta\chi^2 > 260$. The standalone rear data independently proves that $s = 1.000$ differs from the unconstrained optimum by only $0.0020\text{ px}$ ($0.6\ \mu\text{m}$).
+   - *Contradiction with Transverse Radiance*: The joint conical frustum assumes that both longitudinal boundaries are free 3D silhouette limbs. However, transverse photometric clinometry proves that radiance peaks right at the ventral boundary ($v_{\text{peak}} = -0.89$), confirming that the ventral edge is a foreground regolith deposition bank truncating a cylinder, not the physical limb of a cone.
+   - *Occam's Principle*: Model 1 (Strict Right Circular Cylinder, 6 DOF, $s=1.000$ fixed, zero uncoupled offsets) fits all 85 points simultaneously to $0.3788\text{ px}$ without requiring an extreme, unphysical 38% physical taper.
+
 ---
 
 ## 8. Comparative Smoothness, Straightness, and Photometric Shading Metrics

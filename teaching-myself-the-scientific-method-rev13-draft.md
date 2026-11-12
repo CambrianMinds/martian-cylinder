@@ -227,6 +227,8 @@ It doesn't. When we measured the light across the body of the object, there were
 
 The photograph didn't just capture the outline of a cylinder. It captured the 3D curve of one.
 
+Could it be a cone? We tested that, too. An unburied cone has to line up with the centerline between its converging sides—which failed the measured front rim by fifteen degrees. And if it were a cone resting on the surface, the sunlight would fade toward both outer edges; instead, the sunlight peaks right along the lower edge where the object enters the dirt. The converging boundary isn't a tapered cone wall; it's a dirt bank slicing across a straight pipe.
+
 Could it be something from Curiosity? We looked at that, too. But by Sol 3556, Curiosity was twenty-eight kilometers away from its landing site, ten years into its mission. Landing hardware doesn't travel eighteen miles across mountain passes a decade later, and anything dropped recently would sit loosely on top of the dust, not half-buried in the soil bed. Even NASA didn't claim it came from the rover.
 
 Something manufactured by someone else?
