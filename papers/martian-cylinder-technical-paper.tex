@@ -4,11 +4,22 @@
 % 90fbf8f89ac2634a9dbd2b27f81fc80d68b9943c (2026-11-11).
 \documentclass[11pt,letterpaper]{article}
 \usepackage[margin=0.92in,headheight=23pt,footskip=30pt]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{newtxtext,newtxmath}
-\usepackage[final]{microtype}
-\usepackage{amsmath,mathtools,bm}
+% Native OpenType fonts for XeLaTeX/LuaLaTeX; traditional newtx for pdfLaTeX.
+% Avoid newtx virtual-font dependencies in xdvipdfmx on Windows TeX Live.
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{newtxtext,newtxmath}
+  \usepackage[final]{microtype}
+  \usepackage{amsmath,mathtools}
+\else
+  \usepackage{amsmath,mathtools}
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \setmainfont{TeXGyreTermesX-Regular.otf}[BoldFont=TeXGyreTermesX-Bold.otf, ItalicFont=TeXGyreTermesX-Italic.otf, BoldItalicFont=TeXGyreTermesX-BoldItalic.otf]
+  \setmathfont{latinmodern-math.otf}
+\fi
 \usepackage{booktabs,tabularx,threeparttable,array,multirow}
 \usepackage{siunitx}
 \usepackage{xcolor}
@@ -156,7 +167,7 @@ Let \(\mat C\) be the camera center, \(\mat A\) its optical axis, and \(\mat H,\
 The corresponding nonlinear CAHVOR model applies radial corrections about distortion axis \(\mat O\):
 \begin{align}
 \mat p&=\mat P-\mat C, & \omega&=\mat p\cdot\mat O, \\
-\bm\lambda&=\frac{\mat p}{\omega}-\mat O, & \tau&=\bm\lambda\cdot\bm\lambda,\\
+\boldsymbol{\lambda}&=\frac{\mat p}{\omega}-\mat O, & \tau&=\boldsymbol{\lambda}\cdot\boldsymbol{\lambda},\\
 \mu&=R_0+R_1\tau+R_2\tau^2, &
 \mat p'&=\mat p+\mu(\mat p-\omega\mat O).
 \end{align}
