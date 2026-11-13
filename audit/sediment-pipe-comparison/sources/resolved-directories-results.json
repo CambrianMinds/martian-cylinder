@@ -1,0 +1,33 @@
+[
+  {
+    "id": "v4-sol528",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0004/DATA/RDR/SURFACE/0528/",
+    "path": "sources/sol0528-v4.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "v4-sol529",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0004/DATA/RDR/SURFACE/0529/",
+    "path": "sources/sol0529-v4.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "v8-sol1051",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0008/DATA/RDR/SURFACE/1051/",
+    "path": "sources/sol1051-v8.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "navroot",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/",
+    "path": "sources/nav-root.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/",
+    "content_type": "text/html",
+    "status": "downloaded",
+    "bytes": 5116,
+    "sha256": "cd4f3e66c4b8db541fa651861eb5c0fcabb590b9f260064693c53ef03280b23c"
+  }
+]

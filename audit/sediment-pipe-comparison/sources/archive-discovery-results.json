@@ -1,0 +1,46 @@
+[
+  {
+    "id": "supp-rock",
+    "url": "https://rock.geosociety.org/Repository/2017/2017002.pdf",
+    "path": "sources/gsa2017002-rock.pdf",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "supp-figshare",
+    "url": "https://api.figshare.com/v2/articles?resource_doi=10.1130/G38339.1",
+    "path": "sources/figshare-query.json",
+    "resolved_url": "https://api.figshare.com/v2/articles?resource_doi=10.1130/G38339.1",
+    "content_type": "application/json",
+    "status": "downloaded",
+    "bytes": 1175,
+    "sha256": "f6f79bcd998a099cc857e3cf6b030113844539e252a1366cae084f262d63d217"
+  },
+  {
+    "id": "mst",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMSC_0001/",
+    "path": "sources/mastcam-root.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "nautilus",
+    "url": "https://pdfs.semanticscholar.org/662e/74839bf014863d96bb204f4543ea7c213c2e.pdf",
+    "path": "sources/nautilus.pdf",
+    "resolved_url": "https://pdfs.semanticscholar.org/662e/74839bf014863d96bb204f4543ea7c213c2e.pdf",
+    "content_type": "application/pdf",
+    "status": "downloaded",
+    "bytes": 22661693,
+    "sha256": "f4d40d32f910545648aec5f2e89f79c7d90ad3b1df549f31ae656c471801c142"
+  },
+  {
+    "id": "utahpubs",
+    "url": "https://sed.utah.edu/pubs.php",
+    "path": "sources/utahpubs.html",
+    "resolved_url": "https://sed.utah.edu/pubs.php",
+    "content_type": "text/html; charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 24450,
+    "sha256": "503695805cf6256619ea15038e8da8833fe841e591a00a48f281fe273f968b58"
+  }
+]

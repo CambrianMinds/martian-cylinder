@@ -1,0 +1,39 @@
+[
+  {
+    "id": "supp-meta",
+    "url": "https://api.figshare.com/v2/articles/12534422",
+    "path": "sources/supplement-metadata.json",
+    "resolved_url": "https://api.figshare.com/v2/articles/12534422",
+    "content_type": "application/json",
+    "status": "downloaded",
+    "bytes": 3274,
+    "sha256": "3dc0ce905c3da8fd665188ec093f54042d4c5d3da205facbba3a615a4b67a5dd"
+  },
+  {
+    "id": "rdrindex",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/INDEX/",
+    "path": "sources/rdr-index-dir.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/INDEX/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 7265,
+    "sha256": "aaa55d64073235efce03b6e87903a278df7c3d81bf4e5b74ab0e7b30181a339e"
+  },
+  {
+    "id": "rdrdata",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/",
+    "path": "sources/rdr-data-dir.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/",
+    "content_type": "text/html",
+    "status": "downloaded",
+    "bytes": 3224,
+    "sha256": "68b99338d4128c006abb1e90fdc09b6932a5e72d0f43f464e819e35f0239c003"
+  },
+  {
+    "id": "rdrindexlower",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/index/",
+    "path": "sources/rdr-index-lower.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

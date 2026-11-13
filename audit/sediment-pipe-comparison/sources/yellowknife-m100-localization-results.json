@@ -1,0 +1,112 @@
+[
+  {
+    "id": "0173MR0009260970201905E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009260970201905E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009260970201905E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009260970201905E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "2d099154bfcaccb2134c8708543e59751b27de413e64955fc78a9404ef7ab50b"
+  },
+  {
+    "id": "0173MR0009260980201906E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009260980201906E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009260980201906E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009260980201906E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "64872e1160be9080662707237a1e0c2b9865d653c63747f674fc93c5533c0b67"
+  },
+  {
+    "id": "0173MR0009260990201907E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009260990201907E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009260990201907E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009260990201907E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "95d30f2ae1b72024d6784bd4012c32dfd7e7dfe7c73adcfacaf8bbd9b20e0e12"
+  },
+  {
+    "id": "0173MR0009261000201908E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261000201908E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261000201908E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261000201908E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "41684c5a58ba4e02c7db7316758474e113e3f40fc7a30d3426dd982c26a0284c"
+  },
+  {
+    "id": "0173MR0009261010201909E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261010201909E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261010201909E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261010201909E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "c0e29d5624e737005d096fe662b9d38c20374cfb2bd387471df5db912ba3f2af"
+  },
+  {
+    "id": "0173MR0009261020201910E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261020201910E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261020201910E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261020201910E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "7a6f1b0931b5a514b403741a8d76e0c01f386bc815fad74512884a94cc27389a"
+  },
+  {
+    "id": "0173MR0009261030201911E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261030201911E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261030201911E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261030201911E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "50bae3ccd53964c624bdb3b989970254421004a0c8cc6f9d8650f8e69dc3e292"
+  },
+  {
+    "id": "0173MR0009261040201912E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261040201912E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261040201912E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261040201912E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "76da71a21a6beb27e3ea785185358eb9d33a26c59e07dadea0103b73a37e557f"
+  },
+  {
+    "id": "0173MR0009261050201913E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261050201913E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261050201913E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261050201913E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "39b6d12db8e2e32b964ae3526d2f95bfe2c886181a5e5792388dff6fc80de9dd"
+  },
+  {
+    "id": "0173MR0009261060201914E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261060201914E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261060201914E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261060201914E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "907c4ffbad691109ec772e7c58c7c220919c345448356d2ad971f514ec9c880b"
+  },
+  {
+    "id": "0173MR0009261070201915E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261070201915E01_DRXX.LBL",
+    "path": "sources/localization-labels/0173MR0009261070201915E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261070201915E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22984,
+    "sha256": "bd264e8bebcdd044f94e6ddae407349bb35c5420c2c224fa317ef3c2f8bb7b41"
+  }
+]

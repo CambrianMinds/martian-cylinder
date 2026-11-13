@@ -1,0 +1,1255 @@
+Morphologic Clues to the Origins of Iron Oxide–Cemented Spheroids, Boxworks, and Pipelike
+Concretions, Navajo Sandstone of South-Central Utah, U.S.A.
+Author(s): David B. Loope, Richard M. Kettler, Karrie A. Weber
+Source: The Journal of Geology, Vol. 119, No. 5 (September 2011), pp. 505-520
+Published by: The University of Chicago Press
+Stable URL: http://www.jstor.org/stable/10.1086/661110 .
+Accessed: 26/08/2011 14:14
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at .
+http://www.jstor.org/page/info/about/policies/terms.jsp
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of
+content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms
+of scholarship. For more information about JSTOR, please contact support@jstor.org.
+The University of Chicago Press is collaborating with JSTOR to digitize, preserve and extend access to The
+Journal of Geology.
+http://www.jstor.org
+
+[The Journal of Geology, 2011, volume 119, p. 505–520]  2011 by The University of Chicago.
+All rights reserved. 0022-1376/2011/11905-0005$15.00. DOI: 10.1086/661110
+505
+Morphologic Clues to the Origins of Iron Oxide–Cemented Spheroids,
+Boxworks, and Pipelike Concretions, Navajo Sandstone
+of South-Central Utah, U.S.A.
+David B. Loope,1,* Richard M. Kettler,1 and Karrie A. Weber1,2
+1. Department of Earth and Atmospheric Sciences, University of Nebraska, Lincoln, Nebraska 68588, U.S.A.;
+2. School of Biological Sciences, University of Nebraska, Lincoln, Nebraska 68588, U.S.A.
+A B S T R A C T
+Concretions cemented by iron oxide are abundant and diverse in the Jurassic Navajo Sandstone of southern Utah.
+Some of these structures are considered terrestrial analogs for concretions imaged on Mars. The Navajo concretions
+can be spheroidal, pipelike, or tabular with multicompartmented boxworks. These iron oxide concretions typically
+display a rinded structure: dense sandstone rinds cemented by iron oxide surround pale, iron-poor sandstone cores.
+Within a single structure, the iron-rich rinds may be single or multiple. Pseudomorphs of siderite are present in local
+residual, iron-rich cores of boxworks. Workers in the late nineteenth through mid-twentieth centuries, many of whom
+found evidence for siderite precusors, concluded that many spherical, rinded, iron oxide-cemented concretions were
+formed by centripetal precipitation of iron oxide inward from the perimeter of the concretion; in contrast, the walls
+of pipelike concretions of iron oxide grew centrifugally outward. We interpret the Navajo spheroids and boxworks
+as centripetal products of the oxidation of siderite-cemented (precursor) concretions that were very similar in both
+size and shape to the current concretions: rinds grew (thickened) inward toward the internal source of Fe(II). Siderite
+pseudomorphs appear to be absent from spheroids and many boxworks because all siderite was dissolved. In the cores
+of the larger boxworks some siderite was oxidized in situ; the Fe(II) did not migrate away from the original siderite
+crystals. The oxidation process was mediated by iron-oxidizing microbes and began at concretion perimeters when
+oxidizing groundwater started to displace the CO2- and methane-bearing water that had precipitated the siderite. In
+contrast, pipelike concretions are centrifugal—rinds formed around a cylindrical reaction front and thickened outward
+toward Fe(II) and away from the oxygenated water ﬂowing within the cylinders. The cylindrical shape of the reaction
+front was produced by self-organizing feedbacks between dissolution of dispersed siderite cement and focused ﬂow
+through a heterogeneous sandstone matrix.
+Introduction
+Concretions cemented by iron oxide are prominent
+in many outcrops of the porous and permeable Na-
+vajo Sandstone of south-central Utah (ﬁg. 1). The
+concretions range in diameter from !1 mm to 8 m
+and can be spheroidal, cylindrical, or tabular. Nava-
+jo spheroids have been proposed as terrestrial an-
+alogs for the hematitic spherules imaged by Mar-
+tian rover Opportunity (Chan et al. 2004). Although
+diverse in size and shape, nearly all the Navajo con-
+cretions that we studied share a common structural
+feature: a dense rind or crust cemented by iron ox-
+ide surrounds a sandstone core that is relatively
+Manuscript received October 29, 2010; accepted May 13,
+2011.
+* Author for correspondence: e-mail: dloope1@unl.edu.
+iron poor (ﬁg. 1). A full understanding of the Navajo
+concretions requires a clear explanation of the or-
+igin of this distinctive, rinded structure. Although
+Beitler et al. (2005) and Chan et al. (2007) argued
+that
+the
+concretions
+are
+primary
+precipitates
+formed during the mixing of two dilute ﬂuids, we
+interpret
+the
+rinds
+as
+byproducts
+of
+siderite
+oxidation.
+Our interpretation of the origins of the spheroidal
+and tabular rinds has been guided by observations
+made by geologists working as long as a century
+ago. Dana (1896, p. 98) described concretions with
+rinded structure and interpreted them as having
+formed via “consolidation that progressed inward
+from the exterior—a centripetal process.” Todd
+
+506
+D .
+B .
+L O O P E
+E T
+A L .
+Figure 1.
+Spheroids, pipes, and tabular boxworks. A, Pea-sized spheroids in structureless sandstone. Note that co-
+alesced spheroids are deﬁned by a single rind of iron oxide cement. B, Spheroid with manganese oxide dendrites
+growing inward from the inner surface of the iron oxide rind. C, Pipelike concretions with iron oxide rinds, Capitol
+Wash site. Note abundant spheroidal concretions (white arrow) and ridges on pipe surfaces (black arrow). Pipe splits
+just below the white S. D, Tabular boxwork with multiple compartments. Thick, iron oxide–cemented rinds are
+developed on perimeter and along vertical joints (white arrows), and interiors are occupied by iron-poor sandstone.
+(1903) showed that such rinds can form during the
+progressive oxidation of siderite concretions, with
+the rinds reﬂecting the shapes of their siderite-
+cemented precursor concretions. Van der Burg
+(1969, 1970) provided another example (from Pleis-
+tocene ﬂuvial sands of the Netherlands) of rinded,
+iron oxide–cemented concretions that formed via
+the oxidation of a siderite-cemented precursor.
+This article builds on our earlier work (Loope et
+al. 2010) by providing more detailed explanations
+for the morphologies of the Navajo concretions and
+the processes that formed them. Here we report
+pseudomorphs of siderite crystals within the cen-
+tral, iron oxide–rich portions of large, tabular con-
+cretions. These provide support for our claim that
+the rinded structures are oxidation products of a
+reduced iron phase. We also present new evidence
+from open-ended cylindrical concretions showing
+that (in contrast to the fully enclosing centripetal
+rinds on spheroids and boxworks) the cylindrical
+rinds thickened outward. We argue that these pipe-
+like concretions record the shapes of self-organized
+reaction fronts that formed when oxygenated water
+started to move through a permeable sandstone
+that contained dissolving, reduced-iron cements.
+Setting
+Previous Studies.
+Chan et al. (2004) pointed out
+the similarities of spheroidal, iron oxide–cemented
+concretions in the Navajo Sandstone to the “blue-
+berries” imaged on Mars by the rover Opportunity.
+Beitler et al. (2005, their ﬁg. 12) and Chan et al.
+(2005, 2007) interpreted the spheroids within the
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+507
+Navajo as well as pipelike concretions and box-
+works found with them as primary precipitates—
+products of the mixing of two waters: upward-mov-
+ing, reduced ﬂuids delivered iron, and coexisting
+shallow groundwater provided oxygen. Beitler et al.
+(2005, their ﬁg. 12) envisioned the two ﬂuids in-
+teracting along a redox reaction front. Potter et al.
+(2008, 2011) showed that the dense, dark rinds that
+surround and deﬁne most Navajo Sandstone con-
+cretions are cemented by hydrous ferric oxide.
+Chan et al. (2006) and Busigny and Dauphas (2007)
+studied the variation of iron isotope ratios within
+the Navajo Sandstone and its concretions. The ﬁrst
+study concluded that the strongly negative d56Fe
+values in the rinds of concretions were generated
+by dissimilatory dissolution of iron oxide coatings
+on sand grains and that variations in the d56Fe val-
+ues of the concretions supported an open-system
+model of concretion formation. The latter study
+concluded that the negative values were evidence
+for ﬂuid evolution associated with precipitation of
+iron oxide or adsorption of isotopically heavy Fe on
+silicate mineral grains during ﬂuid ﬂow.
+Loope et al. (2010) interpreted the rinded, iron
+oxide–cemented concretions in the Navajo Sand-
+stone to be alteration products of siderite-cemented
+sandstone. They concluded that the precursor (sid-
+erite) concretions are late diagenetic features that
+precipitated at shallow depth. The precursors
+formed within reducing waters down gradient from
+the
+Escalante
+anticline—a
+structure
+currently
+charged with CO2 and methane (Allison et al. 1997).
+After the methane reductant was ﬂushed from the
+aquifer, oxidizing waters dissolved the siderite and
+precipitated the iron oxide to form the rinds. Rather
+than forming in places where reducing and oxidiz-
+ing waters mixed, Loope et al. (2010) argued, the
+concretions in the Navajo Sandstone record a tem-
+poral change in pore-water chemistry. Iron was ini-
+tially precipitated from reducing waters as ferrous
+carbonate: siderite and ferroan calcite. Later oxy-
+genation of the aquifer caused the siderite to dis-
+solve, thereby generating an iron oxide precipitate.
+The proximity of concretions to a CO2 reservoir and
+their localization along joint surfaces suggest that
+either degassing or a drop in aquifer pressure was
+the iron deposition mechanism that concentrated
+the iron initially (Loope et al. 2010). Mass balance
+calculations
+based
+on
+spheroidal
+concretions
+(Loope et al. 2010) show that the interiors of rinded
+spheroids now contain 21%–33% porosity—sufﬁ-
+cient volume, if occupied by siderite, to account
+for the mass of iron oxide now present within the
+dense rinds. Downcutting by the Colorado River
+through the Navajo Sandstone at Glen Canyon ini-
+tiated vigorous southeastward ﬂow through the
+Navajo aquifer. Based on downcutting rates, sid-
+erite cementation may have occurred about 2 mil-
+lion years ago; the iron oxide concretions are even
+younger (Loope et al. 2010).
+Study
+Areas.
+We
+have
+studied
+iron
+oxide–
+cemented concretions in two areas within south-
+central Utah (ﬁg. 2): (1) the drainage of the Escalante
+River (within Grand Staircase–Escalante National
+Monument and the Glen Canyon National Recre-
+ation Area) and (2) the eastern limb of the Water-
+pocket Fold (within Capitol Reef National Park).
+Most of our work has been carried out within the
+Escalante drainage, and only a single site from the
+Capitol Reef (Capitol Wash, a tributary of the Fre-
+mont River) will be discussed here.
+Geologic Setting.
+In south-central Utah, the Early
+Jurassic Navajo Sandstone is about 300 m thick and
+is composed of ﬁne to medium sand that was de-
+posited
+by
+southeast-migrating
+eolian
+dunes
+(Blakey et al. 1988; Loope and Rowe 2003). Much
+of the Navajo Sandstone is composed of grainﬂows
+and wind-ripple laminae deposited on sloping lee-
+ward faces (Hunter 1977). Thick, extensive masses
+of structureless sandstone produced by both bio-
+turbation (Loope 2006) and soft-sediment defor-
+mation (Sanderson 1974; Horowitz 1982; Bryant
+and Miall 2010) are also prominent facies.
+Strata in the region were faulted and broadly
+folded during the Laramide Orogeny (80–40 Ma; Da-
+vis 1999). Although iron oxide grain coatings give
+the Navajo Sandstone a red color across much of
+the Colorado Plateau, the formation is bleached on
+the crests of many anticlines (Beitler et al. 2003).
+Iron oxide grain coatings that were stripped from
+sandstones on anticlinal crests by reducing ﬂuids
+are the likely sources of iron for the concretions
+within the Navajo (Chan et al. 2004). Beitler et al.
+(2005, their ﬁg. 12) argued that reducing, buoyant
+ﬂuids transported iron for concretion growth.
+Loope et al. (2010) pointed out that, in the Escalante
+region, there is unambiguous evidence of iron
+transport down-dip. The direction of iron transport
+was subparallel to that of modern groundwater
+ﬂow. It is more probable, therefore, that the iron
+was transported not by a buoyant ﬂuid but rather
+by ancient groundwater. Loope et al. (2010) pos-
+tulated that the ancestral Escalante groundwater
+system was recharged on Aquarius Plateau and be-
+came reducing as it ﬂowed through the Escalante
+anticline toward the Colorado River. Most recently,
+Parry (2011) modeled the growth of Navajo con-
+cretions, using the hydraulic gradient from the
+
+Figure 2.
+Map of study area showing study sites for spheroids, boxworks, and pipes near the Escalante River and
+along the Waterpocket Fold. Global positioning system locations use WGS84 datum. Locations for pipe sites are in
+Loope et al. (2010) supplemental data. Structural elements are from Davis (1999).
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+509
+Aquarius Plateau to the Colorado River, and cal-
+culated that the minimum time required for the
+ancient reducing waters of that aquifer to transport
+the necessary iron for concretion growth is 2000–
+3600 years.
+Spheroidal Concretions
+Description.
+Chan et al. (2004, 2005, 2007), Bu-
+signy and Dauphas (2007), Potter et al. (2008, 2011),
+and Parry (2011) have described the spheroidal con-
+cretions in the Navajo Sandstone. Spheroids are the
+most abundant and widespread of the several types
+of iron oxide–rich concretions in the study area.
+Although spheroids occur independently, they are
+also commonly found associated with other con-
+cretion types. The spheroids range from 1 mm to
+15 cm in diameter, and most have a rinded struc-
+ture (ﬁg. 1A, 1B). Some small concretions (11.5 cm
+in diameter) lack rinds and are cemented by iron
+oxide center to rim (Parry, 2011). Where two or
+more rinded spheroids have coalesced, a single con-
+voluted rind is present—adjacent spheroids do not
+share rinds (1B). Three-dimensional dendrites com-
+posed of manganese oxide grow inward from the
+inner surfaces of some rinds (ﬁg. 1A). “Comet
+tails,” or iron oxide stains, commonly extend
+southeastward from the spheroids (Chan et al.
+2000; Busigny and Dauphas 2007; Loope et al.
+2010).
+Unrinded spheroidal concretions cemented by
+ferroan calcite are abundant in the southeastern
+portion of the Escalante drainage (ﬁg. 2; Loope et
+al. 2010). Many of those concretions are localized
+along joints.
+Interpretation of Spheroidal Concretions.
+Curtis
+and Coleman (1986) noted that because ferric iron
+is immobile in most natural waters, iron oxide–
+cemented concretions are “most probably” the ox-
+idized remains of precursor concretions that were
+originally cemented by ferrous (reduced-iron) min-
+erals. In accordance with our earlier hypothesis
+(Loope et al. 2010), we interpret the rinded spher-
+oids as altered remnants of siderite-cemented pre-
+cursors of the same shape and size. The morphology
+of a dense isolated rind (ﬁg. 1A) is fully consistent
+with alteration of a spheroidal precursor concre-
+tion, but it is a challenge to explain the rind as a
+primary precipitate. A single convoluted rind that
+appears in plan to be composed of conjoined circles
+(ﬁg. 1B) is even more difﬁcult to explain as a pri-
+mary precipitate but is easily explained by our
+model: intergrown, spheroidal siderite concretions
+dissolved within an oxidizing aquifer provided an
+internal source of ferrous iron that diffused outward
+to form a single rind where it met dissolved oxygen
+at the original perimeter of the concretionary mass.
+The concretions within the Navajo Sandstone
+that are cemented by ferroan calcite and associated
+with joints provide independent evidence that the
+Navajo has recently hosted reducing carbonate-rich
+waters. The ferroan calcite concretions are unal-
+tered because oxidation and dissolution of ferroan
+calcite does not generate excess acid. Oxidation and
+dissolution of siderite does generate excess acid.
+This makes siderite an excellent energy source for
+iron-oxidizing microbes and explains its vulnera-
+bility to complete dissolution (Loope et al. 2010).
+Chan et al. (2007) and Potter et al. (2011) argued
+persuasively that the rinds on spheroidal concre-
+tions thickened inward, and we concur with their
+evidence. That interpretation, however, is difﬁcult
+to reconcile with their mixing model. In that model
+there is no preexisting, concentrated interior source
+of iron from which to grow the rind. They interpret
+the rinded concretions as direct precipitates from
+a mixture of two dilute ﬂuids. This interpretation
+would seem to require ferrous iron to be trans-
+ported through a preexisting oxide rind and then to
+react with a copious oxidant somehow trapped
+within interior pore water. The bench experiments
+performed by Chan et al. (2007, their ﬁgs. 4, 5) pro-
+duced thick, dense, inward-thickening iron-rich
+rinds resembling the Navajo concretions but only
+when a concentrated source of iron was placed
+within a surrounding oxidizing medium. More re-
+cent bench experiments by Barge et al. (2011) pro-
+duced solid (not rinded) spheroidal precipitates.
+If the iron oxide concretions are interpreted as
+primary, the comet tails that postdate the forma-
+tion of the spheroids and extend southeastward
+from them become more difﬁcult to explain. The
+comet tails indicate mobilization of iron from a
+concentrated source by a southeast-moving ﬂuid
+(Loope et al. 2010), presumably groundwater ﬂow-
+ing down gradient toward the Colorado River. If the
+original mineralogy of the spheroids had been iron
+oxide, their dissolution would require that, after
+the prolonged interval of oxidizing conditions re-
+quired for rind growth, the groundwater again be-
+came reducing. If the spheroids were originally
+composed of a reduced-iron mineral, ferrous iron
+could easily have been remobilized by reducing
+groundwater undergoing slight changes in pH. As
+the region was uplifted, it is likely that the upper
+reaches of the aquifer (near the sites of copious re-
+charge) were the ﬁrst to become oxidizing. Oxi-
+dation of a reduced-iron mineral species (siderite)
+
+Figure 3.
+Characteristic features of tabular boxworks. A, Large in situ box with an iron-rich core surrounded by a
+porous, iron-poor zone; a smaller box (placed for comparison; white arrow) has a bleached iron-poor core (cf. Todd
+1903, pl. 49, ﬁg. 14; Taylor 1949, pl. 1). B, Large boxwork with thick rind on perimeter (p) and along both faces of
+joints (j). Iron oxide–cemented cores (c) are present in each compartment. C, Small boxwork with four crosscutting
+joints. In this rare case, the joint nearest the hammer handle controlled the shape of the sideritic precursor. D, Box
+compartment with about 20 thin iron oxide–cemented rinds concentrically arranged around the iron-poor sandstone
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+511
+core. Note wind-ripple lamination visible within core. E, Broken fragment from large box showing two pipelike
+invaginations that penetrated interior of box from a rinded joint. Note thick rinds on pipes and oval cross sections
+of pipes that are elongate parallel to bedding in host rock. Like rinds that developed in the wallrock adjacent to joints,
+the rinds on these pipes thickened toward the center of the boxwork chamber and thus away from the center of the
+pipes. F, Fragment from boxwork showing manganese dioxide dendrites (to right of arrow tip) developed on interior
+surface of thick, iron oxide–cemented rind (left of arrow tip). Dendrites grew inward, toward viewer.
+in these upper reaches would have yielded acid that
+could have dissolved reduced-iron carbonates down
+gradient.
+Since publishing our initial hypothesis for sid-
+erite precursors of spheroidal Navajo concretions
+(Loope et al. 2010), we have found a nineteenth-
+century publication that classiﬁed rinded struc-
+tures as “centripetal” concretions that thicken in-
+ward as a central source of iron is dissolved (Dana
+1896) and two papers that show evidence that
+rinded concretions are alteration products of sid-
+erite-cemented concretions. Todd (1903) described
+and illustrated structures very similar to the Nava-
+jo spheroids. Siderite was still present inside some
+of his rinded structures, and he interpreted the
+rinds to have formed as siderite dissolved under
+oxidizing conditions (Todd 1903, pl. 49, ﬁgs. 13, 14).
+From Pleistocene-age, ﬂuvial channel deposits in
+The Netherlands, Van der Burg (1969, 1970) de-
+scribed concretions with thick iron oxide rinds. He
+illustrated one such structure with a surviving sid-
+erite-cemented core and described a process of out-
+ward transport of reduced iron from the core and
+inward thickening of the rind as oxidation pro-
+ceeded. We have found similar rinded structures in
+channel deposits of the Cretaceous Dakota For-
+mation of eastern Nebraska (Loope et al. 2011).
+Tabular Boxworks
+Description.
+Boxworks
+are
+multichambered
+sandstone masses that are typically tabular in form,
+up to 8 m wide and 1 m thick, with smooth exterior
+surfaces and rounded lateral margins. Iron oxide–
+cemented rinds that follow bedding planes and
+joints deﬁne the boxwork perimeters and the cham-
+bers within each boxwork structure (ﬁgs. 1D, 3A,
+3B). The exterior shapes of a few boxworks show
+evidence of joint control (ﬁg. 3C), but most do not.
+Millimeter-wide fractures in the surrounding par-
+ent rock can be traced deep into boxwork struc-
+tures, where they are continuously bounded by a
+pair of thick rinds (ﬁg. 3B). Millimeter-scale spher-
+oids are typically abundant in the sandstone adja-
+cent to boxworks (ﬁg. 4).
+Boxworks are preferentially developed within
+the basal grainﬂows and wind-ripple laminated
+portions of eolian crossbed sets within the Navajo
+Sandstone and, at our three study sites, are scat-
+tered through the middle third of the formation.
+In the Escalante area, most boxworks lie north-
+west of the larger spheroids and of pipelike con-
+cretions (ﬁg. 2). At study site B1 (ﬁg. 2), bedrock
+slopes are strewn with thousands of broken slabs
+of iron oxide–cemented sandstone. To assess the
+spatial density of in situ boxworks at this site, we
+searched a 1200-m-long by 100-m-wide transect in
+which the long axis was oriented perpendicular to
+bedding.
+We
+located
+61
+boxwork
+structures,
+roughly equivalent to 500 structures per km2.
+Rinds of iron oxide cement range from 2 to 25
+mm thick; individual chambers may be surrounded
+by a single thick rind or by a nested series of thinner
+rinds (ﬁg. 3D). As in spheroidal concretions in the
+Navajo Sandstone (ﬁg. 1B), dendrites of manganese
+oxide–cemented sandstone are attached to inner
+surfaces of rinds and project inward from them (ﬁg.
+3F). In boxwork chambers with volumes greater
+than ∼8000 cm3, the central areas (which we refer
+to as cores) are cemented by iron oxide. Whereas
+iron oxide cementation in the rinds ﬁlls pore space
+pervasively, the iron oxide cement in the cores is
+scattered, leaving considerable porosity (ﬁg. 5). In
+thin sections, rhombic forms are visible in the
+opaque cement (ﬁg. 5). The cores are surrounded
+by pale iron-poor sandstone (ﬁg. 3A); smaller cham-
+bers lack cores ﬁg. 1D). We have also observed short
+pipelike concretions that lie inside the walls of the
+some boxwork chambers (ﬁg. 3E). These pipes oc-
+cur as parallel near-horizontal invaginations of
+chamber walls; they can extend a few tens of cen-
+timeters into the inner chambers of the larger box-
+works. These pipes are between 3 and 6 cm in di-
+ameter, with rinds up to 10 mm thick (ﬁg. 3E).
+Interpretation
+of
+Tabular
+Boxworks.
+Following
+Dana (1896, p. 98), Todd (1903), Taylor (1949), and
+Mozley (1989a) we interpret the boxworks as the
+centripetal oxidized remains of large, porous sid-
+erite-cemented sandstone masses. Taylor (1949) de-
+scribed and illustrated boxworks with dense joint-
+and
+bedding-controlled
+iron
+oxide
+rinds
+from
+weathered exposures of the Jurassic Northampton
+sand ironstone formation (an important source of
+iron ore). He noted that, in cores that extend below
+
+512
+D .
+B .
+L O O P E
+E T
+A L .
+Figure 4.
+Thousands of rinded millimeter-scale spheroids just outside a large rinded boxwork. Rind indicated by
+arrows and sandstone cores by c’s. Precursor of boxwork was likely composed of siderite-cemented spheroids of similar
+small size that were more closely spaced and were oxidized en masse rather than individually.
+the water table, the iron in the same part of the
+formation is present as siderite cement.
+Like the boxworks, spheroidal concretions in the
+Navajo Sandstone that are cemented by ferroan cal-
+cite are commonly localized in the coarse sand near
+the bases of eolian grainﬂows. These strata were
+likely the preferred pathways for groundwater ﬂow.
+The
+meter-scale
+precursor
+concretions
+were
+likely composed of thousands of closely spaced,
+millimeter-scale siderite concretions (ﬁg. 4; Mozley
+1989a). The double-rinded joints and the inward-
+growing manganese dendrites indicate that each
+chamber in the boxwork structure was occupied by
+a source of iron and manganese. As with the spher-
+oids, Fe(II) and Mn(II) diffused outward under re-
+ducing conditions and formed an inward-thicken-
+ing rind where they met O2 at the perimeter of the
+structure. The iron-poor zones that lie between the
+cores and the rinds suggest to us that the cores
+contain residual iron that was “left behind” (not
+transported in solution and oxidized at the perim-
+eter). Although the bulk of the iron oxide resides
+in the dense, thick rinds, the iron oxide rhombs
+(which we interpret as siderite pseudomorphs; ﬁg.
+5) are present only in the cores. The pseudomorphs
+are evidence that the siderite most distant from the
+joints and from the perimeter of the structure was
+oxidized in situ (the pseudomorphs were not
+formed where diffusing ferrous iron met oxidizing
+water). Apparently the iron transport system that
+generated the rinds was unable to move the all iron
+from the centers of the largest boxwork chambers.
+Loope et al. (2010) argued that rinded, spheroidal,
+iron oxide–cemented concretions in the Navajo
+Sandstone formed when reducing groundwater in
+the Navajo aquifer was replaced by oxidizing
+groundwater. When oxygen entered the aquifer and
+siderite-cemented masses started to dissolve, Fe(II)
+combined with O2 under the control of iron-oxidi-
+zing microorganisms (Weber et al. 2010). These mi-
+crobes colonized the perimeter of the concretionary
+masses and the walls of fractures and formed rinds
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+513
+Figure 5.
+Iron oxide pseudomorphs after siderite from the core of a large boxwork chamber (ﬁg. 3). A, Note rhombic
+forms within patchy intergranular cement (arrows). B, Pseudomorph shows that the original cement crystals contained
+iron-poor zones (z; arrow). White grains are quartz; gray is pore space.
+that thickened inward as the siderite cement of the
+original concretion dissolved. These arguments are
+also valid for the much larger boxworks. For box-
+works with relatively small chambers, all the iron
+originally present in the siderite-cemented cores
+diffused outward to form the rinds; for the larger
+masses with wide-spaced joints, thickening of the
+rinds that bounded the joints may have eventually
+impeded oxygen diffusion to the microbial colonies
+and the siderite-cemented cores. We hypothesize
+that the microbial colonies that continuously
+maintained anoxia within boxwork chambers pro-
+duced a thick single rind. Colonies that could not
+prevent oxygen from diffusing past them produced
+only thin rinds. After each oxygen breakthrough,
+another colony became established at the new oxic/
+anoxic boundary that lay deeper within the cham-
+ber at the receded margin of siderite-cemented
+sandstone. This colony then started to precipitate
+another rind. These processes were sometimes re-
+peated more than 20 times (ﬁg. 3D). The Navajo
+boxworks with multiple thin rinds are directly
+analogous to the rocks known as Kanab Wonder-
+stone that developed in jointed ﬂuvial sandstones
+of the Triassic Shinarump Formation (Kettler et al.
+2010).
+The rinded pipes found within some boxworks
+provide clues to the origin of larger pipes that are
+present in great numbers outside the conﬁnes of
+the tabular boxworks (discussed in next section).
+The rinds on these interior pipes thickened away
+from the center of the pipes and toward the interior
+of the boxwork chamber.
+Pipelike Concretions
+Description.
+Geologic setting. Within the Esca-
+lante study area, all of the pipelike concretions we
+have found lie within the uppermost 100 m of the
+Navajo Sandstone, in outcrops with structural dips
+of !5. Pipes, like the other concretionary forms,
+are present in grainﬂows and thin-laminated, wind-
+ripple-deposited sandstone as well as in structure-
+less sandstone produced by bioturbation or soft-
+sediment
+deformation. The
+pipes are directly
+associated with prominent, near-vertical, north-
+east-southwest joints. The pipes are present along
+at least 45 km of the groundwater ﬂow system de-
+lineated by Loope et al. (2010; ﬁg. 2) but are most
+abundant and massive in the northwest portion of
+the ﬂow system, southeast of the boxworks. Each
+joint surface bears a thin discontinuous sheet of
+iron oxide–cemented sandstone, and the pipes are
+attached to and extend from this sheet (ﬁg. 6A, 6C).
+Without exception, the pipes project southeastward
+from the joints. The trend of the pipes (148, n p
+; Loope et al. 2010) is parallel to the course of
+163
+the Escalante River, the master stream in the study
+area. Along the strike of the hosting joint, pipe clus-
+ters are commonly more than 10 m wide. The pipes
+
+514
+D .
+B .
+L O O P E
+E T
+A L .
+Figure 6.
+Pipelike concretions. A, Clustered pipes abutting a joint face (arrows) and extending to the right (south-
+eastward) into sandstone. B, Individual thick-rinded pipes weathered from sandstone matrix; joint lies about 1 m to
+the right. C, Small, rinded spheroidal concretions clustered just southeastward of joint face (arrows). These spheres
+were oxidized individually and did not give rise to a cluster of pipes. D, Oblique section through large pipelike
+concretions. Note that rinds are shared between pipes and that rinds are thin. Joints (arrows) are not sites of iron
+cementation.
+diminish in abundance with distance from the joint
+surface, although some extend as much as 10 m
+away from the joint. With greater distance from the
+joint, the pipelike morphology becomes increas-
+ingly ill deﬁned. At the Capitol Wash site (ﬁgs. 1C,
+2), pipes are abundant up to 300 m east of a north-
+trending vertical fault.
+Rinded, spheroidal concretions from millimeter
+to centimeter scale are abundant among the pipe-
+like concretions (ﬁg. 1C), and in both study areas,
+spheroidal concretions are common on the south-
+east or east (down-gradient) sides of joints and
+faults. In some cases, the spheroids can be seen to
+diminish in abundance and diameter with increas-
+ing distance from the joint (ﬁg. 6C).
+Pipe morphology. Joint- and fault-associated
+pipes are from !1 cm to 150 cm in diameter, and
+the rinds that deﬁne these structures are up to 1
+cm thick. The pipes are attached to the thin sheet
+of iron oxide–cemented sandstone that coats the
+down-gradient (southeast or east) side of the frac-
+ture where they originate, but at their distal ends
+they are diffuse, without discernable termini. Rind
+thicknesses do not directly correlate with pipe di-
+ameters; pipes with large diameters often have thin
+rinds (ﬁg. 6D). We have not seen iron oxide–rich
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+515
+Figure 7.
+Cross sections of pipe clusters from the Nav-
+ajo Sandstone. Note sharing of rinds between adjacent
+pipes and changes in rind thicknesses at junctions be-
+tween pipes (arrows).
+cores (like those in the boxworks; ﬁg. 3A, 3B)
+within the pipes, nor have we seen joints in the
+pipes that are lined by double iron oxide–cemented
+rinds (ﬁg. 6D).
+Most isolated pipes in structureless sandstone are
+circular in transverse section; in laminated sand-
+stone, transverse sections of pipes are oval with the
+long axis parallel to bedding (ﬁg. 3E). In transverse
+sections of coalesced pipes, circular and oval cross
+sections are relatively rare because adjacent pipes
+share rinded walls (ﬁg. 7). The rind thickness on
+an individual pipe within a pipe cluster changes
+abruptly at junctions with other pipes (ﬁg. 7).
+Oblique sections of coalesced pipes show numerous
+triple junctions that resemble linked U’s (ﬁg. 6D)—
+a pattern also resulting from the sharing of rinds
+between adjacent pipes. At the Capitol Wash site,
+the outer surfaces of many pipes are ornamented
+with transverse convex ribs (ﬁg. 1C). At the Esca-
+lante sites, few pipes are ornamented.
+Interpretation
+of
+Pipelike
+Concretions.
+Pipelike
+concretions solidly cemented by carbonate min-
+erals (most commonly calcite) have been described
+from all over the world and from rocks of many
+ages (e.g., Schultz 1941; McBride et al. 1995; Mo-
+zley and Davis 1996, 2005). The idea that the cy-
+lindrical shapes of some of the iron oxide–cemented
+concretions in the Navajo Sandstone were inher-
+ited directly from cylindrical, solidly cemented,
+sideritic precursors is attractive, but several obser-
+vations are inconsistent with that interpretation:
+1. Rinds on many large-diameter pipes at our
+study sites are thin and single (ﬁgs. 6D, 7). If the
+pore space within these pipes had been largely ﬁlled
+by siderite, and if the iron had diffused outward to
+form the rinds, their rinds would be comparable in
+thickness or number to those surrounding boxwork
+chambers. The largest chambers within boxworks
+contain iron oxide–rich cores (ﬁg. 3A, 3B), but we
+have not seen cores in pipes of similar scale.
+2. Within tabular boxworks, cross-cutting joints
+are bounded by thick, double, iron oxide–cemented
+rinds (ﬁgs. ﬁg. 3B). Although many joints cut pipes
+(ﬁg. 6D), we have not seen rinds developed along
+the joints within the pipes.
+3. Pipelike concretions cemented by calcium car-
+bonate on the Great Plains (Schultz 1941) have dis-
+tinct rounded terminations at both ends. At their
+proximal ends, the iron oxide–cemented rinds that
+deﬁne the pipelike concretions within the Navajo
+Sandstone terminate distinctly at joints, but dis-
+tally terminations are never distinct: rinds thin and
+become diffuse with increasing distance from the
+joint.
+4. Spheroidal concretions form when solute de-
+livery is controlled by diffusion whereas pipelike
+concretions form when solute delivery is controlled
+primarily by advection. Spherical and pipelike con-
+cretions can coexist: pipelike concretions at other
+localities comprise aggregates of numerous smaller
+spherical concretions (Mozeley and Davis 2005).
+The co-occurrence of pipelike concretions and
+spherical concretions of similar radii is, however,
+unlikely and becomes increasingly improbable as
+the ratio of these radii approaches unity. The co-
+occurrence of spheroids and pipes of similar radius
+(ﬁg. 1C) suggests that these two structures formed
+during different episodes or by different processes.
+5. The pattern revealed in transverse sections of
+coalesced pipes (shared rinds with abrupt changes
+in rind thickness) indicates a unique, decipherable
+sequence of amalgamation events (ﬁg. 7). In his
+study of the Redbank sands of New Jersey, Willcox
+(1906) showed that the variations of rind thick-
+nesses within clusters of pipelike concretions re-
+veal a sequence of events in which rinds thicken
+outward and the clusters expand radially.
+In contrast, when clusters of siderite-cemented
+
+516
+D .
+B .
+L O O P E
+E T
+A L .
+Figure 8.
+Formation of a coalesced mass of pipelike concretions. A, Degassing causes siderite cement to precipitate;
+it forms thousands of small spheroids just downﬂow of northeast-southwest-oriented joints. Uneven distribution of
+spheroids creates aquifer heterogeneities. B, Acidic anoxic water enters a sparsely cemented zone and starts to dissolve
+spheroids, generating a positive feedback that leads to elongation and radial expansion of a conduit. C, Oxygenated
+water reaches the conduit. Iron-oxidizing microbes colonize the perimeter of the conduit and start metabolizing Fe(II)
+to Fe(III), thereby initiating an iron oxide rind. D, Microbes thicken the rind and generate sufﬁcient acid to dissolve
+the siderite concretions in the anoxic water just outside the rind. E, Oxygenated water enters zone where siderite
+concretions have been removed. F, The new conduit is colonized and a new rind forms and starts to thicken. H, All
+siderite is dissolved, and all anoxic water has been ﬂushed from rock. The cluster, which expanded radially with
+rinds thickening outward, records a unique decipherable series of events (Willcox 1906).
+spheroids were oxidized, the resulting, single rind
+was restricted to the perimeter of the cluster—no
+rinds were shared, and there is no decipherable
+sequence of events (ﬁg. 1A). Coalesced, siderite-
+cemented pipes would show a pattern similar to
+the spheroids (ﬁg. 1A) if the mass was altered during
+a single oxidation event. Although we cannot com-
+pletely rule out the possibility that small isolated
+pipes with thick unornamented rinds (ﬁg. 6B) could
+be the oxidized remains of cylinders originally ce-
+mented by siderite, the overwhelming majority of
+the pipes in the Navajo Sandstone lie within coa-
+lesced clusters in which rinds are shared. These
+pipe clusters cannot be explained by a single oxi-
+dation event in which an internal source of reduced
+iron migrated outward to meet oxygen at the pe-
+rimeter of the cluster. We therefore argue that the
+origin of the pipes was fundamentally different
+from the origins of the spheroids and boxworks de-
+scribed here.
+The above observations can be explained with a
+model in which pipe morphology is generated dur-
+ing siderite dissolution, not during siderite cemen-
+tation. We hypothesize that the pipes formed dur-
+ing the progressive oxidation of large permeable
+sandstone masses that contained dispersed siderite
+cement. During the dissolution of this cement, pos-
+itive feedback between ﬂuid transport and mineral
+dissolution led to the spontaneous formation of
+nonplanar reaction fronts (Ortoleva et al. 1987). We
+envision the process as following these steps:
+1. Under anoxic conditions within eastward- and
+southeastward-moving groundwater, siderite ce-
+ment, probably in the form of close-spaced milli-
+meter-scale spheroids (ﬁg. 6C), precipitates within
+sandstone masses on the down-gradient sides of
+joints and faults via degassing of aquifer CO2 or a
+drop in aquifer pressure.
+2. With uplift of the Colorado Plateau, ﬂuid ﬂow
+becomes more vigorous, and the aquifer becomes
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+517
+increasingly oxidizing. Siderite starts to oxidize at
+up-gradient sites, releasing acid to down-gradient
+sites. Conduits (“ﬁngers” of Ortoleva et al. 1987
+and Chen and Ortoleva 1992) begin to penetrate
+the siderite-cemented sandstone masses that bor-
+der the fracture faces. Millimeter to centimeter
+scale spheroids within the developing conduits dis-
+solve completely, further enhancing ﬂow through
+the conduits (ﬁg. 8B). Splitting of the ﬁngers at their
+tips leads to increasing competition between ﬁn-
+gers and generates more pipes (ﬁg. 1C).
+3. As oxygen becomes more plentiful, it is pref-
+erentially delivered to the existing conduits, and
+iron-oxidizing microbes colonize the cylindrical pe-
+rimeters of these conduits. The microbes metabo-
+lize the Fe(II) that diffuses toward them through
+the anoxic pore water that still surrounds the con-
+duits. Using O2 within the body of the initial con-
+duit as a terminal electron acceptor, their activity
+precipitates a thin rind of iron oxide around that
+channel (ﬁg. 8C). Because the oxidation of siderite
+generates excess acid (Loope et al. 2010), dissolu-
+tion of siderite continues to liberate Fe(II) into the
+anoxic water, and siderite continues to dissolve
+from the rock immediately outside the thickening
+rind (ﬁg. 8D).
+4. Dissolution on the outer side of the initial pipe
+enhances the permeability of the surrounding rock
+to the point that up-gradient oxygenated water
+breaks through to it (ﬁg. 8E). This new conduit de-
+velops a rind of its own that connects to the initial
+rind (ﬁg. 8F).
+5. As the ﬂow of oxygenated water increases, all
+of the siderite cement within the millimeter-scale
+spheroids is dissolved, and all of the anoxic ground-
+water is ﬂushed from the aquifer (ﬁg. 8H).
+Summary and Elaboration of Conceptual Model
+The morphology of the iron oxide concretions in
+the Navajo Sandstone was largely controlled by the
+distribution and density of precursor siderite con-
+cretions in the parent rock and by the rate of ﬂuid
+ﬂow during oxidation. If the siderite concretion is
+small, isolated, and within unjointed rock, oxida-
+tion likely yields spheroidal concretions. We hy-
+pothesize that comet tails form on spheroids after
+their radial growth is complete and as they are par-
+tially dissolved by advecting acidic groundwater. If
+a large mass of sandstone was pervasively cemented
+by siderite (Mozley (1989a, 1996), a tabular box-
+work is generated on oxidation. The coalesced
+masses of pipelike concretions, on the other hand,
+reﬂect alteration of a rock mass cemented by
+millimeter-
+or
+centimeter-size
+concretions
+by
+acidic oxidized groundwater ﬂowing through the
+sandstone.
+Theoretical studies of the feedbacks between dis-
+solution and ﬂuid transport have shown that the
+rate of ﬂow determines whether “ﬁngers” or
+“wormholes” can spontaneously develop (Szym-
+czak and Ladd 2009). The coalesced pipelike con-
+cretions in the Navajo Sandstone developed via the
+dissolution of siderite cement that had been pref-
+erentially
+emplaced
+along
+northeast-southwest
+joints when the groundwater was reducing. These
+tabular masses of siderite-cemented sandstone
+were thus oriented perpendicular to the northwest-
+southeast groundwater ﬂow direction. With uplift
+of the Colorado Plateau, southeastward ﬂow be-
+came more vigorous, and the water became more
+oxygenated. The cross ﬂow or “blocking” orien-
+tation of the siderite-rich rock masses may have
+been important to the development of the ﬁnger-
+like conduits: it produced localized, steepened pres-
+sure gradients in the aquifer, causing the ﬂow to
+accelerate through available openings in the het-
+erogeneous rock.
+Karst features in limestones and evaporites have
+been attributed to the self-organizing feedbacks,
+but few analogous structures have been described
+from permeable clastic sediments. The pipelike
+structures described here provide an especially
+clear view of the history of dissolution, minerali-
+zation, and ﬂuid ﬂow within a sandstone aquifer.
+Calcite is a widespread, soluble cement of sand-
+stones, but unlike siderite, its dissolution does not
+lead to the immediate precipitation of a highly vis-
+ible mineral, and therefore it cannot record the size,
+shape, and directionality of similarly self-organized
+conduits in sandstone. We interpret the near-hori-
+zontal pipelike concretions of the Navajo Sand-
+stone, the Redbank sands of New Jersey (Willcox
+1906), and the Cretaceous to Pleistocene sands and
+sandy clays of the South Carolina coastal plain
+(Smith 1948) as records of self-organized conduits
+that
+formed
+during
+dissolution
+of
+iron-rich
+cements.
+Siderite is a common early diagenetic mineral in
+ﬂuvial and estuarine sandstones that, unlike eolian
+sandstones, commonly contain detrital organic ma-
+terial that consumes pore-water oxygen. Unlike the
+host rocks described by Todd (1903) and Taylor
+(1949), we have not found siderite in outcrops of
+the Navajo Sandstone in our study area. Chan et
+al. (2000, p. 1295) reported siderite from the Navajo
+Sandstone of eastern Utah. Siderite pseudomorphs,
+however, are present within the cores of large box-
+work chambers (ﬁg. 5). We attribute the absence or
+paucity of surviving siderite in the exposed Navajo
+
+518
+D .
+B .
+L O O P E
+E T
+A L .
+Sandstone to the formation’s high permeability and
+connectivity, and to its lack of detrital organic mat-
+ter. It is possible, however, that scattered siderite
+concretions remain in the formation, well below
+the modern water table.
+Mozley (1989b) found that siderite concretions
+from freshwater environments are relatively pure,
+with more that 90 mol% FeCO3, but commonly
+contain 2 mol% MnCO3, considerably more than
+their marine counterparts. The presence and rela-
+tively small amount of manganese in the Navajo
+concretions is consistent with our siderite-precur-
+sor model for the origin of the concretions.
+What is the relevance of the Navajo concretions
+to the Martian blueberries? The Martian blueber-
+ries are spherules with a radial, c-axis growth pat-
+tern (Glotch et al. 2006; Golden et al. 2008) rather
+than concretions with pore-ﬁlling cements and
+thus likely had an origin different than the concre-
+tions described here. The processes involved in
+making the Navajo concretions—reaction of a CO2-
+bearing groundwater with rock under reducing con-
+ditions leading to precipitation of ferrous carbon-
+ate, followed by reaction of that carbonate with
+more oxidizing waters—could, however, be repli-
+cated on any rocky planet. Evidence for the ﬁrst
+part of this process has already been reported from
+Mars (Michalski and Niles 2010; Morris et al. 2010).
+The Navajo concretions are signiﬁcant to planetary
+geology and exobiology. They are signiﬁcant not
+because they are models for the Martian blueberries
+but because they formed by processes that are part
+of typical planetary evolution.
+Conclusions
+The iron oxide–cemented rinds on spheroidal con-
+cretions, tabular boxworks, and pipelike concre-
+tions form during oxidation of siderite-cemented
+sandstone. The spheroids and boxworks are ex-
+amples of “centripetal” concretions ﬁrst described
+by Dana (1896). The pipes, on the other hand, con-
+tain centrifugal cements that faithfully record the
+ﬂow direction of groundwater during oxidation of
+permeable sandstone masses with dispersed sider-
+ite cement. Unlike spheroids and boxworks in the
+Navajo, they did not form from siderite-cemented
+precursors of similar size and shape. Dissolution
+channels (“ﬁngers”) extended into the partially ce-
+mented rock and ﬁxed the morphology of the initial
+iron oxide–cemented pipe. Continued iron oxida-
+tion, siderite dissolution, and groundwater ﬂow
+controlled the distribution of second-generation
+pipes.
+A C K N O W L E D G M E N T S
+J. Elder, J. Mason, J. Norris, S. Yik, and O. Severance
+helped with ﬁeldwork. Suggestions by B. Simonson,
+P. Mozley, and an anonymous reviewer allowed us
+to improve the original manuscript. This study was
+carried out within Grand Staircase–Escalante Na-
+tional Monument and Capitol Reef National Park
+with the cooperation of the Bureau of Land Man-
+agement (BLM) and the National Park Service (NPS)
+and the assistance of C. Shelton and A. Titus (BLM)
+and D. Worthington (NPS).
+R E F E R E N C E S
+C I T E D
+Allison, M. L., compiler. 1997. A preliminary assessment
+of energy and mineral resources within the Grand
+Staircase—Escalante National Monument. Utah Geol.
+Surv. Circ. 93, 35 p. http://geology.utah.gov/online/c/
+c-93/index.htm.
+Beitler, B.; Chan, M. A.; and Parry, W. T. 2003. Bleaching
+of Jurassic Navajo Sandstone on Colorado Plateau Lar-
+amide highs: evidence of exhumed hydrocarbon su-
+pergiants? Geology 31:1041–1044.
+Beitler, B.; Parry, W. T.; and Chan, M. A. 2005. Finger-
+prints of ﬂuid ﬂow: chemical diagenetic history of the
+Jurassic Navajo Sandstone, southern Utah, U.S.A. J.
+Sediment. Res. 75:547–561.
+Blakey, R. C.; Peterson, F.; and Kocurek, G. 1988. Syn-
+thesis of late Paleozoic and Mesozoic aeolian deposits
+of the western interior of the United States. Sediment.
+Geol. 56:3–125.
+Bryant, G., and Miall, A. 2010. Diverse products of near-
+surface sediment mobilization in an ancient eolianite:
+outcrop features of the early Jurassic Navajo Sand-
+stone. Basin Res. 22:578–590.
+Busigny, V., and Dauphas, N. 2007. Tracing paleoﬂuid
+circulations using iron isotopes: a study of hematite
+and goethite concretions from the Navajo Sandstone
+(Utah, USA). Earth Planet. Sci. Lett. 254:272–287.
+Chan, M. A.; Beitler, B.; Parry, W. T.; Ormo, J.; and Ko-
+matsu, G. 2004. A possible terrestrial analogue for
+haematite concretions on Mars. Nature 429:731–734.
+Chan, M. A.; Bowen, B. B.; and Parry, W. T. 2005. Red
+rock and red planet diagenesis: comparisons of Earth
+and Mars concretions. GSA Today 15:8, doi:10:1130/
+1052-5173(2005)015!4:RRARPD12.0.CO;2.
+Chan, M. A.; Johnson, C. M.; Beard, B. L.; Bowman, J.
+R.; and Parry, W. T. 2006. Iron isotopes constrain the
+pathways and formation mechanisms of terrestrial ox-
+ide concretions: a tool for tracing iron cycling on
+Mars? Geosphere 2:324–332.
+Chan, M. A.; Ormo, J.; Park, M.; Stich, M.; Souza-Egipsy,
+
+Journal of Geology
+C L U E S
+T O
+T H E
+O R I G I N S
+O F
+N A V A J O
+C O N C R E T I O N S
+519
+V.; and Komatsu, G. 2007. Models of iron oxide con-
+cretion formation: ﬁeld, numerical, and laboratory
+comparisons. Geoﬂuids 7:356–368.
+Chan, M. A.; Parry, W. T.; and Bowman, J. R. 2000. Dia-
+genetic hematite and manganese oxides and fault-
+related ﬂuid ﬂow in Jurassic sandstones, southeastern
+Utah. Am. Assoc. Petrol. Geol. Bull. 84:1281–1310.
+Chen, W., and Ortoleva, P. 1992. Development of com-
+plex reaction front morphologies through non-linear
+ﬂuid-rock interaction: modeling, asymptotic and nu-
+merical studies. In Fitzgibbon, W. E., and Wheeler, M.
+F., eds. Modeling and analysis of diffusive and advec-
+tive processes in geosciences. Philadelphia, SIAM, p.
+52–70.
+Curtis, C. D., and Coleman, M. L. 1986. Controls on
+the precipitation of early diagenetic calcite, dolo-
+mite, and siderite concretions in complex deposi-
+tional sequences. In Gautier, D. L., ed. Roles of or-
+ganic matter in sediment diagenesis. SEPM Spec.
+Publ. 38:23–33.
+Dana, J. D. 1896. Manual of geology (4th ed.). New York,
+American Book, 1091 p.
+Davis, G. H. 1999. Structural geology of the Colorado
+Plateau region of southern Utah. Geol. Soc. Am. Spec.
+Pap. 342, 157 p.
+Glotch, T. D.; Christensen, P. R.; and Sharp, T. G. 2006.
+Fresnel modeling of hematite crystal surfaces and ap-
+plication to Martian hematite spherules. Icarus 181:
+408–418.
+Golden, D. C.; Ming, D. W.; Morris, R. V.; and Graff, T.
+G. 2008. Hydrothermal synthesis of hematite spher-
+ules and jarosite: implications for diagenesis and he-
+matite spherule formation in sulfate outcrops at Me-
+ridiani Planum, Mars. Am. Mineral. 93:1201–1214.
+Horowitz, D. H. 1982. Geometry and origin of large-scale
+deformation structures in some ancient windblown
+sand deposits: Sedimentology 29:155–180.
+Hunter, R. E. 1977. Basic types of stratiﬁcation in small
+aeolian dunes. Sedimentology 24:362–387.
+Kettler, R. M.; Loope, D. B.; and Weber K. A. 2010. Geo-
+logical evidence of microbial dissolution of iron car-
+bonate. Geochim. Cosmochim. Acta 74:A509.
+Loope, D. B. 2006. Dry-season tracks in dinosaur-trig-
+gered grainﬂows. Palaios 21:132–142.
+Loope, D. B.; Kettler, R. M.; and Weber, K. A. 2010. Fol-
+low the water: connecting a CO2 reservoir and
+bleached sandstone to iron-rich concretions in the
+Navajo Sandstone of south-central Utah. Geology 38:
+999–1002.
+Loope, D. B.; Kettler, R. M.; Weber, K. A.; and Hinrichs,
+N. 2011. “Rattlestones” from the Dakota Formation
+of Nebraska and their relevance to iron-oxide-ce-
+mented concretions in Utah’s Navajo Sandstone. Ab-
+stract with programs, Geol. Soc. Am., Rocky Moun-
+tain Section annual meeting (Logan, UT, May 18,
+2011).
+Loope, D. B., and Rowe, C. M. 2003. Long-lived pluvial
+episodes during deposition of the Navajo Sandstone.
+J. Geol. 111:223–232.
+McBride, E. F.; Milliken, K. L.; Cavazza, W.; Cibin, U.;
+Fontana, D.; Picard, M. D.; and Zuffa, G. G. 1995.
+Heterogeneous distribution of calcite cement at the
+outcrop scale in Tertiary sandstones, northern Ap-
+ennines, Italy. Am. Assoc. Petrol. Geol. Bull. 79:1044–
+1063.
+Michalski, J. R., and Niles, P. B. 2010. Deep crustal car-
+bonate rocks exposed by meteor impact on Mars. Nat.
+Geosci. 3:751–755.
+Morris, R. V.; Ruff, S. W.; Gellert, R.; Ming, D. W.; Ar-
+vidson, R. E.; Clark, B. C.; Golden, D. C.; et al. 2010.
+Identiﬁcation of carbonate-rich outcrops on Mars by
+the Spirit Rover. Science 329:421–424.
+Mozley, P. S. 1989a. Complex compositional zonation in
+concretionary siderite: implications for geochemical
+studies. J. Sediment. Petrol. 59:815–818.
+———. 1989b. Relation between depositional environ-
+ment and the elemental composition of early diage-
+netic siderite. Geology 17:704–706.
+———. 1996. The internal structure of carbonate con-
+cretions: a critical evaluation of the concentric model
+of concretion growth. Sediment. Geol. 103:85–91.
+Mozley, P. S., and Davis, J. M. 1996. Relationship be-
+tween oriented calcite concretions and permeability
+correlation structure in an alluvial aquifer, Sierra Lad-
+rones Formation, New Mexico. J. Sediment. Res. 66:
+11–16.
+———. 2005. Internal structure and mode of growth of
+elongate calcite concretions: evidence for small-scale
+microbially
+induced,
+chemical
+heterogeneity
+in
+groundwater. Geol. Soc. Am. Bull. 117:1400–1412.
+Ortoleva, P.; Chadam, J.; Merino, E.; and Sen, A. 1987.
+Geochemical self-organization II: the reactive-inﬁltra-
+tion instability. Am. J. Sci. 287:1008–1040.
+Parry, W. T. 2011. Composition, nucleation, and growth
+of iron oxide concretions. Sed. Geol. 233:53–68.
+Potter, S. L.; Chan, M. A.; and Petersen, E. U. 2008. Min-
+eralogical characterization of Navajo Sandstone iron
+oxide concretions using QUEMSCAN and reﬂectance
+spectroscopy: analog for Martian diagenetic processes.
+Proceedings of the 39th Lunar and Planetary Science
+Conference, abstract 1230.
+Potter, S. L.; Chan, M. A.; Petersen, E. U.; Dyar, M. D.;
+and Skulte, E. 2011. Characterization of Navajo Sand-
+stone concretions: Mars comparison and criteria for
+distinguishing diagenetic origins. Earth Planet. Sci.
+Lett. 301:444–456.
+Sanderson, I. D. 1974. Sedimentary structures and their
+environmental signiﬁcance in the Navajo Sandstone,
+San Rafael Swell, Utah. Brigham Young Univ. Geol.
+Stud. 21:215–246.
+Schultz, C. B. 1941. The pipy concretions of the Arikaree.
+Univ. Nebraska State Mus. Bull. 2:69–82.
+Smith, L. L. 1948. Hollow ferruginous concretions in
+South Carolina. J. Geol. 56:218–225.
+Szymczak, P., and Ladd, A. J. C. 2009. Wormhole for-
+
+520
+D .
+B .
+L O O P E
+E T
+A L .
+mation in dissolving fractures. J. Geophys. Res. 114:
+BO6203, doi:10.1029/2008JB006122.
+Taylor, J. H. 1949. Petrology of the Northampton sand
+ironstone formation. Geol. Surv. G. B. Mem., 111 p.
+Todd, J. E. 1903. Concretions and their geological effects.
+Geol. Soc. Am. Bull.14:353–368.
+van der Burg, W. J. 1969. The formation of rattle stones
+and the climatological factors which limited their dis-
+tribution in the Dutch Pleistocene. 1. The formation
+of rattle stones. Palaeogeogr. Palaeoclimatol. Palaeo-
+ecol. 6:105–124.
+———. 1970. The formation of rattle stones and the cli-
+matological factors which limited their distribution
+in the Dutch Pleistocene. 2. The climatological fac-
+tors. Palaeogeogr. Palaeoclimatol. Palaeoecol. 7:297–
+308.
+Weber, K. A.; Spanbauer, T. L.; Kettler, R. M.; Loope, D.
+B.; Wacey, D.; and Kilburn, M. 2010. Biosignatures
+within iron-rich concretions originating in a sand-
+stone paleoaquifer: evidence of microbial oxidative
+dissolution of Fe(II)-carbonates. Geochim. Cosmo-
+chim. Acta 74:A1121.
+Willcox, O. W. 1906. The iron concretions of the Redbank
+sands. J. Geol. 14:243–252.

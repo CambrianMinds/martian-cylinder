@@ -1,0 +1,82 @@
+[
+  {
+    "id": "surface-2",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/",
+    "path": "sources/surface-2.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 35216,
+    "sha256": "f9cd7d770f33d8d88e78ff7607f94634e8a117886646d4495bba1d085f095593"
+  },
+  {
+    "id": "surface-4",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0004/DATA/RDR/SURFACE/",
+    "path": "sources/surface-4.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0004/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 30328,
+    "sha256": "8575cb78b76cb62b9ab9dcb1ce5a9c348276ae3e64fa46fb0267d6194ffd12ae"
+  },
+  {
+    "id": "surface-6",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0006/DATA/RDR/SURFACE/",
+    "path": "sources/surface-6.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0006/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 63017,
+    "sha256": "d28194c55c7467f306c2723482d1c17f461d12e4a4fa4c64172305f42bc58b7a"
+  },
+  {
+    "id": "surface-8",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0008/DATA/RDR/SURFACE/",
+    "path": "sources/surface-8.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0008/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 39188,
+    "sha256": "f0783266bed16f9976c98e7accb028b79ca3a9d5287a10ab6cd3ceb71bdae774"
+  },
+  {
+    "id": "surface-10",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0010/DATA/RDR/SURFACE/",
+    "path": "sources/surface-10.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0010/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 39799,
+    "sha256": "6d6fffbfcaccb71225f4c43964b574152df80fab3ae3cbccbf003b1d80b32b27"
+  },
+  {
+    "id": "surface-12",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0012/DATA/RDR/SURFACE/",
+    "path": "sources/surface-12.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0012/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 49269,
+    "sha256": "067d1289ffb3e5b08d2623f51718dc340890ca5db7610ca35369aab22f9084c8"
+  },
+  {
+    "id": "surface-14",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0014/DATA/RDR/SURFACE/",
+    "path": "sources/surface-14.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0014/DATA/RDR/SURFACE/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 45298,
+    "sha256": "1c3faf5615675fa5c34f007ae76dc01ca03724699a92f594b03e6e28c7da306a"
+  },
+  {
+    "id": "navdata",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/",
+    "path": "sources/navdata.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/",
+    "content_type": "text/html",
+    "status": "downloaded",
+    "bytes": 965060,
+    "sha256": "e583277b52088a9bd0f75fcac6a610fc8a410392aff18b9abd233870867dc7e7"
+  }
+]

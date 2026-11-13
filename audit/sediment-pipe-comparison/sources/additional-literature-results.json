@@ -1,0 +1,22 @@
+[
+  {
+    "id": "loope2011",
+    "url": "https://eas2.unl.edu/~dloope/pdf/MorphologicClues2011.pdf",
+    "path": "sources/loope2011.pdf",
+    "resolved_url": "https://eas2.unl.edu/~dloope/pdf/MorphologicClues2011.pdf",
+    "content_type": "application/pdf",
+    "status": "downloaded",
+    "bytes": 19629910,
+    "sha256": "06df3e9ca19d602f08f59d5a1197789269d88eca511f652885d484ca00c60731"
+  },
+  {
+    "id": "hunter1992",
+    "url": "https://pubs.usgs.gov/bul/1808l/report.pdf",
+    "path": "sources/hunter1992.pdf",
+    "resolved_url": "https://pubs.usgs.gov/bul/1808l/report.pdf",
+    "content_type": "application/pdf",
+    "status": "downloaded",
+    "bytes": 7699357,
+    "sha256": "11308a5c6952957322847d6463a21c77e1575e85fa52e75807f50a903b9cfcc6"
+  }
+]

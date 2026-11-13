@@ -1,0 +1,20 @@
+{
+  "verified_manifest_entries": [
+    "0173ML0009261020105119E01_DRXX",
+    "0173MR0009261020201910E01_DRXX",
+    "0528MR0020830010303294E01_DRXX",
+    "0529MR0020930010303343E01_DRXX",
+    "1051ML0046250040306086E01_DRXX",
+    "NLB_445615810EDR_F0261274NCAM00353M1",
+    "NLB_445620806EDR_F0261274NCAM00354M1",
+    "NRB_445615810EDR_F0261274NCAM00353M1",
+    "NRB_445620806EDR_F0261274NCAM00354M1",
+    "rubin-4a",
+    "rubin-4b",
+    "paria-5b",
+    "paria-5c",
+    "loope-6b",
+    "hunter-12"
+  ],
+  "all_image_and_label_checksums_match": true
+}

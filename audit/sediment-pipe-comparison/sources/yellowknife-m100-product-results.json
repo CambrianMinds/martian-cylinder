@@ -1,0 +1,12 @@
+[
+  {
+    "id": "0173MR0009261020201910E01_DRXX",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261020201910E01_DRXX.IMG",
+    "path": "sources/images/0173MR0009261020201910E01_DRXX.IMG",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173MR0009261020201910E01_DRXX.IMG",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 10137600,
+    "sha256": "688a2771f54a404bdd307ee4666c86cfa85a063a2438f2e027668e188c2ea101"
+  }
+]

@@ -1,0 +1,54 @@
+GSA Data Repository 2017002 
+Fluidized‐sediment pipes in Gale crater, Mars, and possible Earth analogs 
+Rubin et al. 
+ 
+Supplemental Materials 
+ 
+Figure DR1 provides scale of images and pixel sizes in those images. 
+ 
+
+ 
+Figure DR1. Supplementary information on grain size of features presented in Figures 2-
+3 in the main text. Each row in the present figure highlights a specific feature with the 
+full-frame image (Mastcam-100 or Navcam) to the left and magnified images of that 
+feature to the right. The lower-most row is organized in a slightly different way, as it 
+highlights both a Navcam and a Mastcam feature. In each image we specify the width of 
+that image at the location of the highlighted feature and, in parenthesis, the spatial 
+resolution [mm/pixel] of that image (as acquired on Mars). As a general rule, features 
+must extend a minimum of 2-3 pixels in order to be recognizable by the human eye. 
+Hence, these images together with their pixel scale provide an upper bound to the size of 
+grains that make up the corresponding sedimentary feature.  
+A-C: Circular feature observed on sol 172 (compare Fig. 2B). Interior and rim of that 
+feature have a knobby texture (C), with mm-sized knobs imbedded in (or bound to the 
+surface of) a fine-grained bulk rock. The latter is composed of non-resolved grains and 
+might be similar to the Sheepbed mudstone. Since the feature is located right at the 
+contact between Sheepbed and Gillespie member (Grotzinger et al., 2014) it might 
+actually combine properties of the Sheepbed mudstone with those of the overlying 
+Gillespie sandstone (image ID: 0173ML0009261020105119E01).  
+D-E: Circular feature informally called ‘Tappers’ near the Dingo Gap dune (compare 
+Figs. 3B-C; see also Wiens et al., 2015). (D) Mastcam-100 image of Tappers (image ID: 
+sol 529, 0529MR0020930010303343C00), and (E) shows the highest-resolution image 
+that has been acquired of that feature (Remote Microscopic Imager, image ID: sol 530, 
+CR0_444541206PRC_F0260184CCAM03530L1). The inner wall of Tappers displays 
+knobs (0.5 to 1 mm) and highly irregular voids (1 to 6 mm); both textural features are 
+
+associated with a fine-grained matrix whose grains cannot be resolved. 
+F-H: Unnamed deformational structures (compare Fig. 3E) with elongated (several cm 
+long, several mm wide) flow-like features (image ID: sol 533, 
+0533MR0021110030303401E01). 
+I-J: Cylinder with internal concentric or eccentric layering (compare Fig. 3F) (image ID: 
+sol 542, NRB_445615810EDR_F0261274NCAM00353M_). 
+K-L: Circular structures named ‘Hewolf’ (compare Fig. 3F). The image, acquired at a 
+spatial resolution of ~0.6 mm/pixel, shows a visually homogeneous rock with no 
+imbedded clasts and with a perfectly even surface. Hence the grains making up that 
+sediment are most likely very much smaller than 1 mm (image ID: 
+1051ML0046250040306086E01). 
+Credit: NASA/JPL‐Caltech/MSSS. 
+ 
+Reference 
+Wiens R.C., Maurice S., Gasnault O., Clegg S., Fabre C., Nachon M., Rubin D., Goetz 
+W., Mangold N., Schroeder S., Rapin W., Milliken R., Fairen A.G., Oehler D., Forni 
+O., Sautter V., Blaney D., Le Mouelic S., Anderson R.B., Cousin A., Vasavada A., and 
+Grotzinger. J.P., 2015, Centimeter to decimeter size spherical and cylindrical features 
+in Gale crater sediments: Houston, Texas, Lunar and Planetary Institute, Lunar and 
+Planetary Science XLVI, abstract 1249. 
