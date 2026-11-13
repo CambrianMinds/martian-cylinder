@@ -32,3 +32,11 @@ The GSA supplement is now located at Figshare article 12534422, file 23302604. O
 Two single-ring foreground arcs are selected visually in `boundary-inventory/control-selections.json` before their fits. Each uses 35 radial profiles at fixed angles. Every station and extraction-method failure is retained. No exclusion is based on ellipse residual. Methods are signed Gaussian-derivative maxima with parabolic localization and local error-function transitions. Seeds and scan windows are analyst-defined and are disclosed. Repeat with seed radius factors 0.9, 1.0, 1.1 and repeat at an effective 40-pixel diameter after antialiasing with a specified 0.7-pixel output blur. Partial-rim results will not be reported as a full N+R+D comparison.
 
 The 3D segment uses six geometric parameters at a fixed range of 3.957 m. Explore both depth signs. The burial-plane fit uses three additional parameters constrained by the existing ventral contact stations. Report its separate residual, ray-intersection failures and visibility checks. The process history is an interpreted physical scenario, with no hydrodynamic formation-frequency calculation.
+
+### Later sensitivity and additional-view record
+
+The first original-image fits exposed a practical normalization issue. A freely fitted ellipse on a short Yellowknife arc has a poorly identified concealed diameter. Both fitted-diameter normalization and normalization by the preselected visible object-width reference are therefore retained. The latter is the primary comparison column. No points or fit outcomes were dropped.
+
+The M100 Yellowknife view is now camera-localized and visually confirmed as 0173MR0009261020201910E01_DRXX. Its single foreground rim is added as another view of the same object. The selection is saved before fitting this view.
+
+After the initial infinite-plane burial rendering concealed the measured upper boundary, four depth/intersection combinations were retained. A finite foreground-bank illustration was added as a post hoc exploratory extension with two fitted edge parameters and an assumed 3.90 m depth. This extension was not prespecified in the first protocol. It is not counted as an independent predictive success. It uses the metadata Sun direction and illustrative diffuse reflectance, with no fitted albedo or cast-shadow simulation.
