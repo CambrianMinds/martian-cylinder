@@ -40,3 +40,7 @@ The first original-image fits exposed a practical normalization issue. A freely 
 The M100 Yellowknife view is now camera-localized and visually confirmed as 0173MR0009261020201910E01_DRXX. Its single foreground rim is added as another view of the same object. The selection is saved before fitting this view.
 
 After the initial infinite-plane burial rendering concealed the measured upper boundary, four depth/intersection combinations were retained. A finite foreground-bank illustration was added as a post hoc exploratory extension with two fitted edge parameters and an assumed 3.90 m depth. This extension was not prespecified in the first protocol. It is not counted as an independent predictive success. It uses the metadata Sun direction and illustrative diffuse reflectance, with no fitted albedo or cast-shadow simulation.
+
+### Physically tangent frustum extension, before fitting it to observed points
+
+Synthetic taper sensitivity motivates a separate seven-parameter 3D frustum check. Append a rear/front radius ratio bounded from 0.3 to 1.6 to the six physical segment parameters. Derive the side tangent from the surface normal and camera viewing ray. Fit actual retained coordinates and repeat the same five guarded folds and three starting bearings. The test uses no independently movable dorsal offset. This extension is an exploratory, physically distinct construction from the rejected image-plane M4. All outcomes and bounds will be retained.
