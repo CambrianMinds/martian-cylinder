@@ -1,0 +1,14 @@
+{
+  "parent_head": "623ed7758098affc68515852024cddc0702f0178",
+  "source_hashes": {
+    "papers/martian-cylinder-technical-paper.tex": "899a3cf559d2b69dba9ede40486e70b3caefe34e5186ee6e536af87cf4273b6f",
+    "papers/martian-cylinder-technical-paper.pdf": "c1304e151b9d0bf7b6ce6cc86f57eda6d12e9fffe400cf94439008ad37b1a1b9",
+    "audit/predictive-validation/run_validation.py": "812ee723153ddc7db95e845771de6e4d98d6776ccfdc75c6e9f4681c2bc45699",
+    "audit/predictive-validation/results.json": "f3c0edf59268e9a0fde3b6893f3744c0f54f0049b07111fac03bd89aee5e3f49",
+    "independent-reconstruction/step3_features.json": "9c18d18e9eb103a9ea1de532c85ee7ad5acacf8f112287e051731e119998892d",
+    "independent-reconstruction/step8_pebble_and_rear_terminus.json": "38a1845a698975fb638dbf55c4978249cf7dd14778fb4364700f35ebe7c86560",
+    "independent-reconstruction/step9_joint_model.json": "791bcbf5a6320740956609b0dc1966b7d2b087852ddac32fee3303e652d04b18",
+    "independent-reconstruction/step2_camera_geometry.py": "cda8981acab54ebf3ddd0f7f6bb3131f39db6fbbbf196c70590ecc5d4fa551c5",
+    "sediment-pipe-comparison-research-package.zip": "94c7c519d7f1f376b6078792f519dd662eef917d39eb25995f6aaff5eb813a66"
+  }
+}
