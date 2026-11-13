@@ -24,3 +24,11 @@ Frozen before new fits and simulations on 13 November 2026. Branch `audit/sedime
 ## Amendments
 
 Any changes required by archive availability or unsuitable geometry will be dated here before the affected fitting. All acquired candidates and all failures remain in acquisition and screening inventories.
+
+### Archive and selection amendment, before control fitting
+
+The GSA supplement is now located at Figshare article 12534422, file 23302604. Original images have been obtained for all four Mars locations, including supplementary sol 529 Tappers and sol 542 stereo/context views. The supplement's Yellowknife product is Mastcam Left, despite right-camera wording in the main table. Its sol 529 C00 hint resolves to an E01 archived radiometric version of the same acquisition. Exact records and failed alternatives are retained.
+
+Two single-ring foreground arcs are selected visually in `boundary-inventory/control-selections.json` before their fits. Each uses 35 radial profiles at fixed angles. Every station and extraction-method failure is retained. No exclusion is based on ellipse residual. Methods are signed Gaussian-derivative maxima with parabolic localization and local error-function transitions. Seeds and scan windows are analyst-defined and are disclosed. Repeat with seed radius factors 0.9, 1.0, 1.1 and repeat at an effective 40-pixel diameter after antialiasing with a specified 0.7-pixel output blur. Partial-rim results will not be reported as a full N+R+D comparison.
+
+The 3D segment uses six geometric parameters at a fixed range of 3.957 m. Explore both depth signs. The burial-plane fit uses three additional parameters constrained by the existing ventral contact stations. Report its separate residual, ray-intersection failures and visibility checks. The process history is an interpreted physical scenario, with no hydrodynamic formation-frequency calculation.

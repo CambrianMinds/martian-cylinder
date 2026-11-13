@@ -1,0 +1,48 @@
+[
+  {
+    "case_id": "yellowknife-rim",
+    "product": "0173ML0009261020105119E01_DRXX",
+    "center_xy": [
+      531,
+      170
+    ],
+    "radii_xy": [
+      44,
+      23
+    ],
+    "angles_deg": [
+      15,
+      165
+    ],
+    "stations": 35,
+    "polarity": -1,
+    "search_half_width_px": 5,
+    "feature": "N",
+    "meaning": "Outer material/relief boundary on the exposed foreground arc of the single ring. Opposite axial termination and generator are concealed by bedrock.",
+    "selection": "One visual analyst pass before fitting. No fit residuals viewed.",
+    "eligibility": "Eligible for partial geometric comparison"
+  },
+  {
+    "case_id": "hewolf-large-rim",
+    "product": "1051ML0046250040306086E01_DRXX",
+    "center_xy": [
+      886,
+      550
+    ],
+    "radii_xy": [
+      280,
+      240
+    ],
+    "angles_deg": [
+      10,
+      150
+    ],
+    "stations": 35,
+    "polarity": -1,
+    "search_half_width_px": 16,
+    "feature": "N",
+    "meaning": "Exposed foreground outer arc of the larger ring. The smaller ring is another object. Fragmented contacts and talus can confuse individual stations.",
+    "selection": "One visual analyst pass before fitting. No fit residuals viewed.",
+    "eligibility": "Eligible for partial geometric comparison"
+  }
+]
