@@ -1,0 +1,126 @@
+{
+  "selection": "Deliberate morphological challenge set; not random controls",
+  "display": "2x2 bin, independently resized into equal display boxes; not equal physical scale",
+  "features": [
+    {
+      "id": "candidate",
+      "scene": "sol3556_585",
+      "bbox": [
+        1025,
+        935,
+        1098,
+        1013
+      ],
+      "label": "Sol 3556 candidate",
+      "note": "Reference; apparent rim + straight upper body + partial rear arc"
+    },
+    {
+      "id": "winnipesaukee_shell",
+      "scene": "winnipesaukee",
+      "bbox": [
+        817,
+        583,
+        1035,
+        779
+      ],
+      "label": "Winnipesaukee hollow shell",
+      "note": "Published geological shell analogue; not a verified straight cylinder"
+    },
+    {
+      "id": "point_lake_shell",
+      "scene": "point_lake",
+      "bbox": [
+        265,
+        1010,
+        395,
+        1165
+      ],
+      "label": "Point Lake detached shell",
+      "note": "Hollow/rim-like natural feature near the outcrop; irregular wall"
+    },
+    {
+      "id": "haroldswick_stick",
+      "scene": "haroldswick",
+      "bbox": [
+        726,
+        156,
+        834,
+        270
+      ],
+      "label": "Haroldswick rice-size stick",
+      "note": "Elongate resistant feature; NASA considers vein-remnant origin possible"
+    },
+    {
+      "id": "haroldswick_cluster",
+      "scene": "haroldswick",
+      "bbox": [
+        735,
+        70,
+        975,
+        385
+      ],
+      "label": "Haroldswick stick cluster",
+      "note": "Context reveals connected/angular forms, not isolated machined rods"
+    },
+    {
+      "id": "rounded_block",
+      "scene": "sol3415_182",
+      "bbox": [
+        335,
+        10,
+        690,
+        345
+      ],
+      "label": "Sol 3415 rounded block",
+      "note": "Rounded corners, flat face, granular/pitted surface; lithology not inferred here"
+    },
+    {
+      "id": "naukluft_nodule",
+      "scene": "naukluft",
+      "bbox": [
+        435,
+        315,
+        695,
+        545
+      ],
+      "label": "Naukluft sandstone nodule",
+      "note": "NASA identifies an approximately 2 cm sandstone nodule with visible grains/lamination"
+    },
+    {
+      "id": "shaler_pipe_remnant",
+      "scene": "shaler_pipe",
+      "bbox": [
+        725,
+        590,
+        1245,
+        1040
+      ],
+      "label": "Shaler possible pipe remnant",
+      "note": "Published alternative: hollow spheroid or sedimentary-pipe remnant; vuggy walls"
+    },
+    {
+      "id": "blackthorn_branch",
+      "scene": "blackthorn",
+      "bbox": [
+        440,
+        440,
+        1000,
+        905
+      ],
+      "label": "Blackthorn Salt",
+      "note": "Complex erosion-resistant form; mechanism analogue, not cylinder match"
+    },
+    {
+      "id": "garden_veins",
+      "scene": "garden_city",
+      "bbox": [
+        300,
+        70,
+        980,
+        610
+      ],
+      "label": "Garden City resistant veins",
+      "note": "Thin linear mineral structures survive loss of softer host rock"
+    }
+  ]
+}

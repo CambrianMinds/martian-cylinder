@@ -1,0 +1,413 @@
+{
+  "sigma0.7_span36.4": {
+    "target_selection": "Minimum mean distance to pre-existing erf stations, not minimum RMS",
+    "target_selected": {
+      "scene": "sol3556_585",
+      "level_dn": 152,
+      "contour": 3983,
+      "start_arc_px": 54.599999999999994,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1056.6353777744193,
+      "y": 956.4057474575891,
+      "median_gradient_dn_px": 10.108310484694801,
+      "rms_px": 0.3029003315547778,
+      "angle_deg": 29.48280651362117,
+      "jpeg_grid_flag": false,
+      "reference_distance_px": 0.6011672312826952
+    },
+    "n_control_windows": 226426,
+    "n_at_or_below_target": 835,
+    "fraction_at_or_below_target": 0.0036877390405695458,
+    "contrast_matched_n": 148839,
+    "contrast_matched_at_or_below": 694,
+    "n_spatial_cells": 6374,
+    "n_cells_with_at_least_one_matching_edge": 391,
+    "per_scene": [
+      {
+        "scene": "sol3556_585",
+        "n_windows": 20192,
+        "count_at_or_below_target": 48,
+        "fraction_at_or_below_target": 0.002377179080824089
+      },
+      {
+        "scene": "sol3556_584",
+        "n_windows": 17845,
+        "count_at_or_below_target": 80,
+        "fraction_at_or_below_target": 0.004483048472961614
+      },
+      {
+        "scene": "sol3556_586",
+        "n_windows": 21557,
+        "count_at_or_below_target": 120,
+        "fraction_at_or_below_target": 0.005566637287192096
+      },
+      {
+        "scene": "sol3415_182",
+        "n_windows": 8393,
+        "count_at_or_below_target": 19,
+        "fraction_at_or_below_target": 0.002263791254616943
+      },
+      {
+        "scene": "sol3415_181",
+        "n_windows": 24116,
+        "count_at_or_below_target": 145,
+        "fraction_at_or_below_target": 0.006012605738928512
+      },
+      {
+        "scene": "sol1850_4976",
+        "n_windows": 14425,
+        "count_at_or_below_target": 187,
+        "fraction_at_or_below_target": 0.012963604852686309
+      },
+      {
+        "scene": "sol0753_3753",
+        "n_windows": 2974,
+        "count_at_or_below_target": 1,
+        "fraction_at_or_below_target": 0.0003362474781439139
+      },
+      {
+        "scene": "sol0840_885",
+        "n_windows": 13455,
+        "count_at_or_below_target": 14,
+        "fraction_at_or_below_target": 0.0010405053883314752
+      },
+      {
+        "scene": "point_lake",
+        "n_windows": 10752,
+        "count_at_or_below_target": 30,
+        "fraction_at_or_below_target": 0.0027901785714285715
+      },
+      {
+        "scene": "point_lake_305a",
+        "n_windows": 8789,
+        "count_at_or_below_target": 8,
+        "fraction_at_or_below_target": 0.0009102286949596086
+      },
+      {
+        "scene": "point_lake_305b",
+        "n_windows": 13564,
+        "count_at_or_below_target": 5,
+        "fraction_at_or_below_target": 0.00036862282512533176
+      },
+      {
+        "scene": "twin_cairns",
+        "n_windows": 5090,
+        "count_at_or_below_target": 4,
+        "fraction_at_or_below_target": 0.0007858546168958742
+      },
+      {
+        "scene": "twin_cairns_b",
+        "n_windows": 4749,
+        "count_at_or_below_target": 0,
+        "fraction_at_or_below_target": 0.0
+      },
+      {
+        "scene": "winnipesaukee",
+        "n_windows": 10415,
+        "count_at_or_below_target": 1,
+        "fraction_at_or_below_target": 9.601536245799327e-05
+      },
+      {
+        "scene": "shaler_306",
+        "n_windows": 14511,
+        "count_at_or_below_target": 74,
+        "fraction_at_or_below_target": 0.005099579629246779
+      },
+      {
+        "scene": "shaler_pipe",
+        "n_windows": 5320,
+        "count_at_or_below_target": 7,
+        "fraction_at_or_below_target": 0.0013157894736842105
+      },
+      {
+        "scene": "shaler_pits",
+        "n_windows": 11763,
+        "count_at_or_below_target": 62,
+        "fraction_at_or_below_target": 0.0052707642608178186
+      },
+      {
+        "scene": "snake",
+        "n_windows": 18516,
+        "count_at_or_below_target": 30,
+        "fraction_at_or_below_target": 0.0016202203499675956
+      }
+    ]
+  },
+  "sigma1.2_span36.4": {
+    "target_selection": "Minimum mean distance to pre-existing erf stations, not minimum RMS",
+    "target_selected": {
+      "scene": "sol3556_585",
+      "level_dn": 152,
+      "contour": 1669,
+      "start_arc_px": 54.599999999999994,
+      "span_px": 36.4,
+      "sigma_px": 1.2,
+      "x": 1057.765066548226,
+      "y": 957.4844061204348,
+      "median_gradient_dn_px": 8.729294840136754,
+      "rms_px": 0.6322595791085577,
+      "angle_deg": 30.603480846574417,
+      "jpeg_grid_flag": false,
+      "reference_distance_px": 1.0450502059371733
+    },
+    "n_control_windows": 175055,
+    "n_at_or_below_target": 7316,
+    "fraction_at_or_below_target": 0.041792579475022136,
+    "contrast_matched_n": 117085,
+    "contrast_matched_at_or_below": 6080,
+    "n_spatial_cells": 6277,
+    "n_cells_with_at_least_one_matching_edge": 2217,
+    "per_scene": [
+      {
+        "scene": "sol3556_585",
+        "n_windows": 15854,
+        "count_at_or_below_target": 698,
+        "fraction_at_or_below_target": 0.044026744039359154
+      },
+      {
+        "scene": "sol3556_584",
+        "n_windows": 13752,
+        "count_at_or_below_target": 547,
+        "fraction_at_or_below_target": 0.0397760325770797
+      },
+      {
+        "scene": "sol3556_586",
+        "n_windows": 17181,
+        "count_at_or_below_target": 1012,
+        "fraction_at_or_below_target": 0.058902275769745646
+      },
+      {
+        "scene": "sol3415_182",
+        "n_windows": 6196,
+        "count_at_or_below_target": 291,
+        "fraction_at_or_below_target": 0.04696578437701743
+      },
+      {
+        "scene": "sol3415_181",
+        "n_windows": 19606,
+        "count_at_or_below_target": 914,
+        "fraction_at_or_below_target": 0.04661838212792002
+      },
+      {
+        "scene": "sol1850_4976",
+        "n_windows": 11312,
+        "count_at_or_below_target": 1099,
+        "fraction_at_or_below_target": 0.09715346534653466
+      },
+      {
+        "scene": "sol0753_3753",
+        "n_windows": 2240,
+        "count_at_or_below_target": 67,
+        "fraction_at_or_below_target": 0.029910714285714287
+      },
+      {
+        "scene": "sol0840_885",
+        "n_windows": 10162,
+        "count_at_or_below_target": 191,
+        "fraction_at_or_below_target": 0.018795512694351507
+      },
+      {
+        "scene": "point_lake",
+        "n_windows": 8297,
+        "count_at_or_below_target": 347,
+        "fraction_at_or_below_target": 0.04182234542605761
+      },
+      {
+        "scene": "point_lake_305a",
+        "n_windows": 6646,
+        "count_at_or_below_target": 232,
+        "fraction_at_or_below_target": 0.03490821546795065
+      },
+      {
+        "scene": "point_lake_305b",
+        "n_windows": 11011,
+        "count_at_or_below_target": 167,
+        "fraction_at_or_below_target": 0.015166651530287893
+      },
+      {
+        "scene": "twin_cairns",
+        "n_windows": 3504,
+        "count_at_or_below_target": 45,
+        "fraction_at_or_below_target": 0.012842465753424657
+      },
+      {
+        "scene": "twin_cairns_b",
+        "n_windows": 3538,
+        "count_at_or_below_target": 26,
+        "fraction_at_or_below_target": 0.007348784624081402
+      },
+      {
+        "scene": "winnipesaukee",
+        "n_windows": 7723,
+        "count_at_or_below_target": 68,
+        "fraction_at_or_below_target": 0.008804868574388192
+      },
+      {
+        "scene": "shaler_306",
+        "n_windows": 11378,
+        "count_at_or_below_target": 622,
+        "fraction_at_or_below_target": 0.05466690103708912
+      },
+      {
+        "scene": "shaler_pipe",
+        "n_windows": 3815,
+        "count_at_or_below_target": 146,
+        "fraction_at_or_below_target": 0.038269986893840105
+      },
+      {
+        "scene": "shaler_pits",
+        "n_windows": 8964,
+        "count_at_or_below_target": 558,
+        "fraction_at_or_below_target": 0.06224899598393574
+      },
+      {
+        "scene": "snake",
+        "n_windows": 13876,
+        "count_at_or_below_target": 286,
+        "fraction_at_or_below_target": 0.020611127125972902
+      }
+    ]
+  },
+  "sigma0.7_span24.0": {
+    "target_selection": "Minimum mean distance to pre-existing erf stations, not minimum RMS",
+    "target_selected": {
+      "scene": "sol3556_585",
+      "level_dn": 152,
+      "contour": 3983,
+      "start_arc_px": 60.0,
+      "span_px": 24.0,
+      "sigma_px": 0.7,
+      "x": 1055.9261148554506,
+      "y": 956.1473514450691,
+      "median_gradient_dn_px": 10.835787683351048,
+      "rms_px": 0.1513194131523486,
+      "angle_deg": 28.68531642406865,
+      "jpeg_grid_flag": false,
+      "reference_distance_px": 0.5318581361231127
+    },
+    "n_control_windows": 372900,
+    "n_at_or_below_target": 657,
+    "fraction_at_or_below_target": 0.0017618664521319388,
+    "contrast_matched_n": 229824,
+    "contrast_matched_at_or_below": 570,
+    "n_spatial_cells": 6420,
+    "n_cells_with_at_least_one_matching_edge": 320,
+    "per_scene": [
+      {
+        "scene": "sol3556_585",
+        "n_windows": 33467,
+        "count_at_or_below_target": 46,
+        "fraction_at_or_below_target": 0.0013744883019093435
+      },
+      {
+        "scene": "sol3556_584",
+        "n_windows": 29948,
+        "count_at_or_below_target": 57,
+        "fraction_at_or_below_target": 0.0019032990516895953
+      },
+      {
+        "scene": "sol3556_586",
+        "n_windows": 35616,
+        "count_at_or_below_target": 79,
+        "fraction_at_or_below_target": 0.002218104222821204
+      },
+      {
+        "scene": "sol3415_182",
+        "n_windows": 13651,
+        "count_at_or_below_target": 5,
+        "fraction_at_or_below_target": 0.00036627353307450004
+      },
+      {
+        "scene": "sol3415_181",
+        "n_windows": 40017,
+        "count_at_or_below_target": 184,
+        "fraction_at_or_below_target": 0.004598045830522028
+      },
+      {
+        "scene": "sol1850_4976",
+        "n_windows": 23292,
+        "count_at_or_below_target": 137,
+        "fraction_at_or_below_target": 0.005881847844753563
+      },
+      {
+        "scene": "sol0753_3753",
+        "n_windows": 4906,
+        "count_at_or_below_target": 0,
+        "fraction_at_or_below_target": 0.0
+      },
+      {
+        "scene": "sol0840_885",
+        "n_windows": 21733,
+        "count_at_or_below_target": 1,
+        "fraction_at_or_below_target": 4.601297565913588e-05
+      },
+      {
+        "scene": "point_lake",
+        "n_windows": 17583,
+        "count_at_or_below_target": 20,
+        "fraction_at_or_below_target": 0.0011374623215605984
+      },
+      {
+        "scene": "point_lake_305a",
+        "n_windows": 14077,
+        "count_at_or_below_target": 7,
+        "fraction_at_or_below_target": 0.0004972650422675286
+      },
+      {
+        "scene": "point_lake_305b",
+        "n_windows": 21917,
+        "count_at_or_below_target": 4,
+        "fraction_at_or_below_target": 0.00018250672993566638
+      },
+      {
+        "scene": "twin_cairns",
+        "n_windows": 8599,
+        "count_at_or_below_target": 2,
+        "fraction_at_or_below_target": 0.00023258518432375856
+      },
+      {
+        "scene": "twin_cairns_b",
+        "n_windows": 8135,
+        "count_at_or_below_target": 2,
+        "fraction_at_or_below_target": 0.0002458512599877074
+      },
+      {
+        "scene": "winnipesaukee",
+        "n_windows": 17145,
+        "count_at_or_below_target": 2,
+        "fraction_at_or_below_target": 0.00011665208515602216
+      },
+      {
+        "scene": "shaler_306",
+        "n_windows": 23631,
+        "count_at_or_below_target": 37,
+        "fraction_at_or_below_target": 0.0015657399179044476
+      },
+      {
+        "scene": "shaler_pipe",
+        "n_windows": 8735,
+        "count_at_or_below_target": 12,
+        "fraction_at_or_below_target": 0.0013737836290784202
+      },
+      {
+        "scene": "shaler_pits",
+        "n_windows": 19387,
+        "count_at_or_below_target": 36,
+        "fraction_at_or_below_target": 0.0018569144271934801
+      },
+      {
+        "scene": "snake",
+        "n_windows": 31061,
+        "count_at_or_below_target": 26,
+        "fraction_at_or_below_target": 0.0008370625543285792
+      }
+    ]
+  },
+  "arcs": {
+    "n_candidate_arcs": 599,
+    "minimum_control_rms_px": 0.36182563356516845,
+    "target_selection_status": "Not used to rank rarity: selected isophote differs from prior rim stations by 2.88 px on average; full-resolution erf method is different.",
+    "target_isophote_rms_px": 0.34111153466609245
+  }
+}

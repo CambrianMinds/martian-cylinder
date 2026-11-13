@@ -1,0 +1,5 @@
+-r ../../independent-reconstruction/requirements.txt
+scikit-image==0.25.2
+tifffile==2025.5.10
+imageio==2.38.1
+lazy-loader==0.6

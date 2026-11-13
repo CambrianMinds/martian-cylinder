@@ -1,5 +1,10 @@
 # Independent Geometric Investigation: Curiosity Sol 3556 (`3556MR1025170721700585C00`)
 
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
+
+**Audit correction (2026-11-12):** M4 is rejected as a physical frustum because its fitted upper line is not tangent to its own end ellipses; see [the checked derivation](../audit/model-comparison.md). Its lower image-plane RMS remains a reproducible numerical result. M1 is the strict cylindrical baseline; M2/M3 permit a free edge offset. The 85 stations are not established to be statistically independent, and subpixel residuals are image-fit errors, not measured manufacturing tolerances. The standalone rear scan gives s=0.930, nominal 95% interval [0.87, 0.99], and nominal z=2.196 at s=1. A scalar Birge rescaling is only a sensitivity calculation, not a fitted spatial covariance model. Dimensions near 11.6 mm assume the 3.957 m focus distance; approximately 10.6–12.9 mm follows from the 3.6–4.4 m focus band, which is not a probabilistic range confidence interval. The 32.82 degree shadow receiving-plane rotation is fitted, not surveyed. Three selected local rocks do not establish a regional geological distribution or the object's origin. Audit shadow/control summaries transcribe prior claims rather than independently reproduce them.
+
+
 **Target Observation**: `3556MR1025170721700585C00` (MSL Mastcam-100 Right, Sol 3556, `2022-08-07T20:58:23.349` UTC)  
 **Primary Data Products**: `3556MR1025170721700585C00_DRXX.IMG/.LBL` (16-bit linear radiance, raw `CAHVOR` geometry) and `_DRLX.IMG/.LBL` (16-bit linear radiance, `CAHV` linearized geometry)  
 **Output Directory**: `independent-reconstruction/`
@@ -9,7 +14,7 @@
 ## Executive Summary
 
 1. **Strongest Result (Projective & Geometric Characterization)**:  
-   The sunlit body of the object is bounded by two straight, non-parallel longitudinal edges—an exceptionally straight upper-right (dorsal) edge at image angle $\theta_{\text{dorsal}} = 28.89^\circ \pm 0.35^\circ$ (orthogonal $\text{RMS} = 0.242\text{ px} \approx 71\ \mu\text{m}$ at $D = 3.957\text{ m}$ over a $36.4\text{ px}$ span; $0.210\text{ px}$ via parabolic gradient) and a lower-left (ventral) edge at $\theta_{\text{ventral}} = 63.91^\circ \pm 0.17^\circ$ ($\text{RMS} = 0.187\text{ px}$)—that **converge toward an upper-left apex at an opening angle of $2\alpha = 35.01^\circ \pm 0.39^\circ$** ($35.32^\circ$ in linearized `DRLX`). Using the exact Mastcam-100 `CAHVOR` camera model ($f_{\text{local}} = 13,458.3\text{ px/rad}$, $\text{IFOV} = 74.30\ \mu\text{rad/px}$), we prove analytically and numerically that two physically parallel 3D edges separated by $\sim 35.5\text{ px}$ ($\sim 10.5\text{ mm}$) at $D \approx 4\text{ m}$ converge via perspective foreshortening by only **$0.07^\circ\text{ to }0.35^\circ$** across any plausible tilt angle $\gamma \in [20^\circ, 75^\circ]$. Consequently, **an uncovered, free-standing right circular cylinder is geometrically ruled out at $>50\sigma$** (because the $35^\circ$ convergence is caused by an oblique foreground regolith burial bank overlapping the cylinder's lower flank, not by extreme perspective foreshortening). Meanwhile, the bright-to-dark terminal arch (`Zone 3`, spanning $140^\circ\text{–}160^\circ$ of polar angle) is smoothly curved ($\text{RMS} = 0.162\text{ px}$ for a 4-DOF ellipse aligned with the dorsal edge vs. $1.122\text{ px}$ for a 2-facet angular fracture, $\Delta\text{AIC}_c = +1887.8$), and transverse radiometric profiles across the sunlit surface exhibit statistically significant convex limb shading ($z = 7.38\sigma$ to $11.45\sigma$ against a flat planar facet). Finally, exact 3D-to-2D solar ray casting ($\theta_{\text{shadow}} = +63.43^\circ$ from `SOLAR_AZIMUTH = 186.82°`, `SOLAR_ELEVATION = 69.82°`) proves that the lower-right half of the dark patch (`Zone 4`) is the **cast shadow of the overhanging upper-left arch projected onto the underlying soil**, explaining why full $360^\circ$ contour ellipse fits fail ($\text{RMS} = 1.760\text{ px}$, $\chi^2_\nu = 77.85$).
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 
 2. **Strongest Competing Interpretations and Conical Falsification**:  
    Because monocular boundary and shading measurements support a smoothly curved convex body with an overhanging arched termination, three physical 3D geometries were tested in depth:
@@ -18,7 +23,7 @@
      1. *Front-Face Symmetry Failure*: For an unburied cone, the circular base minor axis must align with the limb bisector ($47.55^\circ$); forcing this constraint fails by nearly $15^\circ$ ($\Delta\text{AIC}_c = +82.78$).
      2. *Photometric Limb Failure*: A true cone limb must exhibit grazing limb darkening; instead, radiance peaks sharply at the ventral boundary ($v = -0.89$).
      3. *Rear Arc Curvature Failure*: The standalone rear arc curvature matches an unscaled cylinder ($s=1.000$) to within $0.002\text{ px}$, and directly rejects the joint cone's $38\%$ taper ($s \le 0.62$) at $\Delta\chi^2 > 260$.
-   - **Convex Tapered Spall / Ventifact Clast (Model H3 — Geologically Inconsistent)**: Rejection of flat cleavage planes at $>11\sigma$, combined with the target being $4\times\text{ to }8\times$ straighter and $2\times\text{ to }4\times$ smoother than all nearby rocks, establishes that the object departs radically from natural Gale Crater sedimentary clasts.
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 
 3. **Single Most Important Settled Synthesis**:  
    **The lower-left (ventral) boundary ($\theta_{\text{ventral}} = 63.91^\circ$) is unequivocally an overlapping foreground regolith burial bank, NOT the physical limb of a cone.** Once this visible geological burial is recognized, all four independent geometric features—the $11.6\text{ mm}$ circular front rim, the laser-straight dorsal edge, the matching rear cap arc, and the forward solar cast shadow—lock into a single, un-tapered right circular cylinder to sub-millimeter ($0.38\text{ px}$) precision.
@@ -127,7 +132,7 @@ We evaluated six geometric curve models via exact Euclidean Orthogonal Distance 
 | `M2` Bisector-Aligned Ellipse ($\phi_{\text{min}}=47.6^\circ$) | 4 | 29 | $0.2658$ | $1.0462$ | $100.50$ | $3.466$ | $109.93$ | $114.49$ | $a=19.17, b=15.95, b/a=0.832, \gamma=33.7^\circ$ |
 | `M1` Circle ($b/a=1$) | 3 | 30 | $0.2685$ | $0.7099$ | $109.46$ | $3.649$ | $116.29$ | $119.95$ | $R=21.02\text{ px}$ |
 | `M5` Parabolic Arch | 4 | 29 | $0.3697$ | $0.7882$ | $216.34$ | $7.460$ | $225.77$ | $230.33$ | $R_{\text{vert}}=16.17\text{ px}, \phi_{\text{axis}}=55.9^\circ$ |
-| `M6b` Angular 3-Facet Polygon | 6 | 27 | $0.4426$ | $0.9740$ | $309.19$ | $11.451$ | $324.42$ | $330.17$ | 3 straight segments |
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 | `M6a` Angular 2-Facet Polygon | 4 | 29 | $1.1221$ | $2.7103$ | $1923.31$ | $66.321$ | $1932.74$ | $1937.30$ | 2 straight segments |
 | **`S3` ($250^\circ$ Lobe-Excluded, $N=50$)** | | | | | | | | | |
 | `M4` Free Ellipse | 5 | 45 | $0.8223$ | $4.3147$ | $832.20$ | $18.493$ | $843.57$ | $851.76$ | $a=20.31, b=15.30, b/a=0.754, \phi_{\text{min}}=37.0^\circ$ |
@@ -152,7 +157,7 @@ With $f_{\text{local}} = 13,458.3\text{ px/rad}$ and $r_{\text{px}} \approx 15\t
 ### 3.4 Transverse Photometric Clinometry Across the Sunlit Body (`step5_3d_interpretations.json`)
 Across $N=145$ interior radiance measurements along 5 transverse cross-sections perpendicular to the bisector ($u \in [15, 29]\text{ px}$ from the apex, $v/w_{1/2} \in [-0.72, +0.72]$; `figures/diag05_competing_3d_models.png`, Panel 2):
 - A **flat planar facet model** ($I(v) = c_0 + c_1 v$, accounting for any linear dust/illumination gradient across a plane) yields $\text{RMS}_{\text{rel}} = 1.291\%$.
-- A **convex curved surface model** ($I(v) = c_0 + c_1 v + c_2 v^2$) reveals a highly significant downward-concave second derivative $c_2 = -0.04112 \pm 0.00557$ (**$z = 7.38\sigma$**), reducing the residual to $\text{RMS}_{\text{rel}} = 1.098\%$ (identical to a Lambertian + ambient curved cross-section, $\text{RMS}_{\text{rel}} = 1.100\%$).
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 - Crucially, the transverse radiance peaks near the lower-left (ventral) margin ($v_{\text{peak}}/w_{1/2} = -0.89$) and rolls off smoothly toward the upper-right (dorsal) limb, showing that the dorsal boundary is a grazing convex limb while the ventral boundary truncates the surface near peak solar incidence.
 
 ---
@@ -168,13 +173,13 @@ To maintain strict scientific rigor, we explicitly separate three distinct level
 3. **Conical Frustum / Tapered Cone (Model H2)**: **Decisively Falsified on Three Independent Geometric & Radiometric Grounds**:
    - *Front-Face Symmetry Failure*: For a symmetric, unburied right circular cone, geometry dictates that the minor axis of the elliptical base must align with the limb bisector $\theta_{\text{bis}} = 47.55^\circ$. When tested on the clean 35-point front rim (excluding the $\theta = -45^\circ$ pebble outlier), forcing this bisector alignment (`M2`) fails catastrophically ($\text{RMS} = 0.2883\text{ px}$, $\Delta\text{AIC}_c = +82.78$). The unconstrained free ellipse minor axis ($32.70^\circ \pm 4.23^\circ$) diverges from the cone bisector by nearly $15^\circ$, but aligns with the dorsal edge ($28.89^\circ$) to within $0.90\sigma$ ($2.8^\circ$).
    - *Photometric Limb Failure*: If the lower-left boundary were a true physical silhouette limb of a cone, the surface radiance would exhibit symmetric limb darkening toward both sides. Instead, transverse clinometry demonstrates that surface radiance **peaks right at the ventral edge** ($v_{\text{peak}} \approx -0.89$), proving that the bright cylindrical surface is abruptly truncated by an overlapping foreground soil crest rather than rolling into a grazing limb.
-   - *Rear Arc Curvature Failure*: When the 24 exposed points of the rear terminus arc are fitted independently (Section 8.3), its curvature is completely consistent with an unscaled cylinder ($s = 1.000$, $\text{RMS} = 0.1856\text{ px}$, differing by only $0.0020\text{ px}$ from the unconstrained optimum). Forcing a conical taper ($s \le 0.62$) on the standalone rear arc degrades the fit severely with $\Delta\chi^2 > 260$.
+- The standalone rear scan holds the front shape and orientation fixed; its large deviance near s=0.60 applies to that constrained family, not the changed front geometry in M4. The raw difference between s=0.93 and s=1 is small, but the nominal confidence interval excludes s=1.
 4. **Convex Tapered Sedimentary Clast / Ventifact Wedge with Undercut Overhang (Model H3b)**: **Geologically Inconsistent**:
-   - Rejection of flat cleavage planes at $>11\sigma$, combined with the target being $4\times\text{ to }8\times$ straighter and $2\times\text{ to }4\times$ smoother than all nearby rocks, establishes that the object departs radically from natural Gale Crater sedimentary clasts.
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 
 ### 4.2 Evidence Favoring the Buried Cylinder Over Alternatives
-- **Smoothly Curved Rim + Convex Surface vs. Angular/Planar Rock Fragment**: **Very Strong Evidence ($\Delta\text{AIC}_c > 275$ on rim; $7.38\sigma$ on surface photometry)**. The object is definitively not a flat-topped angular broken rock plate; both its terminal arch and its transverse photometric profile exhibit smooth, continuous curvature.
-- **Buried Cylinder (H1b) vs. Tapered Cone (H2)**: **Decisive Discrimination in Favor of Cylinder**. The unburied cone is rejected by front-face minor axis alignment ($\Delta\text{AIC}_c = +82.78$), transverse clinometry peak ($v = -0.89$), and standalone rear curvature ($\Delta\chi^2 > 260$). Occam's razor decisively selects the 6-DOF right circular cylinder (Model 1), which fits all 85 observational stations across the front rim, dorsal edge, and rear cap simultaneously to **$0.3788\text{ pixels}$** (~$110\ \mu\text{m}$ on Mars) without requiring an ad-hoc 38% physical taper.
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
+- **Buried Cylinder versus M4**: M4 fails its physical tangency constraint. M1 supplies the strict cylindrical baseline with 0.3788 px RMS over 85 stations. Current Step 5 photometry does not independently reject planar shading. Physical origin and all possible tapered shapes are not determined by this test.
 
 ### 4.3 Evidence About Physical Origin (Natural Geological vs. Artificial)
 - **Physical Origin Cannot Be Established from Monocular Conic Fits**: Geometric consistency of a $160^\circ$ arch ($\sim 35\text{ px}$ across) with an ellipse ($\text{RMS} = 0.16\text{ px}$) and a $37\text{ px}$ dorsal edge with a straight line ($\text{RMS} = 0.26\text{ px}$) is a statement about **low-order smooth differential geometry over a $10\text{–}14\text{ mm}$ feature**, not proof of manufactured origin. Both manufactured cylindrical/conical hardware and natural aeolian ventifacts / spalled concretions / laminated siltstone fragments produce smooth arcs and straight edges over $\sim 40\text{ px}$ spans.
@@ -206,7 +211,7 @@ From the single monocular image `3556MR1025170721700585C00`, the following prope
 
 ## 7. Conclusion
 
-Based on reproducible subpixel measurements on the primary 16-bit lossless-compressed NASA PDS imagery (`3556MR1025170721700585C00_DRXX` and `_DRLX`) and exact `CAHVOR`/`CAHV` camera modeling, the Sol 3556 target is a **centimeter-scale object ($10.5\text{ mm}$ arch chord width by $14.1\text{ mm}$ exposed dorsal length at the $3.957\text{ m}$ best-focus distance) possessing a smoothly convex sunlit upper surface ($7.38\sigma$ transverse convexity), two straight longitudinal boundaries converging toward the upper-left at $35.35^\circ \pm 0.62^\circ$ ($\text{RMS} = 0.262\text{ px}$ dorsal, $0.589\text{ px}$ ventral), and a smooth $160^\circ\text{–}175^\circ$ overhanging terminal arch ($\text{RMS} = 0.162\text{ px}$) that casts a $+63.43^\circ$ solar shadow onto the Martian regolith**. An uncovered right circular cylinder is definitively excluded by projective geometry ($>50\sigma$), leaving three observationally degenerate 3D interpretations: (1) a convex, wedge-tapered sedimentary spall or aeolian ventifact with an undercut overhanging lip, (2) a physically tapered conical/frustum body, or (3) a right circular cylinder tilted at $\gamma \approx 32^\circ\text{–}35^\circ$ whose lower-left half is progressively buried beneath a foreground regolith ridge.
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 
 ---
 
@@ -242,7 +247,7 @@ Excluding **only the single outlying point at $\theta = -45.0^\circ$** ($N = 35$
 Tracing the 36 subpixel boundary points along the true radiometric transition between the darker blue background ($I \le 0.080\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$) and the lighter greens/yellows of the object ($I \ge 0.088\text{ W m}^{-2}\text{ sr}^{-1}\text{ nm}^{-1}$) around the rear termination (`figures/diag08_pebble_correction_and_rear_terminus.png`, Panels 1, 3, & 4) resolves the geometry of the rear terminus once partial burial along the lower-left flank is accounted for:
 
 1. **Why an Unburied Miniature-Cap Fit Fails vs. Accounting for Partial Regolith Burial**:
-   - If all 36 extracted points ($\theta \in [-210^\circ, -35^\circ]$) are treated as an unburied miniature cap whose center is artificially constrained to lie inside the visible tip ($y_c \le 959$), a coaxial oblate ellipse fails ($\text{RMS} = 0.648\text{ px}$) and a 5-DOF free ellipse is forced into a tiny ($a = 7.38\text{ px}, b = 4.07\text{ px}$), sideways ($\phi_{\text{minor}} = +80.90^\circ$) contour ($\text{RMS} = 0.306\text{ px}$).
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
    - **Physical Cause**: The lower-left flank of the object is partially buried beneath the sloping foreground regolith contact line ($\theta_{\text{ventral}} = 65.2^\circ$). Consequently:
      - Points $i = 0\dots 7$ ($\theta \in [-210^\circ, -175^\circ]$, $y \in [950.5, 954.2]$) lie along the **foreground soil burial cut-off** where regolith overlaps the lower-left side of the rear cap.
      - Points $i = 8\dots 31$ ($N = 24$, $\theta \in [-170^\circ, -55^\circ]$, $x \in [1027.9, 1039.2]$, $y \in [945.4, 949.9]$) trace the **true exposed upper-left arc of the rear terminal cap**.
@@ -262,7 +267,7 @@ Tracing the 36 subpixel boundary points along the true radiometric transition be
 3. **Synthesis of Revised Findings**:
    - **Front Rim**: Excluding only the single pebble-contaminated point ($\theta = -45.0^\circ$) yields a clean 35-point circular-projection ellipse ($a = 19.72\text{–}19.95\text{ px}$, $b = 16.42\text{–}16.74\text{ px}$, $b/a = 0.833\text{–}0.839$, $\text{RMS} = 0.1618\text{–}0.1639\text{ px}$) whose minor axis ($32.70^\circ \pm 4.23^\circ$) aligns within $2.8^\circ$ of the straight dorsal barrel edge ($29.88^\circ \pm 0.24^\circ$).
    - **Rear Terminus**: Once the oblique regolith burial cut-off on the lower-left ($y \in [950.5, 954.2]$) is distinguished from the exposed rear cap ($x \in [1027.9, 1039.2]$), **the exposed rear-terminus arc matches an unscaled 1:1 copy of the front face to $0.183\text{–}0.186\text{ px}$ RMS** (with free coaxial scaling yielding $s = 0.935$, consistent with a constant-diameter cylinder with minor perspective foreshortening over its axial length).
-   - **Plain-English Summary**: See [report_layman.md](file:///d:/projects/martian-cylinder/independent-reconstruction/report_layman.md) for a non-technical companion guide explaining these findings, methods, and implications.
+   - **Plain-English Summary**: See [report_layman.md](report_layman.md) for a non-technical companion guide explaining these findings, methods, and implications.
 
 ### 8.4 Joint Geometric Modeling, Collinear Axis Resolution, and Scale Ratio Uncertainty
 
@@ -288,7 +293,7 @@ Terminal centers were strictly forbidden from translating independently. All 85 
 > A casual inspection of the table above might suggest that Model 4 (the tapered conical frustum) is statistically favored over Model 1 (the strict cylinder) because it reports a lower formal BIC ($1079.6$ vs. $2680.2$) and lower joint RMS ($0.255\text{ px}$ vs. $0.379\text{ px}$). 
 > **This is a classic mathematical overfitting artifact, not physical evidence for a cone:**
 > 1. **How the Optimizer Exploits Extra Degrees of Freedom**: In Model 4, the dorsal silhouette edge angle is coupled to the body axis by the taper angle: $\theta_{\text{dorsal}} = \theta_{\text{axis}} - \arctan((1-s)a/L_{\text{proj}})$. The optimizer exploits its 8 degrees of freedom by driving the scale ratio down to an extreme $38\%$ taper ($s = 0.619$). This large $9.46^\circ$ taper angle allows the central body axis to rotate to $39.33^\circ$, pulling the coupled dorsal tangent line into alignment with the measured $28.89^\circ$ edge—thereby absorbing the tiny $3.8^\circ$ ($0.90\sigma$) observational noise spread between the front minor axis and dorsal edge.
-> 2. **Direct Physical Contradiction with the Rear Arc**: This $s = 0.619$ optimum is violently contradicted by the actual data at the rear cap. When the 24 points of the exposed rear arc are evaluated independently (Section 8.4.2), they match an **unscaled cylinder cap ($s = 1.000$) to within two-thousandths of a pixel ($0.0020\text{ px} \approx 0.6\ \mu\text{m}$)**, while forcing $s = 0.60$ degrades the rear fit with $\Delta\chi^2 > 260$! Model 4 achieves a lower joint BIC only by shrinking the rear cap to $60\%$ of its true physical radius, forcing the rear model to depart from the true contour of the rear arc.
+> 2. **Direct physical inconsistency of M4**: Its upper line cuts its own end ellipses rather than being tangent. The required intercept is 19.433711 px; M4 uses 19.294848 px. This rejects M4 as a physical frustum. The standalone fixed-front-shape scan is a different constrained model and is not a 16-sigma test of the full M4 solution.
 > 3. **The Physical Reality of Regolith Occlusion**: Furthermore, Model 4 assumes that the converging lower-left boundary ($\theta_{\text{ventral}} = 63.91^\circ$) is a free 3D silhouette limb of a cone. But as established by transverse clinometry (radiance peaking at $v = -0.89$) and high-resolution stratigraphy, that boundary is an **intervening regolith soil bank** overlapping the lower flank of the object. 
 > 4. **Occam's Razor Selection**: Once the visible soil bank is recognized as the cause of the lower boundary, **Model 1 (the 6-DOF right circular cylinder with $s = 1.000$ fixed and zero uncoupled offsets)** fits all 85 observational stations simultaneously to **$0.3788\text{ pixels}$** (~$110\ \mu\text{m}$ on Mars). Model 1 is the sole model that is simultaneously consistent with the front rim, the dorsal edge straightness, the rear arc curvature, and the transverse illumination physics.
 
@@ -319,41 +324,23 @@ The analysis of tapering involves reconciling two distinct geometric questions: 
    - Crucially, the rear terminus arc itself does **not** physically demand or independently favor a 0.619 taper.
    - When the rear ellipse is fitted to the 24 exposed rear arc points independently (allowing free 2D center translation without axial coupling):
      - The best standalone fit occurs at $s = 0.930$ ($\text{RMS} = 0.1843\text{ px}$), with a 95% confidence interval of $[0.87, 0.99]$.
-     - At $s = 1.000$ (an exact unscaled cylinder cap), the standalone rear RMS is **$0.1863\text{ px}$**—a negligible difference of only **$0.0020\text{ pixels}$** ($0.6\ \mu\text{m}$ on Mars!) and $\Delta\chi^2 = 4.82$ ($1.55\sigma$).
+     - At $s = 1.000$ (an exact unscaled cylinder cap), the standalone rear RMS is **$0.1863\text{ px}$**—a negligible difference of only **$0.0020\text{ pixels}$** ($0.6\ \mu\text{m}$ on Mars!) and $\Delta\chi^2 = 4.82$ ($2.196\sigma$ nominal; uncalibrated station errors).
      - Across the range $s \in [0.85, 1.15]$, the standalone rear RMS changes by less than **$0.010\text{ pixels}$** ($3\ \mu\text{m}$).
      - In contrast, forcing $s = 0.60$ on the standalone rear arc degrades its residual to $0.2721\text{ px}$ ($\Delta\chi^2 > 260$).
-     - Over a single-quadrant arc of 24 pixels, scale variation has near-perfect mathematical covariance with the transverse position of the center along the chord normal, rendering standalone arc curvature flat and completely consistent with zero taper ($s = 1.000$).
+     - Over a single-quadrant arc of 24 pixels, scale variation has near-perfect mathematical covariance with the transverse position of the center along the chord normal, making inference sensitive to the error model. The nominal interval excludes s=1; a scalar variance sensitivity calculation includes it, without establishing spatial covariance.
 
 3. **Reconciliation and the Definitive Strict-Cylinder Fit**:
    - The apparent inconsistency between prose stating "taper is unconstrained around 1.0" and Model 4 optimizing to $s = 0.619$ arises from conflating uncoupled rear-arc curvature (which is completely flat around 1.0) with joint silhouette angle coupling (which uses $\alpha(s)$ to absorb the $3.8^\circ$ dorsal-axis spread).
-   - Once it is recognized that the physical rear arc independently rejects $s \le 0.62$ at $\Delta\chi^2 > 260$, and that the lower boundary is an overlapping soil bank rather than a cone limb, Model 4 is recognized as an overparameterized mathematical artifact.
-   - Most importantly, **the strict-cylinder fit (Model 1) is physically and geometrically confirmed**:
+   - M4 fails the physical tangency condition for its own end ellipses (see the audit derivation). The fixed-front-shape rear scan is a different constrained model; its deviance must not be assigned to M4 as a 16-sigma test.
+   - Most importantly, **the strict-cylinder fit (Model 1) provides the physical cylindrical baseline**:
      - **Model 1 (Strict Cylinder, 6 DOF, $s = 1.000$ fixed, exact silhouette tangency)** achieves an overall fit of **$0.3788\text{ pixels}$** (~110 microns on Mars) across all 85 points simultaneously ($\text{Front RMS} = 0.238\text{ px}$, $\text{Rear RMS} = 0.483\text{ px}$, $\text{Dorsal RMS} = 0.422\text{ px}$).
      - **Model 2 (Cylinder with Free Dorsal Crest Offset, 7 DOF, $s = 1.000$ fixed)** achieves an overall fit of **$0.3468\text{ pixels}$** ($\text{Rear RMS} = 0.305\text{ px}$).
      - Both cylinder fits achieve subpixel accuracy across all three independent morphological features without requiring an extreme, unphysical 38% physical taper.
 
 ---
 
-### 8.5 Comparative Smoothness, Surface Texture, and Photometric Gradient vs Surrounding Natural Rocks
+### 8.5 Controls and photometry: verification limits
 
-To test the hypothesis that the object is a natural broken sedimentary clast or ventifact, we benchmarked its geometric straightness, surface texture, and photometric roll-off against three nearby natural rocks in the same Mastcam frame (`x: 1010..1120, y: 920..1020`):
+The narrative comparison reports edge RMS values of 0.971, 1.724, and 1.953 px for three selected nearby clasts, versus 0.2422 px for the target. It reports normalized Laplacian variances of 1.64e-4, 2.45e-4, and 2.98e-4, versus 8.02e-5 for the target. These are reported local comparisons; the audit has not independently regenerated the selections or measurements and does not treat them as a regional geological distribution.
 
-1. **Edge Straightness and Sagitta Benchmark**:
-   - **Target Upper Edge**: Over a $36.4\text{ px}$ ($10.7\text{ mm}$) span, the orthogonal RMS deviation is **$0.242\text{ px}$** ($71\ \mu\text{m}$), with a maximum quadratic sagitta deviation of only **$0.280\text{ px}$** ($82\ \mu\text{m}$).
-   - **Nearby Rock 1 (Prominent tabular clast)**: Orthogonal RMS deviation = **$0.971\text{ px}$** (**$4.0\times$ rougher** than target).
-   - **Nearby Rock 2 (Angular pebble)**: Orthogonal RMS deviation = **$1.724\text{ px}$** (**$7.1\times$ rougher** than target).
-   - **Nearby Rock 3 (Eroded regolith clast)**: Orthogonal RMS deviation = **$1.953\text{ px}$** (**$8.1\times$ rougher** than target).
-   Every natural rock in the immediate scene exhibits sharp micro-fractures, chipped corners, and structural roughness 4 to 8 times greater than the target's upper boundary.
-
-2. **Surface Texture via Discrete Laplacian Variance**:
-   - On normalized radiance patches, high-frequency texture variance $\text{Var}(\nabla^2 I)$ measures surface pitting and micro-relief:
-     - **Target Sunlit Body**: $\sigma_{\text{Lap}}^2 = 8.02 \times 10^{-5}$
-     - **Rock 1**: $\sigma_{\text{Lap}}^2 = 1.64 \times 10^{-4}$ ($2.0\times$ rougher)
-     - **Rock 2**: $\sigma_{\text{Lap}}^2 = 2.45 \times 10^{-4}$ ($3.1\times$ rougher)
-     - **Rock 3**: $\sigma_{\text{Lap}}^2 = 2.98 \times 10^{-4}$ ($3.7\times$ rougher)
-   The target's body is 2 to 4 times smoother than the surrounding sedimentary rocks, lacking the vesicles, bedding laminations, and granular pit relief typical of natural Gale Crater siltstones.
-
-3. **Transverse Photometric Light Gradient (Pipe Shading vs. Rock Facets)**:
-   - Natural wind-faceted rocks (ventifacts) and fractured clasts consist of planar facets separated by distinct angular ridges. In contrast, a round cylindrical surface illuminated by directional sunlight produces a smooth, continuous quadratic luminance gradient rolling off transversely across its convex crest.
-   - Across transverse cross-sections of the target body, luminance fits a smooth convex roll-off with curvature significance **$z = 11.45\sigma$**.
-   - A flat planar rock facet model ($c_2 = 0$) is rejected at $>11\sigma$. The lighting across the object proves continuous 3D cylindrical convexity rather than flat rock cleavage planes.
+The current Step 5 JSON gives quadratic coefficient -0.01285 +/- 0.01357, z=0.95, with relative RMS 0.02682 (planar) and 0.02673 (quadratic). Historical claims of 7.38 or 11.45 sigma are not current pipeline results. Significant curvature or rejection of flat shading is not established by the current test.

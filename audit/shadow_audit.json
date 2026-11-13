@@ -1,0 +1,49 @@
+{
+  "status": "REPORTED_NOT_INDEPENDENTLY_REPRODUCED",
+  "source": "most-recent-work.md",
+  "source_lines": [
+    {
+      "line": 8,
+      "text": "The exposed upper rim fits an ellipse with minor/major axis ratio 0.8246 (61 selected native-image points; residual 0.2156 raw pixels). The fitted minor-axis direction 28.533\u00b0 differs by 0.751\u00b0 from the independently measured longitudinal edge direction 29.284\u00b0. The recorded solar position, an obliquely oriented circular front face, and a locally sloping receiving ground plane generate a projected curved shadow consistent with the visible forward shadow. A raw-image threshold analysis, independent of the painted blue shadow outline, gives a best fit at 32.82\u00b0 receiving-plane rotation for the 85-DN threshold, with 1.049 native-pixel or 4.80 enlarged-image-pixel RMS vertical discrepancy."
+    },
+    {
+      "line": 29,
+      "text": "85-DN ground rotation fit 32.82\u00b0 Fitted to raw-shadow ground-boundary profile"
+    },
+    {
+      "line": 30,
+      "text": "85-DN RMS residual 1.049 raw px / 4.80 enlarged px Model vs extracted raw-image boundary"
+    },
+    {
+      "line": 31,
+      "text": "Rotation range, 9 thresholds 28.10\u00b0\u201335.12\u00b0 Sensitivity across 65\u2013105 DN thresholds"
+    },
+    {
+      "line": 33,
+      "text": "Important: Native image coordinates and enlarged annotation coordinates are different; the enlargement factor is 549/120 = 4.575. A fit residual of 1.049 native pixels is not 1.049 annotation pixels. The exposed ellipse refers to the front outer rim; the cast shadow is a separate ground projection. Geometry and solar ephemeris are separate sources of constraints."
+    },
+    {
+      "line": 76,
+      "text": "- The receiving-plane rotation of 32.82\u00b0 at 85 DN yields a model-to-raw-shadow vertical RMS of 1.049 native pixels. At 0\u00b0, the same comparison gives 6.746 native pixels RMS. This is a substantial improvement for the locally sloping receiving-surface family."
+    },
+    {
+      "line": 77,
+      "text": "- Across thresholds 65, 70, ..., 105 DN, best rotations span 28.10\u201335.12\u00b0, with best residuals 0.753\u20131.049 raw pixels. All nine extracted boundaries have consistent bowed shape, despite differing selected darkness cutoffs."
+    }
+  ],
+  "best_fit_85dn": {
+    "receiving_plane_rotation_deg": 32.82,
+    "native_rms_px": 1.049,
+    "flat_ground_native_rms_px": 6.746
+  },
+  "threshold_rotation_span_deg": [
+    28.1,
+    35.12
+  ],
+  "threshold_rms_span_px": [
+    0.753,
+    1.049
+  ],
+  "independent_ground_survey": false,
+  "intermediate_threshold_values_verified": false
+}

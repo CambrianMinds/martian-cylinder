@@ -1,0 +1,188 @@
+{
+  "positive_self_match": 0.99995641472528,
+  "n_scenes": 18,
+  "n_transformations_per_scene": 24,
+  "top_matches": [
+    {
+      "scene": "point_lake_305a",
+      "score": 0.7828341476500954,
+      "rotation_deg": 45,
+      "scale": 0.75,
+      "x": 1078.5,
+      "y": 1078.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "winnipesaukee",
+      "score": 0.7526878983261013,
+      "rotation_deg": 225,
+      "scale": 0.75,
+      "x": 1290.5,
+      "y": 1048.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "sol0753_3753",
+      "score": 0.7486122686151796,
+      "rotation_deg": 225,
+      "scale": 1,
+      "x": 1057.5,
+      "y": 197.5,
+      "width_native_px": 122,
+      "height_native_px": 122
+    },
+    {
+      "scene": "sol3415_181",
+      "score": 0.7460532236112994,
+      "rotation_deg": 270,
+      "scale": 1.25,
+      "x": 404.5,
+      "y": 87.5,
+      "width_native_px": 104,
+      "height_native_px": 110
+    },
+    {
+      "scene": "sol3415_182",
+      "score": 0.7446693249517671,
+      "rotation_deg": 225,
+      "scale": 0.75,
+      "x": 1098.5,
+      "y": 456.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "sol3556_585",
+      "score": 0.7439409466379582,
+      "rotation_deg": 0,
+      "scale": 1,
+      "x": 362.5,
+      "y": 992.5,
+      "width_native_px": 88,
+      "height_native_px": 84
+    },
+    {
+      "scene": "point_lake_305b",
+      "score": 0.7423320418022534,
+      "rotation_deg": 45,
+      "scale": 0.75,
+      "x": 154.5,
+      "y": 74.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "sol0840_885",
+      "score": 0.7372106399367168,
+      "rotation_deg": 225,
+      "scale": 0.75,
+      "x": 1128.5,
+      "y": 704.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "point_lake",
+      "score": 0.736630540386168,
+      "rotation_deg": 0,
+      "scale": 0.75,
+      "x": 283.5,
+      "y": 1046.5,
+      "width_native_px": 66,
+      "height_native_px": 64
+    },
+    {
+      "scene": "winnipesaukee",
+      "score": 0.7352002032282757,
+      "rotation_deg": 225,
+      "scale": 0.75,
+      "x": 1056.5,
+      "y": 48.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "winnipesaukee",
+      "score": 0.7342708085874446,
+      "rotation_deg": 315,
+      "scale": 0.75,
+      "x": 998.5,
+      "y": 990.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "winnipesaukee",
+      "score": 0.7342294224846079,
+      "rotation_deg": 45,
+      "scale": 0.75,
+      "x": 954.5,
+      "y": 1148.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "twin_cairns_b",
+      "score": 0.7339549153381227,
+      "rotation_deg": 0,
+      "scale": 0.75,
+      "x": 171.5,
+      "y": 946.5,
+      "width_native_px": 66,
+      "height_native_px": 64
+    },
+    {
+      "scene": "point_lake",
+      "score": 0.7269914784973973,
+      "rotation_deg": 135,
+      "scale": 0.75,
+      "x": 514.5,
+      "y": 1110.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "sol0753_3753",
+      "score": 0.726506515548932,
+      "rotation_deg": 225,
+      "scale": 0.75,
+      "x": 1122.5,
+      "y": 814.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "point_lake_305b",
+      "score": 0.7260024026425342,
+      "rotation_deg": 315,
+      "scale": 0.75,
+      "x": 866.5,
+      "y": 380.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    },
+    {
+      "scene": "sol3415_182",
+      "score": 0.7237876567725909,
+      "rotation_deg": 0,
+      "scale": 0.75,
+      "x": 341.5,
+      "y": 230.5,
+      "width_native_px": 66,
+      "height_native_px": 64
+    },
+    {
+      "scene": "winnipesaukee",
+      "score": 0.7219435094447204,
+      "rotation_deg": 225,
+      "scale": 0.75,
+      "x": 1136.5,
+      "y": 808.5,
+      "width_native_px": 92,
+      "height_native_px": 92
+    }
+  ],
+  "interpretation": "Weighted luminance correlation includes surrounding ground and shadow; not a cylinder likelihood or geological identity."
+}

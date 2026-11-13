@@ -1,0 +1,10 @@
+{
+  "dorsal_polarity_ok": true,
+  "pebble_outlier": {
+    "theta_deg": -45.0,
+    "r_erf_px": 22.39770812982937,
+    "delta_r_px": 2.3383471876230075,
+    "before_rms_px": 0.4112,
+    "after_rms_px": 0.1618
+  }
+}

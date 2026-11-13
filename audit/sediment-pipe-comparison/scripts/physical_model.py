@@ -7,6 +7,7 @@ from scipy.spatial import cKDTree
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT/'independent-reconstruction'))
+sys.path.insert(0, str(ROOT/'independent-reconstruction/scripts'))
 from step2_camera_geometry import CAHVOR_DRXX, cahvor_pixel_to_ray, extract_cahv_intrinsics
 from step4_endface_and_conic_models import point_to_ellipse_orth_dist
 
@@ -93,7 +94,7 @@ def projected_boundaries(parameters, depth_sign=-1, intrinsic_ratio=1.):
     return curves, dorsal
 
 
-def residuals(parameters, data, depth_sign=-1, intrinsic_ratio=1.):
+def residuals(parameters, data, depth_sign=-1, intrinsic_ratio=1., finite_generator=False):
     curves, dorsal = projected_boundaries(parameters, depth_sign, intrinsic_ratio)
     result = {}
     for name in ['front', 'rear']:
@@ -103,12 +104,16 @@ def residuals(parameters, data, depth_sign=-1, intrinsic_ratio=1.):
     tangent = unit(dorsal[1]-dorsal[0])
     normal = np.array([-tangent[1], tangent[0]])
     result['dorsal'] = (data['dorsal']['xy']-dorsal[0])@normal
+    if finite_generator:
+        along=(data['dorsal']['xy']-dorsal[0])@tangent
+        outside=np.maximum(-along,0)+np.maximum(along-np.linalg.norm(dorsal[1]-dorsal[0]),0)
+        result['dorsal']=np.sqrt(result['dorsal']**2+outside**2)
     return result
 
 
-def fit(data, masks, depth_sign=-1, weighted=True, intrinsic_ratio=1., fit_taper=False):
+def fit(data, masks, depth_sign=-1, weighted=True, intrinsic_ratio=1., fit_taper=False, finite_generator=False):
     def objective(parameters):
-        values = residuals(parameters, data, depth_sign, intrinsic_ratio)
+        values = residuals(parameters, data, depth_sign, intrinsic_ratio, finite_generator)
         return np.concatenate([values[name][masks[name]] /
                                (data[name]['sigma'][masks[name]] if weighted else 1)
                                for name in data])

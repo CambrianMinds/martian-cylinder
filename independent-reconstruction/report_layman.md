@@ -1,9 +1,14 @@
 # Plain-English Summary: The Curiosity Sol 3556 Object
+
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
+
+**Audit correction (2026-11-12):** M4 is rejected as a physical frustum because its fitted upper line is not tangent to its own end ellipses; see [the checked derivation](../audit/model-comparison.md). Its lower image-plane RMS remains a reproducible numerical result. M1 is the strict cylindrical baseline; M2/M3 permit a free edge offset. The 85 stations are not established to be statistically independent, and subpixel residuals are image-fit errors, not measured manufacturing tolerances. The standalone rear scan gives s=0.930, nominal 95% interval [0.87, 0.99], and nominal z=2.196 at s=1. A scalar Birge rescaling is only a sensitivity calculation, not a fitted spatial covariance model. Dimensions near 11.6 mm assume the 3.957 m focus distance; approximately 10.6–12.9 mm follows from the 3.6–4.4 m focus band, which is not a probabilistic range confidence interval. The 32.82 degree shadow receiving-plane rotation is fitted, not surveyed. Three selected local rocks do not establish a regional geological distribution or the object's origin. Audit shadow/control summaries transcribe prior claims rather than independently reproduce them.
+
 **What We Tested, How We Did It, What We Found, and What It Means**
 
 * **NASA Image:** Curiosity Rover Mastcam-100 Right (`3556MR1025170721700585C00`, Sol 3556 — August 7, 2022)
-* **Visual Summary Figure:** [diag08_pebble_correction_and_rear_terminus.png](file:///d:/projects/martian-cylinder/independent-reconstruction/figures/diag08_pebble_correction_and_rear_terminus.png)
-* **Full Technical Report:** [report.md](file:///d:/projects/martian-cylinder/independent-reconstruction/report.md)
+* **Visual Summary Figure:** [diag08_pebble_correction_and_rear_terminus.png](figures/diag08_pebble_correction_and_rear_terminus.png)
+* **Full Technical Report:** [report.md](report.md)
 
 ---
 
@@ -16,7 +21,7 @@ That meant:
 - I was not allowed to assume the object was a cylinder, a cone, a piece of rover hardware, or a weird rock.
 - I had to start strictly from NASA’s raw, unedited camera file and its official calibration data, measure the object's edges, and test different shapes against each other to see what the camera pixels actually support.
 
-After I finished the blind test, you pointed out two crucial visual details on the image—a small neighboring pebble next to the front rim, and the exact boundary where the back end of the object meets the dirt—and then let me open the rest of your project ([most-recent-work.md](file:///d:/projects/martian-cylinder/most-recent-work.md)) to compare notes.
+After I finished the blind test, you pointed out two crucial visual details on the image—a small neighboring pebble next to the front rim, and the exact boundary where the back end of the object meets the dirt—and then let me open the rest of your project ([most-recent-work.md](../most-recent-work.md)) to compare notes.
 
 ---
 
@@ -27,9 +32,9 @@ Think of digital photos from Mars like a tiny checkerboard of colored squares (p
 To keep human guesswork out of it, here is how we measured it:
 
 1. **Letting Brightness Changes Mark the Edges:**
-   Instead of clicking points by hand, we wrote a program ([step3_feature_extraction.py](file:///d:/projects/martian-cylinder/independent-reconstruction/step3_feature_extraction.py) and [step8_pebble_correction_and_rear_terminus.py](file:///d:/projects/martian-cylinder/independent-reconstruction/step8_pebble_correction_and_rear_terminus.py)) that scans across the boundary where the bright, sunlit object meets the darker background dirt or the dark shadow at the front. By measuring exactly where the brightness drops off, the computer can locate the true edge to **a fraction of a single pixel** (about one-sixth of a pixel).
+   Instead of clicking points by hand, we wrote a program ([step3_feature_extraction.py](step3_feature_extraction.py) and [step8_pebble_correction_and_rear_terminus.py](step8_pebble_correction_and_rear_terminus.py)) that scans across the boundary where the bright, sunlit object meets the darker background dirt or the dark shadow at the front. By measuring exactly where the brightness drops off, the computer can locate the true edge to **a fraction of a single pixel** (about one-sixth of a pixel).
 2. **Checking NASA’s Camera Lens and Sun Position:**
-   We pulled the official NASA label ([3556MR1025170721700585C00_DRXX.LBL](file:///d:/projects/martian-cylinder/data/raw/3556MR1025170721700585C00_DRXX.LBL)) to find out how far the camera lens was focused (**about 3.96 meters**, or **13 feet** away), how tilted the camera was (**looking downward at 22 degrees**), and exactly where the Sun was in the Martian sky (**about 70 degrees high**, shining from the upper-left toward the lower-right).
+   We pulled the official NASA label ([3556MR1025170721700585C00_DRXX.LBL](../data/raw/3556MR1025170721700585C00_DRXX.LBL)) to find out how far the camera lens was focused (**about 3.96 meters**, or **13 feet** away), how tilted the camera was (**looking downward at 22 degrees**), and exactly where the Sun was in the Martian sky (**about 70 degrees high**, shining from the upper-left toward the lower-right).
 3. **Testing Competing Shapes Fairly:**
    We tested whether the edges of the object were better matched by a **flat-sided broken rock** (polygons/corners), a **tapered cone**, or a **straight round cylinder** partly sitting in the dirt.
 
@@ -41,14 +46,14 @@ Once we accounted for two real-world obstacles in the dirt—a small pebble sitt
 
 ### Piece #1: The Front Opening Is a Smooth, Tilted Circle
 - When you look at a circular rim (like the end of a pipe or a battery) from an angle, it looks like a smooth oval in a photograph.
-- Once we removed the **single measurement point** that had accidentally jumped across the shadow gap onto the neighboring pebble (`θ = -45°`, marked with a red **X** in [diag08_pebble_correction_and_rear_terminus.png](file:///d:/projects/martian-cylinder/independent-reconstruction/figures/diag08_pebble_correction_and_rear_terminus.png)), the remaining **35 points** along the sunlit front rim traced a smooth, continuous tilted circle to within **one-sixth of a pixel** (`0.162 px`).
+- Once we removed the **single measurement point** that had accidentally jumped across the shadow gap onto the neighboring pebble (`θ = -45°`, marked with a red **X** in [diag08_pebble_correction_and_rear_terminus.png](figures/diag08_pebble_correction_and_rear_terminus.png)), the remaining **35 points** along the sunlit front rim traced a smooth, continuous tilted circle to within **one-sixth of a pixel** (`0.162 px`).
 - It has **no flat sides and no sharp rock corners**. Shapes with flat facets or sharp corners fit the rim significantly worse.
 - At the camera’s focus distance of 13 feet (3.96 meters), this circular end is **about 11.6 millimeters (just under half an inch) across**—almost the exact thickness of a standard **AAA battery** (which is 10.5 mm wide).
 
 ### Piece #2: The Top Edge of the Body Is Laser-Straight—and Squared Up to the Front Rim
 - The sunlit top-right edge of the object runs in a straight line for 26 pixels with a wobble of only **about one-sixth to one-quarter of a pixel**.
 - Even more importantly: if an object is a true cylinder (where the circular front face is cut square at a 90-degree angle to the body), then the direction the front oval faces **must** line up with the straight edge of the body.
-- In our independent measurement (and in your [most-recent-work.md](file:///d:/projects/martian-cylinder/most-recent-work.md)), **they line up to within roughly 1 to 2 degrees**.
+- In our independent measurement (and in your [most-recent-work.md](../most-recent-work.md)), **they line up to within roughly 1 to 2 degrees**.
 
 ### Piece #3: The Back End Has the Exact Same Curve and Size as the Front Rim
 This was the breakthrough moment of our conversation:
@@ -60,18 +65,18 @@ This was the breakthrough moment of our conversation:
 
 ### Piece #4: The Dark Shape at the Front Is Half-Buried Rim + a Sun-Cast Shadow
 - Why does the dark patch at the front look slightly squashed or flat on the bottom-left instead of forming a complete dark circle?
-- As demonstrated in your [most-recent-work.md](file:///d:/projects/martian-cylinder/most-recent-work.md) and confirmed by the NASA sun-angle data:
+- As demonstrated in your [most-recent-work.md](../most-recent-work.md) and confirmed by the NASA sun-angle data:
   1. The **bottom ~30% of the circular front face is buried under the sloping dirt**, creating a straight diagonal dirt line across the face.
   2. The **top ~70% of the circular rim sticks up above the dirt**, blocking the high Martian sunlight and casting a curved dark shadow forward onto the sloping ground in front of it.
 - When you trace rays of sunlight from NASA’s recorded Sun position past that circular rim onto the sloped dirt, it reproduces the observed dark shadow to within **about 1 pixel**.
 
 ---
 
-## 4. Side-by-Side: How Our Blind Test Compares to Your Latest Package ([most-recent-work.md](file:///d:/projects/martian-cylinder/most-recent-work.md))
+## 4. Side-by-Side: How Our Blind Test Compares to Your Latest Package ([most-recent-work.md](../most-recent-work.md))
 
-Even though our blind test used completely independent code and edge-finding methods, look at how closely our measurements match your [most-recent-work.md](file:///d:/projects/martian-cylinder/most-recent-work.md):
+Even though our blind test used completely independent code and edge-finding methods, look at how closely our measurements match your [most-recent-work.md](../most-recent-work.md):
 
-| Feature | Your Package ([most-recent-work.md](file:///d:/projects/martian-cylinder/most-recent-work.md)) | Our Independent Reconstruction ([report.md](file:///d:/projects/martian-cylinder/independent-reconstruction/report.md)) | Do They Agree? |
+| Feature | Your Package ([most-recent-work.md](../most-recent-work.md)) | Our Independent Reconstruction ([report.md](report.md)) | Do They Agree? |
 | --- | --- | --- | --- |
 | **Front Rim Width (in pixels)** | `40.30 px` | `39.44 – 39.90 px` | **Yes (within ~1–2%)** |
 | **Front Rim Tilt Ratio (`b/a`)** | `0.825` (tilted ~34.5°) | `0.833 – 0.839` (tilted ~33.0°–33.6°) | **Yes (within ~1°)** |
@@ -93,7 +98,7 @@ When you look closely at the independent measurements, you might notice a curiou
 
 That is an observed spread of about **$3.8^\circ$ to $4.3^\circ$**. Could that mean the object isn't actually a straight cylinder? 
 
-To answer this, we built a **single joint mathematical model** ([step9_joint_geometric_model.py](file:///d:/projects/martian-cylinder/independent-reconstruction/step9_joint_geometric_model.py)) that locked all three features together into one rigid 3D object:
+To answer this, we built a **single joint mathematical model** ([step9_joint_geometric_model.py](step9_joint_geometric_model.py)) that locked all three features together into one rigid 3D object:
 - The center of the back end was **forced to sit directly behind the front end** along the exact same centerline (no independent sliding).
 - The top edge of the body was **forced to be the exact outer tangent silhouette** of the cylinder (no independent offsets).
 - Both ends were forced to share the **exact same circular cross-section and diameter**.
@@ -116,12 +121,7 @@ When we tested this rigid cylinder on all 85 data points at once, here is what w
    - **Across all 85 measurement points, the overall error is only 0.38 pixels (less than four-tenths of a pixel, or about 110 microns on Mars)**.
 6. **Is the Object Tapered? Why the Cone is Completely Dismissed:**
    Could the object be a cone tapering down toward the back?
-   **No. The cone is ruled out by three independent physical proofs:**
-   - **The Front Rim Angle**: For any physical cone resting on the surface, its circular face must square up with the centerline between its two tapering edges ($47.6^\circ$). But the measured front rim is tilted at $32.7^\circ$—nearly $15^\circ$ away from the cone centerline, perfectly matching the straight top edge of a cylinder ($28.9^\circ$). Forcing the cone alignment fails catastrophically ($\Delta\text{AIC}_c = +82.78$).
-   - **The Back End Curve**: When we measure the exposed curve at the back end, an unscaled, 100% full-sized copy of the front rim ($s = 1.000$) matches all 24 points to less than a fifth of a pixel ($0.185\text{ px}$)—a difference of only 2 thousandths of a pixel from the best possible standalone fit! If the object were a cone shrinking down to $62\%$ width, the rear curve would be far too tight, which the actual photo pixels reject at $\Delta\chi^2 > 260$.
-   - **The Sunlight Pattern & Dirt Truncation**: If this were a cone resting on the ground, the sunlight would fade gradually toward both outer edges. Instead, the sunlight **peaks right along the bottom-left boundary** where the object meets the dirt. The bright cylindrical surface is literally sliced off at peak brightness by the foreground soil bank.
-   
-   While an 8-parameter mathematical cone model (Model 4) can achieve a lower formal score by shrinking the back end to $62\%$ to soak up tiny 3-degree measurement noise, it directly contradicts the actual curve of the back end and ignores the obvious dirt bank covering the bottom half. The simple, strict cylinder (Model 1) requires zero taper ($s = 1.000$), zero fudge factors, and matches all 85 measurement points simultaneously to an astonishing **0.38 pixels** (~110 microns on Mars)!
+   **The tested M4 model fails a physical consistency check.** Its upper outline cuts through its own fitted end ellipses instead of touching them as a solid frustum's silhouette must. Its smaller fitting error is real, but its proposed physical geometry is inconsistent. The audit gives the calculation. This rejects M4's formulation without claiming that every possible tapered object has been tested.
 
 ---
 
@@ -143,7 +143,7 @@ We benchmarked this object against the three nearest natural rocks in the same p
    - Martian winds carve rocks by sandblasting them, creating flat planes with sharp corners (what geologists call ventifacts).
    - If this were a wind-carved rock, the sunlight across its body would show flat planes with sudden breaks.
    - It doesn't. When we measured the light across the body of the object, there were no flat facets. The sunlight fades across the surface in a smooth, continuous convex curve—the exact mathematical shading of a round pipe. 
-   - When tested statistically, a flat-sided rock model is rejected by **more than 11 standard deviations ($z = 11.45\sigma$)**.
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 
 ---
 
@@ -151,11 +151,11 @@ We benchmarked this object against the three nearest natural rocks in the same p
 
 ### What We Have Established Beyond Reasonable Doubt (in the Image Geometry):
 1. **It is not a camera glitch or compression artifact.** The edges are sharp, multi-pixel physical boundaries with consistent lighting and a real cast shadow that matches the Martian sun.
-2. **Its visible geometry is 100% consistent with a straight, constant-diameter cylinder (~11.6 mm wide and ~30–35 mm long)** lying partly buried in the soil.
+2. **Its visible geometry is 100% consistent with a straight, constant-diameter cylinder (~11.6 mm wide and ~12 mm exposed projected center separation at the assumed range)** lying partly buried in the soil.
 3. **Every geometric objection that initially made it look "non-cylindrical" has a concrete physical explanation in the photo:**
    - The apparent "flare" on the upper-right rim was just a separate neighboring pebble.
    - The apparent "taper" along the bottom-left side is just sloping dirt burying more of the underside toward the back.
-   - Once that dirt burial is accounted for, **both ends of the object have the exact same circular curve and diameter**.
+   - Once that dirt burial is accounted for, **the exposed rear curve can be closely fitted by an unchanged copy of the front ellipse**.
 
 ### What Are the Implications?
 Any explanation for what this object actually is has to account for **all four features happening at once on the same 1-centimeter object**:

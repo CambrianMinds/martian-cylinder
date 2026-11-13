@@ -19,7 +19,10 @@ class ComparisonTests(unittest.TestCase):
     def test_original_inputs_unchanged(self):
         baseline=json.loads((BASE/'sources/baseline.json').read_text())
         for relative,digest in baseline['source_hashes'].items():
-            self.assertEqual(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(),digest,relative)
+            source=ROOT/relative
+            if not source.exists() and source.suffix=='.py' and source.parent.name=='independent-reconstruction':
+                source=source.parent/'scripts'/source.name
+            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(),digest,relative)
 
     def test_target_benchmarks(self):
         result=json.loads((BASE/'results/target-benchmark/results.json').read_text())

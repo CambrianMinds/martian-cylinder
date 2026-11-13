@@ -1,5 +1,10 @@
 # Analytical Methods, Mathematical Formulations, and Assumptions
 
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
+
+**Audit correction (2026-11-12):** M4 is rejected as a physical frustum because its fitted upper line is not tangent to its own end ellipses; see [the checked derivation](../audit/model-comparison.md). Its lower image-plane RMS remains a reproducible numerical result. M1 is the strict cylindrical baseline; M2/M3 permit a free edge offset. The 85 stations are not established to be statistically independent, and subpixel residuals are image-fit errors, not measured manufacturing tolerances. The standalone rear scan gives s=0.930, nominal 95% interval [0.87, 0.99], and nominal z=2.196 at s=1. A scalar Birge rescaling is only a sensitivity calculation, not a fitted spatial covariance model. Dimensions near 11.6 mm assume the 3.957 m focus distance; approximately 10.6–12.9 mm follows from the 3.6–4.4 m focus band, which is not a probabilistic range confidence interval. The 32.82 degree shadow receiving-plane rotation is fitted, not surveyed. Three selected local rocks do not establish a regional geological distribution or the object's origin. Audit shadow/control summaries transcribe prior claims rather than independently reproduce them.
+
+
 **Investigation**: Independent Geometric Investigation of Curiosity Sol 3556 Object (`3556MR1025170721700585C00`)  
 **Directory**: `independent-reconstruction/`
 

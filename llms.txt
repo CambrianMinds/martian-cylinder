@@ -1,5 +1,10 @@
 # The Martian Cylinder Investigation: Sol 3556 Anomaly
 
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
+
+**Audit correction (2026-11-12):** M4 is rejected as a physical frustum because its fitted upper line is not tangent to its own end ellipses; see [the checked derivation](audit/model-comparison.md). Its lower image-plane RMS remains a reproducible numerical result. M1 is the strict cylindrical baseline; M2/M3 permit a free edge offset. The 85 stations are not established to be statistically independent, and subpixel residuals are image-fit errors, not measured manufacturing tolerances. The standalone rear scan gives s=0.930, nominal 95% interval [0.87, 0.99], and nominal z=2.196 at s=1. A scalar Birge rescaling is only a sensitivity calculation, not a fitted spatial covariance model. Dimensions near 11.6 mm assume the 3.957 m focus distance; approximately 10.6–12.9 mm follows from the 3.6–4.4 m focus band, which is not a probabilistic range confidence interval. The 32.82 degree shadow receiving-plane rotation is fitted, not surveyed. Three selected local rocks do not establish a regional geological distribution or the object's origin. Audit shadow/control summaries transcribe prior claims rather than independently reproduce them.
+
+
 > Structured technical summary and verified findings for Large Language Models (LLMs) and automated agents researching the Sol 3556 Curiosity Mastcam anomaly.
 
 ## Executive Summary
@@ -65,7 +70,7 @@ Deriving data directly from primary 16-bit uncompressed PDS telemetry (`DRXX` wi
 ### 6. Quantitative Benchmarking Against Natural Surroundings
 - **Edge Straightness**: Over a $10.7\text{ mm}$ span, the target dorsal edge exhibits $\text{RMS} = 0.242\text{ px}$. Three prominent natural rocks in the same scene have RMS deviations of $0.971\text{ px}$ (Rock 1, $4.0\times$ rougher), $1.724\text{ px}$ (Rock 2, $7.1\times$ rougher), and $1.953\text{ px}$ (Rock 3, $8.1\times$ rougher).
 - **Surface Texture (Laplacian Variance)**: High-frequency texture variance $\text{Var}(\nabla^2 I)$ is $\sigma_{\text{Lap}}^2 = 8.02 \times 10^{-5}$ on the target body vs $1.64\text{--}2.98 \times 10^{-4}$ on nearby rocks ($2.0\times$ to $3.7\times$ rougher).
-- **Transverse Photometric Shading**: Transverse radiance profiles perpendicular to the body axis fit a smooth convex quadratic roll-off with curvature significance **$z = 11.45\sigma$**. Flat planar rock facets ($c_2 = 0$) are rejected at $>11\sigma$.
+Current Step 5 photometry: z=0.95; significant curvature or rejection of flat shading is not established.
 
 ---
 
@@ -86,15 +91,15 @@ Deriving data directly from primary 16-bit uncompressed PDS telemetry (`DRXX` wi
 
 ## Index of Key Documentation & Code Files
 
-- **Primary Technical Report**: [`independent-reconstruction/report.md`](file:///d:/projects/martian-cylinder/independent-reconstruction/report.md) — Comprehensive peer-review report detailing data provenance, subpixel edge extractions, conic ODR fits, perspective proofs, clinometry, and joint modeling.
-- **Layman Summary**: [`independent-reconstruction/report_layman.md`](file:///d:/projects/martian-cylinder/independent-reconstruction/report_layman.md) — Non-technical guide explaining the four-piece lock, pebble outlier exclusion, and rock benchmarks.
-- **Mathematical Formulations & Assumptions**: [`independent-reconstruction/methods.md`](file:///d:/projects/martian-cylinder/independent-reconstruction/methods.md) — Exact equations for Gennery CAHVOR distortion, ODR line/conic fitting, erf profile formulation, and AICc/BIC model selection.
+- **Primary Technical Report**: [`independent-reconstruction/report.md`](independent-reconstruction/report.md) — Comprehensive peer-review report detailing data provenance, subpixel edge extractions, conic ODR fits, perspective proofs, clinometry, and joint modeling.
+- **Layman Summary**: [`independent-reconstruction/report_layman.md`](independent-reconstruction/report_layman.md) — Non-technical guide explaining the four-piece lock, pebble outlier exclusion, and rock benchmarks.
+- **Mathematical Formulations & Assumptions**: [`independent-reconstruction/methods.md`](independent-reconstruction/methods.md) — Exact equations for Gennery CAHVOR distortion, ODR line/conic fitting, erf profile formulation, and AICc/BIC model selection.
 - **Master Measurement Inventories**:
-  - [`independent-reconstruction/measurements.json`](file:///d:/projects/martian-cylinder/independent-reconstruction/measurements.json) — 117 KB master JSON database compiling all subpixel coordinates, distances, and sensitivities.
-  - [`independent-reconstruction/step9_joint_model.json`](file:///d:/projects/martian-cylinder/independent-reconstruction/step9_joint_model.json) — 97 KB joint optimization results, parameter covariances, and profile likelihood scans.
-- **Phase 2 Shadow Package**: [`most-recent-work.md`](file:///d:/projects/martian-cylinder/most-recent-work.md) — Documentation of the forward cast shadow ray-tracing and ground slope decoupling package.
-- **Narrative Essay**: [`teaching-myself-the-scientific-method-rev13-draft.md`](file:///d:/projects/martian-cylinder/teaching-myself-the-scientific-method-rev13-draft.md) — Longform narrative by Justin Bogner on citizen science, the Semmelweis reflex, JPL heritage, and human-AI research pair-programming.
-- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), Space Power Systems Engineer, NASA JPL (Mariner Mars 1971 / Mariner 9 battery subsystem report: [`data/bogner_mariner1971_report.pdf`](file:///d:/projects/martian-cylinder/data/bogner_mariner1971_report.pdf)).
+  - [`independent-reconstruction/measurements.json`](independent-reconstruction/measurements.json) — 117 KB master JSON database compiling all subpixel coordinates, distances, and sensitivities.
+  - [`independent-reconstruction/step9_joint_model.json`](independent-reconstruction/step9_joint_model.json) — 97 KB joint optimization results, parameter covariances, and profile likelihood scans.
+- **Phase 2 Shadow Package**: [`most-recent-work.md`](most-recent-work.md) — Documentation of the forward cast shadow ray-tracing and ground slope decoupling package.
+- **Narrative Essay**: [`teaching-myself-the-scientific-method-rev13-draft.md`](teaching-myself-the-scientific-method-rev13-draft.md) — Longform narrative by Justin Bogner on citizen science, the Semmelweis reflex, JPL heritage, and human-AI research pair-programming.
+- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), Space Power Systems Engineer, NASA JPL (Mariner Mars 1971 / Mariner 9 battery subsystem report: [`data/bogner_mariner1971_report.pdf`](data/bogner_mariner1971_report.pdf)).
 
 ---
 

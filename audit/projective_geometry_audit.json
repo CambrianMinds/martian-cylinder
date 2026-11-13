@@ -1,0 +1,19 @@
+{
+  "m1_axis_deg": 30.31515947844139,
+  "m4_axis_deg": 39.32650165007308,
+  "m4_alpha_deg": 9.462167695607977,
+  "m4_s": 0.618699323312013,
+  "rear_center_shift_px": 7.726907691448455,
+  "max_persp_convergence_deg": 0.46085158450748037,
+  "convergence_assumption": "20 degree inclination; not a universal maximum",
+  "m4_tangency": {
+    "line_slope_axis_coordinates": 0.16666389500775539,
+    "actual_intercept_px": 19.294848035860042,
+    "required_tangent_intercept_px": 19.433711181252296,
+    "intercept_shortfall_px": 0.13886314539225353,
+    "tangency_identity_residual_px2": -5.377969549398361,
+    "physical_tangency_satisfied": false
+  },
+  "full_3d_cone_refit_performed": false,
+  "fixed_shape_rear_scan_is_test_of_full_m4": false
+}

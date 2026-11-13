@@ -1,0 +1,29 @@
+{
+  "f_local_px_rad": 13458.253064559649,
+  "ifov_urad_px": 74.3038487389834,
+  "anisotropy_pct": 0.5947162629306391,
+  "shadow_paraxial_deg": 63.42865312743508,
+  "shadow_local_deg": 63.31617018347274,
+  "scenarios": {
+    "ROVER_NAV_FRAME Z=0 Plane": {
+      "D_m": 3.5539,
+      "scale_mm_px": 0.2640684480334731
+    },
+    "Minimum Autofocus Bound": {
+      "D_m": 3.6,
+      "scale_mm_px": 0.26749385546034027
+    },
+    "Best Focus Distance (Nominal)": {
+      "D_m": 3.957,
+      "scale_mm_px": 0.2940203294601573
+    },
+    "Maximum Autofocus Bound": {
+      "D_m": 4.4,
+      "scale_mm_px": 0.326936934451527
+    },
+    "SITE_FRAME Horizontal Plane": {
+      "D_m": 5.1764,
+      "scale_mm_px": 0.38462644261247375
+    }
+  }
+}

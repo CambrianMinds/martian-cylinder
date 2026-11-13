@@ -1,0 +1,30 @@
+[
+  {
+    "jpeg_quality": 100,
+    "n_levels": 3,
+    "median_rms_px": 0.9817707815222031,
+    "closest_reference_rms_px": 0.40158213031953155,
+    "closest_reference_distance_px": 0.913664835532106
+  },
+  {
+    "jpeg_quality": 95,
+    "n_levels": 3,
+    "median_rms_px": 1.006939431351762,
+    "closest_reference_rms_px": 0.4194583681868416,
+    "closest_reference_distance_px": 0.8537410133334293
+  },
+  {
+    "jpeg_quality": 85,
+    "n_levels": 3,
+    "median_rms_px": 1.0072920023392595,
+    "closest_reference_rms_px": 0.49350131137991293,
+    "closest_reference_distance_px": 0.8329797086961729
+  },
+  {
+    "jpeg_quality": 70,
+    "n_levels": 4,
+    "median_rms_px": 1.4447171754236265,
+    "closest_reference_rms_px": 0.35366955903833125,
+    "closest_reference_distance_px": 1.0048943968034252
+  }
+]

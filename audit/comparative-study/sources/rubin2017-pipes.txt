@@ -1,0 +1,626 @@
+GEOLOGY | Volume 45 | Number 1 | www.gsapubs.org 7
+Fluidized-sediment pipes in Gale crater, Mars, and possible Earth 
+analogs
+David M. Rubin1, A.G. Fairén2, J. Martínez-Frías3, J. Frydenvang4, O. Gasnault5, G. Gelfenbaum6, W. Goetz7, 
+J.P. Grotzinger8, S. Le Mouélic9, N. Mangold9, H. Newsom10, D.Z. Oehler11, W. Rapin4, J. Schieber12, and R.C. Wiens4
+1Department of Earth & Planetary Sciences, University of California Santa Cruz, Santa Cruz, California 95064, USA
+2Centro de Astrobiología (Consejo Superior de Investigaciones Científicas–Instituto Nacional de Técnica Aeroespacial), 28850 
+Torrejón de Ardoz, Spain, and Department of Astronomy, Cornell University, Ithaca, New York 14853, USA
+3Instituto de Geociencias (IGEO), CSIC–Universidad Complutense de Madrid, 28040 Madrid, Spain
+4Los Alamos National Laboratory, Los Alamos, New Mexico 87545, USA
+5Institut de Recherche en Astrophysique et Planétologie, Toulouse 31400, France
+6U.S. Geological Survey Pacific Coastal and Marine Science Center, Santa Cruz, California 95060, USA
+7Max Planck Institute for Solar System Research, Göttingen 37077, Germany
+8Division of Geologic and Planetary Sciences, California Institute of Technology, Pasadena, California 91125, USA
+9Laboratoire de Planétologie et Géodynamique de Nantes, UMR6112 CNRS, Université de Nantes, Nantes 44322 Cedex 3, France
+10Institute of Meteoritics, University of New Mexico, Albuquerque, New Mexico 87131, USA
+11LZ Technology, NASA Johnson Space Center, Houston, Texas 77058, USA
+12Department of Geological Sciences, Indiana University, Bloomington, Indiana 47408, USA
+ABSTRACT
+Since landing in Gale crater, the Mars Science Laboratory rover Curiosity has traversed 
+fluvial, lacustrine, and eolian sedimentary rocks that were deposited within the crater ~3.6 to 
+3.2 b.y. ago. Here we describe structures interpreted to be pipes formed by vertical movement 
+of fluidized sediment. Like many pipes on Earth, those in Gale crater are more resistant to 
+erosion than the host rock; they form near other pipes, dikes, or deformed sediment; and some 
+contain internal concentric or eccentric layering. These structures provide new evidence of 
+the importance of subsurface aqueous processes in shaping the near-surface geology of Mars.
+INTRODUCTION
+Background
+The Mars Science Laboratory rover Curios-
+ity landed in Gale crater in August 2012, and 
+since then has traversed a sequence of sedimen-
+tary rocks deposited within the crater ~3.6 to 3.2 
+b.y. ago (Grotzinger et al., 2014, 2015). During 
+this traverse (Fig. 1), the rover has photographed 
+structures that are interpreted as horizontal sec-
+tions through relatively vertical cylinders or pipes 
+(Figs. 2 and 3; Table 1; additional information 
+about the images is provided in the GSA Data 
+Repository1). These features are too small to 
+detect in orbital images (maximum diameter is 
+60–70 cm), and they have not been seen in previ-
+ous landed missions. The objectives of this paper 
+are to describe these structures and to interpret 
+their origin by analogy with similar structures 
+on Earth.
+Rocks along the rover traverse are locally 
+crosscut by veins filled with calcium sulfate and 
+occasionally with other unidentified minerals 
+1 GSA Data Repository item 2017002, supplemental 
+information about images (detailed information about 
+image scales, pixel sizes, and formal image names), is 
+available online at www .geosociety .org /pubs /ft2017 
+.htm, or on request from editing@ geosociety .org.
+(Nachon et al., 2014). The veins occur through-
+out the stratigraphic succession and can be par-
+ticularly prominent in fine-grained facies, where 
+they resemble fracture networks seen in over -
+pressured and hydraulically fractured mudstones 
+on Earth (Schieber, 2014). Brittle fracture of the 
+mudstone host as well as subhorizontal and hori-
+zontal fractures suggest a late diagenetic origin, 
+when the associated fluids exceeded lithostatic 
+pressure.
+Previous Work on Fluid Upwelling and 
+Cylindrical Structures on Mars
+Orbital studies have shown that subsurface 
+fluid flow has been common on Mars. Chan 
+et al. (2010) described a field of knobs in Can-
+dor Chasma and considered a variety of origins, 
+including injected sediment pipes. Other mounds, 
+knobs, and ridges have been attributed to move-
+ment of subsurface fluids or fluidized sediment 
+(Allen and Oehler, 2008; Oehler and Allen, 2010; 
+Franchi et al., 2014; Siebach and Grotzinger, 
+2014; Okubo, 2016). These interpretations were 
+based on satellite imagery of geomorphic features 
+1–3 orders of magnitude larger than the sedimen-
+tary features observed on the ground.
+Previous rover investigations also suggest that 
+subsurface fluid flow was common on Mars. The 
+rover Opportunity identified post-impact subsur-
+face fluid circulation at Meridiani (Squyres et al., 
+2012; Arvidson et al., 2014), and the rover Spirit 
+found evidence of ancient groundwater activity 
+in Gusev crater (Arvidson et al., 2008).
+Mahaney et al. (2010) suggested that sedi -
+ment pipes on Mars might be favorable targets 
+for astrobiological exploration because the sedi-
+ment pipes they studied in Utah had clay min-
+eral coatings on some sand grains that contained 
+fossilized fungi, whereas the host rock did not. 
+The potential astrobiological importance of sedi-
+mentary pipes on Mars was also discussed by 
+Dohm et al. (2011), Essefi et al. (2014), and 
+Fairén et al. (2016).
+GEOLOGY, January 2017; v. 45; no. 1; p. 7–10 | Data Repository item 2017002 | doi: 10 .1130 /G38339 .1 | Published online 3 November 2016
+© 2016 Geological Society of America. For permission to copy, contact editing@geosociety.org.
+500 m
+Bradbury Landing
+Yellowknife Bay
+(Sol 173)
+Dingo Gap
+(Sol 528) 
+Kylie
+Marias Pass
+(Sol 1051)
+Gale
+Figure 1. Map showing rover Curiosity’s tra-
+verse and locations discussed in this paper. 
+Image: NASA/JPL-Caltech/Malin Space Sci -
+ence Systems.
+8 www.gsapubs.org | Volume 45 | Number 1 | GEOLOGY
+Previous Work on Sedimentary Pipes 
+on Earth
+Vertical and subvertical, relatively cylin -
+drical, bodies of sediment on Earth have been 
+attributed to a variety of processes (reviewed by 
+Lowe, 1975; Hunter et al., 1992; Netoff, 2002; 
+Chan et al., 2007; Hurst et al., 2011; Wheatley 
+et al., 2016). The origins can be categorized as 
+(1) upward or downward movement of fluids that 
+formed vertical cavities that were later filled with 
+sediment (Allen, 1961); (2) upward injection of 
+fluidized sediment (Chan et al., 2007; Wheatley 
+et al., 2016); and (3) downward movement of 
+fluidized or brecciated sediment or intact strata 
+(Hunter et al., 1992). In addition to the relatively 
+vertical cylinders or columns that are the focus 
+of this paper, fluidized sediment injectites have a 
+wide variety of geometries including sills, dikes, 
+and irregular bodies (Hurst et al., 2011).
+STRUCTURES IN GALE CRATER
+Yellowknife Bay
+The structure at Yellowknife Bay (Fig. 2) 
+has an outer diameter of 7 cm and a rim that is 
+raised above the local bedrock by ~2–3 cm. The 
+vertical relief is a substantial proportion of the 
+diameter, suggesting that the structure is a cyl-
+inder rather than a circular structure confined to 
+a horizontal plane.
+Layering within the rim is roughly concentric, 
+with some regions appearing crinkly or irregular. 
+Grain size of the sediment in the structure is gen-
+erally too fine to resolve in the Mastcam M100 
+images (each pixel is 0.23 mm wide in Fig. 2B), 
+although the rim contains clasts, mottling, or con-
+cretions that are up to a few millimeters in diam-
+eter. Adjacent to the cylinder is a more irregular 
+structure with lithology that appears similar to 
+the cylinder rim. The cylinder occurs 2 m from 
+a feature named the “snake” by Grotzinger et al. 
+(2014) that was interpreted as the trace of a clas-
+tic dike protruding above the outcrop (Fig. 2A). 
+The cylinder occurs within a few centimeters of 
+the contact between the Sheepbed member and 
+the underlying Gillespie Lake member of the 
+Yellow knife Bay formation (Fig. 2A). Presum-
+ably the pipe extends downward into the lower 
+unit, although this cannot be observed in the rela-
+tively flat exposure.
+The Sheepbed mudstone contains a sig -
+nificant fraction of smectite (22% for the John 
+Klein drill hole and 18% for Cumberland) that 
+was inferred to be diagenetic, along with detrital 
+basaltic minerals and ~30% amorphous mate-
+rial (Vaniman et al., 2014). Although it was not 
+sampled for mineralogy, the overlying Gillespie 
+Lake sandstone has a similar elemental chemistry 
+and hydration level, suggesting the presence of 
+phyllosilicates, likely as matrix or cement.
+Dingo Gap
+Several cylinders and a deformational structure 
+occur near Dingo Gap, where the rover entered a 
+small canyon (Figs. 3A–3E). The largest cylinder 
+has a diameter of 60–70 cm, a raised rim, and a 
+shallow bowl-shaped interior (Fig. 3B). The rim 
+has a lumpy texture due to some larger rounded 
+grains to 3 mm in diameter (Fig. 3C). Sedimentary 
+rocks at this vicinity include conglomerates and 
+cross-stratified sandstones interpreted as fluvial 
+and eolian deposits, possibly including clinoform 
+beds like those 500 m to the southwest at the Kylie 
+outcrop (Grotzinger et al., 2015). A loose rock on 
+the floor of Dingo Gap contains a soft-sediment 
+deformational structure (Fig. 3D).
+The elemental chemistry (determined by 
+ChemCam; Wiens et al., 2012; Maurice et al., 
+2012) of the walls of this cylinder are typical 
+of surrounding sediments with the exception of 
+magnesium, which was elevated (10–14 wt% 
+MgO), and the hydration level, for which the 
+five observation points were consistently among 
+the highest observed by that instrument. Because 
+ChemCam observations do not distinguish com-
+positions of grains and cement, we do not know 
+if these two observed differences in chemistry 
+are due to different grains within the cylinders, 
+or different post-injection cementation.
+Curiosity  also photographed a cylinder 
+~150 m to the west of Dingo Gap (Figs. 3A and 
+3E); the cylinder is ~20 cm in diameter, and is 
+noteworthy because it contains internal concen-
+tric or eccentric layering.
+Marias Pass
+A pair of structures was observed higher in 
+the Murray formation near Marias Pass (Fig. 3F); 
+they have relatively resistant rims, circular cross 
+Figure 2. Cylindrical struc-
+ture at Yellowknife Bay, 
+Mars. A: Index image 
+showing location of the 
+circular structure (within 
+white ellipse) and the 
+nearby “snake” inter -
+preted in Grotzinger et al. 
+(2014) to have formed by injection of fluidized sediment. Dotted line shows contact between the 
+Gillespie Lake and overlying Sheepbed members of the Yellowknife Bay formation. B: Struc-
+ture with circular cross section showing crude concentric stratification and a crinkly fabric. 
+The upper left of image shows a second structure with similar texture but irregular geometry. 
+For image numbers, see Table 1. Images: NASA/JPL-Caltech/Malin Space Science Systems.
+A
+B
+E F
+C D
+Figure 3. Cylindrical structures at Dingo Gap and Marias Pass, Mars. A: Index image show-
+ing location of structures in B–F. B: Cylindrical structure. C: Close-up of wall of B, showing 
+texture of rim. D: Deformational structure located 20 m west of Dingo Gap, likely a loose 
+block rather than bedrock. E: Circular structure with internal layering, located 150 m west 
+of Dingo Gap. F: Pair of cylindrical structures at Marias Pass. Diameters of the structures,  
+indicated by white lines, are 7 cm and 36 cm. For image numbers, see Table 1. Images: NASA/
+JPL-Caltech/Malin Space Science Systems.
+B
+5 cm
+Anticline
+“Snake”
+50 cm
+50 cmA
+GEOLOGY | Volume 45 | Number 1 | www.gsapubs.org 9
+sections, and light toned interiors relative to the 
+surrounding sediment, and occur within lacus-
+trine mudstones (Grotzinger et al., 2015). Ele-
+mental chemistry appears to parallel the albedo 
+change from interior to walls. The four Chem-
+Cam observations that sampled the interior are 
+high in Si (68–72 wt% SiO2) and Ti, and low in 
+Mg and Fe (<5 wt% total Fe as FeO), and show 
+relatively strong hydration. We only have two 
+measurements of the darker wall material, but 
+the mean is lower in silicon (54–66 wt% SiO2) 
+and higher in iron (6–17 wt% total Fe as FeO); 
+magnesium is consistently low in both materi-
+als (≤2.1 wt% MgO), while the alkalies are con-
+sistently high (3.3–5.6 wt% Na2O, 1.8–3.2 wt% 
+K2O). These compositions reflect those of nearby 
+rocks, which contain silica enrichments appar-
+ently due to alteration (Newsom et al., 2016; 
+Frydenvang et al., 2016).
+DISCUSSION
+Interpretation of Pipes in Gale Crater
+Here we suggest that the cylinders in Gale 
+crater are best interpreted as pipes of injected 
+sediment rather than infilling of vertical cavi -
+ties. We base this interpretation on two obser-
+vations. First, where layering is observed in the 
+pipes (Figs. 2B and 3E) it is relatively vertical and 
+lacks horizontal fill. Second, several of the pipes 
+occur near other rare structures that are inter -
+preted to have formed by movement sediment; 
+the cylinder at Yellowknife Bay occurs only 2 m 
+laterally and within a few centimeters vertically 
+of the “snake,” a sand dike (Fig. 2A), and the 
+cylinders at Dingo Gap occur near a rock con-
+taining deformed sediment (Fig. 3D). Deforma-
+tional structures are commonly associated with 
+injectites (Hurst et al., 2011), and Wheatley et al. 
+(2016) used an association with deformed sedi-
+ment to argue that cylinders on the Colorado Pla-
+teau formed by sediment injection.
+Although the structures observed at Marias 
+Pass occur as a pair (Fig. 3F), they do not occur 
+near other examples of sediment flow, and the 
+case for their origin is weaker. They are included 
+here to document their occurrence and because 
+their circular planforms and raised rims are con-
+sistent with injected pipes.
+Earth Analogs
+The geologic characteristics and abundance 
+of pipes on the Colorado Plateau (central USA) 
+make them a good analog for those we describe 
+from Mars. Hurst et al. (2011) compiled a litera-
+ture review of dozens of occurrences of injectites 
+having diverse geometries; of the five reported 
+occurrences they categorized as vertical cylinders 
+(which they term columnar intrusions) four are 
+from Jurassic deposits of the Colorado Plateau, 
+and one is from South Australia (Mount, 1993). 
+Pipes are also associated with other geometries of 
+injectites at six other locations, including a large 
+complex near Santa Cruz, California (Thompson 
+et al., 2007; Sherry et al., 2012), although these 
+pipes are not necessarily vertical.
+Wheatley et al. (2016, their table 1) list 26 
+published accounts of Colorado Plateau pipes, 
+describing 30 locations (their figure 1), some of 
+which contain multiple swarms, which in turn 
+contain as many as hundreds of pipes; they stated 
+(p. 12), “The Colorado Plateau is known for its 
+abundance of clastic pipes.” Those pipes (Fig. 4), 
+like those we describe from Mars, commonly 
+have preferentially cemented rims, concentric 
+or eccentric layering, association with dikes 
+(Hannum, 1980) and/or soft-sediment deforma-
+tion, and clustering (although the Mars examples 
+are not as clustered as those of Wheatley et al., 
+2016). The reported range of host lithologies and 
+facies of the Colorado Plateau pipes (sandstones, 
+shales, siltstones, and limestones deposited in 
+eolian, interdune, fluvial, sabkha, and marine 
+environments) is broad enough to encompass the 
+rocks that contain the pipes in Gale crater (if the 
+marine deposits of the Colorado Plateau are com-
+parable to the lacustrine rocks on Mars). Much 
+of the work on sediment pipes has focused on 
+behavior of the noncohesive flowing sediment, 
+but plugging of the walls with sediment as fine 
+as clay helps to prevent leakage from the pipes; 
+this confines and maintains the flows (Lowe, 
+1975; Mount, 1993). The finer sediment in more 
+poorly sorted deposits may aid with this plug-
+ging. Although we have less information than 
+terrestrial studies of pipes, making it impossi-
+ble to identify the single best analog, geologic 
+characteristics of the Colorado Plateau pipes, as 
+well as their abundance and publication history, 
+make them an appropriate analog.
+Unanswered Questions
+An important question regarding origin of 
+sedi ment pipes on both Mars and Earth is whether 
+sediment movement was dominantly upward or 
+downward. Determining the direction of sediment 
+movement is surprisingly difficult even in the excel-
+lent exposures on the Colorado Plateau; determin-
+ing flow direction from the limited images of the 
+Mars pipes is not possible. Observed downward 
+movement might occur either by net flow into a cav-
+ity that was dissolved in evaporites, as described by 
+Hunter et al. (1992) (sulfates are common along the 
+rover traverse), or by late-stage collapse following 
+dominantly upward movement (Chan et al., 2007). 
+Some observations are ambiguous even in good 
+exposures on Earth. For example, upturned beds 
+in the host rock adjacent to a pipe can be attributed 
+to drag by upward flow within the pipe (Wheatley 
+et al., 2016) or to measurable down-dropping of 
+the host rock relative to a pipe supported at its base 
+(Hunter et al., 1992, their figure 12). Interpretations 
+may also be complicated if upward and downward 
+movement of sediment occur simultaneously or 
+where high-permeability pipes focus post-emplace-
+ment fluid flow (Martínez-Frías et al., 2007; Sherry 
+et al., 2012; Wheatley et al., 2016).
+Hurst et al. (2011) noted that fluidized sedi-
+ment pipes are merely one kind of sand injec-
+tite on Earth, and they can be associated with 
+larger injectite bodies. We have not observed such 
+Figure 4. Fluidized sedi -
+ment pipes in the Middle 
+Jurassic Carmel Forma -
+tion and Page Sandstone 
+12 km southeast of  
+Escalante, Utah, USA 
+(1.5–3.0 km north of Harris 
+Wash and 1.7–3.5 km east 
+of Hole in the Rock Road; 
+N37.70883°, W111.49130°). 
+A: Eroding pipe with 
+resistant rim and crude 
+concentric structure. Squares on scale bar are 1 cm. B: Horizontal section showing eccen-
+tric structure with a crinkly fabric. Eccentricity reflects lateral migration of the pipe axis, as 
+observed in experiments of Ross et al. (2011).
+10 cmAB
+TABLE 1. DETAILS OF PIPES AND IMAGES
+Location
+Name of 
+feature Image
+Sol
+(Mars day) 
+of image
+Diameter 
+(cm)
+Nearby geologic 
+features
+Yellowknife Bay none Figure 2B MR00926  1731 0S and dike at same 
+stratigraphic level 
+2m  away
+Dingo Gap Tappers Figures 3B and 3C
+MR002083
+ 5287 0D eformational 
+structures located 
+20 m to the west
+(Fig. 3E; MR02111)
+Dingo Gap
+(150m  west)
+none Figures 3D and 3E
+navcam00354
+ 5422 0–
+Marias Pass Hewolf (pair) Figure 3F
+ML004625
+1051 7, 36 –
+10 www.gsapubs.org | Volume 45 | Number 1 | GEOLOGY
+larger bodies on Mars, but we cannot rule out 
+this possibility.
+Mangold et al. (2015) used geochemical data 
+to suggest that during diagenesis of the Sheepbed 
+mudstone, fluids were expelled into the overlying 
+sandstone due to overpressure. Such overpres-
+surization would aid formation of pipes, but, as 
+is the case for many pipes on Earth, we don’t 
+know which processes caused fluidization (earth-
+quakes, impacts, collapse following dissolution 
+of evaporites or carbonates, hydrothermal pro-
+cesses, and/or overpressurization due to burial 
+and compaction).
+CONCLUSIONS
+The rover Curiosity photographed cylinders 
+that resemble fluidized sediment pipes on Earth. 
+These cylinders are elevated above the outcrop 
+surfaces, have preferentially cemented rims and 
+concentric or eccentric internal layering, and are 
+associated with other fluidized sediment features 
+(a dike and deformational structures). They are 
+interpreted to have formed by injection of fluidized 
+sediment, likely triggered by impacts, overpressur-
+ized fluids, earthquakes, or by collapse into cavities 
+formed by dissolution of evaporites. These struc-
+tures are yet another indicator of the importance of 
+aqueous processes in shaping the geology of Mars.
+ACKNOWLEDGMENTS
+This work could not have been completed without the 
+NASA Mars Science Laboratory (MSL) engineering, 
+management, and operations teams, supported by the 
+NASA Mars Exploration Program. Support for Rubin, 
+Goetz, and Oehler was provided by the NASA MSL 
+Participating Scientist Program. Fairén was supported 
+by the Project icyMARS, European Research Coun-
+cil Starting grant 307496. We thank Margie Chan, 
+Andrew Hurst, David Loope, Massimo Moretti, Jeff 
+Peakall, and James Schmitt for constructive reviews.
+REFERENCES CITED
+Allen, C.C., and Oehler, D.Z., 2008, A case for ancient 
+springs in Arabia Terra, Mars: Astrobiology, v. 8, 
+p. 1093–1112, doi: 10 .1089 /ast .2008 .0239 .
+Allen, J.R.L., 1961, Sandstone-plugged pipes in 
+the Lower Red Sandstone of Shropshire, Eng -
+land: Journal of Sedimentary Petrology, v. 31, 
+p. 325–335, doi: 10 .1306 /74D70B6E -2B21 -11D7 
+-8648000102C1865D .
+Arvidson, R.E., et al., 2008, Spirit Mars rover mission to 
+the Columbia Hills, Gusev Crater: Mission overview 
+and selected results from the Cumberland Ridge 
+to Home Plate: Journal of Geophysical Research, 
+v. 113, E12S33, doi: 10 .1029 /2008JE003183 .
+Arvidson, R.E., et al., 2014, Ancient aqueous environ-
+ments at Endeavour Crater, Mars: Science, v. 343, 
+6169, doi: 10 .1126 /science .1248097 .
+Chan, M., Netoff, D., Blakey, R., Kocurek, G., and 
+ Alvarez, W., 2007, Clastic-injection pipes and 
+syndepositional deformation structures in Jurassic 
+eolian deposits: Examples from the Colorado Pla-
+teau, in Hurst, A., and Cartwright, J., eds., Sand in-
+jectites: Implications for hydrocarbon exploration 
+and production: American Association of Petro-
+leum Geologists Memoir 87, p. 233–244, doi: 10 
+.1306 /1209867M871350 .
+Chan, M.A., Ormö, J., Murchie, S., Okubo, C.H., 
+ Komatsu, G., Wray, J.J., McGuire, P., McGovern, 
+J.A., and the HiRISE Team, 2010, Geomorphic 
+knobs of Candor Chasma, Mars: New Mars Re-
+connaissance Orbiter data and comparisons to ter-
+restrial analogues: Icarus, v. 205, p. 138–153, doi: 
+10 .1016 /j .icarus .2009 .04 .006 .
+Dohm, J.M., et al., 2011, An inventory of potentially 
+habitable environments on Mars: Geological 
+and biological perspectives, in Garry, W.B., and 
+Bleacher, J.E., eds., Analogs for planetary explora-
+tion: Geological Society of America Special Paper 
+483, p. 317–347, doi: 10 .1130 /2011 .2483 (21) .
+Essefi, E., Komatsu, G., Fairén, A.G., Chan, M.A., and 
+Yaich, C., 2014, Models of formation and activity 
+of spring mounds in the Mechertate-Chrita-Sidi El 
+Hani system, eastern Tunisia: Implications for the 
+habitability of Mars: Life, v. 4, p. 386–432, doi: 10 
+.3390 /life4030386 .
+Fairén, A.G., et al., 2016, The Argyre region as a prime 
+target for in situ astrobiological exploration of 
+Mars: Astrobiology, v. 16, p. 143–158, doi: 10 .1089 
+/ast .2015 .1396 .
+Franchi, F., Rossi, A.P., Pondrelli, M., and Cavalazzi, 
+B., 2014, Geometry, stratigraphy and evidences for 
+fluid expulsion within Crommelin crater deposits, 
+Arabia Terra, Mars: Planetary and Space Science, 
+v. 92, p. 34–48, doi: 10 .1016 /j .pss .2013 .12 .013 .
+Frydenvang, J., et al., 2016, Discovery of silica-rich 
+lacustrine and eolian sedimentary rocks in Gale 
+crater, Mars: Houston, Texas, Lunar and Planetary 
+Institute, Lunar and Planetary Science XLVII, abs. 
+2349.
+Grotzinger, J.P., et al., 2014, A habitable fluvio-lacus-
+trine environment at Yellowknife Bay, Gale Crater, 
+Mars: Science, v. 343, p. 1242777, doi: 10 .1126 
+/science .1242777 .
+Grotzinger, J.P., et al., 2015, Deposition, exhumation, 
+and paleoclimate of an ancient lake deposit, Gale 
+crater, Mars: Science, v. 350, aac7575, doi: 10 .1126 
+/science .aac7575 .
+Hannum, C., 1980, Sandstone and conglomerate-brec-
+cia pipes and dikes of the Kodachrome Basin area, 
+Kane County, Utah: Brigham Young University 
+Geology Studies, v. 27, p. 1–50.
+Hunter, R.E., Gelfenbaum, G., and Rubin, D.M., 1992, 
+Clastic pipes of probable solution-collapse origin 
+in Jurassic rocks of the southern San Juan basin, 
+New Mexico: U.S. Geological Survey Bulletin 
+1808-L, 19 p.
+Hurst, A., Scott, A., and Vigorito, M., 2011, Physi -
+cal characteristics of sand injectites: Earth-Sci-
+ence Reviews, v. 106, p. 215–246, doi: 10 .1016 /j 
+.earscirev .2011 .02 .004 .
+Lowe, D.R., 1975, Water escape structures in coarse-
+grained sediments: Sedimentology, v. 22, p. 157–
+204, doi: 10 .1111 /j .1365 -3091 .1975 .tb00290 .x .
+Mahaney, W.C., Netoff, D.I., Dohm, J., Hancock, 
+R.G.V ., and Krinsley, D., 2010, Grain coatings: 
+Diagenesis of Jurassic sandstones in south-central 
+Utah and implications for targeting fossil microbes 
+on Mars: Sedimentary Geology, v. 230, p. 1–9, doi: 
+10 .1016 /j .sedgeo .2010 .06 .015 .
+Mangold, N., et al., 2015, Chemical variations in 
+Yellow knife Bay Formation sediments analyzed 
+by the Curiosity rover on Mars: Journal of Geo-
+physical Research, v. 120, p. 452–482, doi: 10 .1002 
+/2014JE004681 .
+Martínez-Frías, J., et al., 2007, Isotopic signatures of 
+extinct low-temperature hydrothermal chimneys 
+in the Jaroso Mars analog: Planetary and Space 
+Science, v. 55, p. 441–448, doi: 10 .1016 /j .pss .2006 
+.09 .004 .
+Maurice S., et al., 2012, The ChemCam instruments 
+on the Mars Science Laboratory (MSL) rover: 
+Science objectives and mast unit: Space Science 
+Reviews, v. 170, p. 95–166, doi: 10 .1007 /s11214 
+-012 -9912 -2 .
+Mount, J.F., 1993, Formation of fluidization pipes 
+during liquefaction: Examples from the Uratanna 
+Formation (Lower Cambrian), South Australia: 
+Sedimentology, v. 40, p. 1027–1037, doi: 10 .1111 
+/j .1365 -3091 .1993 .tb01378 .x .
+Nachon, M., et al., 2014, Calcium sulfate veins char-
+acterized by ChemCam/Curiosity at Gale crater, 
+Mars: J: Journal of Geophysical Research, v. 119, 
+p. 1991–2016, doi: 10 .1002 /2013JE004588 .
+Netoff, D., 2002, Seismogenically induced fluidization 
+of Jurassic erg sands, south-central Utah: Sedimen-
+tology, v. 49, p. 65–80, doi: 10 .1046 /j .1365 -3091 
+.2002 .00432 .x .
+Newsom, H.E., et al., 2016, The materials at an uncon-
+formity between the Murray and Stimson forma-
+tions at Marias Pass, Gale crater, Mars: Houston, 
+Texas, Lunar and Planetary Institute, Lunar and 
+Planetary Science XLVII, abs. 2397.
+Oehler, D.Z., and Allen, C.C., 2010, Evidence for per-
+vasive mud volcanism in Acidalia Planitia, Mars: 
+Icarus, v. 208, p. 636–657, doi: 10 .1016 /j .icarus 
+.2010 .03 .031 .
+Okubo, C.H., 2016, Morphologic evidence of subsur-
+face sediment mobilization and mud volcanism in 
+Candor and Coprates Chasmata, Valles Marineris, 
+Mars: Icarus, v. 269, p. 23–37, doi: 10 .1016 /j .icarus 
+.2015 .12 .051 .
+Ross, J.A., Peakall, J., and Keevil, G.M., 2011, An inte-
+grated model of extrusive sand injectites in cohe-
+sionless sediments: Sedimentology, v. 58, p. 1693–
+1715, doi: 10 .1111 /j .1365 -3091 .2011 .01230 .x .
+Schieber, J., 2014, A seal breach on Mars—How we 
+closed in on a mudstone and teased information 
+from images and comparison with experimental 
+and Earth analogs: American Association of Petro-
+leum Geologists Datapages/Search and Discovery 
+Article #90189.
+Sherry, T.J., Rowe, C.D., Kirkpatrick, J.D., and Brod-
+sky, E.E., 2012, Emplacement and dewatering of 
+the world’s largest exposed sand injectite complex: 
+Geochemistry, Geophysics, Geosystems, v. 13, 
+Q08008, doi: 10 .1029 /2012GC004157 .
+Siebach, K.L., and Grotzinger, J.P., 2014, V olumetric 
+estimates of ancient water on Mount Sharp based 
+on boxwork deposits, Gale Crater, Mars: Journal 
+of Geophysical Research, v. 119, p. 189–198, doi: 
+10 .1002 /2013JE004508 .
+Squyres, S.W., et al., 2012, Ancient impact and aque-
+ous processes at Endeavour Crater, Mars: Science, 
+v. 336, p. 570–576, doi: 10 .1126 /science .1220476 .
+Thompson, B.J., Garrison, R.E., and Moore, J.C., 2007, 
+A reservoir-scale Miocene injectite near Santa 
+Cruz, California, in Hurst, A., and Cartwright, J., 
+eds., Sand injectites: Implications for hydrocarbon 
+exploration and production: Association of Petro-
+leum Geologists Memoir 87, p. 151–162.
+Vaniman, D.T., et al., 2014, Mineralogy of a mudstone 
+at Yellowknife Bay, Gale crater, Mars: Science, 
+v. 343, 1243480, doi: 10 .1126 /science .1243480 .
+Wheatley, D.F., Chan, M.A., and Sprinkel, D.A., 2016, 
+Clastic pipe characteristics and distributions 
+throughout the Colorado Plateau: Implications 
+for paleoenvironment and paleoseismic controls: 
+Sedimentary Geology, doi: 10 .1016 /j .sedgeo .2016 
+.03 .027 .
+Wiens R.C., et al., 2012, The ChemCam instruments on 
+the Mars Science Laboratory (MSL) rover: Body 
+unit and combined system performance: Space 
+Science Reviews, v. 170, p. 167–227, doi: 10 .1007 
+/S11214 -012 -9902 -4 .
+Manuscript received 8 July 2016 
+Revised manuscript received 3 October 2016 
+Manuscript accepted 4 October 2016
+Printed in USA

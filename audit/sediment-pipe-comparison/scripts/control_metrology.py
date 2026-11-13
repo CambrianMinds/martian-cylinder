@@ -13,6 +13,7 @@ from pds_images import BASE, read_image
 
 ROOT = BASE.parents[1]
 sys.path.insert(0, str(ROOT/'independent-reconstruction'))
+sys.path.insert(0, str(ROOT/'independent-reconstruction/scripts'))
 from step4_endface_and_conic_models import point_to_ellipse_orth_dist
 
 

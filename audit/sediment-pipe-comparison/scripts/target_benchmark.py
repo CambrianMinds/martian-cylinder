@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'audit/sediment-pipe-comparison/results/target-benchmark'
 OUT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0,str(ROOT/'independent-reconstruction'))
+sys.path.insert(0,str(ROOT/'independent-reconstruction/scripts'))
+import step3_feature_extraction
+step3_feature_extraction.DATA_DIR=str(ROOT/'data')
 from step3_feature_extraction import load_drxx
 from step4_endface_and_conic_models import order_arch_points,point_to_ellipse_orth_dist
 from step8_pebble_correction_and_rear_terminus import extract_rear_terminus_points
