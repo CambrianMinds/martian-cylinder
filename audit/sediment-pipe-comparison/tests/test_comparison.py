@@ -124,6 +124,18 @@ class ComparisonTests(unittest.TestCase):
                       frustum['full_rms_px'],frustum['guarded_rms_px']]:
             self.assertIn(f'{value:.4f}',report)
 
+    def test_finite_generator_rejects_line_extension(self):
+        data,_,_=target.load_data()
+        record=json.loads((BASE/'results/physical-frustum.json').read_text())
+        p=np.array(record['parameters'])
+        _,line=model.projected_boundaries(p)
+        trial={name:{key:value.copy() for key,value in group.items()} for name,group in data.items()}
+        trial['dorsal']['xy'][0]=line[1]+.2*(line[1]-line[0])
+        extended=model.residuals(p,trial)['dorsal'][0]
+        finite=model.residuals(p,trial,finite_generator=True)['dorsal'][0]
+        self.assertLess(abs(extended),1e-8)
+        self.assertAlmostEqual(finite,.2*np.linalg.norm(line[1]-line[0]),places=8)
+
 
 if __name__=='__main__':
     unittest.main()

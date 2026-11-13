@@ -2,6 +2,7 @@ test_analytic_ellipse_recovery (test_comparison.ComparisonTests.test_analytic_el
 test_burial_fit_is_not_visibility_proof (test_comparison.ComparisonTests.test_burial_fit_is_not_visibility_proof) ... ok
 test_cahvor_roundtrip (test_comparison.ComparisonTests.test_cahvor_roundtrip) ... ok
 test_exploratory_frustum_guarded_isolation (test_comparison.ComparisonTests.test_exploratory_frustum_guarded_isolation) ... ok
+test_finite_generator_rejects_line_extension (test_comparison.ComparisonTests.test_finite_generator_rejects_line_extension) ... ok
 test_frustum_generator_is_physical_surface_tangent (test_comparison.ComparisonTests.test_frustum_generator_is_physical_surface_tangent) ... ok
 test_guard_masks_and_scoring (test_comparison.ComparisonTests.test_guard_masks_and_scoring) ... ok
 test_navcam_header_offsets (test_comparison.ComparisonTests.test_navcam_header_offsets) ... ok
@@ -14,6 +15,6 @@ test_synthetic_known_geometry_recovery (test_comparison.ComparisonTests.test_syn
 test_target_benchmarks (test_comparison.ComparisonTests.test_target_benchmarks) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 0.329s
+Ran 15 tests in 0.522s
 
 OK

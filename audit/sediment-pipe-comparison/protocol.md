@@ -44,3 +44,7 @@ After the initial infinite-plane burial rendering concealed the measured upper b
 ### Physically tangent frustum extension, before fitting it to observed points
 
 Synthetic taper sensitivity motivates a separate seven-parameter 3D frustum check. Append a rear/front radius ratio bounded from 0.3 to 1.6 to the six physical segment parameters. Derive the side tangent from the surface normal and camera viewing ray. Fit actual retained coordinates and repeat the same five guarded folds and three starting bearings. The test uses no independently movable dorsal offset. This extension is an exploratory, physically distinct construction from the rejected image-plane M4. All outcomes and bounds will be retained.
+
+### User-requested M4 reevaluation after the initial findings
+
+The user requested comparison with earlier M4 evidence. Review found that the initial physical-model dorsal scores used an extended tangent line beyond the finite body's endpoints. Preserve those original scores, quantify the endpoint overshoot, and refit both circular and tapered models using Euclidean distances to the finite generator segment. Repeat the same guarded folds, three starting bearings, weights and bounds. This is a later sensitivity analysis. The original protocol did not specify this correction, and the earlier conclusions about full finite-body validation require revision. The comparison is recorded in `results/m4-reevaluation.json` and `m4-reevaluation.md`.

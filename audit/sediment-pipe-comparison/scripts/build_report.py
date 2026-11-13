@@ -18,6 +18,8 @@ def main():
     physical=load('results/physical-model.json')
     frustum=load('results/physical-frustum.json')
     diagnostic=load('results/residual-diagnostics.json')
+    reevaluation=load('results/m4-reevaluation.json')
+    finite=reevaluation['finite_generator_refits']
     controls=load('results/observed-controls.json')
     synthetic=load('results/synthetic-controls.json')
     screening=load('boundary-inventory/screening.json')
@@ -78,7 +80,7 @@ Research report, 13 November 2026. Isolated branch `audit/sediment-pipe-comparis
 
 ## Abstract
 
-This investigation reproduces the target benchmark, retrieves nine original PDS products covering all four requested Mars locations, screens fifteen original or published views, measures three partial-rim views of two geological objects, and fits a finite three-dimensional circular segment through the target's CAHVOR camera. The circular segment fits the retained 85 target points at {physical['full_fit']['total_rms_px']:.4f} pixels RMS and predicts guarded withheld points at {physical['guarded_prediction']['total_rms_px']:.4f} pixels. The original image-plane benchmarks reproduce to their reported precision. The geological images inspected here expose no complete N+R+D configuration of one object. Their partial-rim results therefore address local curvature only. A planar burial-contact fit passes a coordinate-distance check but can fail scene visibility. An exploratory finite foreground-bank rendering retains a visible segment behind a soil edge, with assumed bank depth and simplified reflectance. The completed tests establish conditional geometric compatibility of a finite segment and expose useful identifiability limits. They do not establish the probability, production history, or a fully validated natural analogue of the target.
+This investigation reproduces the target benchmark, retrieves nine original PDS products covering all four requested Mars locations, screens fifteen original or published views, measures three partial-rim views of two geological objects, and fits a finite three-dimensional circular segment through the target's CAHVOR camera. With terminal-conic and extended-tangent-line scoring, the circular-segment model fits the retained 85 points at {physical['full_fit']['total_rms_px']:.4f} pixels RMS and predicts guarded withheld points at {physical['guarded_prediction']['total_rms_px']:.4f} pixels. The original image-plane benchmarks reproduce to their reported precision. The geological images inspected here expose no complete N+R+D configuration of one object. Their partial-rim results therefore address local curvature only. A planar burial-contact fit passes a coordinate-distance check but can fail scene visibility. An exploratory finite foreground-bank rendering retains a visible segment behind a soil edge, with assumed bank depth and simplified reflectance. The completed tests establish conditional geometric compatibility of a finite segment and expose useful identifiability limits. They do not establish the probability, production history, or a fully validated natural analogue of the target.
 
 ## 1. Question and scope
 
@@ -154,7 +156,7 @@ The natural process scenario has five stages. Injection forms an approximately c
 
 {physical_table}
 
-The guarded 3D test uses the same heldout indices and guard bands as the benchmark. Each of the six parameters is refitted using training coordinates only. Three starting bearings are tried and training objective selects the solution. All successful starts, parameter vectors, bounds and Jacobian singular values are retained. The camera-projected segment's similar full-fit and predictive errors establish a physically coherent surface representation of the selected boundaries.
+The guarded 3D test uses the same heldout indices and guard bands as the benchmark. Each of the six parameters is refitted using training coordinates only. Three starting bearings are tried and training objective selects the solution. All successful starts, parameter vectors, bounds and Jacobian singular values are retained. These original scores compare the terminal conics and an extended tangent line. The finite-generator reevaluation below identifies an additional physical constraint omitted from those scores.
 
 The length-only rear experiment freezes five parameters estimated from front and dorsal stations and fits one axial length to the six anchors. Its larger withheld error of {physical['one_parameter_rear_registration']['test_rms_px']:.4f} pixels is retained. This has a stronger collinearity requirement than two-coordinate rear registration. It demonstrates that the reported 0.2084-pixel result depends on the permitted registration, and cannot be substituted for this one-parameter prediction.
 
@@ -210,7 +212,7 @@ The automated suite checks unchanged source hashes, all original benchmarks, CAH
 
 **B.** No additional natural example received a complete matched N+R+D and withheld-prediction test. Original terrestrial camera arrays and a two-ended exposure remain missing. The three completed original-image measurements cover partial rims only.
 
-**C.** An idealized finite segment supplies a coherent three-dimensional surface matching the selected target geometry and guarded predictions. Its assignment to a fluidized/cemented pipe is conditional on unmeasured formation and truncation assumptions. The simple infinite-plane burial test exposes a visibility failure. An exploratory finite foreground bank offers another scene, with incomplete physical validation. A fully validated geological formation-to-image reconstruction has not been completed.
+**C.** The original camera-projected segment scores use terminal conics and an extended tangent line. The finite-generator reevaluation identifies endpoint mismatch and revises those scores. Assignment to a fluidized/cemented pipe remains conditional on formation, truncation and exposure assumptions. The simple infinite-plane burial test exposes a visibility failure. An exploratory finite foreground bank offers another scene, with incomplete physical validation. A fully validated geological formation-to-image reconstruction has not been completed.
 
 **D.** The observations constrain visible local curvature, alignment, boundary straightness and their coupled predictive consistency. They are less identifying for concealed end geometry, true section circularity, distance, material, formation process and terrain depth. The frozen-registration degrees of freedom and partial-arc selection materially affect interpretation.
 
@@ -236,25 +238,39 @@ The finite-bank illustration, original Navcam partial rings, more complete Tappe
 8. NASA PDS Imaging Node, MSL Mastcam volumes MSLMST_0002, MSLMST_0006 and MSLMST_0010, and Navcam MSLNAV_0XXX. Exact URLs, labels and hashes are in `image-manifest.csv` and acquisition logs. https://pds-imaging.jpl.nasa.gov/data/msl/.
 9. Bogner, J. (2026). Sol 3556 reconstruction and November 13 predictive validation. Exact source correspondence is in `sources/baseline.json` and the copied, output-isolated replay under `scripts/target_benchmark.py`.
 '''
+    correction=f'''## Reevaluation against earlier M4 data
+
+The original 0.2526/0.3856-pixel frustum scores use an extended tangent line for the dorsal family. They cannot be presented as full finite-body validation. Five of the cylinder's 26 dorsal points and three of the frustum's lie beyond their fitted rear generator endpoints. Holding the original parameters fixed and measuring distance to the finite generator changes total RMS to {reevaluation['original_fits']['cylinder']['finite_total_rms_px']:.4f} pixels for the cylinder and {reevaluation['original_fits']['frustum']['finite_total_rms_px']:.4f} pixels for the frustum.
+
+Refitting with finite-segment distances gives cylinder full-fit RMS {finite['cylinder']['full_rms_px']:.4f} pixels and guarded RMS {finite['cylinder']['guarded_rms_px']:.4f} pixels. The corresponding frustum scores are {finite['frustum']['full_rms_px']:.4f} and {finite['frustum']['guarded_rms_px']:.4f} pixels, with fitted rear/front radius ratio {finite['frustum']['parameters'][6]:.4f}. This stricter sensitivity still favors taper on these coordinates, while increasing errors and changing the fitted taper. Points can retain nonzero endpoint errors after refitting. Complete scene visibility and photometry remain unvalidated.
+
+The earlier M4 optimum already showed essentially the same geometric tradeoff: rotating the axis to 39.33 degrees and shrinking the rear section to s=0.6187. Its intercept was 0.138863 pixels short of true ellipse tangency. The later camera-projected frustum satisfies surface tangency, so that specific rejection does not transfer automatically. The standalone rear-scale scan held the front ellipse fixed and cannot be assigned as a likelihood-ratio rejection of a model that changes front shape, orientation and rear center. Earlier bisector and ventral-brightness objections assume that the lower diagonal is a second exposed generator. A foreground-occluded frustum has a different boundary assignment.
+
+The earlier conversational claim that the tapered fit changed confidence in the complete shape was premature. The completed result concerns a conditional geometric alternative with a revised endpoint sensitivity. See `m4-reevaluation.md`, `results/m4-reevaluation.json` and the figure below.
+
+![Finite generator endpoints and retained dorsal points](figures/finite-generator-review.png)
+
+'''
+    report=report.replace('## 1. Question and scope',correction+'## 1. Question and scope')
+    report=report.replace('The completed tests establish conditional geometric compatibility of a finite segment and expose useful identifiability limits.',
+        'The original scores omit finite generator endpoints. The reevaluation below adds that constraint and revises the physical interpretation.')
     (BASE/'report.md').write_text(report,encoding='utf-8')
     summary=f'''# Findings summary
 
-The measurements of the Mars object held up. The original joint fit and withheld-point predictions reproduced, and a finite three-dimensional circular segment projected through Curiosity's camera also followed the selected boundaries closely. Its full-fit error was {physical['full_fit']['total_rms_px']:.4f} pixels, with guarded prediction error {physical['guarded_prediction']['total_rms_px']:.4f} pixels.
+The original target measurements reproduce. The later 3D fits also reproduce their terminal-conic and extended-tangent-line scores, but a user-requested review against M4 exposed an omitted endpoint constraint. Five cylinder dorsal stations and three frustum stations lie beyond their originally fitted finite generator endpoints.
 
-The natural pipe photographs mostly show a ring at the surface of bedrock or a column with its base hidden. Original NASA images allowed three partial-rim measurements covering two geological objects. None of the screened views exposed both ends and a connecting exterior edge of one object. We therefore still lack the direct comparison that could test the target's complete geometric configuration.
+Refitting with distances to the finite generator gives cylinder full-fit/guarded RMS {finite['cylinder']['full_rms_px']:.4f}/{finite['cylinder']['guarded_rms_px']:.4f} pixels and frustum RMS {finite['frustum']['full_rms_px']:.4f}/{finite['frustum']['guarded_rms_px']:.4f} pixels. The frustum radius ratio changes to {finite['frustum']['parameters'][6]:.4f}. These results supersede interpretation of 0.2526/0.3856 pixels as a validated finite-body comparison.
 
-The physical experiment adds a reason to take a geological explanation seriously. A regular cemented segment could have the same projected geometry. The calculations establish that conditional compatibility. The formation, fracture and burial history remains to be demonstrated for an actual natural example at the relevant scale.
+Old M4 fails its own tangency equation. The corrected camera-projected taper satisfies that equation and revisits the same axis/radius tradeoff. The earlier fixed-front rear-scale scan tests another constrained family. It supplies no direct rejection of the jointly refitted frustum.
 
-The burial test also caught a failure that a fitted outline would have missed. A plane followed the chosen soil-contact coordinates closely, yet its rendered placement concealed boundaries visible in the photograph. A finite foreground-bank illustration provides another possible scene, with assumed depth and simplified lighting. It remains an exploratory reconstruction.
+Three geological partial-rim views covering two objects were measured. No screened example supplies both termini and a connecting exterior boundary of one object. Some extracted stations follow local texture or broken contacts, limiting their use as intrinsic boundary-roughness measurements. The direct natural-object comparison and formation-to-image validation remain incomplete.
 
-An exploratory physically tangent tapered segment also fits the selected coordinates: {frustum['full_rms_px']:.4f} pixels RMS, with guarded prediction error {frustum['guarded_rms_px']:.4f} pixels. Its rear/front radius ratio is {frustum['parameters'][6]:.3f}. This further limits how uniquely the partial visible geometry identifies a constant-diameter body. Its complete scene visibility remains unvalidated.
-
-The strongest completed conclusion is that the target has reproducible geometric regularity, while those measurements alone leave the origin unresolved. This study has produced no quantitative rejection of fluidized-sediment pipes as a class. A documented natural segment with both ends exposed, or additional observations of the Mars target, would move that question further.
+The finite-body, burial and photometric assumptions require further evaluation before assigning a physical origin. The study provides no quantitative rejection of fluidized-sediment pipes as a class. Detailed comparison and corrections are in `m4-reevaluation.md` and `report.md`.
 '''
     (BASE/'findings-summary.md').write_text(summary,encoding='utf-8')
     proposed=f'''# Proposed manuscript paragraph
 
-A separate sediment-pipe investigation reproduced the target's reported benchmarks and retrieved original PDS imagery for the four Gale crater localities discussed by Rubin et al. (2017). Three partial-rim views were measured, but none of the screened exposures supplied both terminations and a longitudinal boundary of one object for a matched joint comparison. A finite 3D circular segment projected through the retained CAHVOR camera fitted the target's selected coordinates at {physical['full_fit']['total_rms_px']:.4f} px RMS and predicted guarded heldout coordinates at {physical['guarded_prediction']['total_rms_px']:.4f} px. This demonstrates conditional compatibility with a regular cemented segment, while its formation, truncation and burial history remain unresolved. Explicit visibility checks rejected one simple burial-plane configuration. An exploratory foreground-bank scene introduces additional terrain assumptions. The completed tests therefore preserve the measured geometric result without assigning a geological or manufactured origin.
+A separate sediment-pipe investigation reproduced the target benchmarks and retrieved original PDS images for the Gale crater examples discussed by Rubin et al. (2017). Three partial-rim views were measured, while a matched two-termination and longitudinal-boundary comparison remained unavailable. Camera-projected circular and tapered segment models were evaluated. Review against earlier M4 data revealed that initial dorsal residuals used an extended tangent line. Refitting with finite-generator distances gave full-fit/guarded RMS of {finite['cylinder']['full_rms_px']:.4f}/{finite['cylinder']['guarded_rms_px']:.4f} px for the cylinder and {finite['frustum']['full_rms_px']:.4f}/{finite['frustum']['guarded_rms_px']:.4f} px for the frustum. The frustum satisfies the surface-tangency condition that the earlier M4 construction violated. Its endpoint sensitivity and the unvalidated burial and photometric scene constrain interpretation. The original geometric measurements remain reproducible, with physical origin unresolved.
 '''
     (BASE/'proposed-manuscript-paragraph.md').write_text(proposed,encoding='utf-8')
     print('Generated report, summary, benchmark table and proposed paragraph from current results.')

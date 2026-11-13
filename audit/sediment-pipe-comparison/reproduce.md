@@ -29,6 +29,7 @@ Recompute in this order:
 & $studyPython audit/sediment-pipe-comparison/scripts/control_metrology.py
 & $studyPython audit/sediment-pipe-comparison/scripts/run_physical_experiments.py
 & $studyPython audit/sediment-pipe-comparison/scripts/final_checks.py
+& $studyPython audit/sediment-pipe-comparison/scripts/reevaluate_m4.py
 & $studyPython audit/sediment-pipe-comparison/scripts/build_report.py
 & $studyPython audit/sediment-pipe-comparison/scripts/verify_study.py
 ```
@@ -40,3 +41,5 @@ The visual screening classifications and selections are human decisions recorded
 `figures/` contains the reproducible analysis graphics. Page images in `sources/` are inspection aids from the retained primary PDFs; they are not numerical inputs. `results/physical-frustum.json` is a later, explicitly exploratory physical model. The frozen protocol and dated amendments distinguish prespecified work from subsequent extensions.
 
 The full requested natural-object N+R+D comparison and formation-to-image validation remain incomplete because the screened objects do not expose the required configuration. `report.md` identifies the completed partial measurements and the remaining tests. No missing geological family is assigned a failure score.
+
+The M4 reevaluation adds finite-generator distances to both physical models. Earlier results retain their original extended-line scoring for traceability. The source import paths support the workspace's later move into `independent-reconstruction/scripts`. The benchmark explicitly locates the target image in repository `data/`. Hash verification accepts an unchanged baseline Python source at its relocated path.
