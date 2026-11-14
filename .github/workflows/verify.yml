@@ -33,3 +33,45 @@ jobs:
         run: python papers/build_paper_evidence.py
       - name: Check current documents and relocated data paths
         run: python papers/check_repository.py
+
+  manuscript:
+    name: Build and verify the LaTeX manuscript
+    needs: verify
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+      PYTHONUTF8: "1"
+      PYTHONPATH: ${{ github.workspace }}/independent-reconstruction/scripts
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - name: Install current paper dependencies
+        run: python -m pip install -r papers/requirements.txt
+      - name: Regenerate authentic-image figures and evidence manifest
+        run: python papers/build_paper_evidence.py
+      - name: Compile the manuscript with XeLaTeX
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # v4
+        with:
+          working_directory: papers
+          root_file: martian-cylinder-technical-paper.tex
+          texlive_version: "2026"
+          latexmk_use_xelatex: true
+      - name: Verify the compiled manuscript and matching distribution
+        run: |
+          python -c "from shutil import copyfile; copyfile('papers/martian-cylinder-technical-paper.pdf', 'martian-cylinder-technical-paper.pdf')"
+          python papers/verify_journal_revision.py
+          python papers/check_repository.py
+      - name: Upload the verified manuscript and provenance records
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verified-technical-manuscript
+          if-no-files-found: error
+          path: |
+            papers/martian-cylinder-technical-paper.pdf
+            papers/journal-numerical-verification.json
+            papers/paper-evidence-manifest.json
+            papers/figure-provenance.json
