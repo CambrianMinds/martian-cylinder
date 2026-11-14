@@ -1,0 +1,71 @@
+{
+  "pds_product": "3556MR1025170721700585C00_DRXX",
+  "image_path": "data/3556MR1025170721700585C00_DRXX.IMG",
+  "label_path": "data/3556MR1025170721700585C00_DRXX.LBL",
+  "shape_yx": [
+    1184,
+    1328
+  ],
+  "roi_half_open_xxyy": [
+    1014,
+    1104,
+    932,
+    1007
+  ],
+  "coordinates": "Zero-based DRXX subframe, x right and y down. No rotation or reprojection.",
+  "radiometry": "Arithmetic mean of three PDS-scaled radiance bands, zero offsets.",
+  "display": "Linear grayscale clipping only. No spatial interpolation or enhancement.",
+  "full_frame_limits": [
+    0.0084075,
+    0.11761554966666667
+  ],
+  "crop_limits": [
+    0.011871726000000003,
+    0.10401284066666666
+  ],
+  "radiance_units": "W m^-2 sr^-1 nm^-1",
+  "attribution": "NASA/JPL-Caltech/MSSS",
+  "attribution_support": [
+    "PDS label institution MALIN SPACE SCIENCE SYSTEMS, host MSL, MAST_RIGHT",
+    "https://science.nasa.gov/resource/curiositys-mastcam-views-flaky-streambed-rocks/"
+  ],
+  "model_source": "independent-reconstruction/step9_joint_model.json",
+  "model_key": "M1_Strict_Right_Circular_Cylinder_6DOF",
+  "stored_parameters": {
+    "xc_f": 1068.3014413571352,
+    "yc_f": 985.9458911047994,
+    "xc_r": 1033.0266787701785,
+    "yc_r": 965.3204621636161,
+    "a": 19.992539913128933,
+    "b": 15.739116307305824,
+    "b_over_a": 0.7872494628343885,
+    "L_proj": 40.86217315040854,
+    "theta_axis_deg": 30.31515947844139
+  },
+  "recomputed_m1_rms_px": 0.3788289301548403,
+  "sampled_arc_intervals": {
+    "front": {
+      "phase_start_rad": 2.2645647044626425,
+      "phase_stop_rad": 5.162683927399226,
+      "meaning": "Curve interval spanned by the nearest model points to retained stations."
+    },
+    "rear": {
+      "phase_start_rad": 3.735877263893862,
+      "phase_stop_rad": 4.440117617073574,
+      "meaning": "Curve interval spanned by the nearest model points to retained stations."
+    }
+  },
+  "station_counts": {
+    "front": 35,
+    "rear": 24,
+    "dorsal": 26
+  },
+  "dorsal_indices_past_generator_endpoint": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "interpretations": "Soil contact and cast-shadow labels are region interpretations, without fitted perimeters."
+}

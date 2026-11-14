@@ -1,11 +1,11 @@
 """Build paper evidence from retained files; no image acquisition or resampling."""
 from pathlib import Path
-import csv, gzip, hashlib, importlib.util, json
+import csv, gzip, hashlib, importlib.util, json, sys
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from geometry_figure import build_geometry_figure
+from native_image_figures import build_native_figures
 
 ROOT = Path(__file__).resolve().parents[1]
 HERE = Path(__file__).resolve().parent
@@ -15,9 +15,18 @@ COMP = ROOT/'audit/comparative-study'
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p): return json.loads(p.read_text(encoding='utf-8'))
 
+def canonical_text_sha(path):
+    return hashlib.sha256(path.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+
+def matches_recorded_text_hash(path, expected):
+    raw = path.read_bytes()
+    lf = raw.replace(b'\r\n', b'\n')
+    return expected in {hashlib.sha256(raw).hexdigest(), hashlib.sha256(lf).hexdigest(),
+                        hashlib.sha256(lf.replace(b'\n', b'\r\n')).hexdigest()}
+
 def verify(p):
     for name, digest in p['input_hashes'].items():
-        assert sha(ROOT/'independent-reconstruction'/name) == digest, name
+        assert matches_recorded_text_hash(ROOT/'independent-reconstruction'/name,digest), name
     for name,n in [('front',35),('rear',24),('dorsal',26)]:
         scored=[]; residuals=[]
         for fold in p['blocked_m1_prediction']['folds']:
@@ -42,37 +51,21 @@ def verify(p):
     assert (n,below)==(summary['n_control_windows'],summary['n_at_or_below_target'])
 
 def figures(p):
-    build_geometry_figure()
+    sys.path.insert(0,str(ROOT/'independent-reconstruction/scripts'))
+    sys.path.insert(0,str(ROOT/'independent-reconstruction'))
+    import step3_feature_extraction
+    step3_feature_extraction.DATA_DIR=str(ROOT/'data')
     spec=importlib.util.spec_from_file_location('paper_validation',PRED/'run_validation.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     data,_,im=module.load_data()
+    strict=read(ROOT/'independent-reconstruction/step9_joint_model.json')['joint_models']['M1_Strict_Right_Circular_Cylinder_6DOF']
+    build_native_figures(data,im,strict,module.point_to_ellipse_orth_dist)
     out=HERE/'figures';out.mkdir(exist_ok=True)
     plt.rcParams.update({'font.size':13,'pdf.fonttype':42})
     low,high=np.percentile(im[932:1007,1014:1104],[2,98])
     def image(ax):
         ax.imshow(im,cmap='gray',interpolation='nearest',vmin=low,vmax=high)
         ax.set(xlim=(1014,1104),ylim=(1007,932),xlabel='Native x (px)',ylabel='Native y (px)')
-    fig,axes=plt.subplots(1,2,figsize=(12,5.4))
-    for ax in axes:image(ax)
-    axes[0].set_title('(a) Native radiometric crop')
-    axes[1].set_title('(b) Recorded boundaries and exclusions')
-    ax=axes[1]
-    for name,color in [('front','#54f087'),('rear','#ffd451'),('dorsal','#38d8ff')]:
-        ax.scatter(*data[name]['xy'].T,s=13,c=color,zorder=4)
-    s3=read(ROOT/'independent-reconstruction/step3_features.json')
-    pebble=next(q for q in s3['arch_radial_points'] if abs(q['theta_deg']+45)<.001)
-    ax.scatter(pebble['x_erf'],pebble['y_erf'],marker='x',c='#ff77d9',s=48,zorder=5)
-    for label,xy,text,color in [
-        ('Rear terminus',(1032,947),(1016,936),'#ffd451'),
-        ('Dorsal boundary',(1054,954),(1043,940),'#38d8ff'),
-        ('Excluded pebble',(pebble['x_erf'],pebble['y_erf']),(1070,953),'#ff77d9'),
-        ('Front rim',(1051.75,985),(1083,988),'#54f087'),
-        ('Soil contact',(1039.71,971.30),(1016,985),'white'),
-        ('Shadow on soil',(1084,995),(1060,1004),'white')]:
-        ax.annotate(label,xy=xy,xytext=text,color=color,fontsize=12,
-                    arrowprops=dict(arrowstyle='->',color=color,lw=.8),
-                    bbox=dict(facecolor='black',alpha=.6,edgecolor='none',pad=1.5))
-    fig.tight_layout();fig.savefig(out/'target-boundaries.pdf',bbox_inches='tight',metadata={'CreationDate':None,'ModDate':None});plt.close(fig)
     fig,axes=plt.subplots(1,2,figsize=(12,5.4),gridspec_kw={'width_ratios':[1,1.35]})
     ax=axes[0];image(ax);ax.set(xlim=(1025,1042),ylim=(953,942),xticks=[1026,1030,1034,1038])
     frozen=p['frozen_front_shape'];sparse=p['sparse_rear_registration']
@@ -100,11 +93,21 @@ def main():
             'FullJointRMS':p['full_m1_fit']['total_rms_px'],
             'BlockedJointRMS':p['blocked_m1_prediction']['total_rms_px'],
             'DorsalWithheldRMS':p['dorsal_entirely_withheld']['withheld_dorsal_rms_px']}
+    finite=read(ROOT/'audit/sediment-pipe-comparison/results/m4-reevaluation.json')['finite_generator_refits']
+    for name,prefix in [('cylinder','FiniteCylinder'),('frustum','FiniteFrustum')]:
+        values[prefix+'FitRMS']=finite[name]['full_rms_px']
+        values[prefix+'GuardedRMS']=finite[name]['guarded_rms_px']
+    values['FiniteFrustumScale']=finite['frustum']['parameters'][6]
     (HERE/'paper-analysis-values.tex').write_text('% Generated from predictive results JSON.\n'+''.join(
         f'\\newcommand{{\\{k}}}{{{v:.4f}}}\n' for k,v in values.items()),encoding='utf-8')
     figures(p)
     paths=[HERE/'martian-cylinder-technical-paper.tex',Path(__file__).resolve(),
-           HERE/'geometry_figure.py',HERE/'figures/geometry-constraints.pdf',
+           HERE/'native_image_figures.py',HERE/'verify_journal_revision.py',
+           HERE/'requirements.txt',HERE/'run_comparison_checks.py',HERE/'comparison-checks.txt',
+           HERE/'figure-provenance.json',HERE/'figure-determinism.json',HERE/'journal-revision-baseline.json',
+           HERE/'journal-predictive-replay.json',
+           HERE/'figures/joint-m1-overlay.pdf',HERE/'figures/joint-m1-overlay.png',
+           ROOT/'data/3556MR1025170721700585C00_DRXX.IMG',ROOT/'data/3556MR1025170721700585C00_DRXX.LBL',
            ROOT/'audit/shading-sampling-review/check_sampling.py',
            ROOT/'audit/shading-sampling-review/results.json',
            PRED/'run_validation.py',PRED/'protocol.md',PRED/'results.json',PRED/'report.md',
@@ -113,14 +116,27 @@ def main():
            ROOT/'audit/priority-review/report.md',HERE/'paper-analysis-values.tex',
            HERE/'figures/target-boundaries.pdf',HERE/'figures/rear-prediction.pdf']
     paths+=sorted((COMP/'scripts').glob('*.py'))
+    paths+=sorted((ROOT/'independent-reconstruction/scripts').glob('*.py'))
     paths+=sorted((ROOT/'independent-reconstruction').glob('*.py'))
+    pipe=ROOT/'audit/sediment-pipe-comparison'
+    paths+=[pipe/x for x in ['m4-reevaluation.md','protocol.md','image-manifest.csv',
+        'results/m4-reevaluation.json','results/physical-model.json','results/physical-frustum.json',
+        'results/observed-controls.json','scripts/physical_model.py','scripts/reevaluate_m4.py',
+        'scripts/target_benchmark.py','boundary-inventory/screening.json']]
+    paths+=sorted((pipe/'boundary-inventory').glob('target-*.json'))
+    paths+=sorted((pipe/'sources/images').glob('*'))
     paths+=[ROOT/'independent-reconstruction'/n for n in ['step1_provenance.json','step2_camera_geometry.json',
             'step3_features.json','step4_endface_models.json','step5_3d_interpretations.json',
             'step8_pebble_and_rear_terminus.json','step9_joint_model.json','measurements.json']]
     manifest=dict(revision_date='2026-11-13',reconstruction_base_commit='90fbf8f89ac2634a9dbd2b27f81fc80d68b9943c',
-        scope='Working revision; no new commit or NASA acquisition implied.',
+        revision_parent_commit=read(HERE/'journal-revision-baseline.json')['starting_commit'],
+        branch='paper/nov13-journal-revision',
+        scope='November 13 journal revision from verified local source. Figure-only transformations recorded separately.',
         validation=dict(images_checked=28,control_windows=226426,qualifying_windows=835),
-        sha256={x.relative_to(ROOT).as_posix():sha(x) for x in paths})
+        sha256={x.relative_to(ROOT).as_posix():sha(x) for x in paths},
+        canonical_lf_sha256={x.relative_to(ROOT).as_posix():canonical_text_sha(x) for x in paths
+                            if x.suffix in {'.py','.json','.tex','.md','.txt'}},
+        hash_policy='Raw SHA-256 records the observed bytes. Canonical LF digests permit only text newline conversion on checkout. PDS image and label bytes remain exact.')
     (HERE/'paper-evidence-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     principal=[PRED/'protocol.md',PRED/'run_validation.py',PRED/'results.json',
                COMP/'comparison-summary.json',COMP/'image-manifest.json',HERE/'martian-cylinder-technical-paper.tex']
@@ -132,6 +148,6 @@ def main():
                     r'{\scriptsize\ttfamily '+digest[:32]+r'\allowbreak{}'+digest[32:]+r'}\\[5pt]'])
     tex.append(r'\bottomrule\end{longtable}')
     (HERE/'paper-evidence-hashes.tex').write_text('\n'.join(tex)+'\n',encoding='utf-8')
-    print('Checked 28 unchanged images and 226426 exported windows (835 qualifying); built 2 figures and evidence manifest.')
+    print('Checked 28 unchanged images and 226426 exported windows (835 qualifying); built locator, M1 overlay and rear prediction.')
 
 if __name__=='__main__':main()
