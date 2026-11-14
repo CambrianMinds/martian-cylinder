@@ -1,0 +1,17 @@
+{
+  "starting_commit": "0ba7b986dbf84afe5483991dc9330edbab3cc0fb",
+  "branch": "paper/nov13-journal-revision",
+  "authoritative_revision": "2026-11-13",
+  "title": "Subpixel Geometric Reconstruction of a Cylindrical Candidate in Curiosity Mastcam-100 Imagery",
+  "subtitle": "Boundary metrology, frozen-shape prediction, and geological comparison",
+  "sha256": {
+    "papers/martian-cylinder-technical-paper.tex": "899a3cf559d2b69dba9ede40486e70b3caefe34e5186ee6e536af87cf4273b6f",
+    "papers/martian-cylinder-technical-paper.pdf": "c1304e151b9d0bf7b6ce6cc86f57eda6d12e9fffe400cf94439008ad37b1a1b9",
+    "martian-cylinder-technical-paper.pdf": "c1304e151b9d0bf7b6ce6cc86f57eda6d12e9fffe400cf94439008ad37b1a1b9",
+    "papers/build_paper_evidence.py": "df8416fd4e56b9848c6fcdf4724e75f0b0dc75e5282f64485f1af5d441578bf4",
+    "audit/predictive-validation/results.json": "f3c0edf59268e9a0fde3b6893f3744c0f54f0049b07111fac03bd89aee5e3f49",
+    "audit/comparative-study/comparison-summary.json": "82d455289db2d39dba8b66069495b976ccbd522aba666dbcf151b9a6040293ff",
+    "audit/shading-sampling-review/results.json": "a33e85d73b80d63995aa9646f17181ba430141963fff1745fa64d87e51517954",
+    "audit/sediment-pipe-comparison/results/m4-reevaluation.json": "f162e47f6a0fc89cbdbd7397a8a931e4a7dc34d3a17ec52089b37bf232779bad"
+  }
+}

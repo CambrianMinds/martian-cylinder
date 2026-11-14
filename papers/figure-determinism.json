@@ -1,0 +1,8 @@
+{
+  "two_builds_byte_identical": true,
+  "sha256": {
+    "papers\\figures\\target-boundaries.pdf": "248f58e4bda43a0dee65a9159a651df2f887302c36c0c5f0426dc11c5618f62a",
+    "papers\\figures\\joint-m1-overlay.pdf": "b76f940d62907ecbd91fb9a2151e02f60b51b3b15465f6a78c21dec3b5aaab14",
+    "papers\\figures\\rear-prediction.pdf": "c2aedb5685c4ac3459831ce238644086cf6202275a693c4acc28b716bdca9c11"
+  }
+}

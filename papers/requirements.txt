@@ -1,0 +1,2 @@
+-r ../audit/comparative-study/requirements.txt
+PyMuPDF==1.26.7
