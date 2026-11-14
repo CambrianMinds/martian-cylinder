@@ -1,0 +1,45 @@
+{
+  "commit": "60d341c5fd34d6dbdaeed38a2708ad58dae784b1",
+  "clean_clone": true,
+  "new_venv": true,
+  "python": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]",
+  "steps": [
+    {
+      "step": "comparison",
+      "exit_code": 0
+    },
+    {
+      "step": "audit",
+      "exit_code": 0
+    },
+    {
+      "step": "finite-geometry",
+      "exit_code": 0
+    },
+    {
+      "step": "figures",
+      "exit_code": 0
+    },
+    {
+      "step": "repository",
+      "exit_code": 0
+    },
+    {
+      "step": "latex-1",
+      "exit_code": 0
+    },
+    {
+      "step": "latex-2",
+      "exit_code": 0
+    }
+  ],
+  "compiled_verification_exit_code": 0,
+  "pdf_sha256": "98b8ddde6cebd047eb3c9629d13e66177a52605c5eb4512fc073a91f6fb65ed4",
+  "dependency_install": "pip install -r papers/requirements.txt in a newly created Python 3.12 venv",
+  "existing_tests_passed": {
+    "comparison": 6,
+    "audit": 15,
+    "finite_geometry_and_provenance": 15
+  },
+  "xelatex_passes": 2
+}
