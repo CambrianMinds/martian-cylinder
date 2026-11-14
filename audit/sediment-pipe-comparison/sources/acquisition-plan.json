@@ -1,0 +1,27 @@
+[
+  {
+    "id": "rubin2017",
+    "url": "https://schiebershalemudstoneresearchlab.org/PDF/Rubin-et-al-2017-Geology-sediment-pipes.pdf",
+    "path": "sources/rubin2017.pdf"
+  },
+  {
+    "id": "gsa2017002",
+    "url": "https://www.geosociety.org/datarepository/2017/2017002.pdf",
+    "path": "sources/gsa2017002.pdf"
+  },
+  {
+    "id": "broz2023",
+    "url": "https://esurf.copernicus.org/articles/11/633/2023/esurf-11-633-2023.pdf",
+    "path": "sources/broz2023.pdf"
+  },
+  {
+    "id": "mastcam-index",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/INDEX/INDEX.TAB",
+    "path": "sources/mastcam-index.tab"
+  },
+  {
+    "id": "mastcam-root",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/",
+    "path": "sources/pds-msl.html"
+  }
+]

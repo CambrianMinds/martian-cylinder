@@ -1,0 +1,1150 @@
+{
+  "sigma0.7_span36.4": {
+    "n_scenes": 18,
+    "n_control_windows": 226426,
+    "target_levels": 3,
+    "target_median_rms_px": 1.1223002952339702,
+    "target_min_rms_px": 0.3029003315547778,
+    "target_max_rms_px": 1.3132876232582,
+    "fraction_control_windows_at_or_below_target": 0.13684824180968616,
+    "fraction_without_jpeg_grid_flags": 0.13652027922594326,
+    "per_scene": [
+      {
+        "scene": "sol3556_585",
+        "n_windows": 20192,
+        "median_rms_px": 1.8443567532726017,
+        "count_at_or_below_target": 3325,
+        "fraction_at_or_below_target": 0.164669175911252
+      },
+      {
+        "scene": "sol3556_584",
+        "n_windows": 17845,
+        "median_rms_px": 1.9382522022900244,
+        "count_at_or_below_target": 2406,
+        "fraction_at_or_below_target": 0.13482768282432053
+      },
+      {
+        "scene": "sol3556_586",
+        "n_windows": 21557,
+        "median_rms_px": 1.7834881517704817,
+        "count_at_or_below_target": 4140,
+        "fraction_at_or_below_target": 0.1920489864081273
+      },
+      {
+        "scene": "sol3415_182",
+        "n_windows": 8393,
+        "median_rms_px": 2.007906461188558,
+        "count_at_or_below_target": 1094,
+        "fraction_at_or_below_target": 0.13034671750268081
+      },
+      {
+        "scene": "sol3415_181",
+        "n_windows": 24116,
+        "median_rms_px": 1.91206796296889,
+        "count_at_or_below_target": 4075,
+        "fraction_at_or_below_target": 0.16897495438712887
+      },
+      {
+        "scene": "sol1850_4976",
+        "n_windows": 14425,
+        "median_rms_px": 1.691530477690138,
+        "count_at_or_below_target": 3535,
+        "fraction_at_or_below_target": 0.24506065857885614
+      },
+      {
+        "scene": "sol0753_3753",
+        "n_windows": 2974,
+        "median_rms_px": 2.049598019933633,
+        "count_at_or_below_target": 320,
+        "fraction_at_or_below_target": 0.10759919300605246
+      },
+      {
+        "scene": "sol0840_885",
+        "n_windows": 13455,
+        "median_rms_px": 2.1242115869481726,
+        "count_at_or_below_target": 997,
+        "fraction_at_or_below_target": 0.0740988480118915
+      },
+      {
+        "scene": "point_lake",
+        "n_windows": 10752,
+        "median_rms_px": 1.9925849583475375,
+        "count_at_or_below_target": 1526,
+        "fraction_at_or_below_target": 0.14192708333333334
+      },
+      {
+        "scene": "point_lake_305a",
+        "n_windows": 8789,
+        "median_rms_px": 2.0882565290728086,
+        "count_at_or_below_target": 999,
+        "fraction_at_or_below_target": 0.11366480828308112
+      },
+      {
+        "scene": "point_lake_305b",
+        "n_windows": 13564,
+        "median_rms_px": 2.1861801680088027,
+        "count_at_or_below_target": 1107,
+        "fraction_at_or_below_target": 0.08161309348274845
+      },
+      {
+        "scene": "twin_cairns",
+        "n_windows": 5090,
+        "median_rms_px": 2.1345081067149847,
+        "count_at_or_below_target": 341,
+        "fraction_at_or_below_target": 0.06699410609037328
+      },
+      {
+        "scene": "twin_cairns_b",
+        "n_windows": 4749,
+        "median_rms_px": 2.1581898550993914,
+        "count_at_or_below_target": 260,
+        "fraction_at_or_below_target": 0.05474836807749
+      },
+      {
+        "scene": "winnipesaukee",
+        "n_windows": 10415,
+        "median_rms_px": 2.243921587205582,
+        "count_at_or_below_target": 519,
+        "fraction_at_or_below_target": 0.049831973115698515
+      },
+      {
+        "scene": "shaler_306",
+        "n_windows": 14511,
+        "median_rms_px": 2.02408907570765,
+        "count_at_or_below_target": 1985,
+        "fraction_at_or_below_target": 0.13679277789263317
+      },
+      {
+        "scene": "shaler_pipe",
+        "n_windows": 5320,
+        "median_rms_px": 2.074456430787462,
+        "count_at_or_below_target": 655,
+        "fraction_at_or_below_target": 0.1231203007518797
+      },
+      {
+        "scene": "shaler_pits",
+        "n_windows": 11763,
+        "median_rms_px": 1.8247665510729942,
+        "count_at_or_below_target": 2104,
+        "fraction_at_or_below_target": 0.1788659355606563
+      },
+      {
+        "scene": "snake",
+        "n_windows": 18516,
+        "median_rms_px": 1.9848333804602785,
+        "count_at_or_below_target": 1598,
+        "fraction_at_or_below_target": 0.08630373730827393
+      }
+    ],
+    "target_records": [
+      {
+        "scene": "sol3556_585",
+        "level_dn": 120,
+        "contour": 5019,
+        "start_arc_px": 1456.0,
+        "span_px": 36.4,
+        "sigma_px": 0.7,
+        "x": 1060.5256745234308,
+        "y": 955.4674230036482,
+        "median_gradient_dn_px": 9.832531711082911,
+        "rms_px": 1.3132876232582,
+        "angle_deg": 30.858950249694367,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 2.7964579974969044
+      },
+      {
+        "scene": "sol3556_585",
+        "level_dn": 136,
+        "contour": 5112,
+        "start_arc_px": 109.19999999999999,
+        "span_px": 36.4,
+        "sigma_px": 0.7,
+        "x": 1052.176497153865,
+        "y": 951.9200324351651,
+        "median_gradient_dn_px": 9.542464349780541,
+        "rms_px": 1.1223002952339702,
+        "angle_deg": 34.34832166848638,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 1.6495737426262107
+      },
+      {
+        "scene": "sol3556_585",
+        "level_dn": 152,
+        "contour": 3983,
+        "start_arc_px": 54.599999999999994,
+        "span_px": 36.4,
+        "sigma_px": 0.7,
+        "x": 1056.6353777744193,
+        "y": 956.4057474575891,
+        "median_gradient_dn_px": 10.108310484694801,
+        "rms_px": 0.3029003315547778,
+        "angle_deg": 29.48280651362117,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 0.6011672312826952
+      }
+    ]
+  },
+  "sigma1.2_span36.4": {
+    "n_scenes": 18,
+    "n_control_windows": 175055,
+    "target_levels": 3,
+    "target_median_rms_px": 0.6355562349187965,
+    "target_min_rms_px": 0.6322595791085577,
+    "target_max_rms_px": 2.5827122050670206,
+    "fraction_control_windows_at_or_below_target": 0.042283853645996974,
+    "fraction_without_jpeg_grid_flags": 0.041968112463569344,
+    "per_scene": [
+      {
+        "scene": "sol3556_585",
+        "n_windows": 15854,
+        "median_rms_px": 1.9289413182455855,
+        "count_at_or_below_target": 710,
+        "fraction_at_or_below_target": 0.04478365081367478
+      },
+      {
+        "scene": "sol3556_584",
+        "n_windows": 13752,
+        "median_rms_px": 2.056127777632701,
+        "count_at_or_below_target": 554,
+        "fraction_at_or_below_target": 0.04028504944735311
+      },
+      {
+        "scene": "sol3556_586",
+        "n_windows": 17181,
+        "median_rms_px": 1.8900231244779981,
+        "count_at_or_below_target": 1027,
+        "fraction_at_or_below_target": 0.05977533321692567
+      },
+      {
+        "scene": "sol3415_182",
+        "n_windows": 6196,
+        "median_rms_px": 2.0652148254961316,
+        "count_at_or_below_target": 293,
+        "fraction_at_or_below_target": 0.04728857327307941
+      },
+      {
+        "scene": "sol3415_181",
+        "n_windows": 19606,
+        "median_rms_px": 2.026424850013733,
+        "count_at_or_below_target": 917,
+        "fraction_at_or_below_target": 0.04677139651127206
+      },
+      {
+        "scene": "sol1850_4976",
+        "n_windows": 11312,
+        "median_rms_px": 1.7405779429620178,
+        "count_at_or_below_target": 1113,
+        "fraction_at_or_below_target": 0.0983910891089109
+      },
+      {
+        "scene": "sol0753_3753",
+        "n_windows": 2240,
+        "median_rms_px": 2.078744961348586,
+        "count_at_or_below_target": 67,
+        "fraction_at_or_below_target": 0.029910714285714287
+      },
+      {
+        "scene": "sol0840_885",
+        "n_windows": 10162,
+        "median_rms_px": 2.2554682896987672,
+        "count_at_or_below_target": 191,
+        "fraction_at_or_below_target": 0.018795512694351507
+      },
+      {
+        "scene": "point_lake",
+        "n_windows": 8297,
+        "median_rms_px": 2.0726231988433796,
+        "count_at_or_below_target": 353,
+        "fraction_at_or_below_target": 0.04254549837290587
+      },
+      {
+        "scene": "point_lake_305a",
+        "n_windows": 6646,
+        "median_rms_px": 2.1494021917703283,
+        "count_at_or_below_target": 233,
+        "fraction_at_or_below_target": 0.035058681913933194
+      },
+      {
+        "scene": "point_lake_305b",
+        "n_windows": 11011,
+        "median_rms_px": 2.26664328847516,
+        "count_at_or_below_target": 169,
+        "fraction_at_or_below_target": 0.015348288075560802
+      },
+      {
+        "scene": "twin_cairns",
+        "n_windows": 3504,
+        "median_rms_px": 2.29671648283289,
+        "count_at_or_below_target": 45,
+        "fraction_at_or_below_target": 0.012842465753424657
+      },
+      {
+        "scene": "twin_cairns_b",
+        "n_windows": 3538,
+        "median_rms_px": 2.307640992884595,
+        "count_at_or_below_target": 27,
+        "fraction_at_or_below_target": 0.007631430186546071
+      },
+      {
+        "scene": "winnipesaukee",
+        "n_windows": 7723,
+        "median_rms_px": 2.3860262084722583,
+        "count_at_or_below_target": 69,
+        "fraction_at_or_below_target": 0.008934351935776253
+      },
+      {
+        "scene": "shaler_306",
+        "n_windows": 11378,
+        "median_rms_px": 2.110199749544152,
+        "count_at_or_below_target": 629,
+        "fraction_at_or_below_target": 0.05528212339602742
+      },
+      {
+        "scene": "shaler_pipe",
+        "n_windows": 3815,
+        "median_rms_px": 2.1198186090976106,
+        "count_at_or_below_target": 150,
+        "fraction_at_or_below_target": 0.039318479685452164
+      },
+      {
+        "scene": "shaler_pits",
+        "n_windows": 8964,
+        "median_rms_px": 1.895835265710125,
+        "count_at_or_below_target": 566,
+        "fraction_at_or_below_target": 0.06314145470771977
+      },
+      {
+        "scene": "snake",
+        "n_windows": 13876,
+        "median_rms_px": 2.1072462439557627,
+        "count_at_or_below_target": 289,
+        "fraction_at_or_below_target": 0.02082732776016143
+      }
+    ],
+    "target_records": [
+      {
+        "scene": "sol3556_585",
+        "level_dn": 120,
+        "contour": 2615,
+        "start_arc_px": 1037.3999999999999,
+        "span_px": 36.4,
+        "sigma_px": 1.2,
+        "x": 1059.4584289412924,
+        "y": 953.2770194609195,
+        "median_gradient_dn_px": 8.043920165232766,
+        "rms_px": 2.5827122050670206,
+        "angle_deg": 37.396963455915596,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 3.8913154933099343
+      },
+      {
+        "scene": "sol3556_585",
+        "level_dn": 136,
+        "contour": 3015,
+        "start_arc_px": 91.0,
+        "span_px": 36.4,
+        "sigma_px": 1.2,
+        "x": 1059.3506168806211,
+        "y": 956.7788126384615,
+        "median_gradient_dn_px": 9.863285679992712,
+        "rms_px": 0.6355562349187965,
+        "angle_deg": 30.347291613509594,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 1.392333662739865
+      },
+      {
+        "scene": "sol3556_585",
+        "level_dn": 152,
+        "contour": 1669,
+        "start_arc_px": 54.599999999999994,
+        "span_px": 36.4,
+        "sigma_px": 1.2,
+        "x": 1057.765066548226,
+        "y": 957.4844061204348,
+        "median_gradient_dn_px": 8.729294840136754,
+        "rms_px": 0.6322595791085577,
+        "angle_deg": 30.603480846574417,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 1.0450502059371733
+      }
+    ]
+  },
+  "sigma0.7_span24.0": {
+    "n_scenes": 18,
+    "n_control_windows": 372900,
+    "target_levels": 3,
+    "target_median_rms_px": 0.4192294447439164,
+    "target_min_rms_px": 0.1513194131523486,
+    "target_max_rms_px": 0.6688040510011933,
+    "fraction_control_windows_at_or_below_target": 0.04350227943148297,
+    "fraction_without_jpeg_grid_flags": 0.0429392514959611,
+    "per_scene": [
+      {
+        "scene": "sol3556_585",
+        "n_windows": 33467,
+        "median_rms_px": 1.2873669817057505,
+        "count_at_or_below_target": 1630,
+        "fraction_at_or_below_target": 0.04870469417635283
+      },
+      {
+        "scene": "sol3556_584",
+        "n_windows": 29948,
+        "median_rms_px": 1.3634599265786116,
+        "count_at_or_below_target": 1187,
+        "fraction_at_or_below_target": 0.03963536797114999
+      },
+      {
+        "scene": "sol3556_586",
+        "n_windows": 35616,
+        "median_rms_px": 1.254660715801712,
+        "count_at_or_below_target": 2156,
+        "fraction_at_or_below_target": 0.060534591194968554
+      },
+      {
+        "scene": "sol3415_182",
+        "n_windows": 13651,
+        "median_rms_px": 1.3955098285809646,
+        "count_at_or_below_target": 451,
+        "fraction_at_or_below_target": 0.033037872683319904
+      },
+      {
+        "scene": "sol3415_181",
+        "n_windows": 40017,
+        "median_rms_px": 1.2629405563699883,
+        "count_at_or_below_target": 2812,
+        "fraction_at_or_below_target": 0.07027013519254317
+      },
+      {
+        "scene": "sol1850_4976",
+        "n_windows": 23292,
+        "median_rms_px": 1.1371591399090928,
+        "count_at_or_below_target": 2463,
+        "fraction_at_or_below_target": 0.10574446161772283
+      },
+      {
+        "scene": "sol0753_3753",
+        "n_windows": 4906,
+        "median_rms_px": 1.4279034823081616,
+        "count_at_or_below_target": 99,
+        "fraction_at_or_below_target": 0.020179372197309416
+      },
+      {
+        "scene": "sol0840_885",
+        "n_windows": 21733,
+        "median_rms_px": 1.468817498266044,
+        "count_at_or_below_target": 348,
+        "fraction_at_or_below_target": 0.016012515529379285
+      },
+      {
+        "scene": "point_lake",
+        "n_windows": 17583,
+        "median_rms_px": 1.349754743160487,
+        "count_at_or_below_target": 758,
+        "fraction_at_or_below_target": 0.043109821987146676
+      },
+      {
+        "scene": "point_lake_305a",
+        "n_windows": 14077,
+        "median_rms_px": 1.40492219697052,
+        "count_at_or_below_target": 537,
+        "fraction_at_or_below_target": 0.03814733252823755
+      },
+      {
+        "scene": "point_lake_305b",
+        "n_windows": 21917,
+        "median_rms_px": 1.4698307006364826,
+        "count_at_or_below_target": 395,
+        "fraction_at_or_below_target": 0.018022539581147055
+      },
+      {
+        "scene": "twin_cairns",
+        "n_windows": 8599,
+        "median_rms_px": 1.497380768300047,
+        "count_at_or_below_target": 136,
+        "fraction_at_or_below_target": 0.015815792534015584
+      },
+      {
+        "scene": "twin_cairns_b",
+        "n_windows": 8135,
+        "median_rms_px": 1.5159936291057343,
+        "count_at_or_below_target": 80,
+        "fraction_at_or_below_target": 0.009834050399508297
+      },
+      {
+        "scene": "winnipesaukee",
+        "n_windows": 17145,
+        "median_rms_px": 1.5186276240474685,
+        "count_at_or_below_target": 194,
+        "fraction_at_or_below_target": 0.01131525226013415
+      },
+      {
+        "scene": "shaler_306",
+        "n_windows": 23631,
+        "median_rms_px": 1.3991138028632357,
+        "count_at_or_below_target": 1010,
+        "fraction_at_or_below_target": 0.042740468029283565
+      },
+      {
+        "scene": "shaler_pipe",
+        "n_windows": 8735,
+        "median_rms_px": 1.3938593005870643,
+        "count_at_or_below_target": 313,
+        "fraction_at_or_below_target": 0.035832856325128795
+      },
+      {
+        "scene": "shaler_pits",
+        "n_windows": 19387,
+        "median_rms_px": 1.2725819922597208,
+        "count_at_or_below_target": 1030,
+        "fraction_at_or_below_target": 0.053128385000257905
+      },
+      {
+        "scene": "snake",
+        "n_windows": 31061,
+        "median_rms_px": 1.4163098852543414,
+        "count_at_or_below_target": 623,
+        "fraction_at_or_below_target": 0.02005730659025788
+      }
+    ],
+    "target_records": [
+      {
+        "scene": "sol3556_585",
+        "level_dn": 120,
+        "contour": 5019,
+        "start_arc_px": 1464.0,
+        "span_px": 24.0,
+        "sigma_px": 0.7,
+        "x": 1061.1137423174807,
+        "y": 956.1965496694023,
+        "median_gradient_dn_px": 10.777251738497334,
+        "rms_px": 0.6688040510011933,
+        "angle_deg": 25.628834092611648,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 2.14099778250469
+      },
+      {
+        "scene": "sol3556_585",
+        "level_dn": 136,
+        "contour": 5112,
+        "start_arc_px": 120.0,
+        "span_px": 24.0,
+        "sigma_px": 0.7,
+        "x": 1055.4234520013658,
+        "y": 954.6390041968953,
+        "median_gradient_dn_px": 11.17893997557063,
+        "rms_px": 0.4192294447439164,
+        "angle_deg": 27.675905265152014,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 0.9088268943052692
+      },
+      {
+        "scene": "sol3556_585",
+        "level_dn": 152,
+        "contour": 3983,
+        "start_arc_px": 60.0,
+        "span_px": 24.0,
+        "sigma_px": 0.7,
+        "x": 1055.9261148554506,
+        "y": 956.1473514450691,
+        "median_gradient_dn_px": 10.835787683351048,
+        "rms_px": 0.1513194131523486,
+        "angle_deg": 28.68531642406865,
+        "jpeg_grid_flag": false,
+        "reference_distance_px": 0.5318581361231127
+      }
+    ]
+  },
+  "arcs": {
+    "n_control_arcs": 599,
+    "target_records": [
+      {
+        "scene": "sol3556_585",
+        "level_dn": 72,
+        "contour": 1403,
+        "start_arc_px": 54.0,
+        "span_px": 54,
+        "sigma_px": 0.7,
+        "x": 1061.3584548336223,
+        "y": 981.496693759907,
+        "median_gradient_dn_px": 12.269263625245785,
+        "ellipse_rms_px": 0.34111153466609245,
+        "a_px": 18.93694367594063,
+        "b_over_a": 0.6963085950505291,
+        "coverage_deg": 190.51795932397752,
+        "ellipse_xc": 1068.0204074773073,
+        "ellipse_yc": 986.1737885092009,
+        "reference_distance_px": 2.8791586773087094
+      }
+    ],
+    "target_median_rms_px": 0.34111153466609245,
+    "interpretation": "Selected isophote arc fits; not automatically verified geological end faces"
+  },
+  "straight_examples": [
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 88,
+      "contour": 11,
+      "start_arc_px": 254.79999999999998,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 661.3804408348203,
+      "y": 82.04914991915568,
+      "median_gradient_dn_px": 19.019267174213986,
+      "rms_px": 0.08448402907041522,
+      "angle_deg": 0.6673070789173323,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3415_181",
+      "level_dn": 72,
+      "contour": 1379,
+      "start_arc_px": 163.79999999999998,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 900.7472507299145,
+      "y": 744.779634131096,
+      "median_gradient_dn_px": 20.061553124255067,
+      "rms_px": 0.09345134171226747,
+      "angle_deg": 6.006015241118469,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3556_584",
+      "level_dn": 88,
+      "contour": 2738,
+      "start_arc_px": 18.2,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1290.808977890678,
+      "y": 759.8623277519473,
+      "median_gradient_dn_px": 19.53060517379042,
+      "rms_px": 0.09480122626443432,
+      "angle_deg": 172.57766686792618,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 120,
+      "contour": 3351,
+      "start_arc_px": 200.2,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 176.16598348879955,
+      "y": 1083.5726928074014,
+      "median_gradient_dn_px": 19.195019477272304,
+      "rms_px": 0.0973870022087818,
+      "angle_deg": 1.1458937694269962,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 88,
+      "contour": 487,
+      "start_arc_px": 200.2,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 952.1148591639104,
+      "y": 442.1462984380966,
+      "median_gradient_dn_px": 22.73796217776262,
+      "rms_px": 0.10024183525029509,
+      "angle_deg": 3.7507041767066323,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "shaler_306",
+      "level_dn": 104,
+      "contour": 899,
+      "start_arc_px": 18.2,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1138.1352771265786,
+      "y": 366.4602700545998,
+      "median_gradient_dn_px": 11.201024929416718,
+      "rms_px": 0.1084052208444848,
+      "angle_deg": 2.6634307087992517,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3415_181",
+      "level_dn": 56,
+      "contour": 574,
+      "start_arc_px": 72.8,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1128.9700856615439,
+      "y": 974.5555520357673,
+      "median_gradient_dn_px": 4.699979638725748,
+      "rms_px": 0.11740213307027654,
+      "angle_deg": 171.09835809444027,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3556_584",
+      "level_dn": 56,
+      "contour": 339,
+      "start_arc_px": 273.0,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1224.916425191652,
+      "y": 788.568102297373,
+      "median_gradient_dn_px": 8.702871524258082,
+      "rms_px": 0.12307747795422071,
+      "angle_deg": 176.6190414566779,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3415_181",
+      "level_dn": 88,
+      "contour": 2977,
+      "start_arc_px": 72.8,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 527.2980813441449,
+      "y": 890.4173360547431,
+      "median_gradient_dn_px": 20.24938585275124,
+      "rms_px": 0.12510502130106793,
+      "angle_deg": 176.38889608944172,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 104,
+      "contour": 1902,
+      "start_arc_px": 455.0,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1100.7136866040978,
+      "y": 629.3413483950351,
+      "median_gradient_dn_px": 15.167092788769157,
+      "rms_px": 0.13281546863517932,
+      "angle_deg": 19.563427428968225,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3415_181",
+      "level_dn": 88,
+      "contour": 3277,
+      "start_arc_px": 109.19999999999999,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 178.4708394243764,
+      "y": 1023.6876038936197,
+      "median_gradient_dn_px": 9.553904430364675,
+      "rms_px": 0.13604139424093498,
+      "angle_deg": 179.79635272703794,
+      "jpeg_grid_flag": true
+    },
+    {
+      "scene": "sol3556_584",
+      "level_dn": 152,
+      "contour": 4419,
+      "start_arc_px": 182.0,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 129.4521136032835,
+      "y": 1022.6371668146979,
+      "median_gradient_dn_px": 14.281122193721039,
+      "rms_px": 0.13725487420030522,
+      "angle_deg": 171.15591831352492,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 152,
+      "contour": 112,
+      "start_arc_px": 91.0,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 891.492497557135,
+      "y": 225.04343374136656,
+      "median_gradient_dn_px": 13.294147230342286,
+      "rms_px": 0.14299564513129603,
+      "angle_deg": 177.8357521269923,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "shaler_pits",
+      "level_dn": 72,
+      "contour": 541,
+      "start_arc_px": 54.599999999999994,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 1313.5832259940528,
+      "y": 937.2462570152687,
+      "median_gradient_dn_px": 12.647165034710774,
+      "rms_px": 0.14565512144545556,
+      "angle_deg": 166.0950776687003,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 136,
+      "contour": 1073,
+      "start_arc_px": 145.6,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 892.1435940536737,
+      "y": 548.3410765826663,
+      "median_gradient_dn_px": 17.356713614052907,
+      "rms_px": 0.1469064021781374,
+      "angle_deg": 13.646824587522026,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol3556_586",
+      "level_dn": 120,
+      "contour": 251,
+      "start_arc_px": 2238.6,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 119.05579394361493,
+      "y": 57.50779857324762,
+      "median_gradient_dn_px": 22.577887974949725,
+      "rms_px": 0.14695563111446477,
+      "angle_deg": 178.99540185012398,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "shaler_306",
+      "level_dn": 120,
+      "contour": 4563,
+      "start_arc_px": 655.1999999999999,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 331.37091343904103,
+      "y": 1118.017071393152,
+      "median_gradient_dn_px": 11.482277997847474,
+      "rms_px": 0.14775631526778862,
+      "angle_deg": 2.11944890294276,
+      "jpeg_grid_flag": false
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 72,
+      "contour": 11,
+      "start_arc_px": 145.6,
+      "span_px": 36.4,
+      "sigma_px": 0.7,
+      "x": 755.4482611169107,
+      "y": 62.374262211192814,
+      "median_gradient_dn_px": 12.230263617770365,
+      "rms_px": 0.1483039160834481,
+      "angle_deg": 164.64704045296008,
+      "jpeg_grid_flag": false
+    }
+  ],
+  "arc_examples": [
+    {
+      "scene": "sol3415_181",
+      "level_dn": 152,
+      "contour": 133,
+      "start_arc_px": 2700.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 380.4570271829174,
+      "y": 78.4437818305541,
+      "median_gradient_dn_px": 13.362953132906426,
+      "ellipse_rms_px": 0.36182563356516845,
+      "a_px": 21.94396471688253,
+      "b_over_a": 0.836168240681699,
+      "coverage_deg": 150.21556673205214,
+      "ellipse_xc": 383.3015459730731,
+      "ellipse_yc": 93.27060081464975
+    },
+    {
+      "scene": "sol0753_3753",
+      "level_dn": 104,
+      "contour": 37,
+      "start_arc_px": 81.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 1030.3603283292825,
+      "y": 183.43024930324844,
+      "median_gradient_dn_px": 11.38552428425378,
+      "ellipse_rms_px": 0.4086941985408688,
+      "a_px": 25.125346509706123,
+      "b_over_a": 0.9451512426018518,
+      "coverage_deg": 125.74124607282886,
+      "ellipse_xc": 1046.3616548079176,
+      "ellipse_yc": 195.51494475840312
+    },
+    {
+      "scene": "point_lake",
+      "level_dn": 120,
+      "contour": 1432,
+      "start_arc_px": 189.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 303.1961753353249,
+      "y": 1061.9945462944002,
+      "median_gradient_dn_px": 14.547662212696064,
+      "ellipse_rms_px": 0.40967369937196124,
+      "a_px": 23.580209691468784,
+      "b_over_a": 0.7578183266099863,
+      "coverage_deg": 142.08601853709376,
+      "ellipse_xc": 290.1775621421843,
+      "ellipse_yc": 1054.1902017046752
+    },
+    {
+      "scene": "winnipesaukee",
+      "level_dn": 152,
+      "contour": 3371,
+      "start_arc_px": 135.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 1288.0981299746313,
+      "y": 523.516431653532,
+      "median_gradient_dn_px": 6.2679148025398055,
+      "ellipse_rms_px": 0.4261027524546627,
+      "a_px": 23.129918203557246,
+      "b_over_a": 0.8528243099006632,
+      "coverage_deg": 139.12086208832457,
+      "ellipse_xc": 1282.9874635517767,
+      "ellipse_yc": 539.2023529539358
+    },
+    {
+      "scene": "winnipesaukee",
+      "level_dn": 136,
+      "contour": 5528,
+      "start_arc_px": 972.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 348.99007077504683,
+      "y": 1037.0598089862876,
+      "median_gradient_dn_px": 5.544231219153691,
+      "ellipse_rms_px": 0.4418060628772331,
+      "a_px": 18.021969196488723,
+      "b_over_a": 0.7408684386762161,
+      "coverage_deg": 188.4589987889345,
+      "ellipse_xc": 345.1156958424685,
+      "ellipse_yc": 1028.7268465741465
+    },
+    {
+      "scene": "sol3415_182",
+      "level_dn": 104,
+      "contour": 841,
+      "start_arc_px": 675.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 1090.9982441137015,
+      "y": 451.0087850832518,
+      "median_gradient_dn_px": 8.7436218308953,
+      "ellipse_rms_px": 0.4769612690182227,
+      "a_px": 18.58395113587304,
+      "b_over_a": 0.9395670809276584,
+      "coverage_deg": 163.73672255033367,
+      "ellipse_xc": 1079.4801416670252,
+      "ellipse_yc": 453.75630307557617
+    },
+    {
+      "scene": "sol3415_182",
+      "level_dn": 120,
+      "contour": 2051,
+      "start_arc_px": 6534.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 557.0677291402405,
+      "y": 535.0187727596704,
+      "median_gradient_dn_px": 13.173887937752486,
+      "ellipse_rms_px": 0.47851737931616334,
+      "a_px": 19.313023969784197,
+      "b_over_a": 0.6825004840634419,
+      "coverage_deg": 183.88779178625083,
+      "ellipse_xc": 564.1127323449708,
+      "ellipse_yc": 529.3421593738808
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 88,
+      "contour": 832,
+      "start_arc_px": 513.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 554.9289081745535,
+      "y": 806.0766463881337,
+      "median_gradient_dn_px": 15.685571652443471,
+      "ellipse_rms_px": 0.47884616994465296,
+      "a_px": 18.18618752489186,
+      "b_over_a": 0.7622208007820666,
+      "coverage_deg": 177.07061958384818,
+      "ellipse_xc": 563.1422344247495,
+      "ellipse_yc": 810.3212435192023
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 88,
+      "contour": 13,
+      "start_arc_px": 1809.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 809.6142963618386,
+      "y": 100.05711188250912,
+      "median_gradient_dn_px": 7.153068481001802,
+      "ellipse_rms_px": 0.4869897601280891,
+      "a_px": 21.923293319889076,
+      "b_over_a": 0.6591960490896913,
+      "coverage_deg": 155.69745406966388,
+      "ellipse_xc": 815.2663936746592,
+      "ellipse_yc": 91.0033327702028
+    },
+    {
+      "scene": "sol3415_182",
+      "level_dn": 152,
+      "contour": 263,
+      "start_arc_px": 351.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 721.5721943471018,
+      "y": 172.66997510744187,
+      "median_gradient_dn_px": 9.108701157159423,
+      "ellipse_rms_px": 0.4975367885688685,
+      "a_px": 26.16979843543292,
+      "b_over_a": 0.8426448721341949,
+      "coverage_deg": 123.70887398897875,
+      "ellipse_xc": 731.3631497020215,
+      "ellipse_yc": 188.93341946578698
+    },
+    {
+      "scene": "shaler_pipe",
+      "level_dn": 120,
+      "contour": 1754,
+      "start_arc_px": 54.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 433.8040331850475,
+      "y": 1020.1561794667199,
+      "median_gradient_dn_px": 10.230133505145766,
+      "ellipse_rms_px": 0.5000175803180408,
+      "a_px": 15.925699903344498,
+      "b_over_a": 0.9291450938152601,
+      "coverage_deg": 195.50391814034487,
+      "ellipse_xc": 431.3837714100586,
+      "ellipse_yc": 1028.3223481217842
+    },
+    {
+      "scene": "point_lake",
+      "level_dn": 72,
+      "contour": 16,
+      "start_arc_px": 5319.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 1169.5384588091647,
+      "y": 367.7078850348901,
+      "median_gradient_dn_px": 9.698738372640362,
+      "ellipse_rms_px": 0.5025436492166245,
+      "a_px": 20.84382751831864,
+      "b_over_a": 0.7970813889586271,
+      "coverage_deg": 154.6505049406726,
+      "ellipse_xc": 1178.7587067096006,
+      "ellipse_yc": 375.13899765830433
+    },
+    {
+      "scene": "point_lake_305b",
+      "level_dn": 136,
+      "contour": 323,
+      "start_arc_px": 1107.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 184.58895784294268,
+      "y": 319.05113196992625,
+      "median_gradient_dn_px": 11.003457193698935,
+      "ellipse_rms_px": 0.5173822224100402,
+      "a_px": 21.559315539302357,
+      "b_over_a": 0.7252560999337908,
+      "coverage_deg": 154.71212181373104,
+      "ellipse_xc": 177.80296866653674,
+      "ellipse_yc": 309.2509263467046
+    },
+    {
+      "scene": "sol3415_181",
+      "level_dn": 136,
+      "contour": 137,
+      "start_arc_px": 2106.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 667.6218891942418,
+      "y": 123.98977462598637,
+      "median_gradient_dn_px": 14.431613274033783,
+      "ellipse_rms_px": 0.5330261963606525,
+      "a_px": 19.84453095436713,
+      "b_over_a": 0.6811253550913251,
+      "coverage_deg": 180.37607914504522,
+      "ellipse_xc": 670.05946425335,
+      "ellipse_yc": 132.4622509666459
+    },
+    {
+      "scene": "twin_cairns_b",
+      "level_dn": 104,
+      "contour": 1476,
+      "start_arc_px": 27.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 178.1821527838804,
+      "y": 951.6122891942696,
+      "median_gradient_dn_px": 7.91879874815122,
+      "ellipse_rms_px": 0.5493655112144049,
+      "a_px": 19.84687383366957,
+      "b_over_a": 0.6577568196223736,
+      "coverage_deg": 175.79451762961074,
+      "ellipse_xc": 176.4148577669243,
+      "ellipse_yc": 961.7405076264456
+    },
+    {
+      "scene": "sol3415_181",
+      "level_dn": 120,
+      "contour": 3382,
+      "start_arc_px": 297.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 804.6436404092748,
+      "y": 1070.2368998164031,
+      "median_gradient_dn_px": 10.335697322316467,
+      "ellipse_rms_px": 0.552152515445027,
+      "a_px": 17.645161224097112,
+      "b_over_a": 0.7121181834386348,
+      "coverage_deg": 186.75905066947004,
+      "ellipse_xc": 808.7049939961387,
+      "ellipse_yc": 1076.703122514203
+    },
+    {
+      "scene": "sol1850_4976",
+      "level_dn": 120,
+      "contour": 1476,
+      "start_arc_px": 783.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 543.8801185964625,
+      "y": 538.6713848938927,
+      "median_gradient_dn_px": 11.372276759526281,
+      "ellipse_rms_px": 0.5533623731871488,
+      "a_px": 25.319278763661828,
+      "b_over_a": 0.6689724793526766,
+      "coverage_deg": 146.3414216091862,
+      "ellipse_xc": 549.653092376057,
+      "ellipse_yc": 555.5680030335838
+    },
+    {
+      "scene": "shaler_pipe",
+      "level_dn": 120,
+      "contour": 1122,
+      "start_arc_px": 54.0,
+      "span_px": 54,
+      "sigma_px": 0.7,
+      "x": 206.89161111001687,
+      "y": 801.4090873874542,
+      "median_gradient_dn_px": 6.453359883373121,
+      "ellipse_rms_px": 0.5739617509870094,
+      "a_px": 15.31266723863734,
+      "b_over_a": 0.7100990579609123,
+      "coverage_deg": 214.16926013157226,
+      "ellipse_xc": 213.31642930414705,
+      "ellipse_yc": 800.6252687099335
+    }
+  ],
+  "environment": {
+    "python": "3.12.7",
+    "numpy": "1.26.4",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "scope": "Uniform 2x2 binning, coordinates/residuals in equivalent native pixels. Exploratory fixed-span photometric windows, correlated within/between thresholds; no clast-level rarity or origin probability."
+}

@@ -1,6 +1,5 @@
-% Self-contained technical manuscript. Original vector diagrams; no images
-% from the source repository are reproduced here.
-% Reproducibility snapshot: CambrianMinds/martian-cylinder, master,
+% Technical manuscript with native-image crops and JSON-derived predictive figures.
+% Reconstruction base (additional evidence identified by the revision manifest):
 % 90fbf8f89ac2634a9dbd2b27f81fc80d68b9943c (2026-11-11).
 \documentclass[11pt,letterpaper]{article}
 \usepackage[margin=0.92in,headheight=23pt,footskip=30pt]{geometry}
@@ -39,7 +38,10 @@
 \usepackage{float}
 \usepackage{longtable}
 \usepackage{needspace}
+\usepackage{etoolbox}
 \usepackage{setspace}
+\pretocmd{\section}{\Needspace{6\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{6\baselineskip}}{}{}
 \definecolor{ink}{HTML}{202934}
 \definecolor{slate}{HTML}{495B68}
 \definecolor{accent}{HTML}{287D84}
@@ -63,7 +65,7 @@
 \fancyhf{}
 \fancyhead[L]{\footnotesize\textsc{Sol 3556 | Mastcam-100}}
 \fancyhead[R]{\footnotesize\textsc{Geometric reconstruction}}
-\fancyfoot[L]{\footnotesize Bogner \quad | \quad 11 November 2026}
+\fancyfoot[L]{\footnotesize Bogner \quad | \quad 13 November 2026}
 \fancyfoot[R]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{fine}\leaders\hrule height \headrulewidth\hfill}}
@@ -79,21 +81,23 @@
 \lstdefinestyle{code}{basicstyle=\ttfamily\footnotesize,frame=single,rulecolor=\color{fine},backgroundcolor=\color{pale!45},columns=fullflexible,breaklines=true,showstringspaces=false,aboveskip=9pt,belowskip=9pt}
 \lstset{style=code}
 
+\input{paper-analysis-values.tex}
 \begin{document}
 \thispagestyle{empty}
 \vspace*{-0.24in}
 \noindent{\color{accent}\rule{\linewidth}{2.2pt}}\par\vspace{13pt}
 {\footnotesize\sffamily\bfseries\color{accent} QUANTITATIVE PLANETARY IMAGE ANALYSIS \quad / \quad RESEARCH ARTICLE}\\[12pt]
 {\fontsize{22}{26}\selectfont\bfseries\color{ink} Subpixel Geometric Reconstruction of a Cylindrical Candidate in Curiosity Mastcam-100 Imagery}\\[8pt]
-{\large\color{slate} A quantitative analysis of two terminal curves, exterior tangency, partial burial, and competing physical models}\\[17pt]
+{\large\color{slate} Boundary metrology, frozen-shape prediction, and geological comparison}\\[17pt]
 {\large Justin Bogner}\\[3pt]
-{\small\color{slate} Cambrian Minds Media \quad | \quad 11 November 2026}\\[9pt]
+{\small\color{slate} Cambrian Minds Media \quad | \quad 13 November 2026}\\[9pt]
 {\footnotesize\color{slate} Data and scripts: \repo}\\[2pt]
 {\footnotesize\color{slate} Curiosity Sol 3556 \quad / \quad \pdsid}\\[8pt]
 \par\noindent{\color{fine}\rule{\linewidth}{0.5pt}}\par
 
 \begin{abstract}
-\noindent A centimeter-scale object in Curiosity Mastcam-100 imagery acquired on sol 3556 exhibits two separated curved terminations and a straight upper exterior boundary. We characterize these features using NASA Planetary Data System radiometric products, calibrated CAHVOR/CAHV camera geometry, physically directed subpixel edge localization, orthogonal-distance regression, and coupled geometric models. The analysis identifies 35 near-rim, 24 exposed far-termination, and 26 upper-boundary stations. A freely fitted near-rim ellipse achieves $0.164\px$ orthogonal RMS; a translated copy with identical section size, shape, and orientation matches the far arc at $0.186\px$ RMS. A six-parameter projected right-circular-cylinder model jointly constraining the two terminations, collinear centers, and upper exterior tangency fits all 85 selected observations at $0.3788\px$ total RMS. An eight-parameter coupled tapered model achieves $0.2549\px$, demonstrating a distinct, more flexible image-plane solution. The target's upper edge is four to eight times straighter, by line-fit RMS, than three selected neighboring rock boundaries. Together, the measurements provide reproducible quantitative evidence for cylindrical image-plane morphology, substantially constraining physical explanations. Composition, provenance, and a unique three-dimensional shape remain outside what this single camera view directly measures.
+\noindent A centimeter-scale object in Curiosity Mastcam-100 imagery acquired on sol 3556 exhibits two curved terminations and a straight upper exterior boundary. Physically directed subpixel localization yields 35 near-rim, 24 far-termination, and 26 upper-boundary stations. A six-parameter common-section, common-axis model with exact upper tangency fits all 85 observations at $0.3788\px$ RMS. More importantly, a front/dorsal-derived ellipse with frozen size, shape, and orientation predicts rear points beyond those used for translation: six anchors predict the other 18 stations at $\SparseRearRMS\px$ RMS, and guarded contiguous rear holdouts yield $\BlockedRearRMS\px$. Guarded spatial holdouts of the strict model yield $\BlockedJointRMS\px$ across all three features. Withholding the entire dorsal boundary is reported separately as a cross-feature sensitivity test. A completed comparison of 28 Curiosity images, including 18 uniformly measured whole frames, demonstrates comparable straight segments in geological scenes but does not establish the frequency of the full measured conjunction. The configuration exhibits manufacturing-like geometric regularity supported by predictive tests. A finite-boundary sensitivity also admits a physically tangent tapered segment, leaving the complete three-dimensional shape and origin unresolved. The archived-image workflow provides a reproducible benchmark for comparative morphology and physical-model testing.
+
 \end{abstract}
 \vspace{2pt}
 \noindent{\small\textbf{Keywords:} Mars; Gale crater; Curiosity; Mastcam-100; cylinder; subpixel metrology; orthogonal regression; image geometry; occlusion; concretion; technosignature assessment.}\par
@@ -103,13 +107,13 @@
 \section{Introduction}
 \label{sec:intro}
 
-A photograph can establish the projected geometry of an object even when its composition, depth, and origin remain unknown. For the Curiosity Mastcam-100 observation considered here, the central question is unusually specific: can the distinct curved boundary at the foreground end, the exposed curvature at the far end, and the upper longitudinal boundary be represented by one common cylindrical geometry? A secondary question is which physical formation histories can plausibly account for that conjunction.
+A photograph can establish the projected geometry of an object even when its composition, depth, and origin remain unknown. For the Curiosity Mastcam-100 observation considered here, the central question is unusually specific: can the distinct curved boundary at the foreground end, the exposed curvature at the far end, and the upper longitudinal boundary be represented by one common cylindrical geometry? The central evidentiary question is whether that geometry predicts observed boundary points that did not participate in its registration or fit. Determining physical origin is beyond the present scope.
 
 The target occurs in the image identified by \pdsid, acquired on sol 3556 (7 August 2022). The Mastcam-100 instrument is a fixed-focal-length, narrow-field camera with an instantaneous field of view near \(74\,\mu\mathrm{rad}\) per image pixel, making subpixel analysis appropriate for centimeter-scale objects at several meters' range \cite{malin2017,bell2017}. The target is not a full, free-standing object on a uniform background: its lower outline merges with the regolith, and a dark region adjacent to the near end contains a cast-shadow contribution. Consequently, not every visible intensity transition belongs to the solid's perimeter.
 
-We define material boundaries independently of their suitability for any candidate shape. The upper edge is selected at the bright-body/dark-regolith interface; the lower visible contact is classified as possible foreground soil occlusion rather than automatically being treated as a second silhouette generator. Both terminal curves are registered with explicit parameter constraints. The measured feature families are then tested jointly against constant-section and tapered geometries. The complete image data and executable analyses are archived in the research repository \cite{bogner2026repo}.
+We define material boundaries independently of their suitability for any candidate shape. The upper edge is selected at the bright-body/dark-regolith interface; the lower visible contact is classified as possible foreground soil occlusion rather than automatically being treated as a second silhouette generator. Both terminal curves are registered with explicit parameter constraints. The measured feature families are then tested jointly under common-section and tangency constraints. The image data and executable analyses are retained in the research repository \cite{bogner2026repo}.
 
-This paper reports the resulting measurements, model performance, uncertainty structure, and comparison of candidate formation mechanisms. Observed pixel features, geometric constraints, and interpretations of physical origin are treated as separate levels of inference.
+This paper reports measurements, predictive validation, uncertainty structure, and the completed geological comparison. To our knowledge, this is the first publicly documented, reproducible quantitative metrology study of this particular feature. Earlier recognition and visualization are acknowledged: Ward credits Rami Bar Ilan with discovery, and MILTOID presented Bayer decoding and a visual 3D cylinder overlay in October 2025 \cite{ward2025,miltoid2025}. Those preliminary checks precede the numerical metrology and predictive tests reported here. The original study appears in the repository history on 24 October 2026 and in the Zenodo deposit published 30 October; independent reconstruction was added on 11 November, followed by the 13 November predictive validation \cite{bogner2026deposit}.
 
 \section{Observational Material and Provenance}
 \label{sec:data}
@@ -153,6 +157,13 @@ This classification is causally important. An elliptical fit to a shadow boundar
 
 The analysis reports a regolith-noise estimate \(\sigma_I=7.782\times10^{-3}\) in its radiometric units, a sunlit-object mean near \(9.848\times10^{-2}\), and a dark-core mean near \(1.358\times10^{-2}\), with an edge signal-to-noise estimate of 10.91 for its selected contrast definition. These measurements characterize signal separation without assuming anything about the object's material.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/target-boundaries.pdf}
+\caption{Authentic Sol 3556 Mastcam-100 DRXX radiance. (a) Complete $1328\times1184$-pixel PDS frame with the target ROI marked at lower right. (b) Enlargement of the half-open crop $x\in[1014,1104)$, $y\in[932,1007)$, retaining the recorded boundary stations and excluded pebble. Axes use zero-based DRXX subframe coordinates. The frame and crop use separate linear grayscale limits (1st--99th and 2nd--98th percentiles, respectively), without spatial interpolation. Soil and shadow labels identify interpreted regions. Product \pdsid\texttt{\_DRXX}; image credit NASA/JPL-Caltech/MSSS.}
+\label{fig:target}
+\end{figure}
+
 \section{Camera Geometry, Illumination, and Scale}
 \label{sec:camera}
 
@@ -189,7 +200,7 @@ Without an overlapping target stereo solution, angular and pixel-based measureme
  = 0.2940\left(\frac{D}{3.957\,\mathrm m}\right)\mathrm{mm\,px^{-1}}.
  \label{eq:scale}
 \end{equation}
-Within the recorded focus search bracket \(3.6\)--\(4.4\,\mathrm m\), this scale spans approximately \(0.2675\)--\(0.3269\,\mathrm{mm\,px^{-1}}\). A projected strict-model diameter of \(2a\approx39.99\px\) therefore corresponds to \(11.76\,\mathrm{mm}\) at the focus-distance scenario. This is an illustrative physical conversion, not a stereo-derived object range; the true three-dimensional axis length requires an additional orientation estimate.
+Within the recorded focus search bracket \(3.6\)--\(4.4\,\mathrm m\), this scale spans approximately \(0.2675\)--\(0.3269\,\mathrm{mm\,px^{-1}}\). A projected strict-model diameter of \(2a\approx39.99\px\) therefore corresponds to \(10.70\)--\(13.07\,\mathrm{mm}\) across that bracket, or \(11.76\,\mathrm{mm}\) at the focus-distance scenario. The projected center separation of \(40.86\px\) corresponds to \(12.0\,\mathrm{mm}\) at that same assumed distance. These illustrative physical conversions scale linearly with assumed range; they are not stereo-derived dimensions. Projected center separation is distinct from the full three-dimensional object length, which requires an additional orientation estimate.
 
 \subsection{Solar geometry and cast-shadow direction}
 
@@ -227,7 +238,7 @@ For the upper edge, the selected normal runs from darker background into brighte
 \subsection{Exterior-boundary validation}
 \label{sec:exterior}
 
-The upper boundary is defined by the large, spatially coherent radiometric transition from background regolith into the illuminated body. At each of 26 stations, the extractor records transition contrast, gradient direction, fitted transition position, and fit uncertainty. All 26 stations satisfy the expected polarity diagnostic. Their best-fit line is at $28.895^\circ$, with $0.2422\px$ orthogonal RMS over approximately $36.4\px$ of the visible exterior. The edge-coordinate arrays and diagnostic fields are retained in \sourcepath{step3_features.json}. This feature definition is independent of the subsequent cylinder or tapered-model fits.
+The upper boundary is defined by the large, spatially coherent radiometric transition from background regolith into the illuminated body. At each of 26 stations, the extractor records transition contrast, gradient direction, fitted transition position, and fit uncertainty. All 26 stations satisfy the expected polarity diagnostic. Their best-fit line is at $28.895^\circ$, with $0.2422\px$ orthogonal RMS over approximately $36.4\px$ of the visible exterior. The edge-coordinate arrays and diagnostic fields are retained in \sourcepath{step3_features.json}. This feature definition is independent of the subsequent geometric fits.
 
 \subsection{Near rim: separation from the adjacent pebble}
 
@@ -239,6 +250,16 @@ The rear region is sampled from an interior seed at \((1035.5,951.2)\), with rad
 
 \section{Curve Fitting and Geometric Models}
 \label{sec:models}
+
+\Cref{fig:geometry} registers the retained stations with the strict model on the original radiometric crop. Dashed section extensions distinguish the fitted complete curves from their sampled intervals.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/joint-m1-overlay.pdf}
+\caption{Stored six-parameter $M_1$ geometry and in-sample residuals. (a) The original DRXX crop carries all 35 near-rim circles, 24 rear-arc squares and 26 dorsal triangles. Solid section curves span the sampled arcs; dashed curves continue unmeasured geometry. Crosses and the dash-dot line mark inferred centers and their common axis. The upper tangent joins the modeled terminal tangencies; its dotted continuation shows the line extension used by the fitting objective. Regolith-contact and cast-shadow labels are interpretations. (b) Signed orthogonal residuals from the exact parameters in \sourcepath{step9_joint_model.json}, with joint RMS $0.3788\px$. Stations and fitted curves share the acquisition and are distinct from the withheld predictions in \cref{fig:prediction}. Display uses the same crop transform as \cref{fig:target}; image credit NASA/JPL-Caltech/MSSS.}
+\label{fig:geometry}
+\end{figure}
+
 
 \subsection{Orthogonal-distance estimation}
 
@@ -308,21 +329,14 @@ The fitted projected geometry is highly constrained: a common orientation, equal
 
 \subsection{More flexible comparison models}
 
-Three additional models clarify which geometric constraints are doing work. \(M_2\) retains equal cross-sections and collinearity but estimates a separate upper-crest offset \(r_d\), increasing parameter count from six to seven. \(M_3\) searches projected-axis angle in \(0.1^\circ\) increments, minimizing unweighted residuals while also allowing \(r_d\); because the angle is selected from the data, it has seven effective fitted quantities. \(M_4\) is a coupled conical-frustum model with eight parameters, including far-to-near scale ratio \(s\), and uses a tapered upper boundary,
-\begin{equation}
- r(u)=r_d\left[1+(s-1)\frac{-u}{L}\right],\quad
- \tan\alpha=\frac{(1-s)r_d}{L},\quad
- \theta_d\approx\theta-\alpha.
- \label{eq:taper}
-\end{equation}
-Its additional freedom allows a geometrically different explanation of the observed angular spread. \Cref{sec:taper} separates that coupled optimization from an independently translated far-arc comparison.
+Two constant-section variants clarify which constraints are doing work. \(M_2\) retains equal cross-sections and collinearity but estimates a separate upper-crest offset \(r_d\), increasing parameter count from six to seven. \(M_3\) searches projected-axis angle in \(0.1^\circ\) increments, minimizing unweighted residuals while also allowing \(r_d\); because the angle is selected from the data, it has seven effective fitted quantities. The earlier tapered formulation \(M_4\) is retained only as a rejected construction in \cref{sec:taper}.
 
 \section{Results}
 \label{sec:results}
 
 \subsection{The joint result across all 85 measured points}
 
-\Cref{tab:joint} summarizes the four joint models. The unweighted raw RMS of strict \(M_1\) is \(0.3788\px\), partitioned into near-rim \(0.2376\px\), far-arc \(0.4830\px\), and upper-edge \(0.4217\px\). Models with an adjustable upper offset yield \(0.3468\px\) (weighted \(M_2\)) or \(0.3389\px\) (unweighted \(M_3\)).
+\Cref{tab:joint} summarizes the three constant-section joint fits. The unweighted raw RMS of strict \(M_1\) is \(0.3788\px\), partitioned into near-rim \(0.2376\px\), far-arc \(0.4830\px\), and upper-edge \(0.4217\px\). Models with an adjustable upper offset yield \(0.3468\px\) (weighted \(M_2\)) or \(0.3389\px\) (unweighted \(M_3\)).
 
 \begin{table}[ht]
 \centering\small
@@ -335,44 +349,59 @@ Its additional freedom allows a geometrically different explanation of the obser
 \(M_1\), strict tangent & 6 & 1.000 & \(30.32^\circ\) & 0.238 & 0.483 & \textbf{0.379} \\
 \(M_2\), offset & 7 & 1.000 & \(31.10^\circ\) & 0.231 & 0.305 & 0.347 \\
 \(M_3\), unweighted offset & 7 & 1.000 & \(30.60^\circ\) & 0.242 & 0.378 & 0.339 \\
-\(M_4\), tapered & 8 & 0.619 & \(39.33^\circ\) & 0.193 & 0.268 & \textbf{0.255} \\
 \bottomrule
 \end{tabularx}
 \vspace{4pt}
 \begin{minipage}{0.96\linewidth}\footnotesize\color{slate}
-The upper-edge RMS figures omitted from the compact table are \(0.422\), \(0.485\), \(0.405\), and \(0.310\px\), respectively. The nominal weighted objectives produce reported BIC values of 2680.2 for \(M_1\), 1947.3 for \(M_2\), and 1079.6 for \(M_4\), under their specified station uncertainty model.
+The corresponding upper-edge RMS values are \(0.422\), \(0.485\), and \(0.405\px\), respectively. For \(M_1\), \(\chi^2=2653.51\) with 79 nominal residual degrees of freedom gives \(\chi^2_\nu=33.59\), indicating that the formal station errors do not supply a calibrated likelihood.
 \end{minipage}
 \end{table}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
- width=0.82\linewidth,height=5.5cm,
- ybar,bar width=22pt,
- ymin=0,ymax=0.48,
- ylabel={Joint raw RMS (image pixels)},
- symbolic x coords={Strict,Offset,Compromise,Tapered},xtick=data,
- xticklabels={\(M_1\) strict,\(M_2\) offset,\(M_3\) compromise,\(M_4\) tapered},
- x tick label style={font=\scriptsize},
- ymajorgrids=true,grid style={fine!70},
- axis line style={fine},tick style={fine},
- nodes near coords, nodes near coords style={font=\footnotesize},
- enlarge x limits=0.16]
- \addplot[fill=accent!60,draw=accent] coordinates {(Strict,0.3788) (Offset,0.3468) (Compromise,0.3389) (Tapered,0.2549)};
-\end{axis}
-\end{tikzpicture}
-\caption{Original plot computed from the stored joint-model RMS values. The lower eight-parameter conical residual is retained as a genuine competing fit; the six-parameter strict-cylinder fit remains subpixel without independent offsets or scale changes.}
-\label{fig:rms}
-\end{figure}
 
-The 6-parameter model's residuals should be understood in relation to its geometric obligations, not only relative to its competitors. It simultaneously puts the rear and near curves on one axis, fixes their common section size, and makes the measured upper exterior edge tangent to that section. Its small, distributed residuals therefore constitute positive evidence for cylindrical consistency. They do not require dismissing a more flexible competing image-plane model.
+
+The six-parameter model's residuals reflect its simultaneous geometric obligations. It simultaneously puts the rear and near curves on one axis, fixes their common section size, and makes the measured upper exterior edge tangent to that section. Its residuals therefore constitute positive evidence for consistency with the specified common-section image-plane geometry. The finite extent of its tangent boundary is evaluated separately below.
 
 \subsection{Near- and far-termination agreement}
 
 Independently of the joint fit, the translated unchanged near ellipse matches the far arc at \(0.18629\px\) RMS. The far curve covers only part of the termination; it has no requirement to expose its complete lower perimeter. This registration is therefore evidence that the visible part of the far terminus can carry the same local curvature as the near rim, not an observation of two complete closed end faces.
 
 The test is stronger than a statement that each curved boundary can be approximated by an unrelated ellipse: shape, orientation, and scale are held common. It is weaker than a stereo reconstruction of both terminal planes. The distinction follows directly from the degrees of freedom and the observation geometry.
+
+\subsection{Predictive validation beyond registration points}
+\label{sec:prediction}
+
+The new tests preserve the existing coordinates and exclusions. Their protocol was written before these validation runs; the tests are retrospective coordinate-level checks, not a blind repeat of boundary selection. Two front-shape references must be distinguished. The freely oriented ellipse above gives $0.18629\px$ rear RMS. The predictive tests instead freeze the front ellipse constrained to the measured dorsal orientation: $a=20.02897\px$, $b=16.84577\px$, $\theta=28.89475^\circ$, and scale $s=1$. Fitting only its rear translation reproduces $\RegisteredRearRMS\px$ RMS. Neither rear size nor orientation is adjusted.
+
+\begin{table}[H]
+\centering\small
+\caption{Descriptive fits and heldout predictions. All errors are raw RMS distances in native pixels; the first and fourth rows are in-sample references.}
+\label{tab:prediction}
+\begin{tabularx}{\linewidth}{@{}l X X r@{}}
+\toprule
+\textbf{Check} & \textbf{Used in fit} & \textbf{Scored observations} & \textbf{RMS} \\
+\midrule
+Frozen rear registration & All 24 rear stations; two translations & Same 24 rear stations & \RegisteredRearRMS \\
+Sparse registration & Rear indices 0, 4, 8, 12, 16, 20 & Other 18 rear stations & \SparseRearRMS \\
+Guarded rear blocks & Remaining rear stations, excluding guards & Each rear station withheld once & \BlockedRearRMS \\
+Strict $M_1$, full fit & All 85 stations; six parameters & Same 85 stations & \FullJointRMS \\
+Guarded $M_1$ blocks & Remaining stations from all three families & Each of 85 stations withheld once & \BlockedJointRMS \\
+Entire dorsal withheld & All front and rear stations only & All 26 dorsal stations & \DorsalWithheldRMS \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+In five contiguous rear folds, the test block and two neighboring guard stations at each boundary are excluded from translation fitting. The strict-model folds similarly withhold one contiguous block from each feature family, with two-station guards. Every point is scored once across folds. Three prespecified starting angles ($28^\circ$, $31.2^\circ$, $35^\circ$) are tried; the smallest training objective selects the solution, never the withheld score. All starts converge and no parameter reaches a bound. Strict-model heldout RMS values are front $0.8456\px$, rear $0.5946\px$, and dorsal $0.6491\px$; pooling their squared residuals gives $\BlockedJointRMS\px$.
+
+The rear agreement survives both sparse registration and guarded holdouts at approximately $0.2$--$0.24\px$. It therefore extends beyond the rear points used to position the transferred shape. This predicts local curve positions after registration, not the rear's absolute position or cylinder length from the front alone.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\linewidth]{figures/rear-prediction.pdf}
+\caption{Frozen front/dorsal-derived ellipse translated using six rear anchors. Left: native radiometric crop with the transferred curve, fitted anchors, and 18 withheld stations. Right: signed orthogonal residuals for sparse-registration and guarded-block predictions. The curve is clipped to the exposed rear region for legibility; the concealed perimeter is not observed.}
+\label{fig:prediction}
+\end{figure}
+
+Withholding the entire dorsal feature is a separate sensitivity experiment. Front/rear-only fitting predicts its tangent at $\DorsalWithheldRMS\px$ RMS, maximum $3.391\px$, with axis $33.177^\circ$ rather than the measured dorsal bearing $28.895^\circ$. These modest absolute image deviations are larger than the residuals of the complete fit. They demonstrate the information supplied by the dorsal boundary: removing that measured constraint changes the preferred orientation and tangent. This experiment is not a mandatory passing standard, a measurement of physical surface damage, or a calibrated rejection. It also does not replace the fixed-shape rear tests, which retain the dorsal information by design.
 
 \subsection{Axis alignment and orientation identifiability}
 
@@ -384,33 +413,35 @@ The upper exterior boundary and lower visible diagonal need not represent two op
 
 In the partially buried geometry, the upper transition is a material silhouette, while the lower diagonal is the contact between the body and foreground regolith. The latter can cut obliquely across a cylindrical surface as burial depth changes along its length. The two image lines therefore encode different physical boundaries, and their angular separation is not an estimator of cylinder taper without first establishing that both are true generators.
 
-\subsection{Taper: two different statistical questions}
+\subsection{Rear-scale sensitivity and rejected tapered construction}
 \label{sec:taper}
 
-The rear-arc comparison and the coupled cone fitting answer distinct questions. A \emph{standalone} fit translates an otherwise fixed near-ellipse shape and optionally scales it by \(s\), using only 24 exposed rear points. Its minimum occurs at \(s\approx0.93\) with \(0.18434\px\) RMS, while the exact equal-size case \(s=1\) yields \(0.18629\px\), a difference of \(0.00195\px\). Across \(s=0.85\)--\(1.15\), the variations in raw residual remain small in the context of the image sampling. The conditional profile-likelihood interval recorded by the pipeline is \([0.87,0.99]\); it does not literally include \(s=1\) under that specific weighting model. Raw-fit proximity and formal confidence limits are different statements.
+A \emph{standalone} fit translates an otherwise fixed near-ellipse shape and optionally scales it by \(s\), using only 24 exposed rear points. Its minimum occurs at \(s\approx0.93\) with \(0.18434\px\) RMS, while the exact equal-size case \(s=1\) yields \(0.18629\px\), a difference of \(0.00195\px\). Across \(s=0.85\)--\(1.15\), the variations in raw residual remain small in the context of the image sampling. The conditional profile-likelihood interval recorded by the pipeline is \([0.87,0.99]\); it does not literally include \(s=1\) under that specific weighting model. Raw-fit proximity and formal confidence limits are different statements.
 
-The \emph{coupled} eight-parameter cone fits all 85 points at once. Its best-fit \(s=0.6187\), with a nominal profile interval \([0.61,0.63]\), is associated with \(\theta\approx39.33^\circ\) and \(\alpha\approx9.46^\circ\). The taper parameter here mediates a different dependency: shrinking the far section permits the model's line of outer tangency to rotate toward the observed upper-edge angle. It obtains a lower RMS of \(0.2549\px\). That is an actual competing result, not a mismatch in the reported data.
+The earlier eight-parameter formulation \(M_4\) is rejected as a physical frustum despite its \(0.2549\px\) numerical RMS. Its proposed boundary \(v=-r-mu\), where \(m=(1-s)r/L\), cuts its own end ellipse: tangency requires \(r^2=a^2+m^2b^2\), but its fitted intercept is \(19.294848\px\) rather than the required \(19.433711\px\). Its parameters and residuals remain in \sourcepath{step9_joint_model.json} for traceability; they are not treated as a viable physical alternative. This failure concerns that particular formulation, not every possible tapered body.
+
+\subsection{Finite-boundary and camera-projected shape sensitivity}
+\label{sec:finite}
+
+The line residual in \cref{eq:tangent} allows an indefinitely extended tangent. Five dorsal stations project beyond the rear endpoint of the stored $M_1$ generator, as the dotted extension in \cref{fig:geometry} shows. The original joint-fit and holdout results quantify that stated line-and-conic model. They do not impose a finite-generator endpoint constraint.
+
+A subsequent exploratory check projects finite circular and tapered segments through the recorded CAHVOR camera. Range is fixed at 3.957 m. Both models fit the center ray, radius, axial length and orientation; the frustum additionally fits its rear/front radius ratio. The side boundary follows surface tangency, with no independent upper offset. Refitting with Euclidean distance to the finite generator, using the retained stations, weights, starting bearings and guarded folds, gives \cref{tab:finite}. These are separate physical-model sensitivities. The original $M_1$ results and the frozen-shape rear tests retain their definitions.
 
 \begin{table}[ht]
 \centering\small
-\caption{Two taper evaluations, with different constraints and inferential meaning. Their conditional intervals and objective functions should not be interchanged.}
-\label{tab:taper}
-\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\caption{Exploratory CAHVOR-projected models with finite-generator distances. Full fit uses all 85 stations; guarded prediction withholds each station once. Scores are native-pixel RMS.}
+\label{tab:finite}
+\begin{tabularx}{\linewidth}{@{}X c r r@{}}
 \toprule
- & \textbf{Standalone far-arc registration} & \textbf{Coupled conical model} \\
+\textbf{Surface} & $k$ & \textbf{Full fit} & \textbf{Guarded} \\
 \midrule
-Observed set & 24 exposed rear points & All 85 selected points \\
-Free relation & Rear center translates independently & Rear center lies on one fitted axis \\
-Best diameter scale \(s\) & 0.930 & 0.619 \\
-Nominal 95\% interval & [0.87, 0.99] & [0.61, 0.63] \\
-Relevant residual & 0.1843 px rear RMS & 0.2549 px joint RMS \\
-Equal-size comparison & 0.1863 px rear RMS at \(s=1\) & Distinct restricted joint model \(M_1\) \\
-Interpretation & Partial far arc permits close equal-size registration & Taper absorbs axis/boundary angular coupling \\
+Circular segment & 6 & \FiniteCylinderFitRMS & \FiniteCylinderGuardedRMS \\
+Tapered segment & 7 & \FiniteFrustumFitRMS & \FiniteFrustumGuardedRMS \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-The scientific result is not that the photograph forces a particular taper. It is that the measured boundaries admit a stringent constant-section cylindrical configuration, while an explicitly different tapered formulation also captures the image geometry. Their different axial relations matter to physical interpretation. Since the image provides one camera view of partially buried surfaces, image-plane model selection alone does not close the 3D reconstruction uniquely.
+The finite frustum fits a radius ratio of $\FiniteFrustumScale$. Its geometry satisfies the tangency condition that the earlier $M_4$ construction violated. The fixed-front rear-scale scan above cannot supply a rejection significance for this jointly changed front shape, orientation and rear center. Its lower coordinate errors admit taper as an exploratory shape alternative; complete terrain occlusion, cast shadows and radiance have not been jointly fitted. A three-parameter soil plane fitted to the circular segment's contact coordinates illustrates the distinction: its contact-curve RMS is $0.1822\px$, yet one rendered configuration hides the observed near rim and dorsal boundary. A subsequent finite foreground-bank illustration assumes terrain depth. Detailed endpoint, visibility and alternative-model records are retained under \sourcepath{audit/sediment-pipe-comparison/}.
 
 \section{Sensitivity and Repeatability}
 \label{sec:sensitivity}
@@ -434,14 +465,22 @@ Trim outer 25\% & \(29.609^\circ\) & \(0.1195\px\) & Fewer stations and shorter 
 \end{tabularx}
 \end{table}
 
-In separate synthetic correlated-noise perturbations, the reported standard deviation of the apparent lower/upper convergence grows from \(1.08^\circ\) at one times empirical noise to \(2.45^\circ\) at three times noise. The method is therefore sensitive to optical sampling and pixel covariance, but the resulting uncertainty can be investigated explicitly rather than hidden behind the assumption of perfect edge localization. These tests support the stability of the selected boundaries and the value of presenting image-space residuals without converting them into unsupported manufacturing tolerances.
+In separate synthetic correlated-noise perturbations, the reported standard deviation of the apparent lower/upper convergence grows from \(1.08^\circ\) at one times empirical noise to \(2.45^\circ\) at three times noise. The method is therefore sensitive to optical sampling and pixel covariance, but the resulting uncertainty can be investigated explicitly rather than hidden behind the assumption of perfect edge localization. These tests characterize the stability of selected image boundaries. Physical tolerance and error-model limits are collected in \cref{sec:limits}.
 
 \section{Texture, Straightness, and Illumination as Independent Constraints}
 \label{sec:comparisons}
 
 The selected exterior edge has \(0.2422\px\) orthogonal line RMS over a sampled span of approximately \(36.4\px\). At the focus-distance reference scale that corresponds to an image-plane residual length of about \(71\,\mu\mathrm m\). This is \emph{a projected measurement residual}, not profilometric roughness of a three-dimensional surface at micrometer resolution. A quadratic curvature estimate for the same edge gives a maximum sagitta of \(0.280\px\).
 
-Three locally selected natural rock boundaries in the same image provide a scale-matched context. Their reported line RMS values are \(0.971\), \(1.724\), and \(1.953\px\), respectively, compared with \(0.242\px\) for the target (\cref{tab:rocks}). The target edge is therefore approximately four to eight times straighter in this specific local comparison. This demonstrates anomalous local image morphology; the three contextual rocks are not an exhaustive statistical representation of all Martian geological structures.
+The completed comparison uses 28 retrieved Curiosity images, including 18 whole Mastcam frames measured uniformly and ten captioned geological/context images. A common contour method applies $2\times2$ area averaging, brightness-level contours, and 26 equally spaced samples over a 36.4-native-pixel span. Its target window is selected by proximity to the existing dorsal stations, not minimum RMS. It yields $0.303\px$ RMS, a separate measurement from the full-resolution erf result of $0.2422\px$.
+
+Among 226,426 control windows, 835 ($0.369\%$) are at least as straight; qualifying segments occur in 17 of 18 frames. Straight segments therefore occur in geological scenes. These overlapping photometric windows are correlated and may follow material, fracture, shadow, or shading boundaries; they are not counts of independent rocks. Their fraction is not an origin probability. Smoothing and span change the conditional fraction, so the full sensitivity tables are retained in the supplementary comparison report \cite{comparison2026}.
+
+A separate original-image screen retrieved nine PDS views covering the four Gale crater pipe localities discussed by Rubin et al.\ \cite{rubin2017,rubin2017supp}. Three partial-rim views of two objects received two-method boundary extraction. No screened view exposes both axial terminations and a connecting exterior boundary of one object for a matched joint test. Local texture and fragmented contacts also make some extracted stations ambiguous. These partial measurements provide an observational inventory; they do not quantify the frequency of the target's complete geometric configuration or reject the sediment-pipe mechanism as a class.
+
+The conjunction of terminal curvature, transferred geometry, and longitudinal constraint remains the relevant object-level result. The comparison did not estimate the frequency of that complete conjunction. Its automatic rim contour differs from the recorded rim stations by 2.88 pixels on average, preventing a comparable rim ranking; appearance-search scores likewise are not physical-model likelihoods. No full counterpart of the target's 85-station reconstruction was demonstrated by that study. The detailed image inventory, comparison atlas, preprocessing sensitivity, and appearance retrievals remain supplementary material.
+
+Three locally selected natural rock boundaries in the same image provide secondary context. Their reported line RMS values are \(0.971\), \(1.724\), and \(1.953\px\), respectively, compared with \(0.242\px\) for the target (\cref{tab:rocks}). The target edge is therefore approximately four to eight times straighter in this specific local comparison. This describes the three selected local boundaries; the completed comparison above supplies the broader measured context.
 
 \begin{table}[ht]
 \centering\small
@@ -459,73 +498,69 @@ Nearby clast 3 & 1.953 & 8.1 & \(2.98\times10^{-4}\) \\
 \end{tabularx}
 \end{table}
 
-An additional radiometric test examines intensity across the upper body, fitting a transverse profile \(I(v)=c_0+c_1v+c_2v^2\). The selected-profile comparison in the repository gives a curvature significance as high as \(z=11.45\) for selected sections relative to a planar-gradient null hypothesis \(c_2=0\). The broader modeling record also includes alternative profile selections and illumination treatments. These shading results support a smoothly convex illuminated surface but are not themselves unique to a cylinder; mineral albedo, local scattering, dust, and illumination geometry can alter brightness profiles.
+Transverse radiometry provides an additional test of the exposed body's surface geometry. Replaying the original central-body profile coordinates on the retained radiometric image reproduces a quadratic brightness coefficient of $-0.04112\pm0.00557$, with nominal significance $z=7.38$. Sampling those same five cuts at approximately native-pixel spacing gives nominal $z=4.80$, and the pooled curvature remains negative when any one cut is omitted. These checks retain evidence of a curved brightness profile across that region.
+
+The current Step 5 selection uses an apex derived from corrected boundary lines. Its origin moves approximately $13\px$, shifting the cuts toward the rear and yielding $-0.01285\pm0.01357$, with nominal $z=0.95$. Thus the two statistics describe different sampled regions. The replay, coordinates, and sensitivity checks are retained in \sourcepath{audit/shading-sampling-review/results.json}. Polynomial-fit errors assume independent residuals, while interpolated image samples share information. Profile placement and covariance affect the significance assigned to curvature. Albedo, scattering, dust, and illumination also affect its interpretation as surface shape.
 
 The smoothness, curved terminal boundaries, and tangency-constrained joint fit are complementary constraints. None should be substituted for the others, and the most informative result is their common geometric compatibility.
 
-\section{Geological and Manufactured-Origin Interpretations}
-\label{sec:origin}
-
-\subsection{What a physical explanation must account for}
-
-The image supports three separate types of statement. \emph{Observation}: there are identifiable near and far curved terminations, a high-contrast outer longitudinal edge, and a soil/shadow boundary with different geometry. \emph{Model}: a common constant-section cylinder fits the selected geometric points to a subpixel residual. \emph{Origin}: a claim that the object formed naturally, was manufactured, or arrived through some transport process. The first two constrain the third but do not automatically determine it.
-
-A viable origin hypothesis must explain the observed curvature and location of both ends, the longitudinal straightness and surface texture, the apparent burial, and the solar-shadow relationship. A named process is a category of candidate mechanisms, not a numerical reconstruction of this particular object.
-
-\subsection{Wind abrasion and sedimentary fracture}
-
-Ventifacts are genuinely common in Gale crater, with documented facets, keels, flutes, grooves, and wind-related abrasion textures \cite{bridges2014}. The local lithology in the repository is characterized as layered sandstones and sulfate-bearing fine sediments, offering plausible sources of spalls, slabs, and weathered fragments. Erosion and fracture can generate smooth arcs and nearly straight edges over small distances, and a burial margin can make a roughly wedge-like rock resemble a more symmetric solid.
-
-The particular challenge for a simple wind-shaped clast explanation is quantitative: it must reproduce the close near/far translated curvature and the narrow six-parameter joint fit while respecting the physical distinction between material silhouette and regolith contact. The local natural-clast comparisons in \cref{tab:rocks} do not provide such a matching mechanism. They therefore strengthen the case that this target is morphologically unusual within its immediate scene, without establishing a universal exclusion theorem for natural rock formation.
-
-\subsection{Pipe concretions and fluidized-sediment structures}
-
-Natural cylindrical structures are geologically real. Iron-oxide pipelike concretions in the Navajo Sandstone can develop around self-organized cylindrical reaction fronts \cite{loope2011}. Gale crater also contains structures interpreted as fluidized-sediment pipes, some with concentric or eccentric layering \cite{rubin2017}. These are more relevant comparator mechanisms than a generic assertion that wind ``makes round rocks.''
-
-However, demonstrating that a geological process produces pipes is not the same as demonstrating that it produces \emph{this specific small, apparently separated body}, with its selected pair of terminating curves, exterior straightness, and buried context. The existing repository compares expected rind structure, grain-scale texture, irregularity, and terminal fracture morphologies. No quantitatively specified natural mechanism in the present record has yet reproduced the entire 85-point observation set. The repository's structural result therefore remains an anomaly requiring a case-specific process explanation, rather than being resolved by an analogy alone.
-
-\subsection{Manufactured-object and rover-hardware hypotheses}
-
-Constant-section pins, sleeves, tubes, bushings, and related engineered elements naturally possess the exact class of geometry tested by \(M_1\). This makes manufacture a morphologically motivated hypothesis, not merely an inference from resemblance. A separate hardware and transport assessment in the repository compares candidate mission components, landing-site separation, rover traverses, and possible transport pathways. It does not identify a documented Curiosity component matching this image as a confirmed local source.
-
-The measured geometry cannot identify metal versus stone, hollow tube versus solid rod, or terrestrial hardware versus any other manufacturing history. The image also does not provide material spectroscopy on the object. Manufacturing origin is therefore an interpretive hypothesis supported by morphological correspondence, not a compositional measurement. The narrow result of the present study is the object's unusually precise compatibility with a cylindrical model.
-
-\section{Integrated Evaluation and Scope}
+\section{Geometric Implications and Scope}
 \label{sec:discussion}
 
-The case for cylindrical geometry is cumulative. The near rim is an accurately sampled smooth curve. A separate far arc accepts an unchanged translated version of that near curve. The measured upper exterior line is exceptionally straight and lies at the offset expected for the near rim's radius. Their shared six-parameter model fits 85 points without an independent rear scale, an adjustable upper crest, or independently wandering centers. The observation cannot be reduced to one elliptical fit or one visually suggestive edge.
+\subsection{Planetary-Science Significance}
 
-The shared model is consequential because each observed feature constrains a different part of its geometry. Near and far terminal curvature determine the projected section; their relative positions constrain the common axis; and the exterior line imposes tangency at the same transverse radius. These requirements are solved simultaneously, rather than assembled as a sequence of individually plausible visual matches.
+Archived Mastcam imagery permits quantitative tests of centimeter-scale surface morphology when product geometry, radiometry and boundary identity are retained \cite{malin2017,bell2017}. Here, three different observed boundary families constrain a shared geometric model: the near-terminal curvature, transferred far-arc compatibility, and upper longitudinal boundary. Their relative placement, common projected axis and constrained tangency are tested together. The scientific contribution is the integration of these measurements with explicit prediction tests for this particular feature.
 
-The comparison with a tapered frustum provides a different kind of information. Its lower residual is genuine within the chosen image-plane model, and its tight conditional scale-ratio interval follows from the coupling imposed on its axis and silhouette. That model should not be collapsed into the separate far-arc scale experiment, whose nearly unchanged residual at \(s=1\) is also genuine. The two fits encode different hypotheses about the mapping between observed boundaries and physical surfaces.
+The validation in \cref{sec:prediction} measures information beyond an overlay. Front/dorsal-derived size, shape and orientation remain frozen while six rear anchors estimate translation; the remaining eighteen stations test the transferred curve. Guarded rear blocks and joint spatial holdouts test prediction across omitted intervals. Withholding the entire dorsal family separately tests how the terminal arcs constrain an unmeasured tangent. These retrospective coordinate tests reuse one acquisition and its original feature selection. Their distinct conditioning explains why their errors differ.
 
-The most defensible classification is consequently \textbf{a strongly supported cylindrical image-plane morphology for a partially buried object}. This directly constrains any proposed origin. The claim is neither a mere visual impression nor a material assay. To distinguish the strict cylinder from physically different 3D configurations, one additional viewing azimuth, a target-centered stereo pair, or a resolved surface/topography measurement would be decisive. The reported pixel-level measurements already stand independently as a quantitative research result.
+The geological comparison in \cref{sec:comparisons} establishes that comparable straight segments occur in ordinary rover scenes. Its window distribution measures that single observable. A direct comparison of the complete configuration would also need near/far curvature compatibility, scale, relative placement and upper-boundary tangency. The partial pipe exposures screened here do not supply those jointly observable families. A quantitative physical explanation must additionally reproduce the classified soil contact and shadow geometry while distinguishing exposed material edges from occlusion and illumination boundaries.
+
+An independently constructed geological or manufactured-object surface can be projected through the recorded camera, supplied with explicit terrain and illumination, and evaluated using the same boundary definitions and heldout stations. Finite extent and visibility must accompany tangent consistency, as \cref{sec:finite} demonstrates. A process name alone supplies no such reconstruction. Reporting the measured morphology does not require eliminating every possible formation mechanism.
+
+Constant-section engineered elements possess the relations tested by $M_1$. The measured configuration therefore exhibits manufacturing-like geometric regularity, with support from frozen-shape transfer and guarded prediction. Manufacture remains a morphologically motivated hypothesis alongside physical alternatives whose full scenes require testing. The available boundary geometry leaves composition, provenance and origin unresolved.
+
+Material-boundary classification, subpixel localization, constrained geometry and guarded prediction are established techniques. Their reproducible integration here supplies a case-specific benchmark that can be applied to other rover images. Retained coordinates, exclusions, camera products and scored holdouts allow future comparative-morphology studies to evaluate a proposed explanation against the same observations.
+
+\subsection{Measurement and interpretation limits}
+\label{sec:limits}
+
+The validation is retrospective and uses selected coordinates from one acquisition. Neighboring samples share optical and interpolation information, even with coordinate-level guard bands. The nominal reduced chi-square of 33.59 signals an inadequate error/model description; correlation, underestimated localization errors, and model discrepancy are possible contributors, not separately measured explanations. No calibrated origin odds, coverage-calibrated joint confidence interval, or model ranking follows from those nominal weights. Model-specific Birge rescaling is not a common likelihood or a fitted spatial covariance.
+
+The partial terminal arcs constrain visible boundaries rather than both complete hidden end faces. The shared cylindrical model is a constrained image-plane representation, not a unique three-dimensional reconstruction. Focus-based range and receiving-plane assumptions are conditional. Pixel-to-micrometer conversions quantify projected residual distances at an assumed range, not independently measured machining tolerance or surface roughness. Photometric curvature and its nominal significance depend on the sampled body region and sampling density.
+
+The comparison study measures photometric features, not a population frequency of the full geometry. Its appearance and straightness rankings cannot be converted into probabilities of natural or manufactured origin. Composition, provenance, and a unique concealed shape remain undetermined. Additional observations could address them, but they are not prerequisites for reporting the measured predictive consistency.
+
 
 \section{Reproducibility and Data Availability}
 \label{sec:reproduce}
 
-The complete source archive and machine-readable numerical outputs are available in \repo. The numerical snapshot used for this manuscript is the default-branch commit
-\begin{quote}\small\ttfamily\color{ink}
-90fbf8f89ac2634a9dbd2b27f81fc80d68b9943c
-\end{quote}
-The scientific scripts reside in \sourcepath{independent-reconstruction/}. The recorded processing order begins with \sourcepath{step1_image_inspection.py} (provenance), proceeds through camera modeling, feature extraction, conic comparison, interpretations, near/far terminal analysis, and joint modeling, and ends with robustness compilation. The module \sourcepath{run_all.py} orchestrates that workflow.
+The source images, analysis scripts, and numerical outputs are retained in \repo. The original reconstruction base is commit \texttt{90fbf8f89ac2634a9dbd2b27f81fc80d68b9943c} (11 November 2026). The present 13 November revision additionally incorporates the predictive validation, completed comparison, and audit corrections. The old base commit alone does not contain this complete revision.
 
-\begin{lstlisting}[language=bash,caption={Re-execution from a local repository checkout containing the PDS image data.}]
-python -m pip install -r independent-reconstruction/requirements.txt
-python independent-reconstruction/run_all.py
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=bash,caption={Reproduction from the repository root; no additional image acquisition is required.}]
+python -m pip install -r papers/requirements.txt
+python audit/sediment-pipe-comparison/scripts/target_benchmark.py
+python papers/run_comparison_checks.py
+python papers/build_paper_evidence.py
+cd papers
+xelatex -interaction=nonstopmode -halt-on-error martian-cylinder-technical-paper.tex
+xelatex -interaction=nonstopmode -halt-on-error martian-cylinder-technical-paper.tex
+cd ..
+python papers/verify_journal_revision.py
 \end{lstlisting}
+\end{minipage}
 
-Primary output files are \sourcepath{step3_features.json} for measured stations and their uncertainty/contrast metadata; \sourcepath{step4_endface_models.json} for candidate end-curve fits; \sourcepath{step8_pebble_and_rear_terminus.json} for the physical near/far segmentation; \sourcepath{step9_joint_model.json} for shared-axis models and both taper profiles; and \sourcepath{measurements.json} for compiled camera and sensitivity metrics. All values in this paper are traceable to that committed record. The figure in this manuscript is an original vector visualization constructed from the reported numerical values, not a reproduced repository figure.
+The original extraction scripts are archived under \sourcepath{independent-reconstruction/scripts/}. Primary outputs include \sourcepath{step3_features.json} (stations), \sourcepath{step8_pebble_and_rear_terminus.json} (front/rear definitions), and \sourcepath{step9_joint_model.json} (joint fits and scale profiles). Predictive folds, fitted parameters, residuals, convergence diagnostics, and input hashes are in \sourcepath{audit/predictive-validation/results.json}. The fixed 28-image comparison corpus and its summaries are under \sourcepath{audit/comparative-study/}. The separate pipe inventory, camera-projected sensitivities and endpoint reevaluation are under \sourcepath{audit/sediment-pipe-comparison/}. Figure product IDs, crop bounds, display transforms and exact $M_1$ parameters are recorded in \sourcepath{papers/figure-provenance.json}.
 
-The reproducibility standard for extending the study is straightforward: retain pixel coordinates and provenance, document each boundary as a material or shadow transition, state model parameters and constraints, and report both raw pixel residuals and the assumed measurement-uncertainty model. The geometrical explanation can then be challenged or improved without substituting narrative plausibility for the observed data.
+The accompanying \sourcepath{papers/paper-evidence-manifest.json} identifies exact SHA-256 hashes of the manuscript, scripts, numerical inputs, protocols, and comparison records used for the added results. Image checksums are also collected in \sourcepath{papers/file-integrity.md}; a typeset list of principal revision hashes remains available in \sourcepath{papers/paper-evidence-hashes.tex}. This manifest identifies the working revision without inventing a new committed snapshot or backdating later tests. The figure/data build checks these records and generates the predictive table values directly from JSON.
+
 
 \section{Conclusion}
 
-Physically directed subpixel measurements of the sol-3556 Mastcam-100 image yield three mutually constraining geometric features: a 35-point near curved rim, a 24-point exposed far termination, and a 26-point straight upper exterior boundary. The near arc is fit by an ellipse at \(0.164\px\) RMS; an equal-size translated copy registers to the exposed far arc at \(0.186\px\). Their strict common-axis, common-section, tangent-boundary representation fits all 85 observations at \(0.3788\px\) RMS with six parameters. This is quantitative and reproducible evidence of cylindrical morphology on Mars, not simply an assessment of visual similarity.
+The near rim, exposed far termination and upper boundary exhibit reproducible consistency under common-section, common-axis and tangency constraints. Frozen-shape transfer predicts rear stations beyond those used for registration, while guarded holdouts quantify sensitivity across omitted intervals. These results establish a quantitatively characterized morphological anomaly and manufacturing-like geometric regularity.
 
-The analysis distinguishes progressive burial from physical taper, identifies cast shadow as a separate image boundary, and includes a more flexible eight-parameter tapered fit as a competing projection. Local smoothness measurements show the target's upper boundary to be substantially straighter than three neighboring rock edges. These results place a concrete geometric burden on explanations based on sandstone fracture, wind abrasion, diagenetic pipe formation, or manufactured hardware.
+Finite-boundary sensitivity also admits a physically tangent tapered segment. The completed straightness comparison and partial pipe inventory do not determine the frequency of the full measured conjunction. Manufacture remains a hypothesis motivated by the geometry; complete three-dimensional shape, composition, provenance and origin remain unresolved. The retained measurements provide a benchmark for testing physical explanations and additional rover observations.
 
-The present image establishes the geometry to the resolution and assumptions of the available measurements. It leaves material identity, object origin, and unique three-dimensional structure for evidence capable of deciding those separate questions.
 
 \section*{Acknowledgment and provenance note}
 \addcontentsline{toc}{section}{Acknowledgment and provenance note}
@@ -539,9 +574,16 @@ The calculations and data products synthesized here were developed in the public
 \bibitem{bridges2014} Bridges, N. T., et al. (2014). The rock abrasion record at Gale Crater: Mars Science Laboratory results from Bradbury Landing to Rocknest. \emph{Journal of Geophysical Research: Planets}, 119, 1374--1389. \url{https://doi.org/10.1002/2013JE004579}.
 \bibitem{loope2011} Loope, D. B., Kettler, R. M., and Weber, K. A. (2011). Morphologic clues to the origins of iron oxide-cemented spheroids, boxworks, and pipelike concretions, Navajo Sandstone of south-central Utah, U.S.A. \emph{The Journal of Geology}, 119, 505--520. \url{https://doi.org/10.1086/661110}.
 \bibitem{rubin2017} Rubin, D. M., et al. (2017). Fluidized-sediment pipes in Gale crater, Mars, and possible Earth analogs. \emph{Geology}, 45(1), 7--10. \url{https://doi.org/10.1130/G38339.1}.
+\bibitem{rubin2017supp} Rubin, D. M., et al. (2017). Supplemental material to Fluidized-sediment pipes in Gale crater, Mars, and possible Earth analogs. GSA Data Repository 2017002. \url{https://doi.org/10.1130/2017002}.
 \bibitem{chan2004} Chan, M. A., Beitler, B., Parry, W. T., Orm\"o, J., and Komatsu, G. (2004). A possible terrestrial analogue for haematite concretions on Mars. \emph{Nature}, 429, 731--734. \url{https://doi.org/10.1038/nature02600}.
+\bibitem{ward2025} Ward, J. (2025). Cylindrical Object in Colour (Sol 3556), 23 October. \url{https://megalithicmars.com/2025/10/23/rover-curiosity-cylindrical-object-in-colour-sol-3556/}.
+\bibitem{miltoid2025} MILTOID (2025). VFX Artist Reacts -- Ancient Artefact on Mars, 23 October. Video; image decoding and visual cylinder overlay. \url{https://www.youtube.com/watch?v=xpr8cWDRTO8}.
+\bibitem{bogner2026deposit} Bogner, J. (2026). Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery. Zenodo v1.0.0, published 30 October. \url{https://doi.org/10.5281/zenodo.23789092}.
+\bibitem{comparison2026} Bogner, J. (2026). Curiosity geological comparison study, 13 November. Supplementary report, image manifest, and numerical exports, \sourcepath{audit/comparative-study/report.md}, accompanying this paper's evidence manifest.
+\bibitem{wiens2017} Wiens, R. C., et al. (2017). Centimeter to decimeter hollow concretions and voids in Gale Crater sediments, Mars. \emph{Icarus}, 289, 144--156. \url{https://doi.org/10.1016/j.icarus.2017.02.003}.
 \end{thebibliography}
 
+\clearpage
 \appendix
 \section{Detailed Measurement Inventory}
 \label{app:inventory}
@@ -561,7 +603,7 @@ Shared fit & 85 & Combined regions & Strict cylinder: \(30.315^\circ\), \(0.379\
 \end{tabularx}
 \end{table}
 
-The near-rim set retains 35 of 36 sampled radial stations after excluding the station at \(-45^\circ\) that crosses onto the adjacent pebble. The far arc is the bounded exposed portion of a 36-point extraction, excluding both the burial contact and the transition to the upper longitudinal boundary. These criteria are feature-based rather than chosen only by minimizing a fitted residual.
+Feature-selection criteria, including exclusion of the neighboring pebble and separation of the rear cap from soil and longitudinal transitions, are detailed in \cref{sec:edges}.
 
 \section{Projection and Identifiability Details}
 \label{app:projection}
@@ -576,33 +618,5 @@ For the strict model, local coordinates of a measured upper-edge point \(\mat x_
  v_d&=-(x_d-x_f)\sin\theta+(y_d-y_f)\cos\theta.
 \end{align}
 The tangent residual \(e_d=v_d+a\) follows immediately from \cref{eq:tangent}. Its sign and the image coordinate orientation are not cosmetic: reversing the orientation of the extracted intensity boundary changes which physical contour is being compared with this equation.
-
-\section{Sensitivity, Resolution, and Error Interpretation}
-\label{app:error}
-
-The spatial residual \(0.3788\px\) is not the per-point localization uncertainty, the actual physical surface error of the object, or the probability that a cylinder is true. It is the raw root-mean-square distance of selected image observations from one defined six-parameter model. At the reference image scale from \cref{eq:scale}, it corresponds to about \(0.111\,\mathrm{mm}\) in the projected image plane.
-
-The workflow samples several overlapping descriptions of the same optical signal: error-function transition centers, parabolically interpolated gradient extrema, three radiance bands, linearized camera products, and trimmed subsets. Reassuring agreement across these comparisons demonstrates stability to those processing choices. Because neighboring stations and demosaiced bands are not fully independent, the effective number of independent observations for formal significance testing may be less than the literal station count. The six-parameter fit remains a reproducible geometric description regardless of how a future error covariance model is refined.
-
-Physical measurements in millimeters depend linearly on assumed distance \(D\). For the strict cylinder, the transverse diameter \(2a\approx39.99\px\) scales to approximately \(10.70\)--\(13.07\,\mathrm{mm}\) across the nominal focus-search interval \(3.6\)--\(4.4\,\mathrm m\), or \(11.76\,\mathrm{mm}\) at \(3.957\,\mathrm m\). The projected center separation \(40.86\px\) is \(12.0\,\mathrm{mm}\) at that same assumed distance; the full three-dimensional object length is not the same quantity and requires orientation reconstruction. Distinguishing projected separation from body length prevents the focus-distance scenario from being mistaken for direct ranging.
-
-\section{File Integrity and Analysis Snapshot}
-\label{app:hash}
-
-The provenance manifest records the following SHA-256 digests for primary images. These allow future readers to verify that the same byte-level image arrays are being analyzed.
-
-\noindent{\scriptsize\ttfamily
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\toprule
-DRXX & 45a3d5e5d32ed823e8a3e2ff0dc0f5ffeb5bd546c81be8d51e06c9f241b5e1fd \\
-DRLX & 911e661c99a4453f4b3d4bd13a3d35f049c5df965fcb3c91b014a47c38c7605f \\
-DRCX & 8aec700e07d61123151c0811332f76e10f13d1e3fb361de5b10476b4961c473f \\
-DRCL & 761c9c1774cfe5152ca7d5cb729de285d08fa78c3df05af8720cbd9599b37592 \\
-\bottomrule
-\end{tabularx}
-}
-
-\medskip
-\noindent The paper's cited commit freezes the interpretation and the accompanying JSON values used here. Updated repository commits should be treated as new versions of the research record, not silently substituted for this snapshot in reproducing numerical tables.
 
 \end{document}

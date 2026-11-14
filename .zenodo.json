@@ -1,10 +1,10 @@
 {
-  "title": "Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery: Constraints on Aeolian, Diagenetic, and Artificial Provenance via Sub-Pixel Gradient Forensics",
-  "description": "Complete NASA Planetary Data System (PDS) raw telemetry, calibrated image products, LaTeX/Markdown manuscripts, interactive 3D central-perspective photogrammetry studio, and deterministic Python verification suite for the forensic investigation of the cylindrical anomaly imaged by the Mars Science Laboratory (Curiosity) Mastcam Right (100 mm) camera on Sol 3556 (August 7, 2022) at Paraitepuy Pass in Gale Crater (PDS Product ID: 3556MR1025170721700585C00). Technical Report CMR-2026-01.",
+  "title": "Subpixel Geometric Reconstruction of a Cylindrical Candidate in Curiosity Mastcam-100 Imagery",
+  "description": "November 13, 2026 manuscript revision, subtitled Boundary metrology, frozen-shape prediction, and geological comparison. Includes authentic PDS imagery, retained boundary measurements, frozen-shape and guarded coordinate predictions, geological straightness comparison, finite-boundary sensitivity, deterministic figure generation and provenance verification. Manufacturing-like geometric regularity motivates a manufacture hypothesis; complete shape, composition and origin remain unresolved. This local metadata describes the working manuscript and does not assign a new deposit DOI or publication date.",
   "creators": [
     {
       "name": "Bogner, Justin",
-      "affiliation": "Cambrian Minds"
+      "affiliation": "Cambrian Minds Media"
     }
   ],
   "upload_type": "publication",
@@ -13,28 +13,25 @@
   "license": "CC-BY-4.0",
   "keywords": [
     "Mars Science Laboratory",
-    "Curiosity Rover",
+    "Curiosity",
     "Mastcam-100",
     "Gale Crater",
-    "Photogrammetry",
-    "Planetary Forensics",
-    "NASA PDS Archive",
-    "Citizen Science",
-    "Sub-Pixel Edge Detection",
-    "Sobel Filter",
-    "Solar Ephemeris Ray-Tracing",
-    "Fitzgibbon Ellipse Fitting"
+    "Boundary metrology",
+    "Subpixel localization",
+    "Frozen-shape prediction",
+    "Comparative morphology",
+    "NASA PDS"
   ],
   "related_identifiers": [
     {
-      "identifier": "https://cambrianminds.github.io/martian-cylinder/",
+      "identifier": "https://github.com/CambrianMinds/martian-cylinder",
       "relation": "isSupplementTo",
       "scheme": "url"
     },
     {
-      "identifier": "https://github.com/cambrianminds/martian-cylinder",
-      "relation": "isSupplementTo",
-      "scheme": "url"
+      "identifier": "10.5281/zenodo.23789092",
+      "relation": "isDerivedFrom",
+      "scheme": "doi"
     }
   ]
 }

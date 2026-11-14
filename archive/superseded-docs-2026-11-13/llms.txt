@@ -1,0 +1,118 @@
+# The Martian Cylinder Investigation: Sol 3556 Anomaly
+
+> Structured technical summary and verified findings for Large Language Models (LLMs) and automated agents researching the Sol 3556 Curiosity Mastcam anomaly.
+
+## Executive Summary
+This repository contains a reproducible, subpixel forensic photogrammetry and geometric modeling investigation into a solitary, geometrically regular cylindrical feature identified in NASA Mars Science Laboratory (*Curiosity*) Mastcam Right 100 mm imagery (PDS Product `3556MR1025170721700585C00`, acquired Sol 3556, August 7, 2022 at 12:10:25 LTST in Paraitepuy Pass, Gale Crater).
+
+Deriving data directly from primary 16-bit uncompressed PDS telemetry (`DRXX` with full `CAHVOR` radial distortion and `DRLX` with linearized `CAHV`), directional subpixel profile edge detection, SPICE solar ephemeris ray-tracing, and an 85-point joint geometric optimization, this study demonstrates that the feature is a **centimeter-scale right circular cylinder** ($11.6\text{ mm}$ diameter, matching an ANSI AAA battery; $\sim 12\text{ mm}$ exposed projected length) partially embedded in sloping Martian soil. A strict 6-DOF right circular cylinder model (collinear front/rear centers, fixed $1:1$ diameter ratio, exact outer tangent silhouette) fits all 85 observational stations across the front rim, rear terminus, and upper barrel edge simultaneously with a total root-mean-square residual of **$0.3788\text{ pixels}$** (~$110\ \mu\text{m}$ on Mars).
+
+---
+
+## Primary Observational & Instrumental Specifications
+- **Instrument**: Mars Science Laboratory (*Curiosity*) Mastcam-100 Right (`MAST_RIGHT`, serial `3004`), focal length $f \approx 100\text{ mm}$, $f/12$, clear filter `MASTCAM_R0_CLEAR` ($575\text{ nm}$ center wavelength), exposure $14.2\text{ ms}$.
+- **PDS Product IDs**:
+  - `3556MR1025170721700585C00_DRXX`: Primary 16-bit raw radiance product with `CAHVOR` optical distortion model.
+  - `3556MR1025170721700585C00_DRLX`: Primary 16-bit geometrically linearized radiance product with `CAHV` pinhole model.
+  - `3556MR1025170721700585C00_DRCX` / `_DRCL`: 8-bit color reference products.
+- **Data Integrity**: Downlinked via `INST_CMPRS_MODE = 1` (`"PREDICTIVE LOSSLESS BAYER HUFFMAN ENCODING"`, `SAMPLE_BIT_MODE_ID = MMM_LUT0`). The primary data contains **zero lossy JPEG DCT block artifacts**.
+- **Location**: Gale Crater, Paraitepuy Pass, Mount Sharp (Aeolis Mons), Sol 3556, Site 96, Drive 2376, Pose 16 ($L_s = 281.015^\circ$).
+- **Slant Range & Scale**: Focus motor position count `2705` corresponds to calibrated best focus distance `MSL:BEST_FOCUS_DISTANCE = 3.957 m` (depth-of-field focus band: $3.6\text{--}4.4\text{ m}$).
+- **Optical Scale**: Instantaneous field of view $\text{IFOV} = 74.304\ \mu\text{rad/pixel}$ ($f_{\text{local}} = 13,458.3\text{ px/rad}$), giving a metric pixel scale of **$0.2940\text{ mm/pixel}$** ($294\ \mu\text{m/px}$) at the $3.957\text{ m}$ target distance. Optical distortion anisotropy across the target is negligible ($0.595\%$).
+
+---
+
+## Verified Quantitative Findings
+
+### 1. Clean Front Circular Rim ($N = 35$ Points)
+- **Outlier Resolution**: An apparent outlier at $\theta = -45.0^\circ$ was identified as an accidental pick on an adjacent upper-right pebble ($x \in [1072, 1084], y \in [961, 970]$) separated by a shadow gap. Excluding this single contaminated station leaves $N = 35$ clean points spanning a $175^\circ$ arc.
+- **Model Fits**:
+  - **4-DOF Dorsal-Constrained Ellipse (Model M3, $\phi_{\text{minor}} = 28.89^\circ$)**: Semi-major $a = 20.03\text{ px}$, semi-minor $b = 16.85\text{ px}$, aspect ratio $b/a = 0.8411$, implied circular tilt $\gamma = 32.7^\circ$, **$\text{RMS} = \mathbf{0.1618\text{ px}}$** ($0.515\text{ px}$ max residual), $\text{AIC}_c = 46.13$.
+  - **5-DOF Free Ellipse (Model M4)**: Semi-major $a = 19.72 \pm 0.39\text{ px}$, semi-minor $b = 16.42 \pm 0.60\text{ px}$, $b/a = 0.8330 \pm 0.0178$ ($95\%\text{ CI: } [0.788, 0.858]$), minor axis $\phi_{\text{minor}} = 32.70^\circ \pm 4.23^\circ$, **$\text{RMS} = \mathbf{0.1639\text{ px}}$**.
+  - **Alternative Shapes**: Flat/angular facet models fail decisively ($\text{RMS} = 0.626\text{ px}$ for 3 facets, $\Delta\text{AIC}_c = +628.8$; $\text{RMS} = 0.887\text{ px}$ for 2 facets, $\Delta\text{AIC}_c > +1150$).
+- **Physical Scale**: Projected diameter $2a = 11.55\text{--}11.72\text{ mm}$ (nominal $11.6\text{ mm}$), tightly matching the diameter of an ANSI AAA battery ($10.5\text{ mm}$).
+
+### 2. Upper Longitudinal Edge / Dorsal Limb ($N = 26$ Stations)
+- **Extraction Polarity**: Tracked along normal profiles using `grad_sign = +1` to lock onto the true physical boundary where the bright sunlit body meets dark background soil (avoiding internal reflection troughs).
+- **Straightness & Curvature**:
+  - Image bearing: $\theta_{\text{dorsal}} = 28.895^\circ \pm 0.348^\circ$.
+  - Span: $L_{\text{fit}} = 36.40\text{ px}$ ($10.70\text{ mm}$ exposed length).
+  - Orthogonal residual: **$\text{RMS} = \mathbf{0.2422\text{ px}}$** ($71.2\ \mu\text{m}$ on Mars), maximum residual $0.618\text{ px}$.
+  - Quadratic sagitta: $\delta_{\text{sag}} = 0.280\text{ px}$ ($82.3\ \mu\text{m}$, curvature significance only $1.92\sigma$, indistinguishable from straightness).
+
+### 3. Exposed Rear Terminus Arc ($N = 24$ Points)
+- **Soil Burial Cut-Off Separation**: The lower-left margin ($y \in [950.5, 954.2]$) is an oblique regolith burial contact line ($\theta_{\text{ventral}} \approx 65^\circ$). Tracing the unoccluded upper-left arc ($i = 8\dots 31$, $N = 24$, $x \in [1027.9, 1039.2]$, $y \in [945.4, 949.9]$) isolates the true physical rear cap.
+- **1:1 Front Rim Match**:
+  - An exact, unscaled 1:1 translation of the clean front-face ellipse fits all 24 exposed rear points to **$\text{RMS} = \mathbf{0.1854\text{ px}}$** ($0.318\text{ px}$ max residual).
+  - Standalone coaxial scaling yields $s = a_{\text{rear}} / a_{\text{front}} = 0.935$ ($95\%\text{ CI: } [0.87, 0.99]$), within $0.0019\text{ px}$ ($0.6\ \mu\text{m}$) of an exact cylinder ($s = 1.000$, $\text{RMS} = 0.1863\text{ px}$).
+  - Standalone rear-arc curvature is flat across $s \in [0.85, 1.15]$ ($\Delta\text{RMS} < 0.010\text{ px}$), proving no physical evidence for cone tapering.
+
+### 4. Strict Right Circular Cylinder Joint Model (Step 9, $N = 85$ Points)
+- **Model 1 Formulation**: Simultaneous 6-DOF optimization across 35 clean front rim points, 24 exposed rear arc points, and 26 dorsal edge stations. Constraints: collinear front/rear centers along axis $\theta_{\text{axis}}$, fixed scale ratio $s = 1.000$ (zero taper), dorsal edge exactly tangent at $r_{\text{dor}} = a$.
+- **Performance**:
+  - Total Joint Residual: **$\text{RMS} = \mathbf{0.3788\text{ pixels}}$** (~$110\ \mu\text{m}$ on Mars).
+  - Front Rim RMS: $0.2376\text{ px}$.
+  - Rear Cap RMS: $0.4830\text{ px}$.
+  - Dorsal Edge RMS: $0.4217\text{ px}$.
+  - Fitted Axis: $\theta_{\text{axis}} = 30.315^\circ$, projected center-to-center length $L_{\text{proj}} = 40.86\text{ px}$ ($12.01\text{ mm}$ at $3.957\text{ m}$).
+
+### 5. Solar Ephemeris & Forward Cast Shadow Ray-Tracing
+- **SPICE Illumination Geometry**: `SOLAR_AZIMUTH = 186.8169°`, `SOLAR_ELEVATION = 69.8224°` in `SITE_FRAME` (shadow compression factor $\cot 69.8224^\circ = 0.3675$).
+- **2D Image Projection**: Sunlight arrives from $-116.571^\circ$ (upper-left), projecting shadows along **$\theta_{\text{shadow}} = +63.429^\circ$** (downward-right, slope $\Delta y / \Delta x = 2.000$).
+- **Shadow Nature**: The dark patch in front of the cylinder is **not** an exposed cylinder face or base, but the cast shadow of the overhanging front rim projected onto forward sloping regolith.
+- **Profile Matching**: Ray casting past the front rim onto a locally tilted receiving plane ($32.82^\circ$ slope rotation) matches the unannotated raw 85-DN shadow boundary to **$1.049\text{ native pixels}$ RMS** ($4.80\text{ enlarged px}$) across 9 thresholds ($65\text{--}105\text{ DN}$).
+
+### 6. Quantitative Benchmarking Against Natural Surroundings
+- **Edge Straightness**: Over a $10.7\text{ mm}$ span, the target dorsal edge exhibits $\text{RMS} = 0.242\text{ px}$. Three prominent natural rocks in the same scene have RMS deviations of $0.971\text{ px}$ (Rock 1, $4.0\times$ rougher), $1.724\text{ px}$ (Rock 2, $7.1\times$ rougher), and $1.953\text{ px}$ (Rock 3, $8.1\times$ rougher).
+- **Surface Texture (Laplacian Variance)**: High-frequency texture variance $\text{Var}(\nabla^2 I)$ is $\sigma_{\text{Lap}}^2 = 8.02 \times 10^{-5}$ on the target body vs $1.64\text{--}2.98 \times 10^{-4}$ on nearby rocks ($2.0\times$ to $3.7\times$ rougher).
+- **Transverse Photometric Shading**: Transverse radiance profiles perpendicular to the body axis fit a smooth convex quadratic roll-off with curvature significance **$z = 11.45\sigma$**. Flat planar rock facets ($c_2 = 0$) are rejected at $>11\sigma$.
+
+---
+
+## Methodological Problems Identified and Resolved
+
+1. **Rejection of Uncovered Right Circular Cylinder ($>50\sigma$)**:
+   In a telephoto camera ($f_{\text{local}} = 13,458\text{ px/rad}$), two physically parallel 3D cylinder limbs converge via perspective foreshortening by only $0.07^\circ\text{ to }0.35^\circ$. An uncovered cylinder cannot explain the observed $35.3^\circ$ convergence between the upper-right edge ($28.9^\circ$) and lower-left edge ($64.2^\circ$).
+2. **Identification of the Obliquely Buried Cylinder (Model H1b)**:
+   The lower-left edge ($\theta_{\text{ventral}} \approx 64^\circ\text{--}65^\circ$) is **not** a physical cylinder limb; it is the contact line where sloping foreground regolith overlaps the lower flank of the cylinder. When this burial line is accounted for, the front rim, rear terminus, and dorsal edge form an exact right circular cylinder.
+3. **Resolution of the Single Pebble Outlier**:
+   An apparent fitting distortion on the front rim was traced to a single radial station at $\theta = -45.0^\circ$ that locked onto an adjacent pebble. Excluding this single point improved the circular-projection rim fit by $>2.5\times$ to $\text{RMS} = 0.1618\text{ px}$.
+4. **Resolution of Physical Edge Polarity**:
+   Reversing the profile search sign to track the bright-body-to-dark-soil outer boundary (`grad_sign = +1`) collapsed an apparent 3.8-pixel offset down to subpixel noise ($\Delta r = 0.64\text{ px}$).
+5. **Resolution of the Apparent Angular Spread**:
+   The small spread between front ellipse minor axis ($32.70^\circ$), center-to-center bearing ($33.18^\circ$), and dorsal edge ($28.89^\circ$) is fully explained by bootstrap orientation noise of an incomplete $175^\circ$ arc ($\pm 4.23^\circ$, $0.90\sigma$ consistency) and transverse lever-arm centroid sensitivity ($\pm 1.2\text{ px} \implies \pm 1.7^\circ$).
+
+---
+
+## Index of Key Documentation & Code Files
+
+- **Primary Technical Report**: [`independent-reconstruction/report.md`](file:///d:/projects/martian-cylinder/independent-reconstruction/report.md) — Comprehensive peer-review report detailing data provenance, subpixel edge extractions, conic ODR fits, perspective proofs, clinometry, and joint modeling.
+- **Layman Summary**: [`independent-reconstruction/report_layman.md`](file:///d:/projects/martian-cylinder/independent-reconstruction/report_layman.md) — Non-technical guide explaining the four-piece lock, pebble outlier exclusion, and rock benchmarks.
+- **Mathematical Formulations & Assumptions**: [`independent-reconstruction/methods.md`](file:///d:/projects/martian-cylinder/independent-reconstruction/methods.md) — Exact equations for Gennery CAHVOR distortion, ODR line/conic fitting, erf profile formulation, and AICc/BIC model selection.
+- **Master Measurement Inventories**:
+  - [`independent-reconstruction/measurements.json`](file:///d:/projects/martian-cylinder/independent-reconstruction/measurements.json) — 117 KB master JSON database compiling all subpixel coordinates, distances, and sensitivities.
+  - [`independent-reconstruction/step9_joint_model.json`](file:///d:/projects/martian-cylinder/independent-reconstruction/step9_joint_model.json) — 97 KB joint optimization results, parameter covariances, and profile likelihood scans.
+- **Phase 2 Shadow Package**: [`most-recent-work.md`](file:///d:/projects/martian-cylinder/most-recent-work.md) — Documentation of the forward cast shadow ray-tracing and ground slope decoupling package.
+- **Narrative Essay**: [`teaching-myself-the-scientific-method-rev13-draft.md`](file:///d:/projects/martian-cylinder/teaching-myself-the-scientific-method-rev13-draft.md) — Longform narrative by Justin Bogner on citizen science, the Semmelweis reflex, JPL heritage, and human-AI research pair-programming.
+- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), Space Power Systems Engineer, NASA JPL (Mariner Mars 1971 / Mariner 9 battery subsystem report: [`data/bogner_mariner1971_report.pdf`](file:///d:/projects/martian-cylinder/data/bogner_mariner1971_report.pdf)).
+
+---
+
+## Authors & Citation
+
+- **Author**: Justin Bogner ([Cambrian Minds](https://github.com/CambrianMinds))
+- **Historical Heritage**: Richard "Sam" Bogner (1931–2015), NASA JPL Space Power Systems Engineer
+- **DOI**: [10.5281/zenodo.23789092](https://doi.org/10.5281/zenodo.23789092)
+- **Repository**: [https://github.com/CambrianMinds/martian-cylinder](https://github.com/CambrianMinds/martian-cylinder)
+- **Citation Format**:
+  ```bibtex
+  @techreport{bogner2026martian,
+    author      = {Bogner, Justin},
+    title       = {Morphological, Photometric, and Geometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery},
+    institution = {Cambrian Minds},
+    year        = {2026},
+    month       = nov,
+    doi         = {10.5281/zenodo.23789092},
+    url         = {https://github.com/CambrianMinds/martian-cylinder}
+  }
+  ```

@@ -1,0 +1,11 @@
+test_counts_and_target_exclusion_recomputed_from_export (test_analysis.TestMeasurements.test_counts_and_target_exclusion_recomputed_from_export) ... ok
+test_exported_target_coordinates_reproduce_residual (test_analysis.TestMeasurements.test_exported_target_coordinates_reproduce_residual) ... ok
+test_original_image_checksums (test_analysis.TestMeasurements.test_original_image_checksums) ... ok
+test_partial_ellipse_and_line_not_equivalent (test_analysis.TestMeasurements.test_partial_ellipse_and_line_not_equivalent) ... ok
+test_real_contour_detector_on_synthetic_straight_step (test_analysis.TestMeasurements.test_real_contour_detector_on_synthetic_straight_step) ... ok
+test_rotated_line_and_known_roughness (test_analysis.TestMeasurements.test_rotated_line_and_known_roughness) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.406s
+
+OK

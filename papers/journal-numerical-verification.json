@@ -1,0 +1,64 @@
+{
+  "starting_commit": "0ba7b986dbf84afe5483991dc9330edbab3cc0fb",
+  "branch": "master",
+  "preserved_results_sha256": {
+    "audit/predictive-validation/results.json": "f0cbcba6940fbae376ed4e889a9f9c6ea897e1d435ac5db70d0eacb2f1079628",
+    "audit/comparative-study/comparison-summary.json": "5f3fce1f2e5aff111b094b306460af2417087ec0a781ebb540c207dca276f3aa",
+    "audit/shading-sampling-review/results.json": "127a93cd90f61bcdc450a4143d33b33bcb78b06381132f0e3bf2825268a4b5bb",
+    "audit/sediment-pipe-comparison/results/m4-reevaluation.json": "f162e47f6a0fc89cbdbd7397a8a931e4a7dc34d3a17ec52089b37bf232779bad"
+  },
+  "verified_manifest_entries": 98,
+  "prediction_values_px": {
+    "m1_joint": 0.37882929437681995,
+    "sparse_rear": 0.20844052892758227,
+    "guarded_rear": 0.24289444001976127,
+    "guarded_joint": 0.723299984835223,
+    "entire_dorsal_withheld": 1.9092322761566853
+  },
+  "original_equation_environments_preserved": 17,
+  "original_bibliography_entries_preserved": 13,
+  "whole_frames": 18,
+  "frames_with_qualifying_segments": 17,
+  "images_checked": 28,
+  "control_windows": 226426,
+  "qualifying_windows": 835,
+  "image_raster_dimensions_in_vector_figures": {
+    "target-boundaries": [
+      [
+        90,
+        75
+      ],
+      [
+        1328,
+        1184
+      ]
+    ],
+    "joint-m1-overlay": [
+      [
+        90,
+        75
+      ]
+    ]
+  },
+  "pdf_pages": 18,
+  "pdf_sha256": "0684631286aa2a0c0cd2538fdc5d5cdd8adececbe4260d7625a2a52af5c780a4",
+  "source_sha256": "5970ba21cce2ea23a83b043a518fcd415da39db3d14009eed4faaa66a5a30409",
+  "latex_errors_absent": [
+    "Overfull",
+    "Missing character:",
+    "There were undefined references",
+    "There were undefined citations",
+    "Rerun to get cross-references right"
+  ],
+  "font_substitution_notices": 4,
+  "underfull_box_notices": 8,
+  "verification_python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "verification_packages": {
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.0",
+    "Pillow": "12.2.0",
+    "PyMuPDF": "1.26.7"
+  },
+  "scope": "Numerical and provenance checks. Visual page inspection is documented in the change report."
+}

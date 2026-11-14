@@ -1,0 +1,71 @@
+[
+  {
+    "case_id": "yellowknife-rim",
+    "product": "0173ML0009261020105119E01_DRXX",
+    "center_xy": [
+      531,
+      170
+    ],
+    "radii_xy": [
+      44,
+      23
+    ],
+    "angles_deg": [
+      15,
+      165
+    ],
+    "stations": 35,
+    "polarity": -1,
+    "search_half_width_px": 5,
+    "feature": "N",
+    "meaning": "Outer material/relief boundary on the exposed foreground arc of the single ring. Opposite axial termination and generator are concealed by bedrock.",
+    "selection": "One visual analyst pass before fitting. No fit residuals viewed.",
+    "eligibility": "Eligible for partial geometric comparison"
+  },
+  {
+    "case_id": "hewolf-large-rim",
+    "product": "1051ML0046250040306086E01_DRXX",
+    "center_xy": [
+      886,
+      550
+    ],
+    "radii_xy": [
+      280,
+      240
+    ],
+    "angles_deg": [
+      10,
+      150
+    ],
+    "stations": 35,
+    "polarity": -1,
+    "search_half_width_px": 16,
+    "feature": "N",
+    "meaning": "Exposed foreground outer arc of the larger ring. The smaller ring is another object. Fragmented contacts and talus can confuse individual stations.",
+    "selection": "One visual analyst pass before fitting. No fit residuals viewed.",
+    "eligibility": "Eligible for partial geometric comparison"
+  },
+  {
+    "case_id": "yellowknife-m100-rim",
+    "product": "0173MR0009261020201910E01_DRXX",
+    "center_xy": [
+      752,
+      470
+    ],
+    "radii_xy": [
+      128,
+      57
+    ],
+    "angles_deg": [
+      15,
+      165
+    ],
+    "stations": 35,
+    "polarity": -1,
+    "search_half_width_px": 9,
+    "feature": "N",
+    "meaning": "Foreground outer rim of the same Yellowknife ring in the original M100 exposure. The additional view is not a second geological object.",
+    "selection": "Camera-localized and visually confirmed. Arc selected before this view was fitted.",
+    "eligibility": "Eligible for partial geometric comparison"
+  }
+]

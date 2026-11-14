@@ -1,0 +1,36 @@
+[
+  {
+    "id": "supplement",
+    "url": "https://ndownloader.figshare.com/files/23302604",
+    "path": "sources/gsa2017002.pdf",
+    "resolved_url": "https://s3-eu-west-1.amazonaws.com/pstorage-gsapubs-8588776446/23302604/2017002.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3OGA3B5WPRAD5GPI/20261113/eu-west-1/s3/aws4_request&X-Amz-Date=20261113T210652Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=188dcceaf4600025f6d53a37a2aba7efbb3e53318a8503933daa178dfb100c9d",
+    "content_type": "application/pdf",
+    "status": "downloaded",
+    "bytes": 280956,
+    "sha256": "d4d5e3e6ba1b8f5be5cf74fcac4c25dfc5d34624357f5901b4088cd8f96ecc3d"
+  },
+  {
+    "id": "sol0173",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/",
+    "path": "sources/sol0173-directory.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 1984474,
+    "sha256": "62b144c796c1c15fca6e3ce75d57e87a7cab96dad517f57a21a2c6d084119a5b"
+  },
+  {
+    "id": "sol0528",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0528/",
+    "path": "sources/sol0528-directory.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "sol1051",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/1051/",
+    "path": "sources/sol1051-directory.html",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "exact_parsed_match": true,
+  "compared_sections": [
+    "full_m1_fit",
+    "sparse_rear_registration",
+    "blocked_rear_registration",
+    "blocked_m1_prediction",
+    "dorsal_entirely_withheld"
+  ],
+  "retained_source": "audit/predictive-validation/results.json",
+  "replay_script": "audit/sediment-pipe-comparison/scripts/target_benchmark.py",
+  "scope": "All fitted parameters, folds, residuals and diagnostics in the five compared sections match exactly. Outputs isolated in tmp."
+}

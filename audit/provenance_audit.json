@@ -1,0 +1,73 @@
+{
+  "primary_checksums": {
+    "3556MR1025170721700585C00_DRXX.IMG": {
+      "bytes": 9434112,
+      "sha256": "45a3d5e5d32ed823e8a3e2ff0dc0f5ffeb5bd546c81be8d51e06c9f241b5e1fd"
+    },
+    "3556MR1025170721700585C00_DRXX.LBL": {
+      "bytes": 22573,
+      "sha256": "1edeaab51a5c6cd2e3fcef86d001bc0a985e7e00ed2190482a754d4fecdaa62c"
+    },
+    "3556MR1025170721700585C00_DRXX.fits": {
+      "bytes": 9437760,
+      "sha256": "8bd39f26e5e3b093d9babb4b70c771e7e25dd306e9ce213a3b71bb4589a33f83"
+    },
+    "3556MR1025170721700585C00_DRXX.png": {
+      "bytes": -1,
+      "sha256": null
+    },
+    "3556MR1025170721700585C00_DRLX.IMG": {
+      "bytes": 9366840,
+      "sha256": "911e661c99a4453f4b3d4bd13a3d35f049c5df965fcb3c91b014a47c38c7605f"
+    },
+    "3556MR1025170721700585C00_DRLX.LBL": {
+      "bytes": 22366,
+      "sha256": "cf737e82a6959a6526fbe4e7db218c9f974f54963c6f77e2eb0c1791d8897a00"
+    },
+    "3556MR1025170721700585C00_DRLX.fits": {
+      "bytes": 9371520,
+      "sha256": "34687e4c3320f34551fa6926d0442271637681c537b08b8bca966a222a3bb945"
+    },
+    "3556MR1025170721700585C00_DRCX.IMG": {
+      "bytes": 4717056,
+      "sha256": "8aec700e07d61123151c0811332f76e10f13d1e3fb361de5b10476b4961c473f"
+    },
+    "3556MR1025170721700585C00_DRCX.LBL": {
+      "bytes": 22532,
+      "sha256": "9831657be65c1a8a67675538d98649ecdd99ab64b034d808899b47dc99a3bf6a"
+    },
+    "3556MR1025170721700585C00_DRCL.IMG": {
+      "bytes": 4683420,
+      "sha256": "761c9c1774cfe5152ca7d5cb729de285d08fa78c3df05af8720cbd9599b37592"
+    },
+    "3556MR1025170721700585C00_DRCL.LBL": {
+      "bytes": 22325,
+      "sha256": "6996aeeb37be13d267cc866b1cb48677cce77e58cddfe39eb004fb0c01bd74ca"
+    },
+    "crop_bottom_right.png": {
+      "bytes": 421937,
+      "sha256": "58e828ec0b6da4248ead3c8e74c54c387cbec90219f9c0e05a2fcc312e178aea"
+    }
+  },
+  "metadata_checks": {
+    "INSTRUMENT_ID": "MAST_RIGHT",
+    "FILTER_NAME": "MASTCAM_R0_CLEAR",
+    "EXPOSURE_DURATION": 14.2,
+    "INST_CMPRS_MODE": 1,
+    "INST_CMPRS_NAME": "PREDICTIVE LOSSLESS BAYER HUFFMAN ENCODING",
+    "BEST_FOCUS_DISTANCE": 3.957,
+    "MINIMUM_FOCUS_DISTANCE": 3.6,
+    "MAXIMUM_FOCUS_DISTANCE": 4.4,
+    "SOLAR_AZIMUTH": 186.8169,
+    "SOLAR_ELEVATION": 69.8224,
+    "SOL_ID": "3556",
+    "START_TIME": "2022-08-07T20:58:23.349",
+    "LOCAL_TRUE_SOLAR_TIME": "12:10:25"
+  },
+  "root_pdf_defect": {
+    "size": 129586,
+    "expected_size": 129586,
+    "detected": false
+  },
+  "verification_scope": "Local checksums and stored PDS label values; no remote archive download or SPICE kernel recomputation."
+}

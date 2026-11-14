@@ -1,0 +1,15 @@
+{
+  "nine_relocated_script_functions_unchanged": [
+    "step1_image_inspection.py",
+    "step2_camera_geometry.py",
+    "step3_feature_extraction.py",
+    "step4_endface_and_conic_models.py",
+    "step5_competing_3d_interpretations.py",
+    "step6_robustness_and_sensitivity.py",
+    "step7_pebble_and_rear_terminus_inspection.py",
+    "step8_pebble_correction_and_rear_terminus.py",
+    "step9_joint_geometric_model.py"
+  ],
+  "predictive_results_exactly_match": true,
+  "replay_output_isolated_in_tmp": true
+}

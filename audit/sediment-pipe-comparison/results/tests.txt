@@ -1,0 +1,20 @@
+test_analytic_ellipse_recovery (test_comparison.ComparisonTests.test_analytic_ellipse_recovery) ... ok
+test_burial_fit_is_not_visibility_proof (test_comparison.ComparisonTests.test_burial_fit_is_not_visibility_proof) ... ok
+test_cahvor_roundtrip (test_comparison.ComparisonTests.test_cahvor_roundtrip) ... ok
+test_exploratory_frustum_guarded_isolation (test_comparison.ComparisonTests.test_exploratory_frustum_guarded_isolation) ... ok
+test_finite_generator_rejects_line_extension (test_comparison.ComparisonTests.test_finite_generator_rejects_line_extension) ... ok
+test_frustum_generator_is_physical_surface_tangent (test_comparison.ComparisonTests.test_frustum_generator_is_physical_surface_tangent) ... ok
+test_guard_masks_and_scoring (test_comparison.ComparisonTests.test_guard_masks_and_scoring) ... ok
+test_navcam_header_offsets (test_comparison.ComparisonTests.test_navcam_header_offsets) ... ok
+test_negative_controls_measure_deviations (test_comparison.ComparisonTests.test_negative_controls_measure_deviations) ... ok
+test_original_inputs_unchanged (test_comparison.ComparisonTests.test_original_inputs_unchanged) ... ok
+test_partial_images_never_receive_joint_results (test_comparison.ComparisonTests.test_partial_images_never_receive_joint_results) ... ok
+test_projection_approximation_is_small (test_comparison.ComparisonTests.test_projection_approximation_is_small) ... ok
+test_report_numbers_come_from_saved_results (test_comparison.ComparisonTests.test_report_numbers_come_from_saved_results) ... ok
+test_synthetic_known_geometry_recovery (test_comparison.ComparisonTests.test_synthetic_known_geometry_recovery) ... ok
+test_target_benchmarks (test_comparison.ComparisonTests.test_target_benchmarks) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.684s
+
+OK

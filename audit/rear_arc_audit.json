@@ -1,0 +1,32 @@
+{
+  "best_s": 0.9299999999999999,
+  "min_chi2": 226.54014107020737,
+  "min_rms_px": 0.18433941835790602,
+  "s_1_000": {
+    "rms_px": 0.18629079773969479,
+    "delta_rms_px": 0.0019513793817887704,
+    "delta_chi2": 4.821601079738457,
+    "z_nominal": 2.195814445653015,
+    "z_erroneous_text": 1.5526752847486265
+  },
+  "nominal_ci95": [
+    0.87,
+    0.99
+  ],
+  "birge_calibration": {
+    "scope": "Historical scalar sensitivity at fixed s, N-2 DOF; not calibrated spatial covariance. Counting fitted scale gives N-3 DOF.",
+    "chi2_nu": 10.297279139554881,
+    "delta_chi2_birge": 0.4682403006069115,
+    "z_birge": 0.6842808638321779,
+    "p_birge": 0.49379782832171926,
+    "ci95_birge": [
+      0.77,
+      1.17
+    ]
+  },
+  "autocorrelation": {
+    "r_lag1": 0.7115035268415963,
+    "r_lag2": 0.25174759310968786,
+    "n_eff": 4.045516265209842
+  }
+}

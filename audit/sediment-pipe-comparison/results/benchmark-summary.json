@@ -1,0 +1,55 @@
+{
+  "counts": {
+    "front": 35,
+    "rear": 24,
+    "dorsal": 26
+  },
+  "dorsal_straightness_rms_px": 0.24223638751530546,
+  "rows": [
+    [
+      "Near rim stations",
+      35,
+      35
+    ],
+    [
+      "Rear stations",
+      24,
+      24
+    ],
+    [
+      "Dorsal stations",
+      26,
+      26
+    ],
+    [
+      "Total observations",
+      85,
+      85
+    ],
+    [
+      "Strict six-parameter fit RMS",
+      "0.3788",
+      "0.3788"
+    ],
+    [
+      "Six-anchor / 18-withheld rear RMS",
+      "0.2084",
+      "0.2084"
+    ],
+    [
+      "Guarded rear RMS",
+      "0.2429",
+      "0.2429"
+    ],
+    [
+      "Guarded three-feature RMS",
+      "0.7233",
+      "0.7233"
+    ],
+    [
+      "Dorsal TLS straightness RMS",
+      "0.2422",
+      "0.2422"
+    ]
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "v6-sol528",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0528/",
+    "path": "sources/sol0528-resolved.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0528/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 319182,
+    "sha256": "f00365d8cd8d9fd0573db96371c2827ce2e82da953113bd627454c88ec6a8371"
+  },
+  {
+    "id": "v6-sol529",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0529/",
+    "path": "sources/sol0529-resolved.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0529/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 816566,
+    "sha256": "0ae548301226021908b4800586b0e8eb67b5020213bcbcd2251a3668b2bb72ab"
+  },
+  {
+    "id": "v10-sol1051",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0010/DATA/RDR/SURFACE/1051/",
+    "path": "sources/sol1051-resolved.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0010/DATA/RDR/SURFACE/1051/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 405752,
+    "sha256": "4bf6832b6f06acd37470a79dbf3bfe1bbff2e797cace391b9f75bd3a272968c5"
+  },
+  {
+    "id": "nav542",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/",
+    "path": "sources/nav542.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 142614,
+    "sha256": "988f4bdc0d3ec396089f4a2221d83b67dff361730cca4013a213ca84dbcf2151"
+  },
+  {
+    "id": "yb-label",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173ML0009261020105119E01_DRXX.LBL",
+    "path": "sources/images/0173ML0009261020105119E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/DATA/RDR/SURFACE/0173/0173ML0009261020105119E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22982,
+    "sha256": "019b18bde809c4078fd0f1d3590a1a5122982e08834ed4e55166a2a7f8b6a05a"
+  }
+]

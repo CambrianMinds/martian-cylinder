@@ -1,0 +1,36 @@
+[
+  {
+    "id": "mst2",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/",
+    "path": "sources/mastcam-rdr-root.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0002/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 7431,
+    "sha256": "f24b6be543d667dec75b5db3a76d1e667109ed847cd0ce82d4474f89cbe20765"
+  },
+  {
+    "id": "mst1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0001/",
+    "path": "sources/mastcam-edr-root.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0001/",
+    "content_type": "text/html;charset=UTF-8",
+    "status": "downloaded",
+    "bytes": 7431,
+    "sha256": "f3bf9b43d54d4bc4615472c77981214a41fc3b8666ff0021755143320b9b8d55"
+  },
+  {
+    "id": "supp-upper",
+    "url": "https://www.geosociety.org/datarepository/2017/2017002.pdf",
+    "path": "sources/supp-retry.pdf",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "supp-geosociety",
+    "url": "https://rock.geosociety.org/gsatoday/archive/27/1/2017002.pdf",
+    "path": "sources/supp-today.pdf",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

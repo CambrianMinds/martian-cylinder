@@ -1,0 +1,21 @@
+{
+  "scope": "Path-only repairs after relocation; analytical expressions and stored outputs preserved.",
+  "files": [
+    "independent-reconstruction/scripts/step1_image_inspection.py",
+    "independent-reconstruction/scripts/step2_camera_geometry.py",
+    "independent-reconstruction/scripts/step3_feature_extraction.py",
+    "independent-reconstruction/scripts/step4_endface_and_conic_models.py",
+    "independent-reconstruction/scripts/step5_competing_3d_interpretations.py",
+    "independent-reconstruction/scripts/step6_robustness_and_sensitivity.py",
+    "independent-reconstruction/scripts/step7_pebble_and_rear_terminus_inspection.py",
+    "independent-reconstruction/scripts/step8_pebble_correction_and_rear_terminus.py",
+    "independent-reconstruction/scripts/step9_joint_geometric_model.py",
+    "audit/scripts/audit_conic_and_facet_odr.py",
+    "audit/scripts/audit_joint_models_85pt.py",
+    "audit/scripts/audit_rear_arc_likelihood.py",
+    "audit/scripts/audit_reproduce_pipeline.py",
+    "audit/predictive-validation/run_validation.py",
+    "audit/shading-sampling-review/check_sampling.py",
+    "audit/comparative-study/scripts/analyze.py"
+  ]
+}

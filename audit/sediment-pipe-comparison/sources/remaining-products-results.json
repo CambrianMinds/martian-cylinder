@@ -1,0 +1,102 @@
+[
+  {
+    "id": "tappers529",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0529/0529MR0020930010303343E01_DRXX.IMG",
+    "path": "sources/images/0529MR0020930010303343E01_DRXX.IMG",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0529/0529MR0020930010303343E01_DRXX.IMG",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 9676800,
+    "sha256": "d63fc79cadd5ca6f09f526149088b3baef993d4df02b18960653e892d5187455"
+  },
+  {
+    "id": "tappers529",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0529/0529MR0020930010303343E01_DRXX.LBL",
+    "path": "sources/images/0529MR0020930010303343E01_DRXX.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLMST_0006/DATA/RDR/SURFACE/0529/0529MR0020930010303343E01_DRXX.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 22934,
+    "sha256": "f48b8b7906dbb3cac85a7ce9bb947614c19866c138db45eefa1d25cf313682c3"
+  },
+  {
+    "id": "NLB_445615810EDR_F0261274NCAM00353M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445615810EDR_F0261274NCAM00353M1.IMG",
+    "path": "sources/images/NLB_445615810EDR_F0261274NCAM00353M1.IMG",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445615810EDR_F0261274NCAM00353M1.IMG",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 2142208,
+    "sha256": "0ab4ad487f8dd15b5846d7cc396ad586bf0b84826b6e507c381ab0b0b5a87890"
+  },
+  {
+    "id": "NLB_445615810EDR_F0261274NCAM00353M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445615810EDR_F0261274NCAM00353M1.LBL",
+    "path": "sources/images/NLB_445615810EDR_F0261274NCAM00353M1.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445615810EDR_F0261274NCAM00353M1.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 26422,
+    "sha256": "217f2af6f94b51609362873074ba7ad5db96ffcaa5e84c0a80ce7ddb74eb3dce"
+  },
+  {
+    "id": "NLB_445620806EDR_F0261274NCAM00354M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445620806EDR_F0261274NCAM00354M1.IMG",
+    "path": "sources/images/NLB_445620806EDR_F0261274NCAM00354M1.IMG",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445620806EDR_F0261274NCAM00354M1.IMG",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 2142208,
+    "sha256": "7bc76f9ee24432698e68c8b50b7d9b418073d36177909e1f5178f435bce4ba66"
+  },
+  {
+    "id": "NLB_445620806EDR_F0261274NCAM00354M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445620806EDR_F0261274NCAM00354M1.LBL",
+    "path": "sources/images/NLB_445620806EDR_F0261274NCAM00354M1.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NLB_445620806EDR_F0261274NCAM00354M1.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 26425,
+    "sha256": "0153d36cd7da5800a974022ff818bc3bb6b03cb26aebd881189734993f1048ec"
+  },
+  {
+    "id": "NRB_445615810EDR_F0261274NCAM00353M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445615810EDR_F0261274NCAM00353M1.IMG",
+    "path": "sources/images/NRB_445615810EDR_F0261274NCAM00353M1.IMG",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445615810EDR_F0261274NCAM00353M1.IMG",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 2142208,
+    "sha256": "c430b7792f195bcb93e777e475d06bc797cc1fd10e3f48e285835178ed7c1a39"
+  },
+  {
+    "id": "NRB_445615810EDR_F0261274NCAM00353M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445615810EDR_F0261274NCAM00353M1.LBL",
+    "path": "sources/images/NRB_445615810EDR_F0261274NCAM00353M1.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445615810EDR_F0261274NCAM00353M1.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 26428,
+    "sha256": "9bf697104bba88dcf391ba677a9fbfa40f65043be576236c6f3cfcda98128831"
+  },
+  {
+    "id": "NRB_445620806EDR_F0261274NCAM00354M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445620806EDR_F0261274NCAM00354M1.IMG",
+    "path": "sources/images/NRB_445620806EDR_F0261274NCAM00354M1.IMG",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445620806EDR_F0261274NCAM00354M1.IMG",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 2142208,
+    "sha256": "8218d7050422f349819ab0c7051c6bcfd27213a233801c58d076cb6e2a94f3e4"
+  },
+  {
+    "id": "NRB_445620806EDR_F0261274NCAM00354M1",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445620806EDR_F0261274NCAM00354M1.LBL",
+    "path": "sources/images/NRB_445620806EDR_F0261274NCAM00354M1.LBL",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/MSLNAV_0XXX/DATA/SOL00542/NRB_445620806EDR_F0261274NCAM00354M1.LBL",
+    "content_type": "",
+    "status": "downloaded",
+    "bytes": 26443,
+    "sha256": "e432e8f5c304b7082e1e9f73c0d67927d0d9deaa2bf4e3f135c6b34ba808ce6a"
+  }
+]

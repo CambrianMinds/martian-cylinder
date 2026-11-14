@@ -15,7 +15,10 @@ __pycache__/
 
 # Local scratch and audit directories
 scratch/
-audit/
+tmp/
+.firecrawl/
+audit/comparative-study/edge-windows-*.csv
+audit/comparative-study/ellipse-arcs.csv
 
 # Legacy root images (use data/ equivalents)
 jpl-sign.jpg

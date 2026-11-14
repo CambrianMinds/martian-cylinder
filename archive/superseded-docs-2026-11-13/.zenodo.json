@@ -1,0 +1,40 @@
+{
+  "title": "Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery: Constraints on Aeolian, Diagenetic, and Artificial Provenance via Sub-Pixel Gradient Forensics",
+  "description": "Complete NASA Planetary Data System (PDS) raw telemetry, calibrated image products, LaTeX/Markdown manuscripts, interactive 3D central-perspective photogrammetry studio, and deterministic Python verification suite for the forensic investigation of the cylindrical anomaly imaged by the Mars Science Laboratory (Curiosity) Mastcam Right (100 mm) camera on Sol 3556 (August 7, 2022) at Paraitepuy Pass in Gale Crater (PDS Product ID: 3556MR1025170721700585C00). Technical Report CMR-2026-01.",
+  "creators": [
+    {
+      "name": "Bogner, Justin",
+      "affiliation": "Cambrian Minds"
+    }
+  ],
+  "upload_type": "publication",
+  "publication_type": "report",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "Mars Science Laboratory",
+    "Curiosity Rover",
+    "Mastcam-100",
+    "Gale Crater",
+    "Photogrammetry",
+    "Planetary Forensics",
+    "NASA PDS Archive",
+    "Citizen Science",
+    "Sub-Pixel Edge Detection",
+    "Sobel Filter",
+    "Solar Ephemeris Ray-Tracing",
+    "Fitzgibbon Ellipse Fitting"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://cambrianminds.github.io/martian-cylinder/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/cambrianminds/martian-cylinder",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

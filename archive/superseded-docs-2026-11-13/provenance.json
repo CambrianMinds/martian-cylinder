@@ -1,0 +1,152 @@
+[
+  {
+    "original_path": "README.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/README.md",
+    "sha256": "cef5ba092ba4fedc7ec90d4fb3e06ee93654eb19ed1c29006900f70e681dde6c"
+  },
+  {
+    "original_path": "llms.txt",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/llms.txt",
+    "sha256": "4c64e00a5f349621d76236c49e2ce0d203e636ca538bb5ed1fcaba803fee8641"
+  },
+  {
+    "original_path": "most-recent-work.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/most-recent-work.md",
+    "sha256": "2aed2f906e544035444cafce15e22c2a3b1795e0eeac85a5af25cf9d47bfca09"
+  },
+  {
+    "original_path": "teaching-myself-the-scientific-method-rev10-corrected.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/teaching-myself-the-scientific-method-rev10-corrected.md",
+    "sha256": "4a24148cf87e2b689d587c527f70dd1cca7f880c8ffceca1f7424538f7fbab32"
+  },
+  {
+    "original_path": "teaching-myself-the-scientific-method-rev11.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/teaching-myself-the-scientific-method-rev11.md",
+    "sha256": "9a5aefa048643cddf994664564e27139e0bb269ffd12473095d70c946c5019f9"
+  },
+  {
+    "original_path": "teaching-myself-the-scientific-method-rev12.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/teaching-myself-the-scientific-method-rev12.md",
+    "sha256": "ffc51a3ae4da2b6b4750605f3187d781c4e71913390391ef81f8dbc223ccb4ea"
+  },
+  {
+    "original_path": "teaching-myself-the-scientific-method-rev13-draft.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/teaching-myself-the-scientific-method-rev13-draft.md",
+    "sha256": "6c682f0c603ca044ff967cd092f6e888ab2d8274e35c2e6fd6be64d138496813"
+  },
+  {
+    "original_path": "research/00_master_index_and_integration_guide.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/research/00_master_index_and_integration_guide.md",
+    "sha256": "1b0cd813bfefbf83bba63d1924fcb38db74c6a123b2426c4c8b5bd4ee26fb481"
+  },
+  {
+    "original_path": "research/physical_evidence_synthesis.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/research/physical_evidence_synthesis.md",
+    "sha256": "e0a28e9e19f98176d371167ea6e6da07c660e9cccf0438879446035227a7776f"
+  },
+  {
+    "original_path": "research/technosignature_assessment.md",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/research/technosignature_assessment.md",
+    "sha256": "ca9192e56260ac8785108900339dbe0a5b331218823fd30e2646fe42b11c15b3"
+  },
+  {
+    "original_path": "independent-reconstruction/report.md",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/independent-reconstruction/report.md",
+    "sha256": "a8ea5af531cbf0c5559b02b23ae5913e73a8ad1f9fc659185ac33bef4f45299b"
+  },
+  {
+    "original_path": "independent-reconstruction/report_layman.md",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/independent-reconstruction/report_layman.md",
+    "sha256": "ee826dfdba3c5b39073132f468107ca6ecf2388c5dff7920c07a1d37362899b7"
+  },
+  {
+    "original_path": "independent-reconstruction/methods.md",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/independent-reconstruction/methods.md",
+    "sha256": "5f57686bfef3746a54dfbf898342a69c5d8a8719ea259290fcda36054583c920"
+  },
+  {
+    "original_path": "papers/revision-validation.md",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/papers/revision-validation.md",
+    "sha256": "5274edf0e5f16cdb1252363cfb8e11b7f6c4cab4a0415af3037fe1f05252b77a"
+  },
+  {
+    "original_path": "research/01_martian_soil_erosion_and_deposition.md",
+    "source_revision": "master merge working tree",
+    "archive_path": "archive/superseded-docs-2026-11-13/research/01_martian_soil_erosion_and_deposition.md",
+    "sha256": "a9754c993f0825c8076646d4ead468f51c1a5dba0c5cd31de979d627b072428c"
+  },
+  {
+    "original_path": "research/02_rover_and_equipment_hardware_audit.md",
+    "source_revision": "master merge working tree",
+    "archive_path": "archive/superseded-docs-2026-11-13/research/02_rover_and_equipment_hardware_audit.md",
+    "sha256": "4e031f4b314ffe1afd841e32093539600bc36f6c65d825ad8d6b3c0cc387d1a0"
+  },
+  {
+    "original_path": "research/03_ventifacts_concretions_and_martian_geology.md",
+    "source_revision": "master merge working tree",
+    "archive_path": "archive/superseded-docs-2026-11-13/research/03_ventifacts_concretions_and_martian_geology.md",
+    "sha256": "26b5306c83ebbb5164a19df8d5e51eb319e865b8936ccecf1165a3912c7ad450"
+  },
+  {
+    "original_path": "papers/martian-cylinder-technical-paper.tex",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/papers/martian-cylinder-technical-paper.tex",
+    "sha256": "5f99e186ee7258f071c20a9d8f509145a17470ab2a3b0d9888fc836b5888f524"
+  },
+  {
+    "original_path": "papers/martian-cylinder-technical-paper.pdf",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/papers/martian-cylinder-technical-paper.pdf",
+    "sha256": "e647d59614eb52019d17f18ab4f54877f1939ca484dc43390cf369f52ac2b7c6"
+  },
+  {
+    "original_path": "papers/geometry_figure.py",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/papers/geometry_figure.py",
+    "sha256": "21c5dedc44eaf7ea5e8ec2262fbba79e26c30d8830129abbe15cd9edda222fd3"
+  },
+  {
+    "original_path": "papers/figures/geometry-constraints.pdf",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/papers/figures/geometry-constraints.pdf",
+    "sha256": "d9c5980aeaa38b162dbfb97b8a58feab67fe164d1836dc90c6efca45b6d9c932"
+  },
+  {
+    "original_path": "papers/figures/geometry-constraints.png",
+    "source_revision": "664d7eb",
+    "archive_path": "archive/superseded-docs-2026-11-13/papers/figures/geometry-constraints.png",
+    "sha256": "5390948e731555eec59886291288760573a88399a15c0dba321c785d829104ac"
+  },
+  {
+    "original_path": "CITATION.cff",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/CITATION.cff",
+    "sha256": "deda6818a80f2d28a3d341294a930c95805a5ff6314f52e5159e25490e24346c"
+  },
+  {
+    "original_path": ".zenodo.json",
+    "source_revision": "backup/master-before-repair-20261113",
+    "archive_path": "archive/superseded-docs-2026-11-13/.zenodo.json",
+    "sha256": "82cf193f8bbefd7f9b8f15794056d08058a077ceb5a976992dd8ec3a8847a888"
+  },
+  {
+    "original_path": "sediment-pipe-comparison-research-package.zip",
+    "source_revision": "0ba7b986dbf84afe5483991dc9330edbab3cc0fb",
+    "archive_path": "archive/superseded-docs-2026-11-13/sediment-pipe-comparison-research-package.zip",
+    "sha256": "94c7c519d7f1f376b6078792f519dd662eef917d39eb25995f6aaff5eb813a66"
+  }
+]

@@ -1,22 +1,35 @@
 cff-version: 1.2.0
-message: "If you use this dataset, photogrammetry software, or manuscript in your research, please cite it as below."
-title: "Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery: Constraints on Aeolian, Diagenetic, and Artificial Provenance via Sub-Pixel Gradient Forensics"
+message: "Cite the current November 13 manuscript using preferred-citation. The earlier archived deposit is listed under references."
+title: "Martian-cylinder: Curiosity Sol 3556 boundary metrology"
 authors:
   - family-names: "Bogner"
     given-names: "Justin"
-    affiliation: "Cambrian Minds"
-type: report
-doi: "10.5281/zenodo.23789092"
-date-released: "2026-10-28"
-version: "1.0.0"
-repository-code: "https://github.com/cambrianminds/martian-cylinder"
-url: "https://cambrianminds.github.io/martian-cylinder/"
+    affiliation: "Cambrian Minds Media"
+repository-code: "https://github.com/CambrianMinds/martian-cylinder"
+url: "https://github.com/CambrianMinds/martian-cylinder"
+license: "MIT"
+preferred-citation:
+  type: report
+  title: "Subpixel Geometric Reconstruction of a Cylindrical Candidate in Curiosity Mastcam-100 Imagery"
+  authors:
+    - family-names: "Bogner"
+      given-names: "Justin"
+      affiliation: "Cambrian Minds Media"
+  year: 2026
+  notes: "Manuscript revision dated 13 November 2026. Subtitle: Boundary metrology, frozen-shape prediction, and geological comparison."
+  url: "https://github.com/CambrianMinds/martian-cylinder/blob/master/papers/martian-cylinder-technical-paper.pdf"
+references:
+  - type: report
+    title: "Morphological and Photometric Analysis of an Unidentified Cylindrical Feature in Curiosity Sol 3556 Mastcam Imagery"
+    authors:
+      - family-names: "Bogner"
+        given-names: "Justin"
+    year: 2026
+    doi: "10.5281/zenodo.23789092"
+    notes: "Earlier archived study. The current manuscript revision has no newly assigned DOI."
 keywords:
   - "Mars Science Laboratory"
-  - "Curiosity Rover"
-  - "Mastcam"
-  - "Planetary Forensics"
-  - "Photogrammetry"
-  - "Sobel Filter"
-  - "Gale Crater"
-license: "MIT"
+  - "Curiosity"
+  - "Mastcam-100"
+  - "Boundary metrology"
+  - "Predictive geometric validation"

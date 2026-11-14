@@ -1,0 +1,46 @@
+[
+  {
+    "id": "rubin2017",
+    "url": "https://schiebershalemudstoneresearchlab.org/PDF/Rubin-et-al-2017-Geology-sediment-pipes.pdf",
+    "path": "sources/rubin2017.pdf",
+    "resolved_url": "https://schiebershalemudstoneresearchlab.org/PDF/Rubin-et-al-2017-Geology-sediment-pipes.pdf",
+    "content_type": "application/pdf",
+    "status": "downloaded",
+    "bytes": 958807,
+    "sha256": "72a006bf86adcd856d00924a3906cce0c737a2f6637ecf9264710f157dcb6de9"
+  },
+  {
+    "id": "gsa2017002",
+    "url": "https://www.geosociety.org/datarepository/2017/2017002.pdf",
+    "path": "sources/gsa2017002.pdf",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "broz2023",
+    "url": "https://esurf.copernicus.org/articles/11/633/2023/esurf-11-633-2023.pdf",
+    "path": "sources/broz2023.pdf",
+    "resolved_url": "https://esurf.copernicus.org/articles/11/633/2023/esurf-11-633-2023.pdf",
+    "content_type": "application/pdf",
+    "status": "downloaded",
+    "bytes": 12720115,
+    "sha256": "91581a46c40a6bb2cb85303709f7a0e69a909cf888327476d96a5268db1ae2cb"
+  },
+  {
+    "id": "mastcam-index",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/MSLMST_0002/INDEX/INDEX.TAB",
+    "path": "sources/mastcam-index.tab",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "mastcam-root",
+    "url": "https://pds-imaging.jpl.nasa.gov/data/msl/",
+    "path": "sources/pds-msl.html",
+    "resolved_url": "https://planetarydata.jpl.nasa.gov/img/data/msl/",
+    "content_type": "text/html",
+    "status": "downloaded",
+    "bytes": 86404,
+    "sha256": "bead9c3fbb8c48a532d495fb78959329553f53ccc561d6d9078bd71286f323cd"
+  }
+]
